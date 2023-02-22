@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/grupomb1/app.grupo-mbi.com.mx/
+    - /bin/rsync -a --exclude 'index.php' public/ $DEPLOYPATH
