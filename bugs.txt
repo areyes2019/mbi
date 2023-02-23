@@ -1,0 +1,12 @@
+En en la lista de provedores tabla no se muestra en nombre de la compañia
+hay que hacer que este campo sea obligatorio para proveedores
+
+Hay que mostrar la empresa en la tabla de la vista proveedores
+
+Editar y eliminar los catalogs y familias
+
+Cuando elminamos un cliente, el alert confirm dice "proveedor"
+
+poner monto de las cotizaciones en la lista de cotizaciones
+
+modificar los formatos de fecha
