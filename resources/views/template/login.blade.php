@@ -13,15 +13,12 @@
 
     <!--Area de imagen -->
     <div class="side-login-image">
-        <div class="side-text-area">
-            <h4 class=" m-0">Bienvenido</h4>
-            <p class=" m-0">A tu CONNE<SPan>XION</SPan></p>
-        </div>
+        
     </div>
     <!--Area de imagen -->
     <div class="side-login-panel">
       <div class="side-login-content">
-        <p class=" m-0">conne<span>xion</span></p>
+        <img src="{{asset('img/footerMBI.png')}}" alt="">
         @yield('login')
       </div>
     </div>

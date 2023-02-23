@@ -1,3 +1,10 @@
+/*colores del sistema*/
+/*
+    #235985  Azul petroleo
+    #1F4840  Gris oxford
+*/
+
+
 body{
     padding: 0;
     margin: 0;
@@ -6,7 +13,7 @@ body{
 .side-login-image{
     width: 50%;
     height: 100vh;
-    background-image: url('../img/login.jpg');
+    background-image: url('../img/t_electronica-biomedica_ubz.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     float: left;
