@@ -4,11 +4,10 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-
-$routes->get('/', 'admin\Login::index');
-$routes->get('recuperar', 'admin\Login::recuperar');
-$routes->get('crear_cuenta', 'admin\Login::crear');
-$routes->post('nueva_cuenta', 'admin\Login::insertar');
+$routes->get('/', 'Login::index');
+$routes->get('recuperar', 'Login::recuperar');
+$routes->get('crear_cuenta', 'Login::crear');
+$routes->post('nueva_cuenta', 'Login::insertar');
 
 $routes->group('',static function($routes){
 	$routes->get('/inicio', 'admin\Admin::index');

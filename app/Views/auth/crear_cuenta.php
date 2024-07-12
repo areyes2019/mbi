@@ -1,4 +1,4 @@
-<?php echo $this->extend('Panel/login_template') ?>
+<?php echo $this->extend('auth/login_template') ?>
 <?php echo $this->section('login-panel')?>
 <div class="col-12 col-md-6">
     <div class="card border-0 my-5 rounded-0">
@@ -9,19 +9,22 @@
                     <h1 class="h4 text-gray-900 mb-4">Crear una cuenta</h1>
                     <p>{{msg}}</p>
                 </div>
-                <form class="user">
+                <form @submit.prevent="enviar_form">
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre Completo">
+                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre Completo" v-model="form.nombre">
+                        <small class="text-danger">{{errores.nombre}}</small>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Correo Elecrtónico">
+                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Correo Elecrtónico" v-model="form.correo">
+                        <small class="text-danger">{{errores.correo}}</small>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-user"
-                            id="exampleInputPassword" placeholder="Contraseña">
+                        <input type="password" class="form-control form-control-user" placeholder="Contraseña" v-model="form.password">
+                        <small class="text-danger">{{errores.password}}</small>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-user" placeholder="Confirmar Contraseña">
+                        <input type="password" class="form-control form-control-user" placeholder="Confirmar Contraseña" v-model="form.password_confirmada">
+                        <small class="text-danger">{{errores.password_confirmada}}</small>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox small">
@@ -29,17 +32,16 @@
                             <label class="custom-control-label" for="customCheck">Recuerdame</label>
                         </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                        Entrar
-                    </a>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                        Crear
+                    </button>
+                </form>
                     <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Login with Google
                     </a> -->
                     <!--<a href="index.html" class="btn btn-facebook btn-user btn-block">
                         <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>  -->
-                    
-                </form>
+                    </a>  -->                    
                 <hr>
                 <div class="text-center">
                     <a class="small" href="<?php echo base_url('recuperar'); ?>">¿Olvidaste Contraseña?</a>

@@ -1,0 +1,67 @@
+CRITICAL - 2024-07-12 11:23:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Panel/crear_cuenta.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Panel/crear_cuenta.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/crear_cuenta', [], true)
+ 3 APPPATH\Controllers\Admin\Login.php(18): view('Panel/crear_cuenta')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Login->crear()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Login))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 11:24:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Panel/login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Panel/login.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/login', [], true)
+ 3 APPPATH\Controllers\Admin\Login.php(10): view('Panel/login')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Login->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Login))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 11:26:55 --> ParseError: syntax error, unexpected token "}", expecting ";"
+in APPPATH\Controllers\Login.php on line 11.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\mbi\\app\\Controllers\\Login.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Login')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Login')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\Login', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 11:36:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Panel/login_template.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Panel/login_template.php')
+ 2 SYSTEMPATH\View\View.php(244): CodeIgniter\View\View->render('Panel/login_template', [], true)
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Auth/login', [], true)
+ 4 APPPATH\Controllers\Login.php(9): view('Auth/login')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Login->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 11:37:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "login_template.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('login_template.php')
+ 2 SYSTEMPATH\View\View.php(244): CodeIgniter\View\View->render('login_template', [], true)
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Auth/login', [], true)
+ 4 APPPATH\Controllers\Login.php(9): view('Auth/login')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Login->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 11:38:50 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Panel/login_template.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Panel/login_template.php')
+ 2 SYSTEMPATH\View\View.php(244): CodeIgniter\View\View->render('Panel/login_template', [], true)
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Auth/crear_cuenta', [], true)
+ 4 APPPATH\Controllers\Login.php(14): view('Auth/crear_cuenta')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Login->crear()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-12 11:40:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "Panel/login_template.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Panel/login_template.php')
+ 2 SYSTEMPATH\View\View.php(244): CodeIgniter\View\View->render('Panel/login_template', [], true)
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Auth/recuperar_cuenta', [], true)
+ 4 APPPATH\Controllers\Login.php(18): view('Auth/recuperar_cuenta')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Login->recuperar()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
