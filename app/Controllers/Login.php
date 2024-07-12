@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Controllers\BaseController;
+use App\Models\UsuariosModel;
 
 class Login extends BaseController{
 	
@@ -17,18 +18,22 @@ class Login extends BaseController{
 	{
 		return view('Auth/recuperar_cuenta');
 	}
-	public function insetar()
+	public function insertar()
 	{
-		$request = \Config\Services::Request;
+		$request = \Config\Services::Request();
 
 		$data = [
 			'nombre' => $request->getvar('nombre'),
 			'correo' => $request->getvar('correo'),
-			'password' => $request->getvar('password_confirmada'),
+			'password' => $request->getvar('password'),
 
 		];
 
-		return json_encode($data);
+		$modelo = new UsuariosModel();
+		if ($modelo->insert($data)) {
+			echo 1;
+		}
+
 	}
 	public function actualizar()
 	{

@@ -9,8 +9,9 @@ const {createApp,ref} = Vue
 					password_confirmada:"",
 				},
 				data:[],
-				msg:"Hola",
+				msg:"",
 				errores:{},
+
 			}
 		},
 		methods:{
@@ -45,7 +46,9 @@ const {createApp,ref} = Vue
 			    		'correo':me.form.correo,
 			    		'password':me.form.password_confirmada
 			    	}).then(function (response){
-
+			    		if (response.data == 1) {
+			    			me.msg = "Se creo el usuario";
+			    		}
 			    	})
 			    }
 			},
