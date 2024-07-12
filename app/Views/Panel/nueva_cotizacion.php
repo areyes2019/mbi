@@ -1,0 +1,188 @@
+<?php echo $this->extend('Panel/panel_template')?>
+<?php echo $this->section('contenido')?>
+<div id="app">
+    <div class="card shadow mb-4 rounded-0">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between rounded-0">
+        <h6 class="m-0 font-weight-bold text-primary">Cotización <span ref="id_cotizacion"><?php echo $id_cotizacion?></span></h6>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+                <div class="dropdown-header"></div>
+                <a class="dropdown-item" href="<?php echo base_url('/descargar_cotizacion/'.$id_cotizacion); ?>"><span class="bi bi-download"></span> Descargar</a>
+                <a class="dropdown-item" href="<?php echo base_url('/enviar_pdf/'.$id_cotizacion); ?>"><span class="bi bi-send"></span> Enviar</a>
+                <a class = "dropdown-item"  href="#" @click.prevent="entregada('<?php echo $id_cotizacion ?>')"><span class="bi bi-truck"></span> Marcar Entregado</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="<?php echo base_url('/eliminar_cotizacion/'.$id_cotizacion); ?>" onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');"><span class="bi bi-trash3"></span> Eliminar Cotización</a>
+            </div>
+        </div>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body rounded-0">
+        <?php foreach ($cliente as $data): ?>
+        <p class="m-0"><strong>Para:</strong></p>
+        <p class="m-0"><?php echo $data['empresa']?></p>
+        <p class="m-0"><?php echo $data['nombre']?></p>
+        <p class="m-0">Tel: <?php echo $data['telefono']?></p>
+        <p class="m-0"><?php echo $data['correo']?></p>
+        <p class="m-0">Descuento asignado a este proveedor: <span ref="descuento"><?php echo $data['descuento']?></span>%</p>
+        <?php endforeach ?>
+        <h5 class="mt-2">Anticipo sugerido: ${{sugerido}}</h5>
+        <h5 class="mt-0">Utilidad: ${{utilidad}}</h5>
+    </div>
+</div>
+<div class="card shadow mb-4 rounded-0">
+    <div class="card-body">
+        <button class="btn btn-primary btn-icon-split mb-3 mb-sm-0 mr-2" data-toggle="collapse" data-target="#independiente">
+            <span class="icon text-white-50">
+                <i class="bi bi-cart"></i>
+            </span>
+            <span class="text">Articulo Independiente</span>
+        </button>
+        <button class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#agregar_articulo">
+            <span class="icon text-white-50">
+                <i class="bi bi-list-check"></i>
+            </span>
+            <span class="text">Articulo de Lista</span>
+        </button>
+        <!--  Modal agregar articulos -->  
+        <div class="modal fade" id="agregar_articulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Seleecione un artículo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table w-100" id="articulos">
+                            <thead>
+                                <tr>
+                                    <th>Artículo</th>
+                                    <th>Modelo</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for = "articulo in lista">
+                                    <td>{{articulo.nombre}}</td>
+                                    <td>{{articulo.modelo}}</td>
+                                    <td>
+                                        <input type="number" value="1" min="1" style="width: 50px;" :ref="articulo.idArticulo">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-circle" @click="add_articulo(articulo.idArticulo)"><span class="bi bi-check"></span></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-icon-split" data-dismiss="modal">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-box-arrow-right"></i>
+                            </span>
+                            <span class="text">Cerrar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse mt-4" id="independiente">
+          <div class="d-flex justify-content-between align-items-center">
+            <input type="text" class="form-control rounded-0 shadow-none" placeholder="Artículo" v-model="articulo_ind">
+            <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Cant." v-model="cantidad_ind">
+            <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Precio" v-model="precio_ind">
+            <button class="btn btn-primary ml-2" @click="agregar_ind"><span class="bi bi-check"></span></button>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="card shadow mb-4 rounded-0">
+    <div class="card-body">
+        <table class="table mt-4">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Cantidad</th>
+                <th>PU</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th colspan="3"></th>
+                <td><strong>Sub-Total</strong></th>
+                <td>${{sub_total}}</td> 
+                <td></td>
+              </tr>
+              <tr>
+                <th colspan="3"></th>
+                <td><strong>Descuento</strong></th>
+                <td>${{descuento}}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th colspan="3"></th>
+                <td><strong>IVA</strong></th>
+                <td>${{iva}}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th colspan="3"></th>
+                <td><strong>Total</strong></th>
+                <td>
+                    ${{total}}
+                    <button  :class="[display,'btn', 'btn-success', 'btn-sm', 'btn-circle', 'ml-4']" @click="mostrar_collapse()"><span class="bi bi-cash"></span></button>
+                    <div class="collapse mt-2" id="pago">
+                        <input type="text" v-model="anticipo" style="width: 55px;">
+                        <button class="my-btn-primary" @click="agregar_pago()"><span class="bi-check-lg"></span></button>
+                    </div>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <th colspan="3"></th>
+                <td><strong>Pago</strong></th>
+                <td>${{pago}}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th colspan="3"></th>
+                <td><strong>Saldo</strong></th>
+                <td>${{saldo}}</td>
+                <td></td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr v-for = "dato in articulos ">
+                <td>{{dato.nombre}}</td>
+                <td>{{dato.modelo}}</td>
+                <td>
+                    <input type="number" min="1" :value="dato.cantidad" style="width:50px" @change="modificar_cantidad(dato.idDetalle)" :ref="dato.idDetalle" :disabled="disabled">
+                </td>
+                <td>${{dato.p_unitario}}</td>
+                <td>${{dato.total}}</td>
+                <td :class="[display]"><a href="#" @click.prevent="borrar_linea(dato.idDetalle)"><span class="bi bi-x-lg"></span></a></td>
+              </tr>
+              <tr v-for="data in independiente">
+                <td>{{data.descripcion}}</td>
+                <td>S/M</td>
+                <td>{{data.cantidad}}</td>
+                <td>${{data.p_unitario}}</td>
+                <td>${{data.total}}</td>
+                <td :class="[display]"><a href="#" @click.prevent="borrar_linea(data.idDetalle)"><span class="bi bi-x-lg"></span></a></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<script src="<?php echo base_url('public/js/cotizaciones.js');?>"></script> 
+<?php echo $this->endSection()?>

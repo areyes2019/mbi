@@ -1,0 +1,309 @@
+CRITICAL - 2024-05-26 23:05:10 --> ErrorException: Undefined variable $resultado
+in APPPATH\Views\Panel\cotizaciones.php on line 24.
+ 1 APPPATH\Views\Panel\cotizaciones.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $resultado', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php', 24)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/cotizaciones', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(20): view('Panel/cotizaciones', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:05:50 --> TypeError: view(): Argument #2 ($data) must be of type array, CodeIgniter\Database\MySQLi\Result given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 20
+in SYSTEMPATH\Common.php on line 1166.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(20): view('Panel/cotizaciones', Object(CodeIgniter\Database\MySQLi\Result))
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:07:08 --> ErrorException: Undefined variable $resultado
+in APPPATH\Views\Panel\cotizaciones.php on line 24.
+ 1 APPPATH\Views\Panel\cotizaciones.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $resultado', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php', 24)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/cotizaciones', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(19): view('Panel/cotizaciones', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:08:17 --> ErrorException: Undefined variable $resultado
+in APPPATH\Views\Panel\cotizaciones.php on line 24.
+ 1 APPPATH\Views\Panel\cotizaciones.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $resultado', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php', 24)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/cotizaciones', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(19): view('Panel/cotizaciones')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:08:38 --> ErrorException: Undefined variable $clientes
+in APPPATH\Views\Panel\cotizaciones.php on line 68.
+ 1 APPPATH\Views\Panel\cotizaciones.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $clientes', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php', 68)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\cotizaciones.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/cotizaciones', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(19): view('Panel/cotizaciones')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-26 23:09:26 --> mysqli_sql_exception: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-26 23:09:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:09:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:09:26 --> [Caused by] mysqli_sql_exception: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-26 23:13:41 --> mysqli_sql_exception: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-26 23:13:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:13:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:13:41 --> [Caused by] mysqli_sql_exception: Unknown column 'sellopro_cotizaciones.id_articulo' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`id_articulo`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(18): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:44:49 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:45:06 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:45:10 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:50:33 --> ParseError: syntax error, unexpected token "return"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 180.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-26 23:50:48 --> mysqli_sql_exception: Unknown column 'id_cotizacion' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-26 23:50:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_cotizacion' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = :id_cotizacion:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete(null, false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:50:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_cotizacion' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = :id_cotizacion:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete(null, false)
+ 6 APPPATH\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:50:48 --> [Caused by] mysqli_sql_exception: Unknown column 'id_cotizacion' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = :id_cotizacion:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-26 23:51:24 --> mysqli_sql_exception: Unknown column 'id_cotizacion' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(NULL, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-26 23:51:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_cotizacion' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = :id_cotizacion:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete(null, false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:51:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_cotizacion' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = :id_cotizacion:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete(null, false)
+ 6 APPPATH\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-26 23:51:24 --> [Caused by] mysqli_sql_exception: Unknown column 'id_cotizacion' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_cotizaciones`
+WHERE `id_cotizacion` = :id_cotizacion:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete(null, false)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(178): CodeIgniter\BaseModel->delete()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->eliminar('2')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

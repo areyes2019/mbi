@@ -1,0 +1,1871 @@
+CRITICAL - 2024-07-01 09:45:51 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:46:01 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:46:07 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:46:11 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:46:45 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:46:56 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:46:59 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:54:26 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:55:04 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:55:54 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:57:51 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:58:33 --> Error: Class "App\Controllers\Admin\PedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:58:44 --> Error: Class "App\Controllers\Admin\PedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:58:51 --> Error: Class "App\Controllers\Admin\PedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('6rP5GbcgLEOF')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:59:34 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 09:59:40 --> ErrorException: Undefined array key "nombre"
+in APPPATH\Views\Panel\pedidos.php on line 29.
+ 1 APPPATH\Views\Panel\pedidos.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\pedidos.php', 29)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\pedidos.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/pedidos', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(24): view('Panel/pedidos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 10:00:22 --> ErrorException: Undefined array key "idQt"
+in APPPATH\Views\Panel\pedidos.php on line 34.
+ 1 APPPATH\Views\Panel\pedidos.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "idQt"', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\pedidos.php', 34)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\pedidos.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/pedidos', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(24): view('Panel/pedidos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 10:00:39 --> ErrorException: Undefined variable $proveedor
+in APPPATH\Views\Panel\pedidos.php on line 75.
+ 1 APPPATH\Views\Panel\pedidos.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $proveedor', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\pedidos.php', 75)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\pedidos.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/pedidos', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(24): view('Panel/pedidos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 10:01:28 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 36.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 10:01:50 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('BLweQAK8YiDu')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 10:02:41 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('BLweQAK8YiDu')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 10:02:54 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('BLweQAK8YiDu')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:03:26 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('6rP5GbcgLEOF')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:03:34 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('pkfrglvaAjTs')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:04:19 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('pkfrglvaAjTs')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:21:37 --> ErrorException: Undefined variable $cotizacion
+in APPPATH\Controllers\Admin\Compras.php on line 71.
+ 1 APPPATH\Controllers\Admin\Compras.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cotizacion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 71)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('jhpEGl02Jr3K')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:21:48 --> ErrorException: Undefined variable $id_cotizacion
+in APPPATH\Views\Panel\nuevo_pedido.php on line 7.
+ 1 APPPATH\Views\Panel\nuevo_pedido.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_cotizacion', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nuevo_pedido.php', 7)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nuevo_pedido.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nuevo_pedido', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(74): view('Panel/nuevo_pedido', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('jhpEGl02Jr3K')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:49:41 --> ErrorException: Undefined variable $id_cotizacion
+in APPPATH\Views\Panel\nuevo_pedido.php on line 7.
+ 1 APPPATH\Views\Panel\nuevo_pedido.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_cotizacion', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nuevo_pedido.php', 7)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nuevo_pedido.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nuevo_pedido', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(74): view('Panel/nuevo_pedido', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('jhpEGl02Jr3K')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:49:47 --> ErrorException: Undefined variable $id_cotizacion
+in APPPATH\Views\Panel\nuevo_pedido.php on line 7.
+ 1 APPPATH\Views\Panel\nuevo_pedido.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_cotizacion', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nuevo_pedido.php', 7)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nuevo_pedido.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nuevo_pedido', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(74): view('Panel/nuevo_pedido', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('jhpEGl02Jr3K')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:51:11 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:52:17 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:52:38 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:54:17 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:55:56 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:56:12 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:56:37 --> ArgumentCountError: Too few arguments to function App\Controllers\Admin\Articulos::mostrar_compras(), 0 passed in C:\laragon\www\sellopronto\system\CodeIgniter.php on line 941 and exactly 1 expected
+in APPPATH\Controllers\Admin\Articulos.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->mostrar_compras()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:56:37 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 13:57:07 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:00:17 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:12:33 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:12:46 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:12:56 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:13:08 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:13:20 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:13:24 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:14:34 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:14:51 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:16:51 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:17:26 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:17:45 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:19:01 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:19:32 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:19:44 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:20:05 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:25:58 --> ParseError: syntax error, unexpected token "new"
+in APPPATH\Controllers\Admin\Articulos.php on line 23.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Articulos.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Articulos')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Articulos')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Articulos', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:43:15 --> Error: Class "App\Models\DetallePedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 81.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:44:00 --> Error: Class "App\Models\DetallePedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 81.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:44:57 --> Error: Class "App\Controllers\Admin\DetallesPedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 81.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:45:15 --> Error: Class "App\Models\DetallesPedidosModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 81.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 14:45:51 --> mysqli_sql_exception: Unknown column 'pedidos_id' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(92): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-01 14:45:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = :pedidos_id:
+AND `id_articulo` = :id_articulo:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(92): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:45:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = \'33\'
+AND `id_articulo` = \'2\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = \'33\'
+AND `id_articulo` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = :pedidos_id:
+AND `id_articulo` = :id_articulo:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(92): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:45:51 --> [Caused by] mysqli_sql_exception: Unknown column 'pedidos_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = \'33\'
+AND `id_articulo` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = \'33\'
+AND `id_articulo` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = \'33\'
+AND `id_articulo` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `sellopro_detalles_pedido`
+WHERE `pedidos_id` = :pedidos_id:
+AND `id_articulo` = :id_articulo:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(92): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:46:28 --> ErrorException: Undefined variable $cotizacion
+in APPPATH\Controllers\Admin\Compras.php on line 120.
+ 1 APPPATH\Controllers\Admin\Compras.php(120): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cotizacion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 120)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->agregar()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:53:23 --> ParseError: syntax error, unexpected token "*"
+in APPPATH\Controllers\Admin\Compras.php on line 129.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:59:32 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 141.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('33')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 14:59:35 --> Error: Class "App\Controllers\Admin\CotizacionesModel" not found
+in APPPATH\Controllers\Admin\Compras.php on line 141.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('33')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:01:28 --> ErrorException: Undefined variable $inversion
+in APPPATH\Controllers\Admin\Compras.php on line 151.
+ 1 APPPATH\Controllers\Admin\Compras.php(151): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $inversion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 151)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('33')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:01:41 --> ErrorException: Undefined variable $saldo
+in APPPATH\Controllers\Admin\Compras.php on line 157.
+ 1 APPPATH\Controllers\Admin\Compras.php(157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $saldo', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 157)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('33')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:02:00 --> ErrorException: Undefined variable $debe
+in APPPATH\Controllers\Admin\Compras.php on line 157.
+ 1 APPPATH\Controllers\Admin\Compras.php(157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $debe', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 157)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('33')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:02:09 --> ErrorException: Undefined variable $utilidad
+in APPPATH\Controllers\Admin\Compras.php on line 158.
+ 1 APPPATH\Controllers\Admin\Compras.php(158): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $utilidad', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 158)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('33')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:16:15 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:24:21 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:25:46 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:25:56 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:27:04 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:30:18 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '55')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:31:19 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '55')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:35:36 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 56.
+ 1 APPPATH\Controllers\Admin\Compras.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 56)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '55')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:39:33 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '54')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:40:26 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '54')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:40:54 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '54')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:41:42 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Compras.php on line 55.
+ 1 APPPATH\Controllers\Admin\Compras.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pagina('borrar_linea_compras', '54')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:52:39 --> ParseError: syntax error, unexpected token "}"
+in APPPATH\Controllers\Admin\Compras.php on line 170.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:22 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:22 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:23 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:23 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:23 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:24 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:24 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:24 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:25 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:25 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:25 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:26 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:26 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:26 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:27 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:27 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:27 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:28 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:28 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:29 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:59 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:59 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:59 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:57:59 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:00 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:00 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:00 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:00 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:01 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:01 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:01 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:02 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:02 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:02 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:03 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:03 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:03 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:04 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:04 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:04 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:05 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:05 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:05 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:06 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:06 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:06 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:07 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:07 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:07 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:08 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:08 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:08 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:08 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:09 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:09 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:09 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:10 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:10 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:11 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:11 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:11 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:11 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:12 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:12 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:12 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:13 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:13 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:14 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:14 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:14 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:15 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:16 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:58:45 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:50 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:50 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:50 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:51 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:51 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:51 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:52 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:52 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:52 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:53 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:53 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:53 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:54 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:54 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:54 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:55 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:55 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 15:58:55 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 264.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(264): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 15:58:57 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 237.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(237): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 237)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('19')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:04:03 --> ErrorException: Undefined variable $descuento
+in APPPATH\Views\Panel\PDF.php on line 153.
+ 1 APPPATH\Views\Panel\PDF.php(153): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $descuento', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php', 153)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(361): view('Panel/PDF', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('20')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:05:41 --> ErrorException: Undefined variable $descuento
+in APPPATH\Views\Panel\PDF.php on line 153.
+ 1 APPPATH\Views\Panel\PDF.php(153): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $descuento', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php', 153)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(361): view('Panel/PDF', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('20')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:06:05 --> ErrorException: Undefined variable $descuento
+in APPPATH\Views\Panel\PDF.php on line 153.
+ 1 APPPATH\Views\Panel\PDF.php(153): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $descuento', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php', 153)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(361): view('Panel/PDF', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('20')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:07:14 --> ErrorException: Undefined variable $descuento
+in APPPATH\Views\Panel\PDF.php on line 153.
+ 1 APPPATH\Views\Panel\PDF.php(153): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $descuento', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php', 153)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(361): view('Panel/PDF', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('20')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:10:16 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('6rP5GbcgLEOF')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 16:13:09 --> mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete(Array)
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-01 16:13:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:13:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:13:09 --> [Caused by] mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 16:13:24 --> mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete(Array)
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-01 16:13:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:13:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:13:24 --> [Caused by] mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Admin\Compras.php(166): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 16:17:11 --> mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(164): CodeIgniter\BaseModel->delete(Array)
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-01 16:17:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = :pedido_detalle_id:
+AND `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(164): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:17:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = \'56\'
+AND `pedidos_detalle_id` IN (\'56\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = \'56\'
+AND `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = :pedido_detalle_id:
+AND `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Admin\Compras.php(164): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:17:11 --> [Caused by] mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = \'56\'
+AND `pedidos_detalle_id` IN (\'56\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = \'56\'
+AND `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = \'56\'
+AND `pedidos_detalle_id` IN (\'56\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedido_detalle_id` = :pedido_detalle_id:
+AND `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Admin\Compras.php(164): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 16:21:58 --> mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete(Array)
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-01 16:21:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:21:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:21:58 --> [Caused by] mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 16:22:52 --> mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(1117): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete(Array)
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-01 16:22:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:22:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 4 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 16:22:53 --> [Caused by] mysqli_sql_exception: Unknown column 'pedidos_detalle_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN (\'56\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2787): CodeIgniter\Database\BaseConnection->query('DELETE FROM `sellopro_detalles_pedido`
+WHERE `pedidos_detalle_id` IN :pedidos_detalle_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(453): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1117): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Admin\Compras.php(163): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->borrar_linea('56')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 18:42:40 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Compras.php on line 150.
+ 1 APPPATH\Controllers\Admin\Compras.php(150): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 19:26:32 --> ErrorException: Undefined variable $monto
+in APPPATH\Controllers\Admin\Compras.php on line 141.
+ 1 APPPATH\Controllers\Admin\Compras.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $monto', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 141)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 19:27:08 --> ErrorException: Undefined variable $monto
+in APPPATH\Controllers\Admin\Compras.php on line 141.
+ 1 APPPATH\Controllers\Admin\Compras.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $monto', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 141)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 19:27:27 --> ErrorException: Undefined variable $monto
+in APPPATH\Controllers\Admin\Compras.php on line 141.
+ 1 APPPATH\Controllers\Admin\Compras.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $monto', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 141)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-07-01 19:59:07 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Compras.php on line 150.
+ 1 APPPATH\Controllers\Admin\Compras.php(150): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:16:33 --> ErrorException: Undefined variable $cliente_query
+in APPPATH\Controllers\Admin\Compras.php on line 230.
+ 1 APPPATH\Controllers\Admin\Compras.php(230): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cliente_query', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 230)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:17:00 --> ErrorException: Undefined variable $cliente_query
+in APPPATH\Controllers\Admin\Compras.php on line 230.
+ 1 APPPATH\Controllers\Admin\Compras.php(230): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cliente_query', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 230)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:17:00 --> ErrorException: Undefined variable $cliente_query
+in APPPATH\Controllers\Admin\Compras.php on line 230.
+ 1 APPPATH\Controllers\Admin\Compras.php(230): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cliente_query', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 230)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-01 20:17:13 --> mysqli_sql_exception: Unknown column 'idCliente' in 'where clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(234): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-07-01 20:17:13 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idCliente' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = :idCliente:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Compras.php(234): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:17:13 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'idCliente' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = \'3\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = :idCliente:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Compras.php(234): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:17:13 --> [Caused by] mysqli_sql_exception: Unknown column 'idCliente' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = \'3\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = \'3\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = \'3\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_proveedores`
+WHERE `idCliente` = :idCliente:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Compras.php(234): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:17:49 --> ErrorException: Undefined variable $id_cotizacion
+in APPPATH\Views\Panel\PDF_orden.php on line 91.
+ 1 APPPATH\Views\Panel\PDF_orden.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_cotizacion', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php', 91)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF_orden', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(265): view('Panel/PDF_orden', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:19:43 --> ErrorException: Undefined variable $id_pedido
+in APPPATH\Views\Panel\PDF_orden.php on line 91.
+ 1 APPPATH\Views\Panel\PDF_orden.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_pedido', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php', 91)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF_orden', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(265): view('Panel/PDF_orden', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:20:00 --> ErrorException: Undefined variable $id_pedido
+in APPPATH\Views\Panel\PDF_orden.php on line 91.
+ 1 APPPATH\Views\Panel\PDF_orden.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_pedido', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php', 91)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF_orden', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(265): view('Panel/PDF_orden', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:21:30 --> ErrorException: Undefined variable $data_cliente
+in APPPATH\Views\Panel\PDF_orden.php on line 98.
+ 1 APPPATH\Views\Panel\PDF_orden.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_cliente', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php', 98)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF_orden.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF_orden', [], true)
+ 5 APPPATH\Controllers\Admin\Compras.php(265): view('Panel/PDF_orden', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->cotizacion_pdf('29')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:54:36 --> ErrorException: Undefined array key "pago"
+in APPPATH\Controllers\Admin\Compras.php on line 143.
+ 1 APPPATH\Controllers\Admin\Compras.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pago"', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 143)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 20:55:00 --> ErrorException: Undefined array key "pago"
+in APPPATH\Controllers\Admin\Compras.php on line 143.
+ 1 APPPATH\Controllers\Admin\Compras.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pago"', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 143)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('29')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:44:47 --> ArgumentCountError: Too few arguments to function App\Controllers\Admin\Compras::pago(), 0 passed in C:\laragon\www\sellopronto\system\CodeIgniter.php on line 941 and exactly 1 expected
+in APPPATH\Controllers\Admin\Compras.php on line 328.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:46:21 --> ParseError: syntax error, unexpected variable "$query"
+in APPPATH\Controllers\Admin\Compras.php on line 333.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:46:36 --> ErrorException: Undefined variable $id
+in APPPATH\Controllers\Admin\Compras.php on line 336.
+ 1 APPPATH\Controllers\Admin\Compras.php(336): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 336)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:46:55 --> TypeError: CodeIgniter\BaseModel::transformDataToArray(): Return value must be of type array, string returned
+in SYSTEMPATH\BaseModel.php on line 1804.
+ 1 SYSTEMPATH\BaseModel.php(956): CodeIgniter\BaseModel->transformDataToArray('29', 'update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], '29')
+ 3 APPPATH\Controllers\Admin\Compras.php(336): CodeIgniter\Model->update([...], '29')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:47:59 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\Compras.php(336): CodeIgniter\Model->update('29', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:48:24 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\Compras.php(336): CodeIgniter\Model->update('29', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:48:44 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\Compras.php(336): CodeIgniter\Model->update('29', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 21:49:40 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 970.
+ 1 SYSTEMPATH\BaseModel.php(970): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Admin\Compras.php(336): CodeIgniter\Model->update('29', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->pago()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 22:12:47 --> ErrorException: A non-numeric value encountered
+in APPPATH\Controllers\Admin\Compras.php on line 145.
+ 1 APPPATH\Controllers\Admin\Compras.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 145)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 22:12:59 --> ErrorException: A non-numeric value encountered
+in APPPATH\Controllers\Admin\Compras.php on line 145.
+ 1 APPPATH\Controllers\Admin\Compras.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 145)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('32')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:09:29 --> ParseError: syntax error, unexpected variable "$detalles"
+in APPPATH\Controllers\Admin\Compras.php on line 350.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:34:35 --> ErrorException: Undefined variable $pedido
+in APPPATH\Controllers\Admin\Compras.php on line 355.
+ 1 APPPATH\Controllers\Admin\Compras.php(355): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pedido', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 355)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:35:00 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given
+in APPPATH\Controllers\Admin\Compras.php on line 357.
+ 1 APPPATH\Controllers\Admin\Compras.php(357): count('3')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:36:41 --> ParseError: syntax error, unexpected token "echo"
+in APPPATH\Controllers\Admin\Compras.php on line 358.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:40:42 --> ErrorException: Trying to access array offset on value of type int
+in APPPATH\Controllers\Admin\Compras.php on line 356.
+ 1 APPPATH\Controllers\Admin\Compras.php(356): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 356)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:51:28 --> ParseError: syntax error, unexpected variable "$cuenta"
+in APPPATH\Controllers\Admin\Compras.php on line 359.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:53:31 --> ErrorException: Trying to access array offset on value of type int
+in APPPATH\Controllers\Admin\Compras.php on line 360.
+ 1 APPPATH\Controllers\Admin\Compras.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:54:30 --> Error: Call to a member function countAllResults() on array
+in APPPATH\Controllers\Admin\Compras.php on line 359.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:55:02 --> ErrorException: Array to string conversion
+in APPPATH\Controllers\Admin\Compras.php on line 360.
+ 1 APPPATH\Controllers\Admin\Compras.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-01 23:55:43 --> ErrorException: Trying to access array offset on value of type int
+in APPPATH\Controllers\Admin\Compras.php on line 360.
+ 1 APPPATH\Controllers\Admin\Compras.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,46 @@
+WARNING - 2024-05-30 10:55:28 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 181.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(181): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('22')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-05-30 15:28:19 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 181.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(181): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('25')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-30 15:28:19 --> ErrorException: Undefined variable $debe
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 186.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $debe', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 186)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('25')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-30 15:28:22 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 203.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->borrar_linea('42')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-30 15:28:26 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 203.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->borrar_linea('42')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+WARNING - 2024-05-30 15:28:29 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Controllers\Admin\Cotizaciones.php on line 181.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(181): number_format(null, 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('25')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-30 15:28:29 --> ErrorException: Undefined variable $debe
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 186.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $debe', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 186)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('25')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

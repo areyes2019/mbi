@@ -1,0 +1,1045 @@
+CRITICAL - 2024-07-03 09:36:08 --> ErrorException: Undefined variable $linea_i
+in APPPATH\Views\Panel\PDF.php on line 131.
+ 1 APPPATH\Views\Panel\PDF.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $linea_i', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php', 131)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(368): view('Panel/PDF', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('16')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 09:37:46 --> ErrorException: Undefined variable $sum
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 341.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(341): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sum', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 341)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('16')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 10:15:09 --> ErrorException: Undefined variable $resultado_lineas_independiente
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 362.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $resultado_lineas_independiente', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('16')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 10:15:21 --> ErrorException: Undefined array key "decripcion"
+in APPPATH\Views\Panel\PDF.php on line 137.
+ 1 APPPATH\Views\Panel\PDF.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "decripcion"', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php', 137)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\PDF.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/PDF', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(370): view('Panel/PDF', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->cotizacion_pdf('16')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:01:21 --> ParseError: syntax error, unexpected variable "$builder"
+in APPPATH\Controllers\Admin\Compras.php on line 366.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:01:29 --> ParseError: syntax error, unexpected variable "$builder"
+in APPPATH\Controllers\Admin\Compras.php on line 366.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Compras.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Compras')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Compras')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Compras', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 13:04:06 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 13:04:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:04:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:04:06 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 13:04:41 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 13:04:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:04:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:04:41 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 13:08:03 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 13:08:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:08:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:08:03 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 13:10:06 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 13:10:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:10:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:10:06 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 13:11:10 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 13:11:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:11:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:11:10 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 13:14:07 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 13:14:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 2 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:14:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 4 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:14:07 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_detalles_pedido'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_detalles_pedido`
+JOIN `sellopro_detalles_pedido` ON `sellopro_detalles_pedido`.`id_articulo` = `sellopro_articulos`.`idArticulo`
+WHERE `pedido_id` = :pedido_id:', [...], false)
+ 5 APPPATH\Controllers\Admin\Compras.php(367): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:15:49 --> ErrorException: Undefined variable $productoModel
+in APPPATH\Controllers\Admin\Compras.php on line 386.
+ 1 APPPATH\Controllers\Admin\Compras.php(386): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $productoModel', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 386)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->recibida()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:20:55 --> ErrorException: A non-numeric value encountered
+in APPPATH\Controllers\Admin\Compras.php on line 154.
+ 1 APPPATH\Controllers\Admin\Compras.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 154)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:22:46 --> ErrorException: A non-numeric value encountered
+in APPPATH\Controllers\Admin\Compras.php on line 154.
+ 1 APPPATH\Controllers\Admin\Compras.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 154)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:23:27 --> ErrorException: A non-numeric value encountered
+in APPPATH\Controllers\Admin\Compras.php on line 154.
+ 1 APPPATH\Controllers\Admin\Compras.php(154): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Compras.php', 154)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Compras->mostrar_detalles('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Compras))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:38:46 --> Error: Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 4 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:40:48 --> ParseError: syntax error, unexpected token ";", expecting "]"
+in APPPATH\Controllers\Admin\Existencias.php on line 26.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Existencias.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Existencias')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Existencias')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Existencias', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:40:52 --> TypeError: number_format(): Argument #1 ($num) must be of type float, array given
+in APPPATH\Controllers\Admin\Existencias.php on line 26.
+ 1 APPPATH\Controllers\Admin\Existencias.php(26): number_format([...], 2)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:41:12 --> TypeError: number_format(): Argument #1 ($num) must be of type float, array given
+in APPPATH\Controllers\Admin\Existencias.php on line 26.
+ 1 APPPATH\Controllers\Admin\Existencias.php(26): number_format([...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:42:09 --> ErrorException: Array to string conversion
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:42:20 --> ErrorException: Undefined array key "total"
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total"', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:43:30 --> ErrorException: Undefined array key "total"
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total"', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:44:44 --> ErrorException: Attempt to read property "tota" on array
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "tota" on array', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:44:47 --> ErrorException: Attempt to read property "total" on array
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "total" on array', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:45:01 --> ErrorException: Undefined array key "total"
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total"', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:45:31 --> ParseError: syntax error, unexpected token "/"
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 3 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:45:45 --> ErrorException: Undefined variable $data
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:45:54 --> ErrorException: Undefined variable $data
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:47:39 --> ErrorException: Undefined array key "total"
+in APPPATH\Controllers\Admin\Existencias.php on line 29.
+ 1 APPPATH\Controllers\Admin\Existencias.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total"', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Existencias.php', 29)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:48:25 --> Error: Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+in APPPATH\Controllers\Admin\Existencias.php on line 29.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:49:18 --> ErrorException: Undefined array key "total"
+in APPPATH\Controllers\Admin\Existencias.php on line 29.
+ 1 APPPATH\Controllers\Admin\Existencias.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total"', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Existencias.php', 29)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:50:36 --> ErrorException: Undefined variable $valo
+in APPPATH\Views\Panel\existencias.php on line 19.
+ 1 APPPATH\Views\Panel\existencias.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $valo', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 19)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:51:15 --> ErrorException: Undefined array key "total"
+in APPPATH\Controllers\Admin\Existencias.php on line 26.
+ 1 APPPATH\Controllers\Admin\Existencias.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total"', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Existencias.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 13:51:33 --> ErrorException: foreach() argument must be of type array|object, string given
+in APPPATH\Views\Panel\existencias.php on line 18.
+ 1 APPPATH\Views\Panel\existencias.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php', 18)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\existencias.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/existencias', [], true)
+ 5 APPPATH\Controllers\Admin\Existencias.php(29): view('Panel/existencias', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 16:16:58 --> mysqli_sql_exception: Unknown column 'precio_pub' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT SUM((pre...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM((pre...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM((pre...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT SUM((pre...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 16:16:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:16:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:16:58 --> [Caused by] mysqli_sql_exception: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT SUM((precio_pub * cantidad)) AS `gran_total`
+FROM `sellopro_inventario`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 16:17:39 --> mysqli_sql_exception: Unknown column 'precio_pub' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (precio_...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (precio_...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (precio_...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 16:17:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:17:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:17:40 --> [Caused by] mysqli_sql_exception: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 16:18:06 --> mysqli_sql_exception: Unknown column 'precio_pub' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (precio_...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (precio_...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (precio_...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 16:18:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:18:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:18:06 --> [Caused by] mysqli_sql_exception: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (precio_pub * cantidad)
+FROM `sellopro_inventario`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 16:18:30 --> mysqli_sql_exception: Unknown column 'precio_pub' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `precio_...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `precio_...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `precio_...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `precio_...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 16:18:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `precio_pub`
+FROM `sellopro_inventario`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:18:30 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `precio_pub`
+FROM `sellopro_inventario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `precio_pub`
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `precio_pub`
+FROM `sellopro_inventario`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:18:30 --> [Caused by] mysqli_sql_exception: Unknown column 'precio_pub' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `precio_pub`
+FROM `sellopro_inventario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `precio_pub`
+FROM `sellopro_inventario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `precio_pub`
+FROM `sellopro_inventario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `precio_pub`
+FROM `sellopro_inventario`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 16:21:35 --> Error: Call to a member function select() on array
+in APPPATH\Controllers\Admin\Existencias.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:11:13 --> ParseError: syntax error, unexpected variable "$data"
+in APPPATH\Controllers\Admin\Existencias.php on line 27.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Existencias.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Existencias')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Existencias')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Existencias', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 17:16:09 --> mysqli_sql_exception: Unknown column 'monto_total' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (sellopr...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopr...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopr...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopr...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 17:16:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'monto_total' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:16:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'monto_total' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:16:09 --> [Caused by] mysqli_sql_exception: Unknown column 'monto_total' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM(`monto_total`) AS `monto_total`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 17:23:39 --> mysqli_sql_exception: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (sellopr...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopr...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopr...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopr...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 17:23:39 --> CodeIgniter\Database\Exceptions\DatabaseException: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:23:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:23:39 --> [Caused by] mysqli_sql_exception: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_inventario.cantidad * sellopro_articulos.precio_pub)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-07-03 17:25:31 --> mysqli_sql_exception: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (sellopr...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopr...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopr...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopr...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-07-03 17:25:31 --> CodeIgniter\Database\Exceptions\DatabaseException: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 2 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:25:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 4 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:25:31 --> [Caused by] mysqli_sql_exception: In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'sellopro.sellopro_inventario.cantidad'; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT (sellopro_inventario.cantidad * sellopro_articulos.precio_pub) as monto_total, SUM((sellopro_articulos.precio_pub * sellopro_inventario.cantidad)) AS `total_sum`
+FROM `sellopro_inventario`
+JOIN `sellopro_articulos` ON `sellopro_articulos`.`idArticulo` = `sellopro_inventario`.`id_articulo`', [], false)
+ 5 APPPATH\Controllers\Admin\Existencias.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:27:25 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::getRow()
+in APPPATH\Controllers\Admin\Existencias.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-07-03 17:28:26 --> Error: Call to a member function getRow() on array
+in APPPATH\Controllers\Admin\Existencias.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Existencias->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Existencias))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

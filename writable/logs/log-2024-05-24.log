@@ -1,0 +1,2000 @@
+ERROR - 2024-05-24 01:05:34 --> mysqli_sql_exception: Table 'sellopro.sellos_articulos' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-24 01:05:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 01:05:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_articulos`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_articulos`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 01:05:34 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellos_articulos`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_articulos`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_articulos`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 09:05:15 --> mysqli_sql_exception: Table 'sellopro.sellos_clientes' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-24 09:05:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:05:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_clientes`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_clientes`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:05:15 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellos_clientes`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_clientes`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_clientes`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 09:07:54 --> mysqli_sql_exception: Table 'sellopro.sellos_clientes' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-24 09:07:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:07:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_clientes`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_clientes`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:07:54 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellos_clientes`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_clientes`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_clientes`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Clientes.php(12): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Clientes->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Clientes))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 09:09:51 --> mysqli_sql_exception: Table 'sellopro.sellos_articulos' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-24 09:09:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:09:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_articulos`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_articulos`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:09:51 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellos_articulos`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_articulos`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_articulos`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 09:12:00 --> mysqli_sql_exception: Table 'sellopro.sellos_articulos' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-24 09:12:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:12:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_articulos`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_articulos`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:12:00 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellos_articulos' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellos_articulos`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_articulos`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_articulos`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_articulos`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Articulos.php(11): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 09:41:45 --> mysqli_sql_exception: Table 'sellopro.sellos_clientes' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(15): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2024-05-24 09:41:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(15): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:41:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_clientes`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_clientes`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Admin\Cotizaciones.php(15): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:41:45 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellos_clientes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellos_clientes`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellos_clientes`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellos_clientes`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellos_clientes`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(15): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 09:59:12 --> TypeError: view(): Argument #2 ($data) must be of type array, string given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 21
+in SYSTEMPATH\Common.php on line 1166.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(21): view('Panel/nueva_cotizacion', '3')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:01:15 --> ErrorException: Undefined variable $nombre
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 5.
+ 1 APPPATH\Views\Panel\nueva_cotizacion.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nombre', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php', 5)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(22): view('Panel/nueva_cotizacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:19:10 --> ErrorException: Undefined variable $db
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 21.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:38:40 --> ErrorException: Undefined variable $db
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 21.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:39:35 --> Error: Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 10:44:04 --> mysqli_sql_exception: Unknown column 'sellopro_articulos.idArti' in 'on clause' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-24 10:44:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_articulos.idArti' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:44:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_articulos.idArti' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:44:04 --> [Caused by] mysqli_sql_exception: Unknown column 'sellopro_articulos.idArti' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_articulos`.`idArti`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:51:40 --> ParseError: syntax error, unexpected token "*"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 24.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:51:55 --> ErrorException: Undefined variable $cliente
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 28.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cliente', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 10:58:55 --> mysqli_sql_exception: Unknown column '*.sellopro_cotizaciones' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `*`.`sel...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `*`.`sel...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `*`.`sel...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `*`.`sel...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-24 10:58:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column '*.sellopro_cotizaciones' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:58:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column '*.sellopro_cotizaciones' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:58:55 --> [Caused by] mysqli_sql_exception: Unknown column '*.sellopro_cotizaciones' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `*`.`sellopro_cotizaciones`, `*`.`sellopro_clientes`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 10:59:29 --> mysqli_sql_exception: Unknown column 'sellopro_cotizaciones' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `sellopr...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sellopr...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sellopr...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `sellopr...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-24 10:59:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_cotizaciones' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:59:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'sellopro_cotizaciones' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 10:59:29 --> [Caused by] mysqli_sql_exception: Unknown column 'sellopro_cotizaciones' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `sellopro_cotizaciones`, `nombre`
+FROM `sellopro_cotizaciones`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 11:01:44 --> mysqli_sql_exception: Not unique table/alias: 'sellopro_clientes' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-24 11:01:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_clientes'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:01:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'sellopro_clientes'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:01:44 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'sellopro_clientes'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_clientes`
+JOIN `sellopro_clientes` ON `sellopro_clientes`.`idCliente` = `sellopro_cotizaciones`.`cliente`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:05:22 --> ErrorException: Undefined variable $model
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 23.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $model', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:05:51 --> ErrorException: Undefined variable $articulos
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 24.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $articulos', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 24)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:08:13 --> ErrorException: Array to string conversion
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 24.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 24)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:08:38 --> ErrorException: Array to string conversion
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 22.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 22)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:19:53 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 24.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:21:23 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 24.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:28:33 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 22.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:29:00 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 22.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:29:35 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 22.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:30:21 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 22.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 11:33:14 --> mysqli_sql_exception: Table 'sellopro.blogs' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-24 11:33:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.blogs' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:33:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.blogs' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:33:14 --> [Caused by] mysqli_sql_exception: Table 'sellopro.blogs' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `blogs`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 11:33:35 --> mysqli_sql_exception: Table 'sellopro.comments' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+#6 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#7 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-05-24 11:33:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.comments' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', [], false)
+ 2 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:33:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.comments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', [], false)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:33:35 --> [Caused by] mysqli_sql_exception: Table 'sellopro.comments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `sellopro_cotizaciones`
+JOIN `comments` ON `comments`.`id` = `blogs`.`id`', [], false)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:42:10 --> ParseError: syntax error, unexpected token "."
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 21.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:48:10 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 23.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:49:23 --> ParseError: syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 23.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:52:51 --> Error: Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:55:32 --> Error: Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:55:47 --> ParseError: syntax error, unexpected token "}", expecting "," or ";"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 26.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:56:05 --> Error: Object of class mysqli could not be converted to string
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:56:20 --> ErrorException: Undefined property: mysqli::$slug
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 25.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: mysqli::$slug', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 11:56:53 --> Error: Object of class stdClass could not be converted to string
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:09:07 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Result::resultArray()
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 25.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:10:44 --> Error: Object of class stdClass could not be converted to string
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('3')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:31:41 --> Error: Cannot use object of type mysqli as array
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 10.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(26): view('Panel/nueva_cotizacion', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:34:13 --> Error: Cannot use object of type mysqli as array
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 10.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 4 APPPATH\Controllers\Admin\Cotizaciones.php(26): view('Panel/nueva_cotizacion', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:37:35 --> Error: Call to a member function getResult() on array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:38:09 --> TypeError: view(): Argument #2 ($data) must be of type array, CodeIgniter\Database\MySQLi\Result given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 27
+in SYSTEMPATH\Common.php on line 1166.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(27): view('Panel/nueva_cotizacion', Object(CodeIgniter\Database\MySQLi\Result))
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:38:24 --> TypeError: view(): Argument #2 ($data) must be of type array, CodeIgniter\Database\MySQLi\Result given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 27
+in SYSTEMPATH\Common.php on line 1166.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(27): view('Panel/nueva_cotizacion', Object(CodeIgniter\Database\MySQLi\Result))
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:38:48 --> TypeError: view(): Argument #2 ($data) must be of type array, CodeIgniter\Database\MySQLi\Result given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 27
+in SYSTEMPATH\Common.php on line 1166.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(27): view('Panel/nueva_cotizacion', Object(CodeIgniter\Database\MySQLi\Result))
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:40:17 --> ErrorException: Undefined variable $query
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 8.
+ 1 APPPATH\Views\Panel\nueva_cotizacion.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $query', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php', 8)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(27): view('Panel/nueva_cotizacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:55:48 --> TypeError: CodeIgniter\HTTP\RedirectResponse::to(): Argument #2 ($code) must be of type ?int, string given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 33
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 34.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(33): CodeIgniter\HTTP\RedirectResponse->to('pagina_cotizador', 'peUZPbog7J82')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 12:58:55 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 12:58:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Operand should contain 1 column(s)
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:58:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'HChB8mM2NvZs\', \'2\', (55,58,12,24,5,5,2024,144,\'Friday\',\'May\',1716573535))')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'HChB8mM2NvZs\', \'2\', (55,58,12,24,5,5,2024,144,\'Friday\',\'May\',1716573535))')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:58:55 --> [Caused by] mysqli_sql_exception: Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'HChB8mM2NvZs\', \'2\', (55,58,12,24,5,5,2024,144,\'Friday\',\'May\',1716573535))', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'HChB8mM2NvZs\', \'2\', (55,58,12,24,5,5,2024,144,\'Friday\',\'May\',1716573535))')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'HChB8mM2NvZs\', \'2\', (55,58,12,24,5,5,2024,144,\'Friday\',\'May\',1716573535))')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 12:59:49 --> mysqli_sql_exception: Operand should contain 1 column(s) in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 12:59:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Operand should contain 1 column(s)
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:59:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'YHLl0KFbrvSz\', \'2\', (49,59,12,24,5,5,2024,144,\'Friday\',\'May\',1716573589))')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'YHLl0KFbrvSz\', \'2\', (49,59,12,24,5,5,2024,144,\'Friday\',\'May\',1716573589))')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 12:59:49 --> [Caused by] mysqli_sql_exception: Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'YHLl0KFbrvSz\', \'2\', (49,59,12,24,5,5,2024,144,\'Friday\',\'May\',1716573589))', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'YHLl0KFbrvSz\', \'2\', (49,59,12,24,5,5,2024,144,\'Friday\',\'May\',1716573589))')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'YHLl0KFbrvSz\', \'2\', (49,59,12,24,5,5,2024,144,\'Friday\',\'May\',1716573589))')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 13:00:42 --> mysqli_sql_exception: Incorrect date value: '24-05-2024' for column 'fecha' at row 1 in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 13:00:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect date value: '24-05-2024' for column 'fecha' at row 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:00:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect date value: '24-05-2024' for column 'fecha' at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'NmjQOZ0CdzlE\', \'2\', \'24-05-2024\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'NmjQOZ0CdzlE\', \'2\', \'24-05-2024\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:00:42 --> [Caused by] mysqli_sql_exception: Incorrect date value: '24-05-2024' for column 'fecha' at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'NmjQOZ0CdzlE\', \'2\', \'24-05-2024\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'NmjQOZ0CdzlE\', \'2\', \'24-05-2024\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (\'NmjQOZ0CdzlE\', \'2\', \'24-05-2024\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_cotizaciones` (`slug`, `cliente`, `fecha`) VALUES (:slug:, :cliente:, :fecha:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(34): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:01:40 --> ErrorException: A non-numeric value encountered
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 28.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:04:55 --> TypeError: CodeIgniter\HTTP\RedirectResponse::to(): Argument #2 ($code) must be of type ?int, string given, called in C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php on line 37
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 34.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(37): CodeIgniter\HTTP\RedirectResponse->to('pagina_cotizador/', 'ZJHg4XTz3FQL')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->nueva('2')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:08:04 --> ErrorException: Undefined variable $id
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 44.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 44)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:11:21 --> Error: Call to a member function getResultArray() on array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:11:58 --> ErrorException: Attempt to read property "slug" on array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 48.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "slug" on array', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 48)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:12:07 --> ErrorException: Array to string conversion
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 48.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 48)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:16:34 --> ErrorException: Undefined array key "id_cotizacion"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_cotizacion"', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 55)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:19:34 --> ParseError: syntax error, unexpected token "="
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 55.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:22:01 --> ParseError: syntax error, unexpected token ";"
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 22.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 3 APPPATH\Controllers\Admin\Cotizaciones.php(63): view('Panel/nueva_cotizacion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:22:22 --> ErrorException: Array to string conversion
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 22.
+ 1 APPPATH\Views\Panel\nueva_cotizacion.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php', 22)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(63): view('Panel/nueva_cotizacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:23:18 --> ErrorException: Undefined variable $articulos
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 21.
+ 1 APPPATH\Views\Panel\nueva_cotizacion.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $articulos', 'C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php', 21)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\laragon\\www\\sellopronto\\app\\Views\\Panel\\nueva_cotizacion.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(63): view('Panel/nueva_cotizacion', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:23:34 --> ParseError: syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "["
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 21.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 3 APPPATH\Controllers\Admin\Cotizaciones.php(63): view('Panel/nueva_cotizacion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:23:38 --> ParseError: syntax error, unexpected token ":", expecting "->" or "?->" or "{" or "["
+in APPPATH\Views\Panel\nueva_cotizacion.php on line 21.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('Panel/nueva_cotizacion', [], true)
+ 3 APPPATH\Controllers\Admin\Cotizaciones.php(63): view('Panel/nueva_cotizacion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('ie6lpagTNFQU')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 13:26:11 --> mysqli_sql_exception: Incorrect integer value: 'Escoge una opción...' for column 'stock' at row 1 in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `sellopr...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sellopr...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sellopr...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `sellopr...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(987): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(807): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Articulos.php(50): CodeIgniter\Model->update('1', Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Articulos->actualizar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 13:26:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect integer value: 'Escoge una opción...' for column 'stock' at row 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `sellopro_articulos` SET `nombre` = :nombre:, `modelo` = :modelo:, `precio_prov` = :precio_prov:, `precio_pub` = :precio_pub:, `minimo` = :minimo:, `stock` = :stock:
+WHERE `sellopro_articulos`.`idArticulo` IN :sellopro_articulos.idArticulo:', [...], false)
+ 2 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Admin\Articulos.php(50): CodeIgniter\Model->update('1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->actualizar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:26:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect integer value: 'Escoge una opción...' for column 'stock' at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sellopro_articulos` SET `nombre` = \'Sello de 60 x 40 mm autoentitable\', `modelo` = \'Printer 55 Dater\', `precio_prov` = \'152.00\', `precio_pub` = \'450.00\', `minimo` = \'1\', `stock` = \'Escoge una opción...\'
+WHERE `sellopro_articulos`.`idArticulo` IN (\'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sellopro_articulos` SET `nombre` = \'Sello de 60 x 40 mm autoentitable\', `modelo` = \'Printer 55 Dater\', `precio_prov` = \'152.00\', `precio_pub` = \'450.00\', `minimo` = \'1\', `stock` = \'Escoge una opción...\'
+WHERE `sellopro_articulos`.`idArticulo` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `sellopro_articulos` SET `nombre` = :nombre:, `modelo` = :modelo:, `precio_prov` = :precio_prov:, `precio_pub` = :precio_pub:, `minimo` = :minimo:, `stock` = :stock:
+WHERE `sellopro_articulos`.`idArticulo` IN :sellopro_articulos.idArticulo:', [...], false)
+ 4 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Admin\Articulos.php(50): CodeIgniter\Model->update('1', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->actualizar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 13:26:11 --> [Caused by] mysqli_sql_exception: Incorrect integer value: 'Escoge una opción...' for column 'stock' at row 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `sellopro_articulos` SET `nombre` = \'Sello de 60 x 40 mm autoentitable\', `modelo` = \'Printer 55 Dater\', `precio_prov` = \'152.00\', `precio_pub` = \'450.00\', `minimo` = \'1\', `stock` = \'Escoge una opción...\'
+WHERE `sellopro_articulos`.`idArticulo` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `sellopro_articulos` SET `nombre` = \'Sello de 60 x 40 mm autoentitable\', `modelo` = \'Printer 55 Dater\', `precio_prov` = \'152.00\', `precio_pub` = \'450.00\', `minimo` = \'1\', `stock` = \'Escoge una opción...\'
+WHERE `sellopro_articulos`.`idArticulo` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `sellopro_articulos` SET `nombre` = \'Sello de 60 x 40 mm autoentitable\', `modelo` = \'Printer 55 Dater\', `precio_prov` = \'152.00\', `precio_pub` = \'450.00\', `minimo` = \'1\', `stock` = \'Escoge una opción...\'
+WHERE `sellopro_articulos`.`idArticulo` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `sellopro_articulos` SET `nombre` = :nombre:, `modelo` = :modelo:, `precio_prov` = :precio_prov:, `precio_pub` = :precio_pub:, `minimo` = :minimo:, `stock` = :stock:
+WHERE `sellopro_articulos`.`idArticulo` IN :sellopro_articulos.idArticulo:', [...], false)
+ 5 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin\Articulos.php(50): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Articulos->actualizar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Articulos))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 14:27:59 --> mysqli_sql_exception: Table 'sellopro.sellopro_detalle' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 14:27:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:27:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:27:59 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 14:29:01 --> mysqli_sql_exception: Table 'sellopro.sellopro_detalle' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 14:29:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:29:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:29:01 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 14:29:43 --> mysqli_sql_exception: Table 'sellopro.sellopro_detalle' doesn't exist in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 14:29:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:29:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:29:43 --> [Caused by] mysqli_sql_exception: Table 'sellopro.sellopro_detalle' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalle` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 14:30:27 --> mysqli_sql_exception: Unknown column 'articulo' in 'field list' in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 14:30:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'articulo' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:30:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'articulo' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:30:27 --> [Caused by] mysqli_sql_exception: Unknown column 'articulo' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`articulo`, `cantidad`) VALUES (:articulo:, :cantidad:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 14:30:50 --> mysqli_sql_exception: Column 'cantidad' cannot be null in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 14:30:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'cantidad' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (:cantidad:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:30:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'cantidad' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (:cantidad:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:30:50 --> [Caused by] mysqli_sql_exception: Column 'cantidad' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (:cantidad:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 14:31:44 --> mysqli_sql_exception: Column 'cantidad' cannot be null in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 14:31:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'cantidad' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (:cantidad:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:31:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'cantidad' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (:cantidad:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 14:31:44 --> [Caused by] mysqli_sql_exception: Column 'cantidad' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`cantidad`) VALUES (:cantidad:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(80): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 15:11:29 --> ParseError: syntax error, unexpected token "return"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 75.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 15:11:44 --> ErrorException: Undefined property: App\Controllers\Admin\Cotizaciones::$input
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 74.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Admin\\Cotizaciones::$input', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 74)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 15:20:10 --> ErrorException: Undefined property: App\Controllers\Admin\Cotizaciones::$input
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 74.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Admin\\Cotizaciones::$input', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 74)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 17:20:32 --> Error: Cannot use object of type App\Models\ArticulosModel as array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 83.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 17:21:21 --> Error: Cannot use object of type App\Models\ArticulosModel as array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 83.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 17:22:27 --> ParseError: syntax error, unexpected variable "$precio"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 84.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 17:28:50 --> mysqli_sql_exception: Field 'id_cotizacion' doesn't have a default value in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 17:28:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Field 'id_cotizacion' doesn't have a default value
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 17:28:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Field 'id_cotizacion' doesn't have a default value
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'2\', 3, \'300.00\', 900)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'2\', 3, \'300.00\', 900)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 17:28:50 --> [Caused by] mysqli_sql_exception: Field 'id_cotizacion' doesn't have a default value
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'2\', 3, \'300.00\', 900)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'2\', 3, \'300.00\', 900)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'2\', 3, \'300.00\', 900)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 18:31:40 --> mysqli_sql_exception: Field 'id_cotizacion' doesn't have a default value in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 18:31:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Field 'id_cotizacion' doesn't have a default value
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 18:31:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Field 'id_cotizacion' doesn't have a default value
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'1\', 2, \'450.00\', 900)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'1\', 2, \'450.00\', 900)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 18:31:40 --> [Caused by] mysqli_sql_exception: Field 'id_cotizacion' doesn't have a default value
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'1\', 2, \'450.00\', 900)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'1\', 2, \'450.00\', 900)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (\'1\', 2, \'450.00\', 900)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(94): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 18:32:41 --> mysqli_sql_exception: Column 'id_cotizacion' cannot be null in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 18:32:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_cotizacion' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:, :id_cotizacion:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 18:32:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_cotizacion' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:, :id_cotizacion:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 18:32:41 --> [Caused by] mysqli_sql_exception: Column 'id_cotizacion' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:, :id_cotizacion:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-05-24 18:32:51 --> mysqli_sql_exception: Column 'id_cotizacion' cannot be null in C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\sellopronto\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\laragon\www\sellopronto\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\laragon\www\sellopronto\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\laragon\www\sellopronto\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\sellopronto\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\sellopronto\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\sellopronto\app\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\sellopronto\system\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+#9 C:\laragon\www\sellopronto\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+#10 C:\laragon\www\sellopronto\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\sellopronto\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-05-24 18:32:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_cotizacion' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:, :id_cotizacion:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 18:32:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_cotizacion' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:, :id_cotizacion:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 18:32:51 --> [Caused by] mysqli_sql_exception: Column 'id_cotizacion' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (\'1\', 2, \'450.00\', 900, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sellopro_detalles` (`id_articulo`, `cantidad`, `p_unitario`, `total`, `id_cotizacion`) VALUES (:id_articulo:, :cantidad:, :p_unitario:, :total:, :id_cotizacion:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\Cotizaciones.php(96): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:28:28 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:28:58 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', '14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:29:29 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', '14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:29:38 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', '14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:30:05 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', '14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:31:07 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', '14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 19:31:45 --> ErrorException: Undefined array key 0
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 50.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->pagina('mostrar_detalles', '14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 20:21:23 --> ParseError: syntax error, unexpected token "return"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 102.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 20:21:54 --> ErrorException: Array to string conversion
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 102.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 21:50:42 --> Error: Call to a member function getResultArray() on array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 104.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 21:51:17 --> Error: Call to a member function result_array() on array
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 104.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('14')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 22:21:37 --> ErrorException: Undefined variable $lista
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 104.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $lista', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 104)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 22:29:37 --> ErrorException: Undefined variable $query
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 108.
+ 1 APPPATH\Controllers\Admin\Cotizaciones.php(108): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $query', 'C:\\laragon\\www\\sellopronto\\app\\Controllers\\Admin\\Cotizaciones.php', 108)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->mostrar_detalles('14')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 23:10:04 --> ParseError: syntax error, unexpected variable "$total"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 109.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 23:10:10 --> ParseError: syntax error, unexpected variable "$total"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 109.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 23:10:26 --> ParseError: syntax error, unexpected variable "$total"
+in APPPATH\Controllers\Admin\Cotizaciones.php on line 109.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(290): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\sellopronto\\app\\Controllers\\admin\\Cotizaciones.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\admin\\Cotizaciones')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\admin\\Cotizaciones')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\admin\\Cotizaciones', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-24 23:11:52 --> Error: Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in SYSTEMPATH\Database\Query.php on line 333.
+ 1 SYSTEMPATH\Database\Query.php(333): strtr('UPDATE `sellopro_cotizaciones` SET `total` = :total:
+WHERE `sellopro_cotizaciones`.`idQt` IN :sellopro_cotizaciones.idQt:', [...])
+ 2 SYSTEMPATH\Database\Query.php(308): CodeIgniter\Database\Query->matchNamedBinds('UPDATE `sellopro_cotizaciones` SET `total` = :total:
+WHERE `sellopro_cotizaciones`.`idQt` IN :sellopro_cotizaciones.idQt:', [...])
+ 3 SYSTEMPATH\Database\Query.php(159): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `sellopro_cotizaciones` SET `total` = :total:
+WHERE `sellopro_cotizaciones`.`idQt` IN :sellopro_cotizaciones.idQt:', [...], false)
+ 6 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 7 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 8 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 9 APPPATH\Controllers\Admin\Cotizaciones.php(109): CodeIgniter\Model->update('1', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Admin\Cotizaciones->agregar()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Cotizaciones))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
