@@ -47,7 +47,8 @@ const {createApp,ref} = Vue
 			    		'password':me.form.password_confirmada
 			    	}).then(function (response){
 			    		if (response.data == 1) {
-			    			me.msg = "Se creo el usuario";
+			    			me.form =""
+			    			window.location = "/";
 			    		}
 			    	})
 			    }

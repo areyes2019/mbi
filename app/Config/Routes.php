@@ -4,20 +4,36 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Login::index');
-$routes->get('recuperar', 'Login::recuperar');
-$routes->get('crear_cuenta', 'Login::crear');
-$routes->post('nueva_cuenta', 'Login::insertar');
+$routes->group('',['filter' => 'NoLoggin'],static function($routes){
+	$routes->get('/', 'Login::index');
+	$routes->get('recuperar', 'Login::recuperar');
+	$routes->get('crear_cuenta', 'Login::crear');
+	$routes->post('nueva_cuenta', 'Login::insertar');
+	$routes->post('entrar', 'Login::validar_entrada');
+});
 
-$routes->group('',static function($routes){
-	$routes->get('/inicio', 'admin\Admin::index');
+
+$routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	
+	$routes->get('/usuarios', 'Usuarios::index');	
+	$routes->get('/nuevo_usuario', 'Usuarios::nuevo');	
+	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
+	$routes->post('actualizar_usuario', 'Usuarios::actualizar');	
+	$routes->get('eliminar_usuario', 'Usuarios::eliminar');	
+
+	//usuarios
+	$routes->get('/inicio', 'Admin::index');	
+
+
+
+	$routes->get('/inicio', 'Admin::index');	
 	/*Clientes*/
-	$routes->get('clientes', 'admin\Clientes::index');
-	$routes->post('nuevo_cliente', 'admin\Clientes::nuevo');
-	$routes->get('editar_cliente/(:num)', 'admin\Clientes::editar/$1');
-	$routes->post('actualizar_cliente', 'admin\Clientes::actualizar');
-	$routes->get('eliminar_cliente/(:num)', 'admin\Clientes::eliminar/$1');
+	$routes->get('clientes', 'Clientes::index');
+	$routes->get('agregar_cliente', 'Clientes::agregar');
+	$routes->post('nuevo_cliente', 'Clientes::nuevo');
+	$routes->get('editar_cliente/(:num)', 'Clientes::editar/$1');
+	$routes->post('actualizar_cliente', 'Clientes::actualizar');
+	$routes->get('eliminar_cliente/(:num)', 'Clientes::eliminar/$1');
 	
 	/*Proveedores*/
 	$routes->get('proveedores', 'admin\Proveedores::index');

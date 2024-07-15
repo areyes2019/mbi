@@ -1,4 +1,4 @@
-<?php echo $this->extend('Panel/panel_template') ?>
+<?php echo $this->extend('panel_template') ?>
 <?php echo $this->section('contenido') ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">

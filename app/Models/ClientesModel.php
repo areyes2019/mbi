@@ -5,15 +5,20 @@ use CodeIgniter\Model;
 
 class ClientesModel extends Model
 {
-    protected $table = 'sellopro_clientes';
-    protected $primaryKey = 'idCliente';
+    protected $table = 'mbi_clientes';
+    protected $primaryKey = 'id_cliente';
     protected $allowedFields = [
-        'nombre',
-        'correo',
-        'direccion',
-        'telefono',
+        'empresa',
+        'contacto',
+        'calle',
+        'numero_ext',
+        'numero_int',
+        'colonia',
         'ciudad',
         'estado',
-        'descuento'
+        'ubicacion',
+        'telefono',
+        'movil',
+        'correo'
     ];
 }

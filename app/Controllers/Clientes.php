@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ClientesModel;
 
@@ -10,18 +10,34 @@ class Clientes extends BaseController
 	{
 		$model = new ClientesModel();
 		$data['clientes'] = $model->findAll();
-		return view('Panel/clientes', $data);
+		return view('clientes', $data);
+	}
+	public function agregar()
+	{
+		return view('nuevo_cliente');
 	}
 	public function nuevo()
 	{
+		$request = \Config\Services::request();
 		$model = new ClientesModel();
 		$data = [
-		    'nombre' => $this->request->getPost('nombre'),
-		    'telefono' => $this->request->getPost('telefono'),
-		    'direcion' => $this->request->getPost('direcion')
+		    'empresa' => $this->request->getvar('empresa'),
+		    'contacto' => $this->request->getvar('contacto'),
+		    'calle' => $this->request->getvar('calle'),
+		    'numero_ext' => $this->request->getvar('ext'),
+		    'numero_int' => $this->request->getvar('int'),
+		    'colonia' => $this->request->getvar('colonia'),
+		    'ciudad' => $this->request->getvar('ciudad'),
+		    'estado' => $this->request->getvar('estado'),
+		    'ubicacion' => $this->request->getvar('ubicacion'),
+		    'telefono' => $this->request->getvar('fijo'),
+		    'movil' => $this->request->getvar('movil'),
+		    'correo' => $this->request->getvar('correo'),
 		];
-		$model->insert($data);
-		return redirect()->to('/clientes');
+		if ($model->insert($data)) {
+			echo true;	
+		}
+		//return redirect()->to('/clientes');
 	}
 	public function editar($id)
 	{

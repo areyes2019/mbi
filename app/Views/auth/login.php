@@ -8,15 +8,15 @@
                 <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">¡Bienvenido nuevamente!</h1>
                 </div>
-                <form class="user">
+                <form class="user" method="POST" action="<?php echo base_url('entrar'); ?>">
                     <div class="form-group">
                         <input type="email" class="form-control form-control-user"
                             id="exampleInputEmail" aria-describedby="emailHelp"
-                            placeholder="Escribe tu correo">
+                            placeholder="Escribe tu correo" name="correo">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control form-control-user"
-                            id="exampleInputPassword" placeholder="Contraseña">
+                            id="exampleInputPassword" placeholder="Contraseña" name="password">
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox small">
@@ -24,9 +24,9 @@
                             <label class="custom-control-label" for="customCheck">Recuerdame</label>
                         </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
                         Entrar
-                    </a>
+                    </button>
                     <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Login with Google
                     </a> -->

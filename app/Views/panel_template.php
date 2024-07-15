@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="<?php echo base_url('public/panel/css/sb-admin-2.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('public/css/style.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.3/datatables.min.css" rel="stylesheet">
     <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.3/datatables.min.js"></script>
@@ -57,7 +58,7 @@
                     <span>Inicio</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('clientes')?>">
+                <a class="nav-link" href="<?php echo base_url('usuarios')?>">
                     <i class="bi bi-person"></i>
                     <span>Usuarios</span></a>
             </li>
@@ -260,7 +261,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo session('nombre') ?></span>
                                 
                             </a>
                             <!-- Dropdown - User Information -->
@@ -281,7 +282,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Salir
                                 </a>
                             </div>
                         </li>
@@ -300,15 +301,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+           
 
         </div>
         <!-- End of Content Wrapper -->
@@ -335,7 +328,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?php echo base_url('salir'); ?>">Salir</a>
                 </div>
             </div>
         </div>
@@ -349,16 +342,10 @@
             <p class="toaster-message m-0 p-0"></p>
         </div>
     </div>
-    <div id="dialog-box">
-        <p class="m-0 text-center"><span class="bi bi  bi-exclamation-diamond"></span> ¡Atencion!</p>
-        <p class="m-0 text-center">¿Deseas descontar esta cotizacion del inventario?</p>
-        <div class="d-flex justify-content-around mt-2">
-            <button class="btn btn-primary">Sí descontar</button>
-            <button class="btn btn-danger">No descontar</button>
-        </div>
-    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery/jquery.min.js')?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script src="<?php echo base_url('public/panel/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
     <!-- Core plugin JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery-easing/jquery.easing.min.js')?>"></script>

@@ -1,4 +1,4 @@
-<?php echo $this->extend('Panel/panel_template')?>
+<?php echo $this->extend('panel_template')?>
 <?php echo $this->section('contenido')?>
 <div class="container-fluid">
     <div class="row column_title">
@@ -15,13 +15,13 @@
             <div class="white_shd full margin_bottom_30">
                 <div class="full graph_head">
                     <div class="heading1 margin_0 mb-2">
-                        <button class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#nuevo_cliente">
+                        <a href="<?php echo base_url('agregar_cliente'); ?>" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-flag"></i>
                             </span>
                             <span class="text">Nuevo Cliente</span>
                             
-                        </button>
+                        </a>
                     </div>
                     <div class="modal fade" id="nuevo_cliente">
                       <div class="modal-dialog">
@@ -57,8 +57,8 @@
                         <table id="example" class="table table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Numero WhatsApp</th>
+                                    <th>Empresa</th>
+                                    <th>Contacto</th>
                                     <th>Correo</th>
                                     <th>Acción</th>
                                 </tr>
@@ -66,16 +66,16 @@
                             <tbody>
                                 <?php foreach ($clientes as $cliente): ?>
                                 <tr>
-                                    <td><?php echo $cliente['nombre'] ?></td>
-                                    <td><?php echo $cliente['telefono'] ?></td>
+                                    <td><?php echo $cliente['empresa'] ?></td>
+                                    <td><?php echo $cliente['contacto'] ?></td>
                                     <?php if ($cliente['correo'] == null):?>
                                     <td>No registrado</td>
                                     <?php else:?>
                                     <td><?php echo $cliente['correo'] ?></td>
                                     <?php endif; ?>
                                     <td>
-                                        <a class="btn btn-primary btn-circle btn-sm" href="editar_cliente/<?php echo $cliente['idCliente'] ?>"><span class="bi bi-pencil"></span></a>
-                                        <a class="btn btn-danger btn-circle btn-sm" href="eliminar_cliente/<?php echo $cliente['idCliente']  ?>" onclick="return confirm('¿Seguro que quieres eliminar este registro?')"><span class="bi bi-trash3"></span></a>
+                                        <a class="btn btn-primary btn-circle btn-sm" href="editar_cliente/<?php echo $cliente['id_cliente'] ?>"><span class="bi bi-pencil"></span></a>
+                                        <a class="btn btn-danger btn-circle btn-sm" href="eliminar_cliente/<?php echo $cliente['id_cliente']  ?>" onclick="return confirm('¿Seguro que quieres eliminar este registro?')"><span class="bi bi-trash3"></span></a>
                                     </td>
                                 </tr>
                                 <?php endforeach;?>
