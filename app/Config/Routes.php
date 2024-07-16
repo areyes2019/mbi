@@ -15,15 +15,21 @@ $routes->group('',['filter' => 'NoLoggin'],static function($routes){
 
 $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	
+	$routes->get('/salir', 'Login::salir');	
+	
 	$routes->get('/usuarios', 'Usuarios::index');	
 	$routes->get('/nuevo_usuario', 'Usuarios::nuevo');	
 	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
+	$routes->get('ver_usuario/(:num)', 'Usuarios::ver/$1');	
 	$routes->post('actualizar_usuario', 'Usuarios::actualizar');	
 	$routes->get('eliminar_usuario', 'Usuarios::eliminar');	
+	$routes->get('permisos', 'Usuarios::permisos');	
 
 	//usuarios
 	$routes->get('/inicio', 'Admin::index');	
 
+	//kardex
+	$routes->get('kardex','Kardex::index');
 
 
 	$routes->get('/inicio', 'Admin::index');	
@@ -53,23 +59,23 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('actualizar_articulo', 'admin\Articulos::actualizar');
 	$routes->get('eliminar_articulo/(:num)', 'admin\Articulos::eliminar/$1');
 
-	/*Cotizaciones*/
-	$routes->get('cotizaciones', 'admin\Cotizaciones::index');
-	$routes->get('nueva_cotizacion/(:num)', 'admin\Cotizaciones::nueva/$1');
-	$routes->get('pagina_cotizador/(:any)', 'admin\Cotizaciones::pagina/$1');
-	$routes->get('editar_cotizacion/(:num)', 'admin\Cotizaciones::editar/$1');
-	$routes->get('actualizar_cotizacion/(:num)', 'admin\Cotizaciones::actualizar/$1');
-	$routes->get('eliminar_cotizacion/(:num)', 'admin\Cotizaciones::eliminar/$1');
-	$routes->post('agregar_articulo', 'admin\Cotizaciones::agregar');
-	$routes->post('agregar_articulo_ind', 'admin\Cotizaciones::agregar_ind');
-	$routes->get('mostrar_detalles/(:num)', 'admin\Cotizaciones::mostrar_detalles/$1');
-	$routes->get('borrar_linea/(:num)', 'admin\Cotizaciones::borrar_linea/$1');
-	$routes->get('descargar_cotizacion/(:num)', 'admin\Cotizaciones::cotizacion_pdf/$1');
-	$routes->get('enviar', 'admin\Cotizaciones::enviar');
-	$routes->get('enviar_pdf/(:num)', 'admin\Cotizaciones::enviar_pdf/$1');
-	$routes->post('pago', 'admin\Cotizaciones::pago');
-	$routes->post('modificar_cantidad', 'admin\Cotizaciones::modificar_cantidad');
-	$routes->post('marcar_entregado', 'admin\Cotizaciones::entregado');
+	/*Panel*/
+	$routes->get('cotizaciones', 'Cotizaciones::index');
+	$routes->get('nueva_cotizacion/(:num)', 'Cotizaciones::nueva/$1');
+	$routes->get('pagina_cotizador/(:any)', 'Cotizaciones::pagina/$1');
+	$routes->get('editar_cotizacion/(:num)', 'Cotizaciones::editar/$1');
+	$routes->get('actualizar_cotizacion/(:num)', 'Cotizaciones::actualizar/$1');
+	$routes->get('eliminar_cotizacion/(:num)', 'Cotizaciones::eliminar/$1');
+	$routes->post('agregar_articulo', 'Cotizaciones::agregar');
+	$routes->post('agregar_articulo_ind', 'Cotizaciones::agregar_ind');
+	$routes->get('mostrar_detalles/(:num)', 'Cotizaciones::mostrar_detalles/$1');
+	$routes->get('borrar_linea/(:num)', 'Cotizaciones::borrar_linea/$1');
+	$routes->get('descargar_cotizacion/(:num)', 'Cotizaciones::cotizacion_pdf/$1');
+	$routes->get('enviar', 'Cotizaciones::enviar');
+	$routes->get('enviar_pdf/(:num)', 'Cotizaciones::enviar_pdf/$1');
+	$routes->post('pago', 'Cotizaciones::pago');
+	$routes->post('modificar_cantidad', 'Cotizaciones::modificar_cantidad');
+	$routes->post('marcar_entregado', 'Cotizaciones::entregado');
 
 	/*Compras*/
 	$routes->get('compras', 'admin\Compras::index');

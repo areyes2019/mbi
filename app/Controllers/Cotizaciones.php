@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CotizacionesModel;
 use App\Models\ClientesModel;
@@ -11,7 +11,7 @@ class Cotizaciones extends BaseController
 {
 	public function index()
 	{
-		$db = \Config\Database::connect();
+		/*$db = \Config\Database::connect();
 
 		$builder = $db->table('sellopro_cotizaciones');
 		$builder->join('sellopro_clientes','sellopro_clientes.idCliente = sellopro_cotizaciones.cliente');
@@ -20,8 +20,8 @@ class Cotizaciones extends BaseController
 		//return view('Panel/cotizaciones');
 		$cliente = new ClientesModel();
 		$data['cotizaciones'] = $resultado;
-		$data['clientes']  = $cliente->findAll();
-		return view('Panel/cotizaciones', $data);
+		$data['clientes']  = $cliente->findAll();*/
+		return view('cotizaciones'); //$data);
 	}
 	public function nueva($id)
 	{
