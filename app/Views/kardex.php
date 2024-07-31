@@ -20,7 +20,7 @@
         </div>
         <!-- Card Body -->
         <div class="card-body">
-			<h5>Solicitud de Diagnostico</h5>
+			<h5>Solicitud de Diagnostico 678</h5>
 			<hr>
 			<div class="row">
 				<div class="col-md-5">
