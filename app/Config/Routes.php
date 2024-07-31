@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->group('',['filter' => 'NoLoggin'],static function($routes){
 	$routes->get('/', 'Login::index');
-	$routes->get('/recuperar', 'Login::recuperar');
+	$routes->get('/recuperar', 'admin\Login::recuperar');
 	$routes->get('crear_cuenta', 'Login::crear');
 	$routes->post('nueva_cuenta', 'Login::insertar');
 	$routes->post('entrar', 'Login::validar_entrada');
