@@ -9,15 +9,15 @@ class Login extends BaseController{
 
 	public function index()
 	{
-		return view('Auth/login');
+		return view('auth/login');
 	}
 	public function crear()
 	{
-		return view('Auth/crear_cuenta');
+		return view('auth/crear_cuenta');
 	}
 	public function recuperar()
 	{
-		return view('Auth/recuperar_cuenta');
+		return view('auth/recuperar_cuenta');
 	}
 	public function insertar()
 	{
