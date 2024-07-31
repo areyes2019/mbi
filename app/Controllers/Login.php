@@ -17,7 +17,8 @@ class Login extends BaseController{
 	}
 	public function recuperar()
 	{
-		return view('auth/recuperar_cuenta');
+		return "saludo";
+		//return view('auth/recuperar_cuenta');
 	}
 	public function insertar()
 	{
