@@ -24,7 +24,7 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-5">
-					<h5 class="m-0"># <strong>JKG566</strong></h5>
+					<h5 class="m-0"># <strong>JKG56633</strong></h5>
 					<p class="mb-0 mt-1">Generado por:</p>
 					<h5><strong>Adela Franco</strong></h5>
 					<p class="m-0">Asignagnado a: <strong>Carlos Estrada Caballero</strong></p>
