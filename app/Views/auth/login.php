@@ -6,6 +6,7 @@
             <!-- Nested Row within Card Body -->
             <div class="p-5">
                 <div class="text-center">
+                    <h1><center>MBI</center></h1>
                     <h1 class="h4 text-gray-900 mb-4">¡Bienvenido nuevamente!</h1>
                 </div>
                 <form class="user" method="POST" action="<?php echo base_url('entrar'); ?>">
