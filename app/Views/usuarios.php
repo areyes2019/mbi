@@ -23,7 +23,7 @@
 			<td></td>
 			<td>
 				<a href="" class="btn btn-primary btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Editar"><span class="bi bi-pencil"></span></a>
-				<a href="<?php echo base_url('permisos'); ?>" class="btn btn-danger btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Permisos"><span class="bi bi-key"></span></a>
+				<a href="<?php echo base_url('permisos/'.$data['id']); ?>" class="btn btn-danger btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Permisos"><span class="bi bi-key"></span></a>
 				<a href="<?php echo base_url('ver_usuario/'.$data['id']); ?>" class="btn btn-success btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Ver"><span class="bi bi-eyeglasses"></span></a>
 			</td>
 		</tr>
