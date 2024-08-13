@@ -63,6 +63,11 @@
                     <span>Usuarios</span></a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url('roles')?>">
+                    <i class="bi bi-diagram-3"></i>
+                    <span>Roles y Permisos</span></a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('clientes')?>">
                     <i class="bi bi-person"></i>
                     <span>Clientes</span></a>

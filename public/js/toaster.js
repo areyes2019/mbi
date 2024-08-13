@@ -8,5 +8,5 @@ function toaster(title,message) {
 
 function clean() {
 	document.querySelector('#toaster').style.transform = 'translateX(120%)';
-	document.querySelector('#toaster').style.transition = '2s';
+	document.querySelector('#toaster').style.transition = '4s';
 }

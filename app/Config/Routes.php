@@ -17,6 +17,9 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	
 	$routes->get('/salir', 'Login::salir');	
 	
+	//usuarios
+	$routes->group('',['filter'=> 'mifiltro'],static function($routes){
+	});
 	$routes->get('/usuarios', 'Usuarios::index');	
 	$routes->get('/nuevo_usuario', 'Usuarios::nuevo');	
 	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
@@ -26,10 +29,27 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('permisos/(:num)', 'Usuarios::permisos/$1');
 	$routes->get('/ver_permisos/(:num)', 'Usuarios::ver_permisos/$1');
 	$routes->post('/actualizar_permiso', 'Usuarios::actualizar_permiso');	
-
-	//usuarios
 	$routes->get('/inicio', 'Admin::index');	
+	$routes->post('/agregar_rol_usuario', 'Usuarios::agregar_rol_usuario');	
+	$routes->get('/ver_roles_asignados/(:num)', 'Usuarios::ver_roles_asignados/$1');	
+	
+	//roles y permisos
+	$routes->get('roles', 'Roles::index');
+	$routes->get('ver_roles', 'Roles::mostrar');
+	$routes->post('agregar_rol', 'Roles::agregar');
+	$routes->get('ver_secciones', 'Roles::ver_secciones');
+	$routes->get('ver_permisos', 'Roles::ver_permisos');
+	$routes->get('eliminar_rol/(:num)', 'Roles::eliminar_rol/$1');
+	$routes->get('editar_rol/(:num)', 'Roles::editar_rol/$1');
+	$routes->post('add_seccion', 'Roles::add_seccion');
+	$routes->get('secciones_de_rol/(:num)', 'Roles::rol_seccion/$1');
+	$routes->post('agregar_permiso', 'Roles::agregar_permiso');
+	$routes->get('mostrar_permiso_seccion/(:num)', 'Roles::mostrar_permiso_seccion/$1');
+	$routes->get('borrar_permiso/(:num)', 'Roles::borrar_permiso/$1');
+	$routes->get('eliminar_seccion_rol/(:num)', 'Roles::eliminar_seccion_rol/$1');
+	$routes->get('quitar_rol_usuario/(:num)', 'Roles::quitar_rol_usuario/$1');
 
+	
 	//kardex
 	$routes->get('kardex','Kardex::index');
 

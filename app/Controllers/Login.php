@@ -50,9 +50,10 @@ class Login extends BaseController{
         if ($resultado && password_verify($password, $resultado[0]['password'])) {
             
             $data = [
-            	'id_usuario'=> $resultado[0]['id'],
+            	'id_usuario'=> $resultado[0]['id_usuario'],
             	'nombre'=> $resultado[0]['nombre'],
-            	'is_logged'=> true
+            	'is_logged'=> true,
+            	'role' => $resultado[0]['id_rol']
             ];
      		$this->session->set($data);
             return redirect()->to('/inicio');
