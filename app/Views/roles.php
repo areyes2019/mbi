@@ -19,7 +19,7 @@
 					  		<p class="m-0">{{data.role_name}}</p>
 						  	<div class="col-md-2 d-flex justify-content-start">
 						  		<button class="btn btn-danger btn-sm mr-2" @click="eliminar(data.role_id)"><span class="bi bi-trash3"></span></button>
-						  		<a :href="'/secciones_de_rol/'+data.role_id" class="btn btn-primary btn-sm"><span class="bi bi-eyeglasses"></span></a>
+						  		<a :href="'secciones_de_rol/'+data.role_id" class="btn btn-primary btn-sm"><span class="bi bi-eyeglasses"></span></a>
 						  	</div>
 				  		</div>
 				  	</li>
