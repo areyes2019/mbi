@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/grupomb1/public_html/admin
+    - export DEPLOYPATH=/home/grupomb1/app.grupo-mbi.com.mx
     
