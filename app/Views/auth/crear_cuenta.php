@@ -9,10 +9,15 @@
                     <h1 class="h4 text-gray-900 mb-4">Crear una cuenta</h1>
                     <p>{{msg}}</p>
                 </div>
+               
                 <form @submit.prevent="enviar_form">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre Completo" v-model="form.nombre">
+                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Nombre" v-model="form.nombre">
                         <small class="text-danger">{{errores.nombre}}</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Apellidos" v-model="form.apellidos">
+                        <small class="text-danger">{{errores.apellidos}}</small>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Correo Elecrtónico" v-model="form.correo">
@@ -53,4 +58,5 @@
         </div>
     </div>
 </div>
+<script src="<?php echo base_url('public/js/login.js'); ?>"></script>
 <?php echo $this->endSection()?>

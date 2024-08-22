@@ -11,20 +11,18 @@
 				<th>#</th>
 				<th>Nombre</th>
 				<th>Mobil</th>
-				<th>Roles</th>
+				<th>Función</th>
 				<th></th>
 			</tr>
 		</thead>
 		<?php foreach ($usuarios as $data): ?>
 		<tr>
 			<td><?php echo $data['id_usuario'] ?></td>
-			<td><?php echo $data['nombre'] ?></td>
+			<td><?php echo $data['nombre'] ?> <?php echo $data['apellidos'] ?></td>
 			<td><span class="bi bi-envelope"></span> <?php echo $data['correo'] ?></td>
-			<td></td>
+			<td>Ventas</td>
 			<td>
 				<a href="<?php echo base_url('editar_usuario/'.$data['id_usuario'])?>" class="btn btn-primary btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Editar"><span class="bi bi-pencil"></span></a>
-				<a href="<?php echo base_url('permisos/'.$data['id_usuario']); ?>" class="btn btn-danger btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Permisos"><span class="bi bi-key"></span></a>
-				<a href="<?php echo base_url('ver_usuario/'.$data['id_usuario']); ?>" class="btn btn-success btn-circle btn-sm" data-toggle = "tooltip" data-placement="top" title="Ver"><span class="bi bi-eyeglasses"></span></a>
 			</td>
 		</tr>
 		<?php endforeach ?>

@@ -4,6 +4,7 @@ const {createApp,ref} = Vue
 			return{
 				form:{
 					nombre:"",
+					apellidos:"",
 					correo:"",
 					password:"",
 					password_confirmada:"",
@@ -19,6 +20,9 @@ const {createApp,ref} = Vue
 				this.errores = {};
 		      	if (!this.form.nombre) {
 			        this.errores.nombre = 'El nombre es obligatorio';
+		      	}
+		      		if (!this.form.apellidos) {
+			        this.errores.apellidos = 'Los apellidos son obligatorio';
 		      	}
 		      	if (!this.form.correo) {
 			        this.errores.correo = 'El correo es obligatorio';
@@ -43,6 +47,7 @@ const {createApp,ref} = Vue
 				if (this.validar_form()) {
 			    	axios.post(url,{
 			    		'nombre':me.form.nombre,
+			    		'apellidos':me.form.apellidos,
 			    		'correo':me.form.correo,
 			    		'password':me.form.password_confirmada
 			    	}).then(function (response){

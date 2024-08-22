@@ -5,6 +5,8 @@ namespace App\Filters;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\UsuarioRolModel;
+use App\Models\UsuariosModel;
 
 class Mifiltro implements FilterInterface
 {
@@ -25,7 +27,8 @@ class Mifiltro implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        echo '<script>alert("Filtro antes de ingresar")</script>';
+        
+        
     }
 
     /**

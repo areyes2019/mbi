@@ -21,52 +21,62 @@ class Clientes extends BaseController
 		$request = \Config\Services::request();
 		$model = new ClientesModel();
 		$data = [
-		    'empresa' => $this->request->getvar('empresa'),
-		    'contacto' => $this->request->getvar('contacto'),
-		    'calle' => $this->request->getvar('calle'),
-		    'numero_ext' => $this->request->getvar('ext'),
-		    'numero_int' => $this->request->getvar('int'),
-		    'colonia' => $this->request->getvar('colonia'),
-		    'ciudad' => $this->request->getvar('ciudad'),
-		    'estado' => $this->request->getvar('estado'),
-		    'ubicacion' => $this->request->getvar('ubicacion'),
-		    'telefono' => $this->request->getvar('fijo'),
+		    'titular' => $this->request->getvar('titular'),
+		    'responsable' => $this->request->getvar('responsable'),
+		    'telefono' => $this->request->getvar('telefono'),
+		    'extencion' => $this->request->getvar('extencion'),
 		    'movil' => $this->request->getvar('movil'),
 		    'correo' => $this->request->getvar('correo'),
+		    'direccion' => $this->request->getvar('direccion'),
+		    'ubicacion' => $this->request->getvar('ubicacion'),
+		    'laboratorio' => $this->request->getvar('laboratorio'),
+		    'piso' => $this->request->getvar('piso'),
 		];
 		if ($model->insert($data)) {
-			echo true;	
+			echo 1;	
 		}
-		//return redirect()->to('/clientes');
+		
+		//return json_encode($data); //redirect()->to('/clientes');
 	}
 	public function editar($id)
 	{
-
 		$model = new ClientesModel();
-		$resultado = $model->where('idCliente',$id)->findAll();
-		$nombre = $resultado[0]['nombre'];
-		$data = ['clientes'=>$resultado,'nombre'=>$nombre];
-		return view('Panel/editar_cliente',$data);
+		$resultado = $model->where('id_cliente',$id)->findAll();
+		$nombre = $resultado[0]['titular'];
+		$id = $resultado[0]['id_cliente'];
+		$data = ['id_cliente'=>$id,'nombre'=>$nombre];
+		return view('editar_cliente', $data);
+	}
+	public function mostrar_cliente($id){
+		$model = new ClientesModel();
+		$model->where('id_cliente',$id);
+		$resultado = $model->findAll();
 
+		return json_encode($resultado);
 	}
 	public function actualizar()
 	{
 		
-
 		$modelo = new ClientesModel();
-		$id = $this->request->getPost('idcliente');
+		$request = \Config\Services::request();
+		$datos = $this->request->getvar()[0];
+		$id = $datos->id_cliente;
 		$data = [
-			'nombre'=> $this->request->getPost('nombre'),
-			'correo' => $this->request->getPost('correo'),
-			'direccion' => $this->request->getPost('direccion'),
-			'telefono' => $this->request->getPost('telefono'),
-			'ciudad' => $this->request->getPost('ciudad'),
-			'estado' => $this->request->getPost('estado'),
-			'cp' =>$this->request->getPost('cp'),
-			'descuento' =>$this->request->getPost('descuento'),
+			'correo' => $datos->correo,
+			'direccion'=> $datos->direccion,
+			'extencion' => $datos->extencion,
+			'laboratorio' => $datos->laboratorio,
+			'movil' => $datos->movil,
+			'piso' =>$datos->piso,
+			'responsable' =>$datos->responsable,
+			'telefono' =>$datos->telefono,
+			'titular' =>$datos->titular,
+			'ubicacion' =>$datos->ubicacion,
 		];
-		$modelo->update($id,$data);
-		return redirect()->to('/clientes');
+		if ($modelo->update($id,$data)) {
+			echo 1;
+		}
+		
 	}
 	public function eliminar($id)
 	{

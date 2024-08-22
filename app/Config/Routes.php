@@ -16,10 +16,10 @@ $routes->group('',['filter' => 'NoLoggin'],static function($routes){
 $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	
 	$routes->get('/salir', 'Login::salir');	
-	
 	//usuarios
-	$routes->group('',['filter'=> 'mifiltro'],static function($routes){
-	});
+
+	$routes->get('/inicio', 'Admin::index');	
+	
 	$routes->get('/usuarios', 'Usuarios::index');	
 	$routes->get('/nuevo_usuario', 'Usuarios::nuevo');	
 	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
@@ -29,9 +29,8 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('permisos/(:num)', 'Usuarios::permisos/$1');
 	$routes->get('/ver_permisos/(:num)', 'Usuarios::ver_permisos/$1');
 	$routes->post('/actualizar_permiso', 'Usuarios::actualizar_permiso');	
-	$routes->get('/inicio', 'Admin::index');	
-	$routes->post('/agregar_rol_usuario', 'Usuarios::agregar_rol_usuario');	
-	$routes->get('/ver_roles_asignados/(:num)', 'Usuarios::ver_roles_asignados/$1');	
+	$routes->post('/agregar_seccion_usuario', 'Usuarios::agregar_seccion_usuario');	
+	$routes->get('/ver_secciones_asignadas/(:num)', 'Usuarios::ver_secciones_asignadas/$1');	
 	
 	//roles y permisos
 	$routes->get('roles', 'Roles::index');
@@ -43,25 +42,26 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('editar_rol/(:num)', 'Roles::editar_rol/$1');
 	$routes->post('add_seccion', 'Roles::add_seccion');
 	$routes->get('secciones_de_rol/(:num)', 'Roles::rol_seccion/$1');
-	$routes->post('agregar_permiso', 'Roles::agregar_permiso');
+	$routes->post('asignar_funcion', 'Roles::asignar_funcion');
 	$routes->get('mostrar_permiso_seccion/(:num)', 'Roles::mostrar_permiso_seccion/$1');
 	$routes->get('borrar_permiso/(:num)', 'Roles::borrar_permiso/$1');
 	$routes->get('eliminar_seccion_rol/(:num)', 'Roles::eliminar_seccion_rol/$1');
-	$routes->get('quitar_rol_usuario/(:num)', 'Roles::quitar_rol_usuario/$1');
-
+	$routes->get('quitar_seccion_usuario/(:num)', 'Roles::quitar_seccion_usuario/$1');
 	
-	//kardex
-	$routes->get('kardex','Kardex::index');
 
-
-	$routes->get('/inicio', 'Admin::index');	
 	/*Clientes*/
 	$routes->get('clientes', 'Clientes::index');
 	$routes->get('agregar_cliente', 'Clientes::agregar');
 	$routes->post('nuevo_cliente', 'Clientes::nuevo');
 	$routes->get('editar_cliente/(:num)', 'Clientes::editar/$1');
+	$routes->get('mostrar_cliente/(:num)', 'Clientes::mostrar_cliente/$1');
 	$routes->post('actualizar_cliente', 'Clientes::actualizar');
 	$routes->get('eliminar_cliente/(:num)', 'Clientes::eliminar/$1');
+	
+	//kardex
+	$routes->get('kardex','Kardex::index');
+	$routes->get('kardex_reporte','Kardex::kardex_repo');
+	
 	
 	/*Proveedores*/
 	$routes->get('proveedores', 'admin\Proveedores::index');
@@ -71,6 +71,15 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('eliminar_proveedor/(:num)', 'admin\Proveedores::eliminar/$1');
 	$routes->get('mostrar_familias/(:num)', 'admin\Proveedores::mostrar_familias/$1');
 	$routes->post('agregar_familia', 'admin\Proveedores::agregar_familia');
+
+	/*mi tablero*/
+	$routes->get('mi_tablero', 'Inbox::index');
+	$routes->post('nuevo_proveedor', 'Inbox::nuevo');
+	$routes->get('editar_proveedor/(:num)', 'Inbox::editar/$1');
+	$routes->post('actualizar_proveedor', 'Inbox::actualizar');
+	$routes->get('eliminar_proveedor/(:num)', 'Inbox::eliminar/$1');
+	$routes->get('mostrar_familias/(:num)', 'Inbox::mostrar_familias/$1');
+	$routes->post('agregar_familia', 'Inbox::agregar_familia');
 
 	/*Articulos*/
 	$routes->get('articulos', 'admin\Articulos::index');

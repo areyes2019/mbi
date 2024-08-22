@@ -8,13 +8,15 @@ use App\Models\UsuariosModel;
 use App\Models\PermisosModel;
 use App\Models\ModulosModel;
 use App\Models\SeccionesModel;
-use App\Models\UsuarioRolModel;
+use App\Models\UsuariosSecciones;
+use App\Models\RolesModel;
 
 class Usuarios extends BaseController
 {
     public function index()
    {
        $model = new UsuariosModel();
+       $model->where('tipo',0);
        $resultado = $model->findAll();
        $data['usuarios']=$resultado;
        return view('usuarios', $data);
@@ -23,7 +25,14 @@ class Usuarios extends BaseController
    {
         $model = new UsuariosModel();
         $resultado = $model->where('id_usuario',$id)->findAll();
+
+        /*$funcion = new RolesModel();
+        $funcion->where('role_id',$resultado[0]['function']);
+        $query = $funcion->get()->getResultArray();*/
+
         $data['usuario'] = $resultado;
+        $data['funcion'] = $query[0]['role_name'];
+        
         return view('perfil',$data);
    }
    public function permisos($id)
@@ -113,10 +122,26 @@ class Usuarios extends BaseController
    }
    public function editar($id)
    {
-       $model = new UsuariosModel();
-       $resultado = $model->where('id_usuario',$id)->findAll();
-       $data = ['usuario'=>$resultado];
-       return view('editar_usuario',$data);
+        $model = new UsuariosModel();
+        $resultado = $model->where('id_usuario',$id)->findAll();
+
+        $funcion_id = $resultado[0]['funcion'];
+
+        $funcion = new RolesModel();
+        $funcion->where('role_id',$funcion_id);
+        $query = $funcion->get()->getResultArray();
+
+        if (empty($query[0]['role_name'])) {
+            $puesto = "No asignado";
+        }else{
+            $puesto = $query[0]['role_name'];
+        }
+
+        $data = [
+            'usuario'=>$resultado,
+            'funcion'=>$puesto,
+        ];
+        return view('editar_usuario',$data);
    }
    public function actualizar()
    {
@@ -141,29 +166,29 @@ class Usuarios extends BaseController
            return true;
        }
    }
-   public function agregar_rol_usuario()
+   public function agregar_seccion_usuario()
    {
-       $model = new UsuarioRolModel();
+       $model = new UsuariosSecciones();
 
        $request = \Config\Services::request();
-       $rol = $this->request->getvar('rol');
+       $seccion = $this->request->getvar('seccion');
        $usuario = $this->request->getvar('usuario');
 
        $data = [
             'id_usuario'=>$usuario,
-            'id_rol'=>$rol,
+            'id_seccion'=>$seccion,
        ];
 
        if ($model->insert($data)) {
            echo 1;
        }
    }
-   public function ver_roles_asignados($id)
+   public function ver_secciones_asignadas($id)
    {
        $db = \Config\Database::connect();
-       $builder = $db->table('usuario_rol');
+       $builder = $db->table('usuarios_secciones');
        $builder->where('id_usuario',$id);
-       $builder->join('roles','roles.role_id = usuario_rol.id_rol');
+       $builder->join('secciones','secciones.section_id = usuarios_secciones.id_seccion');
        $resultado = $builder->get()->getResultArray(); 
        return json_encode($resultado);
    }

@@ -10,9 +10,11 @@ class UsuariosModel extends Model
     protected $primaryKey       = 'id_usuario';
     protected $allowedFields    = [
         'nombre',
+        'apellidos',
         'correo',
         'password',
         'tipo',
+        'funcion',
         'verificado',
         'creado_en',
     ];

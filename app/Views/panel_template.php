@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <link href="<?php echo base_url('public/css/style.css'); ?>" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="<?php echo base_url('public/panel/css/sb-admin-2.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('public/css/style.css') ?>" rel="stylesheet">
@@ -26,7 +27,8 @@
     <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.3/datatables.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
     <link href="<?php echo base_url('public/css/toaster.css'); ?>" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="<?php echo base_url('public/js/html2Canvas.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -47,42 +49,65 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-text mx-3">Sello Pronto</div>
             </a>
-
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+            
             <!-- Nav Item - Dashboard -->
+            <?php if (tiene_seccion('1') || es_super_admin()) : ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('/')?>">
                     <i class="bi bi-house"></i>
                     <span>Inicio</span></a>
             </li>
+            <?php endif; ?>
+
+            <?php if (tiene_seccion('2') || es_super_admin()):?>     
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url('mi_tablero')?>">
+                    <i class="bi bi-heart"></i>
+                    <span>Mi Tablero</span></a>
+            </li>
+            <?php endif;?>
+
+            <?php if (tiene_seccion('3') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('usuarios')?>">
                     <i class="bi bi-person"></i>
                     <span>Usuarios</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('roles')?>">
-                    <i class="bi bi-diagram-3"></i>
-                    <span>Roles y Permisos</span></a>
-            </li>
+            <?php endif; ?>
+
+
+            <?php if (tiene_seccion('4') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('clientes')?>">
                     <i class="bi bi-person"></i>
                     <span>Clientes</span></a>
             </li>
+            <?php endif; ?>
 
+            <?php if (tiene_seccion('5') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-bar-chart-steps"></i>
                     <span>WorkFlow</span></a>
             </li>
+            <?php endif; ?>
+
+            <?php if (tiene_seccion('6') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-calendar"></i>
                     <span>Calendario</span></a>
             </li>
+            <?php endif; ?>
+            <?php if (tiene_seccion('7') || es_super_admin()): ?>
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
+                    <i class="bi bi-filetype-pdf"></i>
+                    <span>Facturación</span></a>
+            </li>
+            <?php endif; ?>
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -101,10 +126,9 @@
 
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+                    <?php echo tiene_seccion('1')?>
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -261,13 +285,14 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo session('nombre') ?></span>
-                                
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo session('nombre')?></span>
+                                <?php if (session('tipo')==1): ?>
+                                    <span class="mr-2 d-none d-lg-inline small text-primary">Super Administrador</span>
+                                <?php endif ?>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -325,14 +350,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Has clic en "Salir" si estas listo para cerrar la session</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                     <a class="btn btn-primary" href="<?php echo base_url('salir'); ?>">Salir</a>
                 </div>
             </div>
@@ -350,7 +375,6 @@
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery/jquery.min.js')?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
     <script src="<?php echo base_url('public/panel/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
     <!-- Core plugin JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
@@ -360,4 +384,3 @@
 
 </body>
 
-</html>

@@ -14,10 +14,11 @@
             <div class="card rounded-0">
                 <img src="<?php echo $user['avatar'] ?>" class="card-img-top rounded-circle mx-auto mt-3" alt="Foto de Perfil" style="width: 200px; height: 200px;">
                 <div class="card-body text-center">
-                    <h4 class="card-title"><?php echo $user['nombre'] ?></h4>
+                    <h4 class="card-title m-0"><?php echo $user['nombre'] ?></h4>
+                    <h4 class="card-title m-0"><?php echo $funcion ?></h4>
                     <p class="card-text"><?php echo $user['correo'] ?></p>
                     <p class="d-none" ref="usuario"><?php echo $user['id_usuario'] ?></p>
-                    <button  class="btn btn-primary rounded-0" data-toggle="modal" data-target="#agregar_roles">Asignar Roles</a>
+                    <button  class="btn btn-primary rounded-0 ml-2" data-toggle="modal" data-target="#agregar_seccion">Asignar Funciones</a>
                 </div>
             </div>
         </div>
@@ -27,45 +28,119 @@
                     <h4>Información Personal</h4>
                 </div>
                 <div class="card-body">
-                    <p><strong>Nombre Completo: </strong><?php echo $user['nombre'].' '.$user['apellidos']?></p>
-                    <p><strong>Email: </strong> <?php echo $user['correo'] ?></p>
-                    <p><strong>Teléfono: </strong><?php echo $user['mobil'] ?></p>
+                    <p class="m-0"><strong>Nombre Completo: </strong><?php echo $user['nombre'].' '.$user['apellidos']?></p>
+                    <p class="m-0"><strong>Email: </strong> <?php echo $user['correo'] ?></p>
+                    <p class="m-0"><strong>Teléfono: </strong><?php echo $user['mobil'] ?></p>
+                    <p class="m-0"><strong>Función: </strong><?php echo $funcion ?></p>
                     <hr>
-                    <div class="col-md-4">
-	                    <h5>Roles asgsinados:</h5>
-	                    <ul class="list-group">
-	                    	<li class="list-group-item d-flex justify-content-between align-items-center" v-for="data in roles_asignados">
-	                    		<p class="m-0">{{data.role_name}}</p>
-	                    		<button class="btn btn-danger btn-sm rounded-0 shadow-none" @click='eliminar_rol(data.id_ur)'><span class="bi bi-x"></span></button>
-	                    	</li>
-	                    </ul>
-                    </div>
-                </div>
-                <div class="card-footer bg-white">
-                	<button class="btn btn-sm rounded-0 btn-primary">Ver Tareas</button>
-                	<button class="btn btn-sm rounded-0 btn-primary">Ver Pendientes</button>
+                    <h5>Secciones asgidnadas:</h5>
+                	<table class="table table-bordered">
+		    			<tr>
+		    				<th>Sección</th>
+		    				<th>Ver</th>
+		    				<th>Crear</th>
+		    				<th>Actualizar</th>
+		    				<th>Eliminar</th>
+		    				<th></th>
+		    			</tr>
+		    			<tr v-for="data in secciones_asignados">
+		    				<td>
+		    					{{data.section_name}}
+		    				</td>
+		    				<!--  leer -->
+		    				<td v-if="data.solo_ver == 1">
+		    					<label class="switch">
+								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_leer(data.id_us)" :value="data.solo_ver">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<td v-else>
+		    					<label class="switch">
+								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_leer(data.id_us)" :value="data.solo_ver">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<!--  leer -->
+
+		    				<!-- crear -->
+		    				<td v-if="data.crear == 1">
+		    					<label class="switch">
+								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_crear(data.id_permiso)" :value="data.crear">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<td v-else>
+		    					<label class="switch">
+								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_crear(data.id_permiso)" :value="data.crear">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<!-- crear -->
+
+		    				<!-- actualizar -->
+		    				<td v-if="data.actualizar == 1">
+		    					<label class="switch">
+								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_actualizar(data.id_permiso)">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<td v-else>
+		    					<label class="switch">
+								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_actualizar(data.id_permiso)">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<!-- actualizar -->
+
+		    				<!-- eliminar -->
+		    				<td v-if="data.eliminar == 1">
+		    					<label class="switch">
+								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_eliminar(data.id_permiso)">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<td v-else>
+		    					<label class="switch">
+								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_eliminar(data.id_permiso)">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<!-- eliminar -->
+		    				<td>
+		    					<button class="btn btn-danger btn-sm rounded-0 shadow-none" @click='eliminar_seccion(data.id_us)'><span class="bi bi-x"></span></button>
+		    				</td>
+		    			</tr>
+    				</table>
                 </div>
             </div>
         </div>
 	</div>
-	<div class="modal fade" id="agregar_roles" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="agregar_seccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content rounded-0 modal-sm">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Asignar Rol</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Asignar Permisos</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
 		        <p class="m-0 text-danger">{{alert}}</p>
-		      	<label for="">Nombre del Rol</label>
+		      	<label for="" class="mb-0">Nombre del Rol</label>
 		      	<div class="d-flex justify-content-between">
-			    	<select class="form-select rounded-0 shadow-none" v-model="rol">
-			    		<option value="">Sleccione una opción</option>
-			    		<option v-for="rol in roles" :value="rol.role_id">{{rol.role_name}}</option>
+			    	<select class="form-select rounded-0 shadow-none" v-model="seccion">
+			    		<option value="">Seleccione una opción</option>
+			    		<option v-for="seccion in secciones" :value="seccion.section_id">{{seccion.section_name}}</option>
 			    	</select>
-			    	<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-0" @click.prevent="agregar_rol"><i class="bi bi-check"></i></a>
+			    	<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-0" @click.prevent="agregar_seccion"><i class="bi bi-check"></i></a>
+		      	</div>
+		      	<label class="mt-2 mb-0">Asignar Función</label>
+		      	<div class="d-flex justify-content-between">
+			    	<select class="form-select rounded-0 shadow-none" v-model="funcion">
+			    		<option value="" selected>Seleccione una opción</option>
+			    		<option v-for="funcion in funciones" :value="funcion.role_id">{{funcion.role_name}}</option>
+			    	</select>
+			    	<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-0" @click.prevent="asignar_funcion"><i class="bi bi-check"></i></a>
 		      	</div>
 		      </div>
 		    </div>

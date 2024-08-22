@@ -11,4 +11,8 @@ class Kardex extends BaseController
     {
         return view('kardex');
     }
+    public function kardex_reporte()
+    {
+        return view('kardex_reporte');
+    }
 }

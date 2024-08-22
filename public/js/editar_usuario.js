@@ -3,58 +3,91 @@ createApp({
 	data(){
 		return{
 			msg:"hola",
-			roles:[],
-			roles_asignados:[],
-			rol:"",
-			alert:""	
+			secciones:[],
+			secciones_asignados:[],
+			seccion:"",
+			alert:"",
+			funciones:[],
+			funcion:"",
+			checked:true,	
 		}
 	},
 	methods:{
-		ver_roles(){
+		ver_secciones(){
+			var me = this;
+			var url = '/ver_secciones';
+			axios.get(url).then(function (response){
+				me.secciones = response.data;
+			})
+		},
+		ver_funciones(){
 			var me = this;
 			var url = '/ver_roles';
 			axios.get(url).then(function (response){
-				me.roles = response.data;
+				me.funciones = response.data;
 			})
 		},
-		agregar_rol(){
+		asignar_funcion(){
 			var me = this;
 			var id = this.$refs.usuario.innerHTML;
-			var url = "/agregar_rol_usuario";
+			var url = "/asignar_funcion";
 			axios.post(url,{
 				'usuario':id,
-				'rol':me.rol
+				'funcion':me.funcion
 
 			}).then(function (response){
 				if (response.data==1) {
-					me.ver_roles_asignados();
-					$("#agregar_roles").modal('hide');
+					me.ver_secciones_asignadas();
+					$("#agregar_seccion").modal('hide');
+					me.alert="";
 				}
 			}).catch(error=>{
 					var match = error.response.data.message;
 					var palabra = "Duplicate";
 					if (match.includes(palabra)){
-						me.alert = "Este rol ya esta asignado a este usuario, intenta con otro valor";
+						me.alert = "Esta seccion ya esta asignada a este usuario, intenta con otro valor";
+					}
+				})	
+		},
+		agregar_seccion(){
+			var me = this;
+			var id = this.$refs.usuario.innerHTML;
+			var url = "/agregar_seccion_usuario";
+			axios.post(url,{
+				'usuario':id,
+				'seccion':me.seccion
+
+			}).then(function (response){
+				if (response.data==1) {
+					me.ver_secciones_asignadas();
+					$("#agregar_seccion").modal('hide');
+					me.alert="";
+				}
+			}).catch(error=>{
+					var match = error.response.data.message;
+					var palabra = "Duplicate";
+					if (match.includes(palabra)){
+						me.alert = "Esta seccion ya esta asignada a este usuario, intenta con otro valor";
 					}
 				})
 		},
-		ver_roles_asignados(){
+		ver_secciones_asignadas(){
 			var me = this;
 			var id = this.$refs.usuario.innerHTML;
-			var url = '/ver_roles_asignados/'+ id;
+			var url = '/ver_secciones_asignadas/'+ id;
 			axios.get(url).then(function (response){
-				me.roles_asignados = response.data;
+				me.secciones_asignados = response.data;
 			})
 		},
-		eliminar_rol(data){
+		eliminar_seccion(data){
 			var me 	= this;
-			var txt = "Vas a eliminar este permiso del usuario, ¿Deseas continuar?";
+			var txt = "Vas quitar este permiso al usuario, ¿Deseas continuar?";
 			if (confirm(txt)== true) {
 
-			var url = '/quitar_rol_usuario/'+ data;
+			var url = '/quitar_seccion_usuario/'+ data;
 			axios.get(url).then(function (response){
 				if (response.data==1) {
-	        		me.ver_roles_asignados();
+	        		me.ver_secciones_asignadas();
 				}
 			}); 
 			}
@@ -62,8 +95,9 @@ createApp({
 		}
 	},
 	mounted(){
-		this.ver_roles();
-		this.ver_roles_asignados();
+		this.ver_secciones();
+		this.ver_funciones();
+		this.ver_secciones_asignadas();
 	}
 
 }).mount('#app')

@@ -9,7 +9,8 @@ use App\Models\SeccionesModel;
 use App\Models\PermisosModel;
 use App\Models\RolesSecciones;
 use App\Models\SeccionesPermisosModel;
-use App\Models\UsuarioRolModel;
+use App\Models\UsuariosModel;
+use App\Models\UsuariosSecciones;
 use Exception;
 
 class Roles extends BaseController
@@ -92,20 +93,17 @@ class Roles extends BaseController
         $resultado = $model->findAll();
         return json_encode($resultado);
     }
-    public function agregar_permiso()
+    public function asignar_funcion()
     {
-        $model = new SeccionesPermisosModel();
+        $model = new UsuariosModel();
         $request = \Config\Services::request();
+        $id = $this->request->getvar('usuario');
         $data = [
-            'id_rol_seccion'=>$this->request->getvar('rol_seccion'),
-            'id_permiso'    =>$this->request->getvar('permiso'),
+            'funcion'=>$this->request->getvar('funcion'),
         ];
 
-        //return json_encode($data);
-        try {
-            $model->insert($data);
-        } catch (\Exception $e) {
-            return $e->getMessage();
+        if ($model->update($id,$data)) {
+            echo 1;
         }
     }
     public function mostrar_permiso_seccion($id)
@@ -132,11 +130,12 @@ class Roles extends BaseController
             echo 1;
         }
     }
-    public function quitar_rol_usuario($id)
+    public function quitar_seccion_usuario($id)
     {
-        $model = new  UsuarioRolModel();
+        $model = new  UsuariosSecciones();
         if ($model->delete($id)) {
             echo 1;
         }
     }
+   
 }

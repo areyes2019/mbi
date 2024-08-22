@@ -2,7 +2,6 @@
 <?php echo $this->section('contenido') ?>
 <div class="container-fluid">
 	<div class="card shadow mb-4 rounded-0">
-        <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Solicitud de Diagnóstico</h6>
             <div class="dropdown no-arrow">
@@ -18,7 +17,6 @@
                 </div>
             </div>
         </div>
-        <!-- Card Body -->
         <div class="card-body">
 			<h5>Solicitud de Diagnostico 678</h5>
 			<hr>
@@ -67,13 +65,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<img src="<?php echo base_url('public/img/Captura.png');?>" width="450">
-						</td>
-						<td>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Inventore perspiciatis perferendis porro iusto corrupti autem quod, illo in voluptatibus maxime voluptatem, laboriosam non, distinctio atque accusantium adipisci quam sequi. Architecto, quam, similique? Rerum dolorem sapiente dignissimos beatae. Tempore possimus, doloremque non illo. Voluptatibus dignissimos incidunt quas nesciunt at tenetur dolore eius iusto, non, suscipit quidem, fuga, id harum. Obcaecati blanditiis, voluptate sit doloribus facere dolore voluptas quisquam maiores ex, quod cumque nam dolores perferendis, dignissimos dolor illum repudiandae. Pariatur, totam.</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="<?php echo base_url('public/img/ejemplo01.jpg');?>" width="450">
+							<img src="<?php echo base_url('public/img/ejemplo01.jpg'); ?>" width="450">
 						</td>
 						<td>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Inventore perspiciatis perferendis porro iusto corrupti autem quod, illo in voluptatibus maxime voluptatem, laboriosam non, distinctio atque accusantium adipisci quam sequi. Architecto, quam, similique? Rerum dolorem sapiente dignissimos beatae. Tempore possimus, doloremque non illo. Voluptatibus dignissimos incidunt quas nesciunt at tenetur dolore eius iusto, non, suscipit quidem, fuga, id harum. Obcaecati blanditiis, voluptate sit doloribus facere dolore voluptas quisquam maiores ex, quod cumque nam dolores perferendis, dignissimos dolor illum repudiandae. Pariatur, totam.</td>
 					</tr>
@@ -103,4 +95,5 @@
 		</div>
     </div>
 </div>
+
 <?php echo $this->endSection() ?>
