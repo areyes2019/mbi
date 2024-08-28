@@ -10,6 +10,80 @@ const {createApp,ref} = Vue
 				display_form:"d-none",
 				display_form_one:"",
 				texto:"",
+				id_cliente:"",
+				id_cliente_fiscal:"",
+				campos: [{
+                        dia: '',
+                        horaInicio: '',
+                        horaFin: '',
+                    }],
+                diasSemana: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+                /*Formulario de datos fiscales*/
+                regimen:"",
+                nombre:"",
+                correo:"",
+                rfc:"",
+                calle:"",
+                numero_ext:"",
+                numero_int:"",
+                colonia:"",
+                cp:"",
+                ciudad:"",
+                estado:"",
+                horarios:[],
+                regimenes: [
+                    { clave: '601', descripcion: 'General de Ley Personas Morales' },
+                    { clave: '603', descripcion: 'Régimen de Incorporación Fiscal' },
+                    { clave: '605', descripcion: 'Régimen de Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras' },
+                    { clave: '606', descripcion: 'Régimen de Arrendamiento' },
+                    { clave: '607', descripcion: 'Régimen de Sueldos y Salarios' },
+                    { clave: '608', descripcion: 'Régimen de Honorarios'},
+                    { clave: '609', descripcion: 'Régimen de Enajenación o Adquisición de Bienes'},
+                    { clave: '610', descripcion: 'Régimen de Personas Morales con Fines no Lucrativos'},
+                    { clave: '611', descripcion: 'Régimen de Maquiladoras'},
+                    { clave: '612', descripcion: 'Régimen de Actividades Profesionales'},
+                    { clave: '614', descripcion: 'Régimen de Enajenación de Bienes'},
+                    { clave: '615', descripcion: 'Régimen de los ingresos por obtención de premios'},
+                    { clave: '616', descripcion: 'Régimen de Dividendos y Participaciones'},
+                    { clave: '618', descripcion: 'Régimen de Opciones sobre Acciones'},
+                    { clave: '620', descripcion: 'Régimen de Personas Morales con Fines Lucrativos'},
+                    { clave: '621', descripcion: 'Régimen de Pequeñas Empresas'}
+                ],
+			    regimen_seleccionado:"",
+			    estados:[
+				    { nombre: "Aguascalientes", abreviatura: "AGU" },
+				    { nombre: "Baja California", abreviatura: "BC" },
+				    { nombre: "Baja California Sur", abreviatura: "BCS" },
+				    { nombre: "Campeche", abreviatura: "CAM" },
+				    { nombre: "Chiapas", abreviatura: "CHP" },
+				    { nombre: "Chihuahua", abreviatura: "CHH" },
+				    { nombre: "Coahuila", abreviatura: "COA" },
+				    { nombre: "Colima", abreviatura: "COL" },
+				    { nombre: "Durango", abreviatura: "DUR" },
+				    { nombre: "Guanajuato", abreviatura: "GTO" },
+				    { nombre: "Guerrero", abreviatura: "GRO" },
+				    { nombre: "Hidalgo", abreviatura: "HID" },
+				    { nombre: "Jalisco", abreviatura: "JAL" },
+				    { nombre: "México", abreviatura: "MEX" },
+				    { nombre: "Michoacán", abreviatura: "MIC" },
+				    { nombre: "Morelos", abreviatura: "MOR" },
+				    { nombre: "Nayarit", abreviatura: "NAY" },
+				    { nombre: "Nuevo León", abreviatura: "NL" },
+				    { nombre: "Oaxaca", abreviatura: "OAX" },
+				    { nombre: "Puebla", abreviatura: "PUE" },
+				    { nombre: "Querétaro", abreviatura: "QUE" },
+				    { nombre: "Quintana Roo", abreviatura: "QROO" },
+				    { nombre: "San Luis Potosí", abreviatura: "SLP" },
+				    { nombre: "Sinaloa", abreviatura: "SIN" },
+				    { nombre: "Sonora", abreviatura: "SON" },
+				    { nombre: "Tabasco", abreviatura: "TAB" },
+				    { nombre: "Tamaulipas", abreviatura: "TAM" },
+				    { nombre: "Tlaxcala", abreviatura: "TLA" },
+				    { nombre: "Veracruz", abreviatura: "VER" },
+				    { nombre: "Yucatán", abreviatura: "YUC" },
+				    { nombre: "Zacatecas", abreviatura: "ZAC" }
+				]
+
 
 			}
 		},
@@ -125,44 +199,31 @@ const {createApp,ref} = Vue
 			    	})
 			    }
 			},
-			editar_cliente(){
-				var id = this.$refs.cliente.innerHTML;
-				var url = "/mostrar_cliente/"+ id;
+			
+			mostrar_cliente_modal(data){
 				var me = this;
+				var url = "/mostrar_cliente/"+ data;
 				axios.get(url).then(function (response){
 					me.editar = response.data;
 				})
+				this.ver_horarios(data);
 			},
-			actualizar_cliente(){
-				var me = this;
-				var url = "/actualizar_cliente";
-				//console.log(this.editar);
-				axios.post(url,this.editar).then(function (response){
-					if (response.data === 1) {
-			    		window.location.href = "/clientes";
-					}
-				})
-			},
-			modal_fiscal(){
-			   
-			},
-			direccion_fiscal(){
-				if (this.picked == 2) {
-					this.display = "";
-				}else{
-					this.display = "d-none"
-				}
-			},
-			agregar_direccion_fiscal(){
-
-			   	$('#datos').modal('hide');
-				this.display_form = "";
-				this.display_form_one = "d-none"
-
-			}
+			ver_horarios(id){
+            	var me = this;
+            	var url = '/ver_horarios/'+ id;
+            	axios.get(url).then(function (response){
+            		me.horarios = response.data['query'];
+            	})
+            },
+            formatTo12Hour(time) {
+		      	const [hour, minute] = time.split(':').map(Number);
+		      	const ampm = hour >= 12 ? 'PM' : 'AM';
+		      	const formattedHour = hour % 12 || 12;
+		      	return `${formattedHour}:${minute < 10 ? '0' + minute : minute} ${ampm}`;
+		    },
 
 		},
 		mounted(){
-			this.editar_cliente();
+
 		}
 }).mount('#app')

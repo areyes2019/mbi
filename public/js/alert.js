@@ -1,5 +1,4 @@
-function showAlert() {
-    var message = "Accions realizada con exito";
+function showAlert(message) {
     var alertElement = document.getElementById('customAlert');
     alertElement.innerText = message; // Cambiar el texto del alert
     alertElement.style.bottom = '20px'; // Mueve el alert hacia arriba

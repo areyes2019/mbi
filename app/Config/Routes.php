@@ -57,6 +57,14 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('mostrar_cliente/(:num)', 'Clientes::mostrar_cliente/$1');
 	$routes->post('actualizar_cliente', 'Clientes::actualizar');
 	$routes->get('eliminar_cliente/(:num)', 'Clientes::eliminar/$1');
+	$routes->post('agregar_horario/(:num)', 'Clientes::agregar_horario/$1');
+	$routes->post('agregar_datos_fiscales', 'Clientes::agregar_datos_fiscales');
+	$routes->get('mostrar_datos_fiscales/(:num)', 'Clientes::mostrar_datos_fiscales/$1');
+	$routes->post('actualizar_datos_fiscales', 'Clientes::actualizar_datos_fiscales');
+	$routes->post('agregar_horario', 'Clientes::agregar_horario');
+	$routes->get('ver_horarios/(:num)', 'Clientes::ver_horarios/$1');
+	$routes->get('eliminar_horario/(:num)', 'Clientes::eliminar_horario/$1');
+	$routes->post('actualizar_hora', 'Clientes::actualizar_hora');
 	
 	//kardex
 	$routes->get('kardex','Kardex::index');

@@ -27,8 +27,7 @@
     <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.3/datatables.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
     <link href="<?php echo base_url('public/css/toaster.css'); ?>" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" rel="stylesheet">
     <script src="<?php echo base_url('public/js/html2Canvas.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -54,27 +53,30 @@
             
             <!-- Nav Item - Dashboard -->
             <?php if (tiene_seccion('1') || es_super_admin()) : ?>
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('/')?>">
                     <i class="bi bi-house"></i>
                     <span>Inicio</span></a>
-            </li>
+            </li> -->
+            
             <?php endif; ?>
 
-            <?php if (tiene_seccion('2') || es_super_admin()):?>     
-            <li class="nav-item active">
+            <?php if (tiene_seccion('2') || es_super_admin()):?>
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('mi_tablero')?>">
                     <i class="bi bi-heart"></i>
                     <span>Mi Tablero</span></a>
-            </li>
+            </li> -->     
+            
             <?php endif;?>
 
             <?php if (tiene_seccion('3') || es_super_admin()): ?>
-            <li class="nav-item active">
+            <!--  <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('usuarios')?>">
                     <i class="bi bi-person"></i>
                     <span>Usuarios</span></a>
-            </li>
+            </li>-->
+            
             <?php endif; ?>
 
 
@@ -87,26 +89,29 @@
             <?php endif; ?>
 
             <?php if (tiene_seccion('5') || es_super_admin()): ?>
-            <li class="nav-item active">
+            <!--  <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-bar-chart-steps"></i>
                     <span>WorkFlow</span></a>
-            </li>
+            </li>-->
+            
             <?php endif; ?>
 
             <?php if (tiene_seccion('6') || es_super_admin()): ?>
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-calendar"></i>
                     <span>Calendario</span></a>
-            </li>
+            </li> -->
+            
             <?php endif; ?>
             <?php if (tiene_seccion('7') || es_super_admin()): ?>
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-filetype-pdf"></i>
                     <span>Facturación</span></a>
-            </li>
+            </li> -->
+            
             <?php endif; ?>
             
             <!-- Divider -->
@@ -324,6 +329,9 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <div id="customAlert" class="alert alert-primary" role="alert">
+                            Este es un alert de éxito.
+                    </div>
                     <?php echo $this->renderSection('contenido') ?>  
                 </div>
                 <!-- /.container-fluid -->
@@ -331,7 +339,6 @@
             </div>
             <!-- End of Main Content -->
 
-           
 
         </div>
         <!-- End of Content Wrapper -->
@@ -374,8 +381,8 @@
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery/jquery.min.js')?>"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="<?php echo base_url('public/panel/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
     <!-- Custom scripts for all pages-->

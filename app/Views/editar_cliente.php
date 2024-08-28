@@ -23,8 +23,10 @@
 		                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 		                </a>
 		                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
-		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#datos">Agregar Datos Fiscales</a>
-		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#horarios">Agregar Horarios de Atención</a>
+		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#agregar_datos_fiscales" v-if="<?php echo $si_hay_datos ?> == 0" >Agregar Datos Fiscales</a>
+		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#actualizar_datos_fiscales" @click="mostrar_datos_fiscales('<?php echo $id_cliente ?>')" v-if="<?php echo $si_hay_datos ?> == 1" ><span class="bi bi-pencil"></span> Actualizar Datos Fiscales</a>
+		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#horarios" v-if="vista==0" ><span class="bi bi-plus-circle"></span> Agregar Horarios de Atención</a>
+		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modificar_horarios" v-else><span class="bi bi-pencil"></span> Modificar Horarios de Atención</a>
 		                    <div class="dropdown-divider"></div>
 		                    <a class="dropdown-item" href="#">Something else here</a>
 		                </div>
@@ -154,6 +156,32 @@
 				</div>
 			</div>
     	</div>
+    	<div class="col-md-4 col-12">
+    			<div class="card rounded-0" v-if="vista > 0">
+    				<div class="card-header bg-primary rounded-0">
+    					<p class="m-0 card-title text-white">Horarios de Atención</p>
+    				</div>
+    				<div class="card-body">
+    					<table class="table">
+    						<tr>
+    							<th>Dia</th>
+    							<th>De:</th>
+    							<th>A:</th>
+    							<th></th>
+    						</tr>
+    						<tr v-for="hora in horarios">
+    							<td>{{hora.dia}}</td>
+    							<td>{{formatTo12Hour(hora.hora_inicio)}}</td>
+    							<td>{{formatTo12Hour(hora.hora_fin)}}</td>
+    							<td>
+    								<a href="#" @click.prevent="eliminar_horario(hora.id_horario)"><span class="bi bi-x-lg"></span></a>
+    							</td>
+    						</tr>
+    					</table>
+    					<button class="btn btn-primary btn-sm rounded-0 shadow-none" data-toggle="modal" data-target="#horarios">Agregar horario</button>
+    				</div>
+    			</div>
+    	</div>
     </div>
     
     <!--  Modal agregar horario -->
@@ -167,262 +195,372 @@
 			        </button>
 	    		</div>
 	      		<div class="modal-body p-3">
-			        <button class="btn btn-primary btn-sm rounded-0 mb-2" type="button" onclick="agregarCampo()">Agregar Horario</button>
-				        <!-- Grupo de campos 1 -->
-			            <div class="form-row align-items-end mb-3">
-			                <div class="col-md-4">
-			                    <label for="dia1">Día de la Semana</label>
-			                    <select id="dia1" name="dia1" class="form-control">
-			                        <option value="Lunes">Lunes</option>
-			                        <option value="Martes">Martes</option>
-			                        <option value="Miércoles">Miércoles</option>
-			                        <option value="Jueves">Jueves</option>
-			                        <option value="Viernes">Viernes</option>
-			                        <option value="Sábado">Sábado</option>
-			                        <option value="Domingo">Domingo</option>
-			                    </select>
-			                </div>
-			                <div class="col-md-3">
-			                    <label for="horaInicio1">De:</label>
-			                    <input type="time" id="horaInicio1" name="horaInicio1" class="form-control">
-			                </div>
-			                <div class="col-md-3">
-			                    <label for="horaFin1">A:</label>
-			                    <input type="time" id="horaFin1" name="horaFin1" class="form-control">
-			                </div>
-			            </div>
-				        <div id="contenedorCampos">
-				        <!-- Los campos dinámicos se agregarán aquí -->
-				        </div>
-				        <button class="btn btn-primary btn-sm rounded-0">Guardar</button>
+			    		<form @submit.prevent="enviarDatos" id="myForm">
+		            <button type="button" class="btn btn-primary mt-3 mb-4" @click="agregarCampo">Agregar Horario</button>
+		            <div v-for="(campo, index) in campos" :key="index" class="form-row align-items-end mb-3">
+		                <div class="col-md-4">
+		                    <select v-model="campo.dia" class="form-control" :name="'dia' + (index + 1)">
+		                        <option v-for="dia in diasSemana" :key="dia" :value="dia">{{ dia }}</option>
+		                    </select>
+		                </div>
+		                <div class="col-md-3">
+		                    <input type="time" v-model="campo.horaInicio" class="form-control" :name="'horaInicio' + (index + 1)">
+		                </div>
+		                <div class="col-md-3">
+		                    <input type="time" v-model="campo.horaFin" class="form-control" :name="'horaFin' + (index + 1)">
+		                </div>
+		                <div class="col-md-2">
+		                    <button type="button" class="btn btn-danger" @click="eliminarCampo(index)">Eliminar</button>
+		                </div>
+		            </div>
+		            <br><br>
+		            <button type="submit" class="btn btn-success">Enviar</button>
+		        	</form>    
 	      		</div>
 	      	</div>
 	    </div>
     </div>
     <!--  Modal agregar horario -->
 
-	<div class="modal fade" id="datos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  	<div class="modal-dialog">
+     <!--  Modal modificar horario -->
+    <div class="modal fade" id="modificar_horarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog modal-lg">
 	    	<div class="modal-content rounded-0">
-	      		<div class="modal-body">
-		      		<h4>Datos Fiscales</h4>
-			      	<!-- contacto -->
-			      	<!-- Regimen Fiscasl -->
-					<div class="form-group">
-						<select name="regimen-fiscal" id="regimen-fiscal" style="width:100%">
-						    <option value=""></option>
-						    <option value="601">601 - General de Ley Personas Morales</option>
-						    <option value="603">603 - Personas Morales con Fines no Lucrativos</option>
-						    <option value="605">605 - Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
-						    <option value="606">606 - Arrendamiento</option>
-						    <option value="607">607 - Régimen de Enajenación o Adquisición de Bienes</option>
-						    <option value="608">608 - Demás ingresos</option>
-						    <option value="609">609 - Consolidación</option>
-						    <option value="610">610 - Residentes en el Extranjero sin Establecimiento Permanente en México</option>
-						    <option value="611">611 - Ingresos por Dividendos (socios y accionistas)</option>
-						    <option value="612">612 - Personas Físicas con Actividades Empresariales y Profesionales</option>
-						    <option value="614">614 - Ingresos por Intereses</option>
-						    <option value="615">615 - Régimen de los ingresos por obtención de premios</option>
-						    <option value="616">616 - Sin obligaciones fiscales</option>
-						    <option value="620">620 - Sociedades Cooperativas de Producción que optan por diferir sus ingresos</option>
-						    <option value="621">621 - Incorporación Fiscal</option>
-						    <option value="622">622 - Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
-						    <option value="623">623 - Opcional para Grupos de Sociedades</option>
-						    <option value="624">624 - Coordinados</option>
-						    <option value="625">625 - Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
-						    <option value="626">626 - Régimen Simplificado de Confianza</option>
-						</select>
-					</div>
-					<!--  Razon social -->
-					<div class="form-group">
-						<div class="input-group">
-					        <div class="input-group-prepend input-group-sm">
-					          <div class="input-group-text rounded-0">
-					          	<i class="bi bi-person"></i>
-					          </div>
-					        </div>
-							<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Nombre o razón social *" v-model="form.contacto">
-			    		</div>
-						<small class="text-danger mt-0"></small>
-					</div>
-					<div class="row">
-						<div class="col">
-							<!--  correo  -->
-							<div class="form-group">
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Correo Elecrtónico *" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-						<div class="col">
-							<div class="form-group">
-								<!-- RFC -->
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" maxlength="12" @input="limpiar_error($event,'contacto')" placeholder="RFC *" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-					</div>
-					<div class="row"> <!-- row  -->
-						<div class="col-6">
-							<div class="form-group">
-								<!-- Calle  -->
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Calle" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="form-group">
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Int *" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="form-group">
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Ext. *" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-					</div> <!--  row -->
-					<div class="row">
-						<div class="col">
-							<div class="form-group">
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Colonia" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-						<div class="col">
-							<div class="form-group">
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Código Postal *" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-6">
-							<div class="form-group">
-								<div class="input-group">
-							        <div class="input-group-prepend input-group-sm">
-							          <div class="input-group-text rounded-0">
-							          	<i class="bi bi-person"></i>
-							          </div>
-							        </div>
-									<input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Ciudad *" v-model="form.contacto">
-					    		</div>
-								<small class="text-danger mt-0"></small>
-							</div>
-						</div>
-						<div class="col-6">
-							<select v-model="form.estado"  id="estados" class="form-control">
-							  	<option value=""></option>
-							  	<option value="AGS">Aguascalientes</option>
-						  		<option value="BC">Baja California</option>
-						  		<option value="BCS">Baja California Sur</option>
-						  		<option value="CAMP">Campeche</option>
-						  		<option value="CHIS">Chiapas</option>
-						  		<option value="CHIH">Chihuahua</option>
-						  		<option value="CDMX">Ciudad de México</option>
-						  		<option value="COAH">Coahuila</option>
-						  		<option value="COL">Colima</option>
-						  		<option value="DGO">Durango</option>
-						  		<option value="GTO">Guanajuato</option>
-						  		<option value="GRO">Guerrero</option>
-						  		<option value="HGO">Hidalgo</option>
-						  		<option value="JAL">Jalisco</option>
-						  		<option value="MEX">México</option>
-						  		<option value="MICH">Michoacán</option>
-						  		<option value="MOR">Morelos</option>
-						  		<option value="NAY">Nayarit</option>
-						  		<option value="NL">Nuevo León</option>
-						  		<option value="OAX">Oaxaca</option>
-						  		<option value="PUE">Puebla</option>
-						  		<option value="QRO">Querétaro</option>
-						  		<option value="QR">Quintana Roo</option>
-						  		<option value="SLP">San Luis Potosí</option>
-						  		<option value="SIN">Sinaloa</option>
-						  		<option value="SON">Sonora</option>
-						  		<option value="TAB">Tabasco</option>
-						  		<option value="TAMPS">Tamaulipas</option>
-						  		<option value="TLAX">Tlaxcala</option>
-						  		<option value="VER">Veracruz</option>
-						  		<option value="YUC">Yucatán</option>
-						  		<option value="ZAC">Zacatecas</option>
-							</select>
-						</div>
+	    		<div class="modal-header">
+	  				<h5 class="modal-title">Modificar Horarios</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+	    		</div>
+      		<div class="modal-body p-3">
+      			<div class="row" v-for = "tiempo in horarios">
+	      			<div class="col-md-4 mb-2">
+				    		<select name="" id="" class="form-select" v-model="tiempo.dia">
+				    				<option v-for="dia_dos in diasSemana" :key="dia_dos" :value="dia_dos">{{dia_dos}}</option>
+				    		</select>
+	      			</div>
+	      			<div class="col-md-3 mb-2">
+				    		<input type="time" class="form-control" v-model="tiempo.hora_inicio">
+	      			</div>
+			    		<div class="col-md-3 mb-2">
+				    		<input type="time" class="form-control" v-model="tiempo.hora_fin">
+	      			</div>
+	      			<div class="col-md-2 mb-2">
+	      				<button class="btn btn-primary btn-sm rounded-0" @click="actualizar_hora(tiempo.id_horario)"><span class="bi bi-check"></span></button>
+	      			</div>
+      			</div>
+      		</div>
+	      	</div>
+	    </div>
+    </div>
+    <!--  Modal modificar horario -->
 
-					</div>
-					<button class="btn btn-primary btn-sm rounded-0">Guardar</button>
-	      		</div>
-	    	</div>
-	  	</div>
-	</div>
-	</div>
-	<script>
-		$(document).ready(function() {
-		  $('#datos').on('shown.bs.modal', function () {
-		    $('#estados').select2({
-		      allowClear: true,
-		      placeholder: 'Selecciona un estado',
-		      dropdownParent: $('#datos')
-		    });
-		    $('#regimen-fiscal').select2({
-		      allowClear: true,
-		      placeholder: 'Selecciona el régimen fiscal',
-		      dropdownParent: $('#datos')
-		    });
-		  });
-		});
 
-		
-	</script>
-<script type="text/javascript" src="<?php echo base_url('public/js/clientes.js'); ?>"></script>
+    <!--  Modal agregar datos fiscales -->
+    <div class="modal fade" id="agregar_datos_fiscales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content rounded-0">
+              <div class="modal-body">
+                  <h4>Datos Fiscales</h4>
+                  <!-- contacto -->
+                  <!-- Regimen Fiscasl -->
+                  <div class="form-group">
+	                  	<select class="selectpicker form-control" id="picker_agregar" data-live-search="true" v-model="regimen" style="width: 100%;">
+	                  		<option disabled selected value=""> Selecciona el régimen... </option>
+	                  		<?php foreach ($regimenes as $regimen): ?>
+	                      <option :value='<?php echo $regimen['codigo'] ?>'><?php echo $regimen['codigo'] ?> - <?php echo $regimen['nombre'] ?></option>
+	                      <?php endforeach ?>
+								    	</select>
+                      <small class="text-danger">{{errores.regimen}}</small>                      
+                  </div>
+                  <!--  Razon social -->
+                  <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-prepend input-group-sm">
+                            <div class="input-group-text rounded-0">
+                              <i class="bi bi-person"></i>
+                            </div>
+                          </div>
+                          <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'nombre')" placeholder="Nombre o razón social *" v-model="nombre" name="empresa">
+                      </div>
+                      <small class="text-danger mt-0">{{errores.nombre}}</small>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <!--  correo  -->
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'correo')" placeholder="Correo Elecrtónico" v-model="correo" name="correo">
+                              </div>
+                              <small class="text-danger mt-0">{{errores.correo}}</small>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                              <!-- RFC -->
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" maxlength="13" @input="limpiar_error($event,'rfc')" placeholder="RFC *" v-model="rfc" name="rfc">
+                              </div>
+                              <small class="text-danger mt-0">{{errores.rfc}}</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row"> <!-- row  -->
+                      <div class="col-6">
+                          <div class="form-group">
+                              <!-- Calle  -->
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Calle" v-model="calle">
+                              </div>
+                              <small class="text-danger mt-0"></small>
+                          </div>
+                      </div>
+                      <div class="col-3">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Int *" v-model="numero_ext" name="int">
+                              </div>
+                              <small class="text-danger mt-0"></small>
+                          </div>
+                      </div>
+                      <div class="col-3">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Ext. *" v-model="numero_int" name="ext">
+                              </div>
+                              <small class="text-danger mt-0"></small>
+                          </div>
+                      </div>
+                  </div> <!--  row -->
+                  <div class="row">
+                      <div class="col">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Colonia" v-model="colonia">
+                              </div>
+                              <small class="text-danger mt-0"></small>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'cp')" placeholder="Código Postal *" v-model="cp" name="zip">
+                              </div>
+                              <small class="text-danger mt-0">{{errores.cp}}</small>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Ciudad *" v-model="ciudad">
+                              </div>
+                              <small class="text-danger mt-0"></small>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <select v-model="estado"  id="estados" class="form-control">
+                              <option value=""></option>
+                              <option v-for="estado in estados" :key="estado" :value="estado.abreviatura">{{ estado.nombre}}</option>
+                          </select>
+                      </div>
+
+                  </div>
+                  <button class="btn btn-primary btn-sm rounded-0" @click = "agregar_direccion_fiscal">Guardar</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!--  Agregar datos fiscales -->
+
+    <!--  actualizar datos fiscales -->
+    <div class="modal fade" id="actualizar_datos_fiscales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content rounded-0">
+              <div class="modal-body" v-for = "fiscales in editar_datos_fiscales">
+                  <h4>Datos Fiscales</h4>
+                  <!-- contacto -->
+                  <!-- Regimen Fiscasl -->
+                  <div class="form-group">
+                  		<select class="form-select rounded-0" v-model="fiscales.regimen" >
+	                  		<?php foreach ($regimenes as $data): ?>
+	                      <option :value='<?php echo $data['codigo'] ?>'><?php echo $data['codigo'] ?> - <?php echo $data['nombre'] ?></option>
+	                      <?php endforeach ?>
+								    	</select>
+                  </div>
+                  <!--  Razon social -->
+                  <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-prepend input-group-sm">
+                            <div class="input-group-text rounded-0">
+                              <i class="bi bi-person"></i>
+                            </div>
+                          </div>
+                          <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Nombre o razón social *" v-model="fiscales.nombre">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <!--  correo  -->
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Correo Elecrtónico *" v-model="fiscales.correo">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                              <!-- RFC -->
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" maxlength="12" @input="limpiar_error($event,'contacto')" placeholder="RFC *" v-model="fiscales.rfc">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row"> <!-- row  -->
+                      <div class="col-6">
+                          <div class="form-group">
+                              <!-- Calle  -->
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Calle" v-model="fiscales.calle">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-3">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Int *" v-model="fiscales.numero_ext">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-3">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Ext. *" v-model="fiscales.numero_int">
+                              </div>
+                          </div>
+                      </div>
+                  </div> <!--  row -->
+                  <div class="row">
+                      <div class="col">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Colonia" v-model="fiscales.colonia">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Código Postal *" v-model="fiscales.cp">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Ciudad *" v-model="fiscales.ciudad">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <select v-model="fiscales.estado"  id="estados" class="custom-select custom-select-sm rounded-0">
+                              <option v-for="estado in estados" :key="estado" :value="estado.abreviatura">{{ estado.nombre}}</option>
+                          </select>
+                      </div>
+
+                  </div>
+                  <button class="btn btn-primary btn-sm rounded-0" @click = "actualizar_datos_fiscales">Guardar</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!--  actualizar datos fiscales -->
+	</div>
+<script type="text/javascript" src="<?php echo base_url('public/js/editar_cliente.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/alert.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/form_horarios.js'); ?>"></script>
 <?php echo $this->endSection()?>

@@ -70,13 +70,12 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/*estilos del selec2*/
-.select2-container{
-  background-color: white; /* Color de fondo */
-  border-radius: 0px; /* Bordes redondeados */
-}
+/*Custom Alert*/
 
-.select2-selection .select2-selection--single{
-  border-radius: 0px;
+#customAlert {
+  position: fixed;
+  bottom: -100px; /* Posiciona fuera de la pantalla inicialmente */
+  right: 20px;
+  opacity: 0;
+  transition: bottom 0.5s ease, opacity 0.5s ease;
 }
-

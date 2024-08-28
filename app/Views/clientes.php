@@ -23,7 +23,7 @@
                     <div class="heading1 margin_0 mb-2">
                         <a href="<?php echo base_url('agregar_cliente'); ?>" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
-                                <i class="fas fa-flag"></i>
+                                <i class="bi bi-plus-circle"></i>
                             </span>
                             <span class="text">Nuevo Cliente</span>
                         </a>
@@ -73,7 +73,7 @@
                             <tbody>
                                 <?php foreach ($clientes as $cliente): ?>
                                 <tr>
-                                    <td><a href="" data-toggle="modal" data-target="#ver_cliente"><?php echo $cliente['titular'] ?></a></td>
+                                    <td><a href="" data-toggle="modal" data-target="#ver_cliente" @click="mostrar_cliente_modal('<?php echo $cliente['id_cliente'] ?>')"><?php echo $cliente['titular'] ?></a></td>
                                     <td><?php echo $cliente['responsable'] ?></td>
                                     <?php if ($cliente['correo'] == null):?>
                                     <td>No registrado</td>
@@ -92,8 +92,6 @@
                                             <a class="dropdown-item" href="javascript:void(0);" onclick="if(confirm('¿Estás seguro de que deseas eliminar este cliente?')) { window.location.href='/eliminar_cliente/<?php echo $cliente['id_cliente'] ?>'; }">
                                                 Eliminar Cliente
                                             </a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#agregar_datos_fiscales">Agregar Datos Fiscales</a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#agregar_horario">Agregar Horarios de Atencion</a>
                                           </div>
                                         </div>
                                     </td>
@@ -115,272 +113,83 @@
                 </div>
             </div>
         </div>
-        <!--  Modal agregar horario -->
-        <div class="modal fade" id="agregar_horario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!--  Modal ver cliente  -->
+        <div class="modal fade" id="ver_cliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
                         <h5 class="modal-title">Horarios de Atención</h5>
+                        <p class="d-none" ref="cliente_modal">{{id_cliente}}</p>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body p-3">
-                        <button class="btn btn-primary btn-sm rounded-0 mb-2" type="button" onclick="agregarCampo()">Agregar Horario</button>
-                            <!-- Grupo de campos 1 -->
-                            <div class="form-row align-items-end mb-3">
-                                <div class="col-md-4">
-                                    <label for="dia1">Día de la Semana</label>
-                                    <select id="dia1" name="dia1" class="form-control">
-                                        <option value="Lunes">Lunes</option>
-                                        <option value="Martes">Martes</option>
-                                        <option value="Miércoles">Miércoles</option>
-                                        <option value="Jueves">Jueves</option>
-                                        <option value="Viernes">Viernes</option>
-                                        <option value="Sábado">Sábado</option>
-                                        <option value="Domingo">Domingo</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="horaInicio1">De:</label>
-                                    <input type="time" id="horaInicio1" name="horaInicio1" class="form-control">
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="horaFin1">A:</label>
-                                    <input type="time" id="horaFin1" name="horaFin1" class="form-control">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="card rounded-0">
+                                      <div class="card-body" v-for = "data in editar">
+                                          <h4>{{data.titular}}</h4>
+                                          <h5><strong>Responsable:</strong> {{data.responsable}}</h5>
+                                          <p class="m-0"><strong>Telefono</strong>{{data.telefono}}<span class="text-secondary">Ext:</span> {{data.extencion}}</p>
+                                          <p class="m-0"><strong>Móvil</strong> {{data.movil}}</p>
+                                          <p class="m-0"><strong>Correo:</strong> {{data.correo}}</p>
+                                          <p class="m-0"><strong>Dirección:</strong> {{data.direccion}}</p>
+                                          <p class="m-0"><strong>Ubicación:</strong> {{data.ubicacion}}</p>
+                                          <p class="m-0"><strong>Laboratorio:</strong> {{data.laboratorio}}</p>
+                                          <p class="m-0"><strong>Pizo:</strong> {{data.piso}}</p>
+                                          <p class="d-none" ref="cliente">{{data.id_cliente}}</p>
+                                      </div>
+                                  </div>  
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card rounded-0">
+                                    <div class="card-header bg-primary rounded-0">
+                                        <h5 class="card-title text-white">Horarios de Atención</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tr>
+                                                <th>Dia</th>
+                                                <th>De:</th>
+                                                <th>A:</th>
+                                            </tr>
+                                            <tr v-for="hora in horarios">
+                                                <td><small>{{hora.dia}}</small></td>
+                                                <td><small>{{formatTo12Hour(hora.hora_inicio)}}</small></td>
+                                                <td><small>{{formatTo12Hour(hora.hora_fin)}}</small></td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <div id="contenedorCampos">
-                            <!-- Los campos dinámicos se agregarán aquí -->
-                            </div>
-                            <button class="btn btn-primary btn-sm rounded-0">Guardar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--  Modal agregar horario -->
-        <div class="modal fade" id="agregar_datos_fiscales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-0">
-                <div class="modal-body">
-                    <h4>Datos Fiscales</h4>
-                    <!-- contacto -->
-                    <!-- Regimen Fiscasl -->
-                    <div class="form-group">
-                        <select name="regimen-fiscal" id="regimen-fiscal" style="width:100%">
-                            <option value=""></option>
-                            <option value="601">601 - General de Ley Personas Morales</option>
-                            <option value="603">603 - Personas Morales con Fines no Lucrativos</option>
-                            <option value="605">605 - Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
-                            <option value="606">606 - Arrendamiento</option>
-                            <option value="607">607 - Régimen de Enajenación o Adquisición de Bienes</option>
-                            <option value="608">608 - Demás ingresos</option>
-                            <option value="609">609 - Consolidación</option>
-                            <option value="610">610 - Residentes en el Extranjero sin Establecimiento Permanente en México</option>
-                            <option value="611">611 - Ingresos por Dividendos (socios y accionistas)</option>
-                            <option value="612">612 - Personas Físicas con Actividades Empresariales y Profesionales</option>
-                            <option value="614">614 - Ingresos por Intereses</option>
-                            <option value="615">615 - Régimen de los ingresos por obtención de premios</option>
-                            <option value="616">616 - Sin obligaciones fiscales</option>
-                            <option value="620">620 - Sociedades Cooperativas de Producción que optan por diferir sus ingresos</option>
-                            <option value="621">621 - Incorporación Fiscal</option>
-                            <option value="622">622 - Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
-                            <option value="623">623 - Opcional para Grupos de Sociedades</option>
-                            <option value="624">624 - Coordinados</option>
-                            <option value="625">625 - Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
-                            <option value="626">626 - Régimen Simplificado de Confianza</option>
-                        </select>
-                    </div>
-                    <!--  Razon social -->
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend input-group-sm">
-                              <div class="input-group-text rounded-0">
-                                <i class="bi bi-person"></i>
-                              </div>
-                            </div>
-                            <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Nombre o razón social *" v-model="form.contacto">
-                        </div>
-                        <small class="text-danger mt-0"></small>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <!--  correo  -->
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Correo Elecrtónico *" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <!-- RFC -->
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" maxlength="12" @input="limpiar_error($event,'contacto')" placeholder="RFC *" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row"> <!-- row  -->
-                        <div class="col-6">
-                            <div class="form-group">
-                                <!-- Calle  -->
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Calle" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Int *" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Num Ext. *" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                    </div> <!--  row -->
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Colonia" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Código Postal *" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend input-group-sm">
-                                      <div class="input-group-text rounded-0">
-                                        <i class="bi bi-person"></i>
-                                      </div>
-                                    </div>
-                                    <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Ciudad *" v-model="form.contacto">
-                                </div>
-                                <small class="text-danger mt-0"></small>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <select v-model="form.estado"  id="estados" class="form-control">
-                                <option value=""></option>
-                                <option value="AGS">Aguascalientes</option>
-                                <option value="BC">Baja California</option>
-                                <option value="BCS">Baja California Sur</option>
-                                <option value="CAMP">Campeche</option>
-                                <option value="CHIS">Chiapas</option>
-                                <option value="CHIH">Chihuahua</option>
-                                <option value="CDMX">Ciudad de México</option>
-                                <option value="COAH">Coahuila</option>
-                                <option value="COL">Colima</option>
-                                <option value="DGO">Durango</option>
-                                <option value="GTO">Guanajuato</option>
-                                <option value="GRO">Guerrero</option>
-                                <option value="HGO">Hidalgo</option>
-                                <option value="JAL">Jalisco</option>
-                                <option value="MEX">México</option>
-                                <option value="MICH">Michoacán</option>
-                                <option value="MOR">Morelos</option>
-                                <option value="NAY">Nayarit</option>
-                                <option value="NL">Nuevo León</option>
-                                <option value="OAX">Oaxaca</option>
-                                <option value="PUE">Puebla</option>
-                                <option value="QRO">Querétaro</option>
-                                <option value="QR">Quintana Roo</option>
-                                <option value="SLP">San Luis Potosí</option>
-                                <option value="SIN">Sinaloa</option>
-                                <option value="SON">Sonora</option>
-                                <option value="TAB">Tabasco</option>
-                                <option value="TAMPS">Tamaulipas</option>
-                                <option value="TLAX">Tlaxcala</option>
-                                <option value="VER">Veracruz</option>
-                                <option value="YUC">Yucatán</option>
-                                <option value="ZAC">Zacatecas</option>
-                            </select>
-                        </div>
 
-                    </div>
-                    <button class="btn btn-primary btn-sm rounded-0">Guardar</button>
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
-    <script>
-    $( document ).ready(function() {
-        new DataTable('#example');
-        $('#menu').tooltip();
-        $('#agregar_datos_fiscales').on('shown.bs.modal', function () {
-            $('#estados').select2({
-              allowClear: true,
-              placeholder: 'Selecciona un estado',
-              dropdownParent: $('#agregar_datos_fiscales')
-            });
-            $('#regimen-fiscal').select2({
-              allowClear: true,
-              placeholder: 'Selecciona el régimen fiscal',
-              dropdownParent: $('#agregar_datos_fiscales')
-            });
+</div>
+<script>
+$( document ).ready(function() {
+    new DataTable('#example');
+    $('#menu').tooltip();
+    $('#agregar_datos_fiscales').on('shown.bs.modal', function () {
+        $('#estados').select2({
+          allowClear: true,
+          placeholder: 'Selecciona un estado',
+          dropdownParent: $('#agregar_datos_fiscales')
+        });
+        $('#regimen-fiscal').select2({
+          allowClear: true,
+          placeholder: 'Selecciona el régimen fiscal',
+          dropdownParent: $('#agregar_datos_fiscales')
         });
     });
-    </script>
-</div>
+});
+</script>
 <script type="text/javascript" src="<?php echo base_url('public/js/form_horarios.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/clientes.js'); ?>"></script>
 <?php echo $this->endSection()?>
