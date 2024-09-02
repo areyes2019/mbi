@@ -170,18 +170,8 @@ const {createApp,ref} = Vue
 				var me  = this;
 				var url = "/nuevo_cliente";
 				if (this.validar_form()) {
-			    	axios.post(url,{
-			    		'titular':me.form.titular,
-			    		'responsable':me.form.responsable,
-			    		'telefono':me.form.telefono,
-			    		'extencion':me.form.extencion,
-			    		'movil':me.form.movil,
-			    		'direccion':me.form.direccion,
-			    		'ubicacion':me.form.ubicacion,
-			    		'laboratorio':me.form.laboratorio,
-			    		'piso':me.form.piso,
-			    		'correo':me.form.correo,
-			    	}).then(function (response){
+					//console.log(this.form);
+			    	axios.post(url,this.form).then(function (response){
 			    		if (response.data == 1) {
 			    			var msg = "Cliente guardado correctamente";
 			    			showAlert(msg);

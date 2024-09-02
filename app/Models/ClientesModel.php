@@ -15,6 +15,7 @@ class ClientesModel extends Model
         'movil',
         'direccion',
         'ubicacion',
+        'facultad',
         'laboratorio',
         'piso',
         'correo',

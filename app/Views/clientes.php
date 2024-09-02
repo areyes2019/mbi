@@ -10,7 +10,7 @@
     <div class="row column_title">
         <div class="col-md-12">
             <div class="page_title">
-                <h2>Clientes</h2>
+                <h2>Clientes Se esta cargando el modelo</h2>
             </div>
         </div>
     </div>
@@ -136,6 +136,7 @@
                                           <p class="m-0"><strong>Correo:</strong> {{data.correo}}</p>
                                           <p class="m-0"><strong>Dirección:</strong> {{data.direccion}}</p>
                                           <p class="m-0"><strong>Ubicación:</strong> {{data.ubicacion}}</p>
+                                          <p class="m-0"><strong>Facultad:</strong> {{data.facultad}}</p>
                                           <p class="m-0"><strong>Laboratorio:</strong> {{data.laboratorio}}</p>
                                           <p class="m-0"><strong>Pizo:</strong> {{data.piso}}</p>
                                           <p class="d-none" ref="cliente">{{data.id_cliente}}</p>

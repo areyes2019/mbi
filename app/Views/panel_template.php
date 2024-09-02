@@ -52,67 +52,67 @@
             <hr class="sidebar-divider my-0">
             
             <!-- Nav Item - Dashboard -->
-            <?//php if (tiene_seccion('1') || es_super_admin()) : ?>
-            <!-- <li class="nav-item active">
+            <?php if (tiene_seccion('1') || es_super_admin()) : ?>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('/')?>">
                     <i class="bi bi-house"></i>
                     <span>Inicio</span></a>
-            </li> -->
+            </li>
             
-            <?//php endif; ?>
+            <?php endif; ?>
 
-            <?//php if (tiene_seccion('2') || es_super_admin()):?>
-            <!-- <li class="nav-item active">
+            <?php if (tiene_seccion('2') || es_super_admin()):?>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('mi_tablero')?>">
-                    <i class="bi bi-heart"></i>
-                    <span>Mi Tablero</span></a>
-            </li> -->     
+                    <i class="bi bi-envelope"></i>
+                    <span>Inbox</span></a>
+            </li>     
             
-            <?//php endif;?>
+            <?php endif;?>
 
-            <?//php if (tiene_seccion('3') || es_super_admin()): ?>
-            <!--  <li class="nav-item active">
+            <?php if (tiene_seccion('3') || es_super_admin()): ?>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('usuarios')?>">
                     <i class="bi bi-person"></i>
                     <span>Usuarios</span></a>
-            </li>-->
+            </li>
             
-            <?//php endif; ?>
+            <?php endif; ?>
 
 
-            <?//php if (tiene_seccion('4') || es_super_admin()): ?>
+            <?php if (tiene_seccion('4') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('clientes')?>">
                     <i class="bi bi-person"></i>
                     <span>Clientes</span></a>
             </li>
-            <?//php endif; ?>
+            <?php endif; ?>
 
-            <?//php if (tiene_seccion('5') || es_super_admin()): ?>
-            <!--  <li class="nav-item active">
+            <?php if (tiene_seccion('5') || es_super_admin()): ?>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-bar-chart-steps"></i>
                     <span>WorkFlow</span></a>
-            </li>-->
+            </li>
             
-            <?//php endif; ?>
+            <?php endif; ?>
 
-            <?//php if (tiene_seccion('6') || es_super_admin()): ?>
-            <!-- <li class="nav-item active">
+            <?php if (tiene_seccion('6') || es_super_admin()): ?>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-calendar"></i>
                     <span>Calendario</span></a>
-            </li> -->
+            </li>
             
-            <?//php endif; ?>
-            <?//php if (tiene_seccion('7') || es_super_admin()): ?>
-            <!-- <li class="nav-item active">
+            <?php endif; ?>
+            <?php if (tiene_seccion('7') || es_super_admin()): ?>
+            <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-filetype-pdf"></i>
                     <span>Facturación</span></a>
-            </li> -->
+            </li>
             
-            <?//php endif; ?>
+            <?php endif; ?>
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

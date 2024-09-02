@@ -24,6 +24,15 @@ const {createApp,ref} = Vue
                 	horaInicio:'',
                 	horaFin:''
                 }],
+                formulario: {
+		          equipo: '',
+		          marca: '',
+		          modelo: '',
+		          inventario: '',
+		          noSerie: '',
+		          foto: null,
+		          id_cliente:''
+		        },
                 horarios:[],
                 vista:"",
                 diasSemana:['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
@@ -283,7 +292,70 @@ const {createApp,ref} = Vue
 					me.editar_datos_fiscales = response.data;
 				})
 			},
-			
+			subir_imagen(event){
+				var file = event.target.files[0];
+				this.formulario.foto = file;
+				this.formulario.id_cliente = this.$refs.cliente.innerHTML;
+				//console.log(this.formulario.foto);
+			},
+			validar_formulario(){
+				this.errores = {};
+				if (!this.formulario.equipo) {
+			        this.errores.equipo = 'El nombre del equipo es obligatorio';  //nombre del contacto
+		      	}
+
+		      	if (!this.formulario.marca) {
+			        this.errores.marca = 'Debes poner una marca';  //nombre del contacto
+		      	}
+		      	if (!this.formulario.modelo) {
+			        this.errores.modelo = 'Debes poner una modelo';  //nombre del contacto
+		      	}
+		      	if (!this.formulario.inventario) {
+			        this.errores.inventario = 'Debes poner un numero de inventario';  //nombre del contacto
+		      	}else if (!this.validar_numero(this.formulario.inventario)) {
+				    this.errores.inventario = 'Solo se admiten valores numéricos'; //extencion
+		      	}
+		      	if (!this.formulario.noSerie) {
+			        this.errores.serie = 'El nombre de serie es obligatorio';  //nombre del contacto
+		      	}
+		      	
+				return Object.keys(this.errores).length === 0;
+			},
+			limpiar_error_equipo(event,campo){
+				this.texto = event.target.value;
+				if (campo =='equipo') {
+					this.errores.equipo = "";
+				}else if (campo=='marca') {
+					this.errores.marca = "";
+				}else if (campo=='modelo') {
+					this.errores.modelo = "";
+				}else if (campo=='inventario') {
+					this.errores.inventario = "";
+				}else if (campo == 'serie') {
+					this.errores.serie = "";
+				}
+			},
+			agregar_equipo(){				
+				var me = this;
+				var url = "/agregar_equipo";
+				if (this.validar_formulario()) {
+          			axios.post(url,this.formulario,{
+	          			headers:{
+	          				'Content-Type': 'multipart/form-data',
+	          			}
+          			}).then(function (response){
+          				if (response.data == 1) {
+          					me.formulario = "";
+          					$('#equipos').modal('hide');
+          					showAlert('Equipo registrado correctamente');		
+          				}
+          			})
+					
+				}
+				//console.log(this.formulario.foto);
+				//ponemos todos los valores en las variables
+
+			},
 
 		},
 		mounted(){

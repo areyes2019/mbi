@@ -6,6 +6,7 @@ use App\Models\ClientesModel;
 use App\Models\DatosFiscalesModel;
 use App\Models\RegimenFiscalModel;
 use App\Models\HorariosModel;
+use App\Models\EquiposClienteModel;
 
 class Clientes extends BaseController
 {
@@ -32,6 +33,7 @@ class Clientes extends BaseController
 		    'correo' => $this->request->getvar('correo'),
 		    'direccion' => $this->request->getvar('direccion'),
 		    'ubicacion' => $this->request->getvar('ubicacion'),
+		    'facultad' => $this->request->getvar('facultad'),
 		    'laboratorio' => $this->request->getvar('laboratorio'),
 		    'piso' => $this->request->getvar('piso'),
 		];
@@ -95,6 +97,7 @@ class Clientes extends BaseController
 			'telefono' =>$datos->telefono,
 			'titular' =>$datos->titular,
 			'ubicacion' =>$datos->ubicacion,
+			'facultad' =>$datos->facultad,
 		];
 		if ($modelo->update($id,$data)) {
 			echo 1;
@@ -265,5 +268,37 @@ class Clientes extends BaseController
 			echo 1;
 		}
 
+	}
+	public function agregar_equipo()
+	{
+		
+		$model = new EquiposClienteModel();
+		$data = $this->request->getvar();
+		$archivo = $this->request->getFile('foto');
+		if ($archivo && !$archivo->hasMoved()) {
+			$ruta = ROOTPATH . 'public/equipos';
+			$nuevo_nombre = $archivo->getRandomName();
+			//movemos el archivo a la carpeta
+			$archivo->move($ruta,$nuevo_nombre);
+
+			//guardamos todos los datos
+
+			$data = [
+				'equipo'=>$data['equipo'],
+				'marca'=>$data['marca'],
+				'modelo'=>$data['modelo'],
+				'inventario'=>$data['inventario'],
+				'no_serie'=>$data['noSerie'],
+				'img'=>'public/equipos/'.$nuevo_nombre,
+				'id_cliente'=>$data['id_cliente'],
+			];
+
+			if ($model->insert($data)) {
+				echo 1;
+			}
+
+		}else{
+			echo "no hay archivo";
+		}
 	}
 }

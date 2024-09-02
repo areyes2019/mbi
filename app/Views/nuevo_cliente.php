@@ -123,7 +123,17 @@
 						          	<i class="bi bi-geo"></i>
 						          </div>
 						        </div>
-								<input type="text" class="form-control rounded-0 form-control-sm shadow-none" placeholder="Ubicación" v-model="form.ubicacion" name="direccion">
+								<input type="text" class="form-control rounded-0 form-control-sm shadow-none" placeholder="Ubicación GPS" v-model="form.ubicacion" name="direccion">
+						    </div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-2">
+						        <div class="input-group-prepend input-group-sm">
+						          <div class="input-group-text rounded-0">
+						          	<i class="bi bi-building"></i>
+						          </div>
+						        </div>
+								<input type="text" class="form-control rounded-0 form-control-sm shadow-none" placeholder="Facultad" v-model="form.facultad" name="direccion">
 						    </div>
 						</div>
 						<div class="row">

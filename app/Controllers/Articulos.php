@@ -76,4 +76,5 @@ class Articulos extends BaseController
 		return redirect()->to('/articulos');
 
 	}
+	
 }

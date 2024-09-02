@@ -78,7 +78,7 @@
                    </tr>
                </thead>
                <tbody>
-                   <tr>
+                    <tr>
                        <td>1</td>
                        <td>2024-08-15</td>
                        <td>Juan Pérez</td>
@@ -87,7 +87,7 @@
                        <th>
                           <a href="<?php echo base_url('kardex'); ?>" class="btn btn-sm btn-primary"><span class="bi bi-eye"></span></a>
                        </th>
-                   </tr>
+                    </tr>
                    <tr>
                        <td>2</td>
                        <td>2024-08-16</td>
@@ -337,24 +337,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach ($cliente as $data): ?>
                     <tr class="w-100">
-                        <td>Hospital General</td>
+                        <td><?php echo $data['titular'] ?></td>
                         <td>
-                            <a class="btn btn-primary btn-circle" href="<?php echo base_url('kardex_reporte'); ?>"  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
+                            <a class="btn btn-primary btn-circle" href="<?php echo base_url('kardex/'). $data['id_cliente'] ; ?>"  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
                         </td>
                     </tr>
-                    <tr class="w-100">
-                        <td>Hospital Santa Helena</td>
-                        <td>
-                            <a class="btn btn-primary btn-circle" href=""  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
-                        </td>
-                    </tr>
-                    <tr class="w-100">
-                        <td>Hospital Siglo XXI</td>
-                        <td>
-                            <a class="btn btn-primary btn-circle" href=""  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
-                        </td>
-                    </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
           </div>

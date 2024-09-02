@@ -47,8 +47,8 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('borrar_permiso/(:num)', 'Roles::borrar_permiso/$1');
 	$routes->get('eliminar_seccion_rol/(:num)', 'Roles::eliminar_seccion_rol/$1');
 	$routes->get('quitar_seccion_usuario/(:num)', 'Roles::quitar_seccion_usuario/$1');
-	
 
+	
 	/*Clientes*/
 	$routes->get('clientes', 'Clientes::index');
 	$routes->get('agregar_cliente', 'Clientes::agregar');
@@ -65,9 +65,10 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('ver_horarios/(:num)', 'Clientes::ver_horarios/$1');
 	$routes->get('eliminar_horario/(:num)', 'Clientes::eliminar_horario/$1');
 	$routes->post('actualizar_hora', 'Clientes::actualizar_hora');
+	$routes->post('agregar_equipo', 'Clientes::agregar_equipo');
 	
 	//kardex
-	$routes->get('kardex','Kardex::index');
+	$routes->get('kardex/(:num)','Kardex::index/$1');
 	$routes->get('kardex_reporte','Kardex::kardex_repo');
 	
 	

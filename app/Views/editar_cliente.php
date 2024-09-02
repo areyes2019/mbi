@@ -9,26 +9,26 @@
       </ol>
     </nav>
 	<div class="my-card">
-		<h2>Editar Cliente</h2>
+		<h2>Editar Cliente: <?php echo $nombre?></h2>
 		<hr>
 	</div>
 	<div class="row">
     	<div class="col-md-6 col-12">
 			<div class="card rounded-0">
-		            <p class="d-none" ref="cliente"><?php echo $id_cliente ?></p>
+		    <p class="d-none" ref="cliente"><?php echo $id_cliente ?></p>
 				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-		            <h6 class="m-0 font-weight-bold text-primary"><?php echo $nombre?></h6>
+		            <h6 class="m-0 font-weight-bold text-primary"></h6>
 		            <div class="dropdown no-arrow">
 		                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
 		                </a>
 		                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
-		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#agregar_datos_fiscales" v-if="<?php echo $si_hay_datos ?> == 0" >Agregar Datos Fiscales</a>
+		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#agregar_datos_fiscales" v-if="<?php echo $si_hay_datos ?> == 0" ><span class="bi bi-receipt-cutoff"></span> Agregar Datos Fiscales</a>
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#actualizar_datos_fiscales" @click="mostrar_datos_fiscales('<?php echo $id_cliente ?>')" v-if="<?php echo $si_hay_datos ?> == 1" ><span class="bi bi-pencil"></span> Actualizar Datos Fiscales</a>
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#horarios" v-if="vista==0" ><span class="bi bi-plus-circle"></span> Agregar Horarios de Atención</a>
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modificar_horarios" v-else><span class="bi bi-pencil"></span> Modificar Horarios de Atención</a>
 		                    <div class="dropdown-divider"></div>
-		                    <a class="dropdown-item" href="#">Something else here</a>
+		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#equipos"><span class="bi bi-gear"></span> Agregar Equipos</a>
 		                </div>
 		            </div>
 		        </div>
@@ -124,6 +124,16 @@
 					          </div>
 					        </div>
 							<input type="text" class="form-control rounded-0 form-control-sm shadow-none" placeholder="Ubicación" v-model="data.ubicacion">
+					    </div>
+					</div>
+					<div class="form-group">
+						<div class="input-group mb-2">
+					        <div class="input-group-prepend input-group-sm">
+					          <div class="input-group-text rounded-0">
+					          	<i class="bi bi-geo"></i>
+					          </div>
+					        </div>
+							<input type="text" class="form-control rounded-0 form-control-sm shadow-none" placeholder="Facultad" v-model="data.facultad">
 					    </div>
 					</div>
 					<div class="row">
@@ -559,7 +569,67 @@
       </div>
     </div>
     <!--  actualizar datos fiscales -->
+    
+    <!--  Modal agregar equipos -->
+    <div class="modal fade" id="equipos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">		
+	  	<div class="modal-dialog modal-lg">
+	    	<div class="modal-content rounded-0">
+	    		<div class="modal-header">
+	  				<h5 class="modal-title">Agregar Equipos</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+	    		</div>
+      		<div class="modal-body p-3">
+				      <div class="form-group">
+				        <label for="equipo">Equipo</label>
+				        <input type="text" class="form-control rounded-0  shadow-none" @input="limpiar_error_equipo($event,'equipo')" id="equipo" v-model="formulario.equipo" placeholder="Ingrese el nombre del equipo">
+				        <small class="text-danger mt-0">{{errores.equipo}}</small>
+				      </div>
+				      <div class="row">
+					      <div class="col">
+						      <div class="form-group">
+						        <label for="marca">Marca</label>
+						        <input type="text" class="form-control rounded-0  shadow-none" @input="limpiar_error_equipo($event,'marca')" id="marca" v-model="formulario.marca" placeholder="Ingrese la marca">
+						        <small class="text-danger mt-0">{{errores.marca}}</small>
+						      </div>
+					      </div>
+					      <div class="col">
+						      <div class="form-group">
+						        <label for="modelo">Modelo</label>
+						        <input type="text" class="form-control rounded-0  shadow-none" @input="limpiar_error_equipo($event,'modelo')" id="modelo" v-model="formulario.modelo" placeholder="Ingrese el modelo">
+						        <small class="text-danger mt-0">{{errores.modelo}}</small>
+						      </div>
+					      </div>
+				      </div>
+				      <div class="row">
+				      	<div class="col">
+						      <div class="form-group">
+						        <label for="inventario">Inventario</label>
+						        <input type="text" class="form-control rounded-0  shadow-none" @input="limpiar_error_equipo($event,'inventario')" id="inventario" v-model="formulario.inventario" placeholder="Ingrese el número de inventario">
+						        <small class="text-danger mt-0">{{errores.inventario}}</small>
+						      </div>
+				      	</div>
+				      	<div class="col">
+						      <div class="form-group">
+						        <label for="noSerie">No. de Serie</label>
+						        <input type="text" class="form-control rounded-0 shadow-none" @input="limpiar_error_equipo($event,'serie')" id="noSerie" v-model="formulario.noSerie" placeholder="Ingrese el número de serie">
+						        <small class="text-danger mt-0">{{errores.serie}}</small>
+						      </div>
+				      	</div>
+				      </div>
+				      <div class="form-group">
+				        <label for="foto">Foto</label>
+				        <input type="file" class="form-control-file" id="foto" @change="subir_imagen" accept="image/jpeg, image/png">
+				        <small class="text-danger mt-0">{{errores.imagen}}</small>
+				      </div>
+				      <button class="btn btn-primary rounded-0 btn-sm" @click="agregar_equipo" >Enviar</button>
+	      	</div>
+	    	</div>
+    </div>
+    <!--  Modal modificar horario -->
 	</div>
+</div>
 <script type="text/javascript" src="<?php echo base_url('public/js/editar_cliente.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/alert.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/form_horarios.js'); ?>"></script>
