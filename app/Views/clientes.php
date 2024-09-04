@@ -124,7 +124,7 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body p-3">
+                    <div class="modal-body p-3" id="contentToConvert" ref="contentToConvert">
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="card rounded-0">
@@ -165,6 +165,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn"><span class="bi bi-camera" @click = "convertAndCopy"></span></button>
                     </div>
                 </div>
             </div>

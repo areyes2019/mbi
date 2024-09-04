@@ -33,6 +33,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="<?php echo base_url('public/js/toaster.js'); ?>"></script>
+    <script src="<?php echo base_url('public/js/html2Canvas.js'); ?>"></script>
 
 </head>
 

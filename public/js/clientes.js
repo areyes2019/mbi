@@ -211,6 +211,35 @@ const {createApp,ref} = Vue
 		      	const formattedHour = hour % 12 || 12;
 		      	return `${formattedHour}:${minute < 10 ? '0' + minute : minute} ${ampm}`;
 		    },
+		    async convertAndCopy() {
+		    	var node = this.$refs.contentToConvert;
+		    		//console.log(node)
+			    	try {
+			    		if (!window.html2canvas) {
+				          throw new Error("html2canvas no está cargado");
+				        }
+				        // Utilizar html2canvas desde la CDN
+        				const canvas = await window.html2canvas(node);
+        				// Asegurarse de que el objeto canvas sea correcto
+				        if (!(canvas instanceof HTMLCanvasElement)) {
+				          throw new Error("Error al generar el canvas");
+				        }
+				        // Convertir canvas a data URL en formato JPG
+        				const dataUrl = canvas.toDataURL("image/jpeg", 0.95);
+        				// Crear un objeto blob desde la URL de la imagen
+				        const response = await fetch(dataUrl);
+				        const blob = await response.blob();
+
+				        // Copiar la imagen al portapapeles
+				        await navigator.clipboard.write([
+				          new ClipboardItem({ "image/jpeg": blob })
+				        ]);
+				        alert("Imagen copiada al portapapeles.");
+			     	}catch (error) {
+				        console.error("Error al convertir o copiar el contenido:", error);
+				        alert("Hubo un error: " + error.message);
+				    }
+			}
 
 		},
 		mounted(){

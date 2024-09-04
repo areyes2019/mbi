@@ -68,8 +68,11 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('agregar_equipo', 'Clientes::agregar_equipo');
 	
 	//kardex
-	$routes->get('kardex/(:num)','Kardex::index/$1');
+	$routes->get('kardex/(:any)','Kardex::index/$1');
 	$routes->get('kardex_reporte','Kardex::kardex_repo');
+	$routes->post('crear_kardex','Kardex::crear_kardex');
+	$routes->post('detalle_kardex','Kardex::detalle_kardex');
+	$routes->get('mostrar_kardex/(:num)','Kardex::mostrar_kardex/$1');
 	
 	
 	/*Proveedores*/

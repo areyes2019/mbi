@@ -1,16 +1,18 @@
 <?php echo $this->extend('panel_template') ?>
 <?php echo $this->section('contenido') ?>
+<div class="container-fluid" id="app">
 <!-- Page Heading -->
 <div class="mb-4">
     <h1 class="h3 mb-0 text-gray-800">Panel Principal</h1>
     <button class="btn btn-primary rounded-0 btn-sm mt-2" data-toggle="modal" data-target="#nuevo_reporte"><span class="bi bi-filetype-pdf"></span> Nueva Solicitud de Diagnóstico</button>
 </div>
 <div class="w3-bar w3-black">
-  <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s1')">Ordenes de Diagnóstico</button>
+    <!-- <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s1')">Ordenes de Diagnóstico</button>
   <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s2')">Diagnosticos</button>
   <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s3')">Cotizaciones Previas</button>
   <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s4')">Cotizaciones</button>
-  <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s5')">Facturas</button>
+  <button class="btn btn-primary btn-sm rounded-0 shadow-none" onclick="openCity('s5')">Facturas</button> -->
+  
 </div>
 <div class="row">
    <div class="col-12">
@@ -21,49 +23,56 @@
             <table id="example" class="table table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Contacto</th>
+                    <th>#</th>
+                    <th>Clave</th>
+                    <th>Titular</th>
+                    <th>Resonsable</th>
                     <th>Fecha</th>
                     <th>Estatus</th>
-                    <th>Acción</th>
+                    <th>Atendiendo</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Hospital Santa Maria</td>
-                    <td>Elena Santos</td>
-                    <td>12/12/2024</td>
-                    <td>SD</td>
-                    <td>
-                        <a class="btn btn-primary btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
-                        <a class="btn btn-danger btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-danger" onclick="return confirm('Esta eliminación no se puede revertir, ¿Deseas continuar?');"><span class="bi bi-trash3"></span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Hospital San José</td>
-                    <td>Pedro Baltrierrez</td>
-                    <td>12/12/2024</td>
-                    <td>Entregada</td>
-                    <td>
-                        <a class="btn btn-primary btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
-                        <a class="btn btn-danger btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-danger" onclick="return confirm('Esta eliminación no se puede revertir, ¿Deseas continuar?');"><span class="bi bi-trash3"></span></a>
-                    </td>
-                </tr>
+                <?php foreach ($kardex as $kdx): ?>
+                    <tr>
+                        <td><?php echo $kdx['id_kardex'] ?></td>
+                        <td><?php echo $kdx['slug'] ?></td>
+                        <td><?php echo $kdx['titular'] ?></td>
+                        <td><?php echo $kdx['responsable'] ?></td>
+                        <td>
+                        <?php
+                            $dia = $kdx['created_at'];
+                            echo $dia;
+                        ?>
+                                
+                        </td>
+                        <td><?php echo $kdx['estatus'] ?></td>
+                        <td><?php echo $kdx['nombre'].' '.$kdx['apellidos'] ?></td>
+                        <td>
+                            <a class="btn btn-primary btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
+                            <a class="btn btn-danger btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-danger" onclick="return confirm('Esta eliminación no se puede revertir, ¿Deseas continuar?');"><span class="bi bi-trash3"></span></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+                
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Contacto</th>
+                    <th>#</th>
+                    <th>Clave</th>
+                    <th>Titular</th>
+                    <th>Resonsable</th>
                     <th>Fecha</th>
                     <th>Estatus</th>
-                    <th>Acción</th>
+                    <th>Entregado a</th>
                 </tr>
             </tfoot>
         </table>
         </div>
       </div>
 
-      <div id="s2" class="w3-container stage" style="display:none">
+      <!-- <div id="s2" class="w3-container stage" style="display:none">
          <div class="card card-body rounded-0 mt-3">
             <h3>Diagnosticos</h3>
             <table class="table table-bordered">
@@ -111,9 +120,9 @@
                </tbody>
             </table>
          </div>
-      </div>
-
-      <div id="s3" class="w3-container stage" style="display:none">
+      </div> -->
+      
+      <!-- <div id="s3" class="w3-container stage" style="display:none">
          <div class="card card-body rounded-0 mt-3">
             <h3>Cotizaciones previas</h3>
             <table class="table table-bordered">
@@ -162,8 +171,8 @@
             </table>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis. Aliquam alias libero mollitia nemo quidem amet consectetur cupiditate vero!</p>
          </div>
-      </div>
-      <div id="s3" class="w3-container stage" style="display:none">
+      </div> -->
+        <!--  <div id="s3" class="w3-container stage" style="display:none">
          <div class="card card-body rounded-0 mt-3">
             <h3>Cotizaciones Concretadas</h3>
             <table class="table table-bordered">
@@ -212,8 +221,8 @@
             </table>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis. Aliquam alias libero mollitia nemo quidem amet consectetur cupiditate vero!</p>
          </div>
-      </div>
-      <div id="s4" class="w3-container stage" style="display:none">
+      </div>-->
+      <!-- <div id="s4" class="w3-container stage" style="display:none">
          <div class="card card-body rounded-0 mt-3">
             <h3>Facturas</h3>
             <table class="table table-bordered">
@@ -262,8 +271,8 @@
             </table>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis. Aliquam alias libero mollitia nemo quidem amet consectetur cupiditate vero!</p>
          </div>
-      </div>
-      <div id="s5" class="w3-container stage" style="display:none">
+      </div> -->
+      <!-- <div id="s5" class="w3-container stage" style="display:none">
          <div class="card card-body rounded-0 mt-3">
             <h3>Facturas</h3>
             <table class="table table-bordered">
@@ -316,7 +325,8 @@
         </table>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis. Aliquam alias libero mollitia nemo quidem amet consectetur cupiditate vero!</p>
          </div>
-      </div>
+      </div> -->
+      
     </div>
     <!-- Modal -->
     <div class="modal fade" id="nuevo_reporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -333,6 +343,7 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Tipo de sol.</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -341,7 +352,16 @@
                     <tr class="w-100">
                         <td><?php echo $data['titular'] ?></td>
                         <td>
-                            <a class="btn btn-primary btn-circle" href="<?php echo base_url('kardex/'). $data['id_cliente'] ; ?>"  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
+                            <select name="" id="" class="form-control" style="width: 120px;" v-model="tipos['<?php echo $data['id_cliente'] ?>']">
+                                <option value="">Selecciona...</option>
+                                <option value="1">Diágnostico</option>
+                                <option value="2">Refacciones</option>
+                                <option value="3">Mtto Prev.</option>
+                                <option value="4">Garantía</option>
+                            </select>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-circle" class="my-btn-primary p-1" @click = "agregar_kardex('<?php echo $data['id_cliente'] ?>')"><span class="bi bi-check"></span></a>
                         </td>
                     </tr>
                     <?php endforeach ?>
@@ -354,6 +374,7 @@
         </div>
       </div>
     </div>
+</div>
 </div>
 <script>
 function openCity(stageLevel) {
@@ -369,4 +390,5 @@ $( document ).ready(function() {
     new DataTable('#example');
 });
 </script>
+<script type="text/javascript" src="<?php echo base_url('public/js/kardex.js'); ?>"></script>
 <?php echo $this->endSection() ?>
