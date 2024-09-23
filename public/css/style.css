@@ -79,3 +79,30 @@ input:checked + .slider:before {
   opacity: 0;
   transition: bottom 0.5s ease, opacity 0.5s ease;
 }
+
+/*badges pesonalizados*/
+
+/*diagnostico */
+.badge-custom-yellow {
+  background-color: #f9ca24; /* Cambia el color a tu gusto */
+  color: black;
+}
+
+
+/*Preventivo*/
+.badge-custom-orange {
+  background-color: #f0932b; /* Cambia el color a tu gusto */
+  color: black;
+}
+
+/*refacciones*/
+.badge-custom-blue {
+  background-color: #130f40; /* Cambia el color a tu gusto */
+  color: wite;
+}
+
+/*Garantia*/
+.badge-custom-aqua {
+  background-color: #22a6b3; /* Cambia el color a tu gusto */
+  color: black;
+}

@@ -14,7 +14,7 @@ class UsuariosModel extends Model
         'correo',
         'password',
         'tipo',
-        'funcion',
+        'id_rol',
         'verificado',
         'creado_en',
     ];

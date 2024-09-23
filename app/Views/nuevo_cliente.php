@@ -32,6 +32,17 @@
 							<div class="input-group">
 						        <div class="input-group-prepend input-group-sm">
 						          <div class="input-group-text rounded-0">
+						          	<i class="bi bi-hospital"></i>
+						          </div>
+						        </div>
+								<input type="text" class="form-control rounded-0 form-control-sm shadow-none"  @input="limpiar_error($event,'hospital')" placeholder="Nombre de la institución *" v-model="form.hospital" name="hospital">
+						    </div>
+							<small class="text-danger mt-0">{{errores.hospital}}</small>
+						</div>
+						<div class="form-group mt-2">
+							<div class="input-group">
+						        <div class="input-group-prepend input-group-sm">
+						          <div class="input-group-text rounded-0">
 						          	<i class="bi bi-person"></i>
 						          </div>
 						        </div>

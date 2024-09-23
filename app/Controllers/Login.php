@@ -44,38 +44,38 @@ class Login extends BaseController{
 	}
 	public function validar_entrada(){
 		
-
-		//$this->session->set('usuario','Abdias');
-		//echo $this->session->get('usuario');
-		$usuarios = new UsuariosModel();
+        
         $correo = $this->request->getPost('correo');
         $password = $this->request->getPost('password');
-        $usuarios->where('correo', $correo);
-        $resultado = $usuarios->findAll();
-        $id = $resultado[0]['id_usuario'];
+
+        $db = \Config\Database::connect();
         
-        //sacamos las secciones
+        $builder = $db->table('usuarios');
+        $builder->where('correo',$correo);
+        $builder->join('mbi_roles','mbi_roles.role_id = usuarios.id_rol');
+        $resultado = $builder->get()->getResultArray();
+
         
-        $rol = new UsuarioRolModel();
-        $rol->where('id_usuario',$id);
-        $query = $rol->get()->getResultArray();
+        //return json_encode($resultado);
 
         if ($resultado && password_verify($password, $resultado[0]['password'])) {            
             $data = [
             	'id_usuario'=> $resultado[0]['id_usuario'],
             	'nombre'=> $resultado[0]['nombre'],
             	'tipo'=>$resultado[0]['tipo'],
-            	'funcion'=>$resultado[0]['funcion'],
+            	'id_rol'=>$resultado[0]['id_rol'],
             	'is_logged'=> true,
-            	'role' => $query
             ];
-
-            //return json_encode($data);
      		$this->session->set($data);
-            return redirect()->to('/inicio');
+    		return redirect()->to('/inicio');
+        }else{
+        	return redirect()->back()->with('alert','El usuario o la contraseña no coinciden, verifica nuevamente');
         }
 
-        return redirect()->back();
+	}
+	public function entrada()
+	{
+		// code...
 	}
 	public function actualizar()
 	{

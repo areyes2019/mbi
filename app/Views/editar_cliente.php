@@ -38,6 +38,16 @@
 						<div class="input-group">
 					        <div class="input-group-prepend input-group-sm">
 					          <div class="input-group-text rounded-0">
+					          	<i class="bi bi-hospital"></i>
+					          </div>
+					        </div>
+							<input type="text" class="form-control rounded-0 form-control-sm shadow-none"   placeholder="Nombre de hospital o institución *" v-model="data.hospital">
+					    </div>
+					</div>
+					<div class="form-group mt-2">
+						<div class="input-group">
+					        <div class="input-group-prepend input-group-sm">
+					          <div class="input-group-text rounded-0">
 					          	<i class="bi bi-person"></i>
 					          </div>
 					        </div>

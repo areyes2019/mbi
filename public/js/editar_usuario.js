@@ -9,7 +9,11 @@ createApp({
 			alert:"",
 			funciones:[],
 			funcion:"",
-			checked:true,	
+			checked:true,
+			data:{
+				solo_ver:0
+			},
+			valor:0
 		}
 	},
 	methods:{
@@ -92,6 +96,33 @@ createApp({
 			}); 
 			}
 
+		},
+		permisos(id,permiso){
+			
+			var number = permiso+id; 
+			var me = this;
+			var url = "/actualizar_permiso_seccion"
+			const elemento = this.$refs[number][0].value;
+			console.log(elemento);
+
+
+			if (elemento == 1) {
+				valor = 0;
+			}else if(elemento == 0){
+				valor = 1
+			}
+			
+			//valor booleano para cambiar el permiso
+			axios.post(url,{
+				'seccion':id, 
+				'permiso':permiso, 
+				'valor':valor, 
+			}).then(function (response){
+				if (response.data == 1) {
+					location.reload();
+				}
+			})
+			 //console.log(valor);
 		}
 	},
 	mounted(){

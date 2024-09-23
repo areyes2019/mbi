@@ -37,7 +37,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" id="master">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -351,6 +351,15 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    <div id="toaster">
+        <div class="toaster-icon">
+            <span class="bi bi-bell"></span>
+        </div>
+        <div class="toaster-body">
+            <p class="toaster-title m-0 p-0"></p>
+            <p class="toaster-message m-0 p-0"></p>
+        </div>
+    </div>
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -369,15 +378,6 @@
                     <a class="btn btn-primary" href="<?php echo base_url('salir'); ?>">Salir</a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="toaster">
-        <div class="toaster-icon">
-            <span class="bi bi-bell"></span>
-        </div>
-        <div class="toaster-body">
-            <p class="toaster-title m-0 p-0"></p>
-            <p class="toaster-message m-0 p-0"></p>
         </div>
     </div>
     <!-- Bootstrap core JavaScript-->

@@ -21,7 +21,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('/inicio', 'Admin::index');	
 	
 	$routes->get('/usuarios', 'Usuarios::index');	
-	$routes->get('/nuevo_usuario', 'Usuarios::nuevo');	
+	$routes->post('/nuevo_usuario', 'Usuarios::nuevo');	
 	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
 	$routes->get('ver_usuario/(:num)', 'Usuarios::ver/$1');	
 	$routes->post('actualizar_usuario', 'Usuarios::actualizar');	
@@ -47,6 +47,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('borrar_permiso/(:num)', 'Roles::borrar_permiso/$1');
 	$routes->get('eliminar_seccion_rol/(:num)', 'Roles::eliminar_seccion_rol/$1');
 	$routes->get('quitar_seccion_usuario/(:num)', 'Roles::quitar_seccion_usuario/$1');
+	$routes->post('actualizar_permiso_seccion', 'Roles::editar_permiso');
 
 	
 	/*Clientes*/
@@ -73,6 +74,12 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('crear_kardex','Kardex::crear_kardex');
 	$routes->post('detalle_kardex','Kardex::detalle_kardex');
 	$routes->get('mostrar_kardex/(:num)','Kardex::mostrar_kardex/$1');
+	$routes->get('ver_mis_tareas/(:num)','Kardex::ver_mis_tareas/$1');
+	$routes->post('enviar_kardex','Kardex::enviar_kardex');
+	$routes->get('borrar_linea/(:num)','Kardex::borrar_linea/$1');
+	$routes->get('ver_kardex/(:num)','Kardex::ver_kardex/$1');
+	$routes->get('ver_primer_kardex','Kardex::ver_kardex_lateral');
+	$routes->post('kardex_accion','Kardex::kardex_accion');
 	
 	
 	/*Proveedores*/
@@ -92,6 +99,11 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('eliminar_proveedor/(:num)', 'Inbox::eliminar/$1');
 	$routes->get('mostrar_familias/(:num)', 'Inbox::mostrar_familias/$1');
 	$routes->post('agregar_familia', 'Inbox::agregar_familia');
+	$routes->get('mostrar_bandeja', 'Inbox::mostrar_bandeja');
+	$routes->get('vista_previa/(:num)','Inbox::vista_previa/$1');
+	$routes->get('primer_kardex','Inbox::primer_kardex');
+
+
 
 	/*Articulos*/
 	$routes->get('articulos', 'admin\Articulos::index');

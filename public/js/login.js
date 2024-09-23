@@ -12,10 +12,26 @@ const {createApp,ref} = Vue
 				data:[],
 				msg:"",
 				errores:{},
+				usuario:"",
+				password:"",
 
 			}
 		},
 		methods:{
+			entrar(){
+				var me = this;
+				var url = '/validar_entrada';
+				axios.post('ruta',{
+					'usuario':usuario,
+					'password':password,
+				}).then(function (response){
+					if (response.data == true) {
+						console.log('si hay entrada');
+					}else if(response.data == false){
+						console.log('Datos incorrectos');
+					}
+				})
+			},
 			validar_form(){
 				this.errores = {};
 		      	if (!this.form.nombre) {

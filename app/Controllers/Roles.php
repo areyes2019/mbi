@@ -21,9 +21,7 @@ class Roles extends BaseController
     }
     public function agregar()
     {
-        $request = \Config\Services::request();
         $model = new RolesModel();
-        $id = $this->request->getvar('nombre');
         $data=[
             'role_name'=> $this->request->getvar('nombre'),
         ];
@@ -41,12 +39,48 @@ class Roles extends BaseController
     public function eliminar_rol($id)
     {
         $modelo = new RolesModel();
-        $modelo->delete($id);
+        if ($modelo->delete($id)) {
+            echo 1;
+        }
+        
 
     }
-    public function editar_rol($id)
+    public function editar_permiso()
     {
+        $id_seccion = $this->request->getvar('seccion');
+        $permiso = $this->request->getvar('permiso');
+        $valor = $this->request->getvar('valor');
+        $valor_final = json_encode($valor);
+
+        $model = new UsuariosSecciones();
         
+        if ($permiso == 1) {
+            $data['solo_ver'] = $valor_final;
+            if ($model->update($id_seccion,$data)) {
+                echo 1;
+            }
+        }elseif ($permiso == 2) {
+            $data['puede_crear'] = $valor_final;
+            if ($model->update($id_seccion,$data)) {
+                echo 1;
+            }
+        }
+        elseif ($permiso == 3) {
+            $data['puede_modificar'] = $valor_final;
+            if ($model->update($id_seccion,$data)) {
+                echo 1;
+            }
+        }
+        elseif ($permiso == 4) {
+            $data['puede_eliminar'] = $valor_final;
+            if ($model->update($id_seccion,$data)) {
+                echo 1;
+            }
+        }
+        
+
+    
+
     }
     public function add_seccion()
     {
@@ -99,7 +133,7 @@ class Roles extends BaseController
         $request = \Config\Services::request();
         $id = $this->request->getvar('usuario');
         $data = [
-            'funcion'=>$this->request->getvar('funcion'),
+            'id_rol'=>$this->request->getvar('funcion'),
         ];
 
         if ($model->update($id,$data)) {

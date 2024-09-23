@@ -11,6 +11,10 @@ class UsuariosSecciones extends Model
     protected $allowedFields    = [
         'id_usuario',
         'id_seccion',
+        'solo_ver',
+        'puede_crear',
+        'puede_modificar',
+        'puede_eliminar',
     ];
 
 }

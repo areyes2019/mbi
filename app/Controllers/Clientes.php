@@ -12,8 +12,15 @@ class Clientes extends BaseController
 {
 	public function index()
 	{
+		$usuario = session('id_usuario');
+		$seccion = 4;
 		$model = new ClientesModel();
-		$data['clientes'] = $model->findAll();
+		$resultado = $model->findAll();
+		$data=[
+			'usuario'=>$usuario,
+			'seccion'=>$seccion,
+			'clientes'=> $resultado,
+		];
 		return view('clientes', $data);
 	}
 	public function agregar()
@@ -25,6 +32,7 @@ class Clientes extends BaseController
 		$request = \Config\Services::request();
 		$model = new ClientesModel();
 		$data = [
+		    'hospital' => $this->request->getvar('hospital'),
 		    'titular' => $this->request->getvar('titular'),
 		    'responsable' => $this->request->getvar('responsable'),
 		    'telefono' => $this->request->getvar('telefono'),

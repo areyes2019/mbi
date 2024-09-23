@@ -15,9 +15,12 @@ class Usuarios extends BaseController
 {
     public function index()
    {
-       $model = new UsuariosModel();
-       $model->where('tipo',0);
-       $resultado = $model->findAll();
+       $db = \Config\Database::connect();
+       
+       $builder = $db->table('usuarios');
+       $builder->where('tipo',0);
+       $builder->join('mbi_roles','mbi_roles.role_id = usuarios.id_rol');
+       $resultado = $builder->get()->getResultArray();
        $data['usuarios']=$resultado;
        return view('usuarios', $data);
    }
@@ -26,9 +29,9 @@ class Usuarios extends BaseController
         $model = new UsuariosModel();
         $resultado = $model->where('id_usuario',$id)->findAll();
 
-        /*$funcion = new RolesModel();
+        $funcion = new RolesModel();
         $funcion->where('role_id',$resultado[0]['function']);
-        $query = $funcion->get()->getResultArray();*/
+        $query = $funcion->get()->getResultArray();
 
         $data['usuario'] = $resultado;
         $data['funcion'] = $query[0]['role_name'];
@@ -112,12 +115,20 @@ class Usuarios extends BaseController
    }
    public function nuevo()
    {
-       $model = new Model();
+       $nombre = $this->request->getvar('nombre');
+       $apellidos = $this->request->getvar('apellidos');
+       $correo = $this->request->getvar('correo');
+       $hash = password_hash($this->request->getvar('password_confirm'), PASSWORD_DEFAULT);
+
+       $model = new UsuariosModel();
        $data = [
-           'var' => $this->request->getPost('nombre_del_campo'),
+           'nombre' => $nombre,
+           'apellidos' => $apellidos,
+           'correo' => $correo,
+           'password' => $hash,
        ];
        if ($model->insert($data)) {
-           return redirect()->to('/vista');
+            echo 1;
        }
    }
    public function editar($id)
@@ -125,7 +136,7 @@ class Usuarios extends BaseController
         $model = new UsuariosModel();
         $resultado = $model->where('id_usuario',$id)->findAll();
 
-        $funcion_id = $resultado[0]['funcion'];
+        $funcion_id = $resultado[0]['id_rol'];
 
         $funcion = new RolesModel();
         $funcion->where('role_id',$funcion_id);

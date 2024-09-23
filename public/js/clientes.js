@@ -90,6 +90,10 @@ const {createApp,ref} = Vue
 		methods:{
 			validar_form(){
 				this.errores = {};
+		      	if (!this.form.hospital) {
+			        this.errores.hospital = 'El nombre de la institución es obligatorio'; //nombre del encargado o DR
+		      	}
+
 		      	if (!this.form.titular) {
 			        this.errores.titular = 'El nombre del encargado es obligatorio'; //nombre del encargado o DR
 		      	}
@@ -143,6 +147,8 @@ const {createApp,ref} = Vue
 					this.errores.extencion = "";
 				}else if (campo == 'movil') {
 					this.errores.movil = "";
+				}else if(campo == 'hospital'){
+					this.errores.hospital = "";
 				}
 			},
 			validar_correo(correo){
@@ -175,6 +181,7 @@ const {createApp,ref} = Vue
 			    		if (response.data == 1) {
 			    			var msg = "Cliente guardado correctamente";
 			    			showAlert(msg);
+			    			me.form.hospital = "";
 			    			me.form.titular = "";
 			    			me.form.responsable = "";
 			    			me.form.telefono = "";

@@ -7,7 +7,12 @@ createApp({
 			existencias:[],
 			tipos:[],
 			formulario:{},
-			errores:{}
+			errores:{},
+			destinatario:"",
+			kardex_id:"",
+			usuario:"defecto",
+			asunto:"",
+			kardex_data:[]
 		}
 	},
 	methods:{
@@ -49,19 +54,6 @@ createApp({
 					this.errores.falla = "";
 				}
 			},
-		agregar_kardex(cliente){
-			var me = this;
-			var url = '/crear_kardex';
-			var data =this.tipos[cliente];
-			axios.post(url,{
-				'cliente':cliente,
-				'tipo':data,
-			}).then(function (response){
-				if (response.data['exito'] == 1) {
-					window.location = '/kardex/'+response.data['slug'];	
-				}
-			})
-		},
 		mostrar(){
 			var me = this;
 			var id = this.$refs.kardex.innerHTML;
@@ -81,9 +73,7 @@ createApp({
 				this.formulario.kardex = this.$refs.kardex.innerHTML;
 				axios.post(url,this.formulario).then(function (response){
 					if (response.data == 1) {
-						me.mostrar();
-						me.vaciar_campos();
-						showAlert('Reporte generado');
+						location.reload();
 					}
 				})
 			}    
@@ -109,12 +99,31 @@ createApp({
 
 		borrar_linea(data){
 			var me = this;
+			var url = '/borrar_linea/'+data;
 			if (window.confirm("¿Realmente quieres borrar esta linea?")) {
-				axios.get('/borrar_linea/'+data).then(function (response) {
-					me.mostrar_lineas();
+				axios.get(url).then(function (response) {
+					if (response.data == 1) {
+						me.mostrar();
+						location.reload();
+					}
 				})
 			}
 		},
+		enviar() {
+			//alert('hola');
+			var me = this;
+			var url = '/enviar_kardex';
+			axios.post(url,{
+				'destinatario':me.usuario,
+				'kardex':me.$refs.kardex.innerHTML,
+				'asunto':me.asunto
+			}).then(function (response){
+				if (response.data == 1) {
+					window.location.href = '/mi_tablero/';
+				}
+			})
+		},
+
 	},
 	mounted(){
 		this.mostrar();

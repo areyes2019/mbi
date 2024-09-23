@@ -19,6 +19,7 @@
                         <input type="password" class="form-control form-control-user"
                             id="exampleInputPassword" placeholder="Contraseña" name="password">
                     </div>
+                    <small class="text-danger"><?= session('alert') ?></small>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox small">
                             <input type="checkbox" class="custom-control-input" id="customCheck">

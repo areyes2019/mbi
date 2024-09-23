@@ -10,7 +10,8 @@
     <div class="row column_title">
         <div class="col-md-12">
             <div class="page_title">
-                <h2>Clientes Se esta cargando el modelo</h2>
+                <h2>Clientes</h2>
+                
             </div>
         </div>
     </div>
@@ -21,12 +22,14 @@
             <div class="white_shd full margin_bottom_30">
                 <div class="full graph_head">
                     <div class="heading1 margin_0 mb-2">
+                        <?php if (tiene_permisos($usuario,$seccion,'2')): ?>
                         <a href="<?php echo base_url('agregar_cliente'); ?>" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="bi bi-plus-circle"></i>
                             </span>
                             <span class="text">Nuevo Cliente</span>
                         </a>
+                        <?php endif ?>
                     </div>
                     <div class="modal fade" id="nuevo_cliente">
                       <div class="modal-dialog">
@@ -62,8 +65,9 @@
                         <table id="example" class="table table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Doctor o Encargado</th>
-                                    <th>Contacto</th>
+                                    <th>Cliente</th>
+                                    <th>Titular</th>
+                                    <th>Encargado</th>
                                     <th>Correo</th>
                                     <th>Teléfono</th>
                                     <th>Móvil</th>
@@ -73,7 +77,8 @@
                             <tbody>
                                 <?php foreach ($clientes as $cliente): ?>
                                 <tr>
-                                    <td><a href="" data-toggle="modal" data-target="#ver_cliente" @click="mostrar_cliente_modal('<?php echo $cliente['id_cliente'] ?>')"><?php echo $cliente['titular'] ?></a></td>
+                                    <td><a href="" data-toggle="modal" data-target="#ver_cliente" @click="mostrar_cliente_modal('<?php echo $cliente['id_cliente'] ?>')"><?php echo $cliente['hospital'] ?></a></td>
+                                    <td><?php echo $cliente['titular'] ?></td>
                                     <td><?php echo $cliente['responsable'] ?></td>
                                     <?php if ($cliente['correo'] == null):?>
                                     <td>No registrado</td>
@@ -88,9 +93,13 @@
                                             <span class="bi bi-three-dots-vertical"></span>
                                           </a>
                                           <div class="dropdown-menu rounded-0">
+                                            <?php if (tiene_permisos($usuario,$seccion,'3')): ?>
                                             <a class="dropdown-item" href="/editar_cliente/<?php echo $cliente['id_cliente']; ?>">Editar Cliente</a>
+                                            <?php endif ?>
+                                            <?php if (tiene_permisos($usuario,$seccion,'4')): ?>
                                             <a class="dropdown-item" href="javascript:void(0);" onclick="if(confirm('¿Estás seguro de que deseas eliminar este cliente?')) { window.location.href='/eliminar_cliente/<?php echo $cliente['id_cliente'] ?>'; }">
                                                 Eliminar Cliente
+                                            <?php endif ?>
                                             </a>
                                           </div>
                                         </div>

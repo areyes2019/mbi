@@ -33,7 +33,7 @@
                     <p class="m-0"><strong>Teléfono: </strong><?php echo $user['mobil'] ?></p>
                     <p class="m-0"><strong>Función: </strong><?php echo $funcion ?></p>
                     <hr>
-                    <h5>Secciones asgidnadas:</h5>
+                    <h5>Secciones asignadas:</h5>
                 	<table class="table table-bordered">
 		    			<tr>
 		    				<th>Sección</th>
@@ -47,68 +47,30 @@
 		    				<td>
 		    					{{data.section_name}}
 		    				</td>
-		    				<!--  leer -->
-		    				<td v-if="data.solo_ver == 1">
-		    					<label class="switch">
-								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_leer(data.id_us)" :value="data.solo_ver">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<td v-else>
-		    					<label class="switch">
-								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_leer(data.id_us)" :value="data.solo_ver">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<!--  leer -->
-
-		    				<!-- crear -->
-		    				<td v-if="data.crear == 1">
-		    					<label class="switch">
-								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_crear(data.id_permiso)" :value="data.crear">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<td v-else>
-		    					<label class="switch">
-								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_crear(data.id_permiso)" :value="data.crear">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<!-- crear -->
-
-		    				<!-- actualizar -->
-		    				<td v-if="data.actualizar == 1">
-		    					<label class="switch">
-								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_actualizar(data.id_permiso)">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<td v-else>
-		    					<label class="switch">
-								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_actualizar(data.id_permiso)">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<!-- actualizar -->
-
-		    				<!-- eliminar -->
-		    				<td v-if="data.eliminar == 1">
-		    					<label class="switch">
-								 	<input type="checkbox" checked :ref="data.id_us" @change="cambiar_eliminar(data.id_permiso)">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<td v-else>
-		    					<label class="switch">
-								 	<input type="checkbox" :ref="data.id_us" @change="cambiar_eliminar(data.id_permiso)">
-								  	<span class="slider"></span>
-								</label>
-		    				</td>
-		    				<!-- eliminar -->
 		    				<td>
-		    					<button class="btn btn-danger btn-sm rounded-0 shadow-none" @click='eliminar_seccion(data.id_us)'><span class="bi bi-x"></span></button>
+		    					<label class="switch">
+								 	<input type="checkbox"  :checked="data.solo_ver == 1" :ref="`1${data.id_us}`" @change="permisos(data.id_us,'1')" :value="data.solo_ver">
+								  	<span class="slider"></span>
+								</label>
 		    				</td>
+		    				<td>
+		    					<label class="switch">
+								 	<input type="checkbox"  :checked="data.puede_crear == 1" :ref="`2${data.id_us}`" @change="permisos(data.id_us,'2')" :value="data.puede_crear">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<td>
+		    					<label class="switch">
+								 	<input type="checkbox"  :checked="data.puede_modificar == 1" :ref="`3${data.id_us}`" @change="permisos(data.id_us,'3')" :value="data.puede_modificar">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>
+		    				<td>
+		    					<label class="switch">
+								 	<input type="checkbox"  :checked="data.puede_eliminar == 1" :ref="`4${data.id_us}`" @change="permisos(data.id_us,'4')" :value="data.puede_eliminar">
+								  	<span class="slider"></span>
+								</label>
+		    				</td>		    				
 		    			</tr>
     				</table>
                 </div>
