@@ -48,30 +48,26 @@
                                 <?php 
                                 $estatus = asignar_estatus($mis_tareas['estatus']);
                                 if ($estatus): ?>
-                                    <span class="badge <?php echo $estatus['estilo'] ?>"><?php echo $estatus['nombre'] ?></span> 
+                                    <span class="badge <?php echo $estatus['estilo']." ".$estatus['icon']?> "> <?php echo $estatus['nombre'] ?></span> 
                                 <?php endif ?>
-                                
+
                             </td>
                             <td>
                                 <span v-if="<?php echo $mis_tareas['tipo'] ?> == 1" class="badge badge-pill badge-custom-yellow "><?php echo $mis_tareas['tipo_txt'] ?></span>
                                 <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 2" class="badge badge-pill badge-custom-orange "><?php echo $mis_tareas['tipo_txt'] ?></span>
                                 <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-blue "><?php echo $mis_tareas['tipo_txt'] ?></span>
-                                <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
+                                <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 4" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
                             </td>
-                            <td><strong><?php echo $mis_tareas['atendido_nombre'] ?></strong></td>
+                            <td><strong><?php echo $mis_tareas['destinatario_nombre'] ?></strong></td>
                             <td>
-                                <div class="dropdown">
-                                    <a  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                      <a class="dropdown-item" href="#"><span class="bi bi-trash3"></span> Eliminar</a> 
-
-                                      <a class="dropdown-item" href="<?php echo base_url('kardex/'.$mis_tareas['slug']);?>"><span class="bi bi-pencil"></span> Editar</a>
-                                      <a class="dropdown-item" href="#" @click.prevent="ver_doc('<?php echo $mis_tareas['id_kardex'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span> Ver</a>
-                                    </div>
-                                </div>
+                                <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?>
+                                <!--  Eliminar -->
+                                <button class="btn btn-danger btn-sm shadow-none mr-1"><span class="bi bi-trash3"></span></button>
+                                <?php endif ?>
+                                <!--  Editar -->
+                                <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
+                                <!--  Vista Rápida -->
+                                <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
                             </td>
                         </tr>
                         <?php endforeach ?>
@@ -96,7 +92,9 @@
                     <tbody>
                         <?php foreach ($kardex_user as $tareas): ?>
                         <tr>
-                            <td><?php echo $tareas['id_kardex'] ?></td>
+                            <td>
+                                <?php echo $tareas['id_kardex'] ?>
+                            </td>
                             <td><?php echo $tareas['hospital'] ?></td>
                             <td><?php echo $tareas['generado_por'] ?></td>
                             <td>
@@ -180,19 +178,24 @@
                                 <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-blue "><?php echo $mis_tareas['tipo_txt'] ?></span>
                                 <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 4" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
                             </td>
-                            <td><?php echo $mis_tareas['atendido_nombre'] ?></td>
+                            <td><?php echo $mis_tareas['destinatario_nombre'] ?></td>
                             <td>
-                                <div class="dropdown">
-                                    <a  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <i class="bi bi-three-dots-vertical"></i>
-                                    </a>
+                                <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?>       
+                                <!--  Eliminar -->
+                                <button class="btn btn-danger btn-sm shadow-none mr-1" @click = "eliminar_kardex('<?php echo $mis_tareas['id_kardex'] ?>')"><span class="bi bi-trash3"></span></button>
+                                <?php endif ?>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#"><span class="bi bi-trash3"></span> Eliminar</a> 
-                                        <a class="dropdown-item" href="<?php echo base_url('kardex/'.$mis_tareas['slug']);?>"><span class="bi bi-pencil"></span> Editar</a>
-                                        <a class="dropdown-item" href="#" @click.prevent="ver_doc('<?php echo $mis_tareas['id_kardex'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span> Ver</a>
-                                    </div>
-                                </div>
+                                <?php if (esc(permisos($mis_tareas['estatus'],'panel_editar'))): ?>
+                                <!--  Editar -->
+                                <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
+                                <!--  Vista Rápida -->
+                                <?php endif ?>
+
+                                <?php if (esc(permisos($mis_tareas['estatus'],'ver_kardex'))):?>
+                                <button class="btn btn-primary btn-sm shadow-none mr-1"@click.prevent="editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-box-arrow-right"></span></button>
+                                <?php endif ?>
+
+                                <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['id_kardex'] ?>')" data-toggle="modal" data-target="#ver_doc"><i class="bi bi-eye"></i></button>
                             </td>
                         </tr>
                         <?php endforeach ?>
@@ -295,17 +298,21 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <div v-if="!data.aceptado && !data.rechazado">
-                        <button type="button" class="btn btn-primary rounded-0 btn-sm" @click = "aceptar_tarea(data.id_kardex,'1')"><span class="bi bi-check2"></span> Aceptar la Tarea</button>
-                        <button type="button" class="btn btn-danger rounded-0 btn-sm ml-2" @click = "aceptar_tarea(data.id_kardex,'2')"><span class="bi bi-x-lg"></span> Rechazar la Tarea </button>
-                    </div>
+                    <?php 
+                        $usuario = session('id_usuario');
+                        if (rol_usuario($usuario,"3")): ?>
+                        <div v-if="!data.aceptado && !data.rechazado">
+                            <button type="button" class="btn btn-primary rounded-0 btn-sm" @click = "aceptar_tarea(data.id_kardex,'1')"><span class="bi bi-check2"></span> Aceptar la Tarea</button>
+                            <button type="button" class="btn btn-danger rounded-0 btn-sm ml-2" @click = "aceptar_tarea(data.id_kardex,'2')"><span class="bi bi-x-lg"></span> Rechazar la Tarea </button>
+                        </div>
+                    <?php endif ?>
 
                 </div>
             </div>
         </div>
     </div>
     <!--  modal para rechazar o aceptar la tarea -->
-    <div class="modal fade" id="aceptar_tarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="rechazar_tarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content rounded-0 ba">
                 <div class="modal-header">

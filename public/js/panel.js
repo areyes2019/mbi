@@ -17,7 +17,8 @@ createApp({
 			detalles:[],
 			accion:"",
 			modal_msg:"",
-			kardex:""
+			kardex:"",
+			usuario:[],
 		}
 	},
 	methods:{
@@ -26,6 +27,10 @@ createApp({
 			var id = this.$refs.usuario.innerHTML;
 			var url = '/ver_mis_tareas/';
 			
+		},
+		editar_kardex(data){
+			var url = 'kardex/'+ data;
+			window.location.href = url;
 		},
 		ver_tareas(){
 
@@ -73,10 +78,21 @@ createApp({
 			}).then(function (response){
 				location.reload();
 			})
+		},
+		eliminar_kardex(data){
+			var me = this;
+			var url = "eliminar_kardex/"+data;
+			if (confirm('Vas a eliminar todo un registro, ¿Deseas continuar?')==true) {
+				axios.get(url).then(function (response){
+					if (response.data == 1) {
+						location.reload();
+					}
+				})
+
+			}
 		}
 		
 	},
 	mounted(){
-
 	}
 }).mount('#app')

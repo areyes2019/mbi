@@ -16,7 +16,6 @@ class MensajeModel extends Model
         'destinatario_id',
         'destinatario_nombre',
         'kardex_id',
-        'leido',
         'asunto',
     ];
 

@@ -80,6 +80,17 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('ver_kardex/(:num)','Kardex::ver_kardex/$1');
 	$routes->get('ver_primer_kardex','Kardex::ver_kardex_lateral');
 	$routes->post('kardex_accion','Kardex::kardex_accion');
+	$routes->post('regresar_kardex','Kardex::regresar_kardex');
+	$routes->get('actualizar_detalle/(:num)','Kardex::actualizar_detalle/$1');
+	$routes->post('actualizar_final/(:num)','Kardex::actualizar_final/$1');
+	$routes->get('eliminar_kardex/(:num)','Kardex::eliminar_kardex/$1');
+	$routes->get('si_ingeniero/(:num)','Kardex::si_ingeniero/$1');
+	$routes->post('agregar_diagnostico','Kardex::agregar_diagnostico');
+	$routes->post('subir_imagen','Kardex::subir_imagen');
+	$routes->get('modificar_diagnostico/(:any)','Kardex::modificar_diagnostico/$1');
+	$routes->post('actualizacion_diagnostico','Kardex::actualizacion_diagnostico');
+	$routes->get('eliminar_diagnostico/(:any)','Kardex::eliminar_diagnostico/$1');
+	$routes->get('ver_galeria/(:any)','Kardex::ver_galeria/$1');
 	
 	
 	/*Proveedores*/

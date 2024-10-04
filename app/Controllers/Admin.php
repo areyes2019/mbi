@@ -20,6 +20,7 @@ class Admin extends BaseController
 
 		$builder_admin = $db->table('mbi_kardex');
 		$builder_admin->join('mbi_clientes', 'mbi_clientes.id_cliente = mbi_kardex.id_cliente');
+		$builder_admin->join('mbi_mensajes', 'mbi_mensajes.kardex_id = mbi_kardex.slug');
 		$resultado_admin = $builder_admin->get()->getResultArray();
 
 		if ($resultado_admin) {
@@ -32,8 +33,10 @@ class Admin extends BaseController
 		
 		$builder = $db->table('mbi_kardex');
 		$builder->join('mbi_clientes','mbi_clientes.id_cliente = mbi_kardex.id_cliente');
-		$builder->where('generado_por',$id);
-		$builder->orwhere('atendido_por',$id);
+		$builder->join('mbi_mensajes', 'mbi_mensajes.kardex_id = mbi_kardex.slug', 'left');
+		$builder->where('destinatario_id',$id);
+		$builder->orWhere('remitente_id',$id);
+		$builder->orWhere('generado_por',$id);
 		$resultado = $builder->get()->getResultArray();
 
 		$data = [
@@ -42,10 +45,12 @@ class Admin extends BaseController
 			'kardex_user' => $resultado,
 			'estatus'=>$estatus_texto
 		];
-        return view('panel',$data); 
+        return view('panel',$data);
     }
 	public function crear_kardex($id)
 	{
 		echo $id;
 	}
+
+	
 }
