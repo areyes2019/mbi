@@ -59,17 +59,17 @@ class Login extends BaseController{
         //return json_encode($resultado);
 
         if ($resultado && password_verify($password, $resultado[0]['password'])) {            
-            $data = [
+            /*$data = [
             	'id_usuario'=> $resultado[0]['id_usuario'],
             	'nombre'=> $resultado[0]['nombre'],
             	'tipo'=>$resultado[0]['tipo'],
             	'id_rol'=>$resultado[0]['id_rol'],
             	'is_logged'=> true,
-            ];
-     		$this->session->set($data);
-    		return redirect()->to('/inicio');
+            ];*/
+     		//$this->session->set($data);
+    		return json_encode($resultado); //redirect()->to('/inicio');
         }else{
-        	return redirect()->back()->with('alert','El usuario o la contraseña no coinciden, verifica nuevamente');
+        	return false;//redirect()->back()->with('alert','El usuario o la contraseña no coinciden, verifica nuevamente');
         }
 
 	}
