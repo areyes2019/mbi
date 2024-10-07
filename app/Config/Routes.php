@@ -4,6 +4,11 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('base', 'Migraciones::index');	
+$routes->get('migrar', 'Migraciones::up');	
+$routes->get('regresar', 'Migraciones::down');
+$routes->post('batch', 'Migraciones::batch');
+
 $routes->group('',['filter' => 'NoLoggin'],static function($routes){
 	$routes->get('/', 'Login::index');
 	$routes->get('recuperar', 'Login::recuperar');
@@ -15,6 +20,8 @@ $routes->group('',['filter' => 'NoLoggin'],static function($routes){
 
 $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	
+
+
 	$routes->get('/salir', 'Login::salir');	
 	//usuarios
 

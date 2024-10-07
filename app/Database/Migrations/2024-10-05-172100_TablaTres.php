@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TablaEjemplo extends Migration
+class TablaTres extends Migration
 {
     public function up()
     {
@@ -41,11 +41,11 @@ class TablaEjemplo extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('users');
+        $this->forge->createTable('tabla_tres');
     }
 
     public function down()
     {
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('tabla_tres');
     }
 }
