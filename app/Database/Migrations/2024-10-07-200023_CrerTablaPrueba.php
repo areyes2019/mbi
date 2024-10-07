@@ -42,6 +42,6 @@ class CrerTablaPrueba extends Migration
 
     public function down()
     {
-        //
+        $this->forge->dropTable('mib_prueba');
     }
 }
