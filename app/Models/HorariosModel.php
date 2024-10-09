@@ -13,4 +13,5 @@ class HorariosModel extends Model
         'hora_fin',
         'id_cliente'
     ];
+    
 }

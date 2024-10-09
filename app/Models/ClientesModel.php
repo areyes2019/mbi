@@ -21,4 +21,5 @@ class ClientesModel extends Model
         'piso',
         'correo',
     ];
+    
 }

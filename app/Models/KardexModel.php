@@ -30,4 +30,5 @@ class KardexModel extends Model
         'fecha_enviado',
         'enviado',
     ];
+    
 }

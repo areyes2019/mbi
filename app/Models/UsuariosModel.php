@@ -18,5 +18,5 @@ class UsuariosModel extends Model
         'verificado',
         'creado_en',
     ];
-
+   
 }
