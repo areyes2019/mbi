@@ -22,7 +22,7 @@
             <div class="white_shd full margin_bottom_30">
                 <div class="full graph_head">
                     <div class="heading1 margin_0 mb-2">
-                        <?php if (tiene_permisos($usuario,$seccion,'2')): ?>
+                        <?php if (tiene_permisos($usuario,$seccion,'2') || es_super_admin() ): ?>
                         <a href="<?php echo base_url('agregar_cliente'); ?>" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="bi bi-plus-circle"></i>
