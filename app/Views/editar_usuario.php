@@ -1,3 +1,4 @@
+
 <?php echo $this->extend('panel_template') ?>
 <?php echo $this->section('contenido') ?>
 <?php foreach ($usuario as $user): ?>
@@ -88,7 +89,7 @@
 		      </div>
 		      <div class="modal-body">
 		        <p class="m-0 text-danger">{{alert}}</p>
-		      	<label for="" class="mb-0">Nombre del Rol</label>
+		      	<label for="" class="mb-0">Asignar Sección</label>
 		      	<div class="d-flex justify-content-between">
 			    	<select class="form-select rounded-0 shadow-none" v-model="seccion">
 			    		<option value="">Seleccione una opción</option>
