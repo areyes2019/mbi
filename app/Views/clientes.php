@@ -93,10 +93,10 @@
                                             <span class="bi bi-three-dots-vertical"></span>
                                           </a>
                                           <div class="dropdown-menu rounded-0">
-                                            <?php if (tiene_permisos($usuario,$seccion,'3')): ?>
+                                            <?php if (tiene_permisos($usuario,$seccion,'3') || es_super_admin()): ?>
                                             <a class="dropdown-item" href="/editar_cliente/<?php echo $cliente['id_cliente']; ?>">Editar Cliente</a>
                                             <?php endif ?>
-                                            <?php if (tiene_permisos($usuario,$seccion,'4')): ?>
+                                            <?php if (tiene_permisos($usuario,$seccion,'4')|| es_super_admin()):?>
                                             <a class="dropdown-item" href="javascript:void(0);" onclick="if(confirm('¿Estás seguro de que deseas eliminar este cliente?')) { window.location.href='/eliminar_cliente/<?php echo $cliente['id_cliente'] ?>'; }">
                                                 Eliminar Cliente
                                             <?php endif ?>
