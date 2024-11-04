@@ -52,6 +52,7 @@ class Kardex extends BaseController
 
         }else{
             $resultado_diagnostico = null;
+            $resultado_img = null;
         }
 
 

@@ -159,7 +159,7 @@
                             </div>
                         </div>
                         <div v-else>
-                            <p><strong>Diagnóstico</strong></p>
+                            <p><strong>Refacciones</strong></p>
                             <div class="alert alert-danger"><strong>No se han agregado refacciones</strong></div>
                         </div>
                     </div>
