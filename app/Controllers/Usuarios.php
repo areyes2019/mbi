@@ -203,4 +203,26 @@ class Usuarios extends BaseController
        $resultado = $builder->get()->getResultArray(); 
        return json_encode($resultado);
    }
+   public function modificar_perfil()
+   {
+       
+       $id = session('id_usuario');
+       $model = new UsuariosModel();
+       $model->where('id_usuario', $id);
+       $resultado = $model->findAll();
+
+       return json_encode($resultado);
+   }
+   public function agregar_numero_empleado()
+   {
+       
+
+       $id = $this->request->getvar('empleado');
+       $data['no_empleado'] = $this->request->getvar('numero');
+       $model = new UsuariosModel();
+       if ($model->update($id,$data)) {
+            $return = 1;
+            return json_encode($return);
+       }
+   }
 }

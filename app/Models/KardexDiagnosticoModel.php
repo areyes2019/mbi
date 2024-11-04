@@ -12,7 +12,7 @@ class KardexDiagnosticoModel extends Model
 
         'id_detalle_kardex',
         'diagnostico',
-        'refacciones',
+        'reparacion',
         'tiempo_entrega',
         'precio_estimado',
     ];

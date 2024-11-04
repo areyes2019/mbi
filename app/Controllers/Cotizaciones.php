@@ -6,67 +6,107 @@ use App\Models\CotizacionesModel;
 use App\Models\ClientesModel;
 use App\Models\ArticulosModel;
 use App\Models\DetalleModel;
+use App\Models\KardexModel;
+use App\Models\MensajeModel;
+use App\Models\KardexDetalleModel;
+use App\Models\KardexDiagnosticoModel;
+use App\Models\RefaccionesModel;
 use Dompdf\Dompdf;
 class Cotizaciones extends BaseController
 {
 	public function index()
 	{
-		/*$db = \Config\Database::connect();
+		$db = \Config\Database::connect();
 
-		$builder = $db->table('sellopro_cotizaciones');
-		$builder->join('sellopro_clientes','sellopro_clientes.idCliente = sellopro_cotizaciones.cliente');
+		$builder = $db->table('mbi_cotizaciones');
+		$builder->join('mbi_clientes','mbi_clientes.id_cliente = mbi_cotizaciones.id_cliente');
 		$resultado = $builder->get()->getResultArray();
-
-		//return view('Panel/cotizaciones');
-		$cliente = new ClientesModel();
 		$data['cotizaciones'] = $resultado;
-		$data['clientes']  = $cliente->findAll();*/
-		return view('cotizaciones'); //$data);
+		return view('cotizaciones',$data);
 	}
-	public function nueva($id)
+	public function nueva()
 	{
-		//vamops a guardar un slgu y un cliente
+		//vamops a encontrar el cliente
 
-		$caracteres_permitidos = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$id = $this->request->getvar('id');
+
+		$cliente = new KardexModel();
+		$cliente->where('id_kardex',$id);
+		$resultado = $cliente->findAll();
+
+		$id_cliente = $resultado[0]['id_cliente'];
+		$kardex_id = 'QT-'.$id;
+
+
+		$caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
    		$longitud = 12;
    		$slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
-
-   		$hoy = date("Y-m-d");
-   		$caduca = date("Y-m-d",strtotime($hoy."+ 30 days"));
    		$nuevo_registro = new CotizacionesModel();
    		$data=[
+   			'id_cotizacion'=> $kardex_id,
    			'slug'=>$slug,
-   			'cliente'=>$id,
-   			'fecha'=>$hoy,
-   			'caduca'=>$caduca
+   			'id_cliente'=>$id_cliente,
+   			'id_kardex'=>$id,
+   			'estatus'=>1
    		];
-   		$nuevo_registro->insert($data);
-   		return redirect()->to(base_url('pagina_cotizador/'.$slug));
+
+
+   		$kardex = [
+   			'estatus' => 8
+   		];
+   		if ($nuevo_registro->insert($data)) {
+   			$cliente->update($id,$kardex);
+   			$datos = [
+   				'slug'=>$slug,
+   				'id'=>$id,
+   				'hecho'=> 1
+   			];
+			return json_encode($datos);
+   		}
 		
 	}
 	public function pagina($slug)
 	{
-		//vamos a buscar la cotizacion
-
-		$cliente = new CotizacionesModel();
-		$cliente->where('slug',$slug);
-		$resultado = $cliente->findAll();
-
-		$id = $resultado[0]['slug'];
-		$cotizacion = $resultado[0]['idQt'];
-
-		//buscamos los ariticulos
-		$articulos = new ArticulosModel();
-		
 		$db = \Config\Database::connect();
-		$builder = $db->table('sellopro_cotizaciones');
-		$builder->where('slug',$id);
-		$builder->join('sellopro_clientes','sellopro_clientes.idCliente = sellopro_cotizaciones.cliente');
-		$query['cliente'] = $builder->get()->getResultArray();
-		$query['id_cotizacion']= $cotizacion;
-		$query['articulo'] = $articulos->findAll();
+		$cotizacion_id = $this->request->uri->getSegment(3);
 
-		return view('Panel/nueva_cotizacion', $query);
+		//encongrar cotizacoin
+		$cotizacion = $db->table('mbi_cotizaciones');
+		$cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');
+		$cotizacion->where('id_cotizacion',$cotizacion_id);
+		$resultado_cotizacion = $cotizacion->get()->getResultArray();
+
+		$kardex = new KardexModel();
+		$kardex->where('id_kardex',$resultado_cotizacion[0]['id_kardex']);
+		$resultado_kardex = $kardex->findAll();
+		$kardex_slug = $resultado_kardex[0]['slug'];
+
+		//econtrar los diagnosticos
+
+		$detalles = new KardexDetalleModel();
+		$detalles->where('id_kardex', $resultado_cotizacion[0]['id_kardex']);
+		$resultado_detalles = $detalles->findAll();
+
+		$diagnostico = new KardexDiagnosticoModel();
+		$diagnostico->where('id_detalle_kardex', $resultado_detalles[0]['slug']);
+		$resultado_diagnostico = $diagnostico->findAll();
+
+
+		//encontramos las refacciones
+
+		$refaccion = new RefaccionesModel();
+		$refaccion->where('id_diagnostico', $resultado_diagnostico[0]['id_detalle_kardex']);
+		$resultado_refaccion = $refaccion->findAll();
+
+		$data = [
+			'cotizacion'=>$resultado_cotizacion,
+			'diagnostico'=>$resultado_diagnostico,
+			'refacciones'=>$resultado_refaccion,
+			'slug'=>$kardex_slug
+		];
+
+		return view('nueva_cotizacion',$data);
+
 		
 	}
 	public function editar()

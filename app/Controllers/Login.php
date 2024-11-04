@@ -20,28 +20,7 @@ class Login extends BaseController{
 	{
 		return view('auth/recuperar_cuenta');
 	}
-	public function insertar()
-	{
-		$request = \Config\Services::request();
-		
-		$hash = password_hash($request->getvar('password'), PASSWORD_DEFAULT);
-		
-		$data = [
-			'nombre' => $request->getvar('nombre'),
-			'apellidos' => $request->getvar('apellidos'),
-			'correo' => $request->getvar('correo'),
-			'password' => $hash,
 
-		];
-
-		//return json_encode($data);	
-
-		$modelo = new UsuariosModel();
-		if ($modelo->insert($data)) {
-			echo 1;
-		}
-
-	}
 	public function validar_entrada(){
 		
         
@@ -67,7 +46,7 @@ class Login extends BaseController{
             	'is_logged'=> true,
             ];
      		$this->session->set($data);
-    		return redirect()->to('/inicio');
+    		return redirect()->to('/');
         }else{
         	return redirect()->back()->with('alert','El usuario o la contraseña no coinciden, verifica nuevamente');
         }

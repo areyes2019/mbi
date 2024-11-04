@@ -51,18 +51,34 @@
 <body>
     <table width="100%" style="font-family: sans-serif;" cellpadding="10">
         <tr>
-            <td width="20%" style="padding: 0px; text-align: left;">
+            <td width="10%" style="padding: 0px; text-align: left;">
                 <?php
                     $path = base_url('public/img/logo2.png');
                     $type = pathinfo($path, PATHINFO_EXTENSION);
                     $data = file_get_contents($path);
                     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
                 ?>
-                <img src="<?php echo $base64; ?>" alt="logo" align="center" width="550" height="150">
+                <img src="<?php echo $base64; ?>" alt="logo" align="center" width="150" height="150">
+            </td>
+            <td width="10%" style="padding: 0px; text-align: left;">
+                <?php
+                    $logo = base_url('public/img/pontumarca.png');
+                    $ty = pathinfo($logo, PATHINFO_EXTENSION);
+                    $file = file_get_contents($logo);
+                    $ba = 'data:image/' . $ty . ';base64,' . base64_encode($file);
+                ?>
+                <img src="<?php echo $ba; ?>" alt="logo" align="center" width="260" style="margin-top: 50px;">
             </td>
             <td width="40%">&nbsp;</td>
             <td width="40%" style="text-align: left;">
-                
+                <p style="font-weight: bolder;">DATOS DE PAGO</p>
+                <?php
+                    $pat = base_url('public/img/pagos.png');
+                    $typ = pathinfo($path, PATHINFO_EXTENSION);
+                    $dat = file_get_contents($pat);
+                    $base = 'data:image/' . $typ . ';base64,' . base64_encode($dat);
+                ?>
+                <img src="<?php echo $base ?>" alt="protected" width="250" style="margin-top: 5px;">
             </td>
         </tr>
         <tr>
@@ -72,27 +88,23 @@
     <table width="100%" style="font-family: sans-serif;" cellpadding="10">
         <tr>
             <td width="49%" style="border: 0.5mm solid #95a5a6;">
-                <p><strong>Metrología Biomédica Integral</strong></p>
-                <p>www.grupo-mbi.com.mx</p>
+                <p><strong>Sello Pronto</strong></p>
+                <p>www.sellopronto.com.mx</p>
                 <p>Cel: 4613581090</p>
                 <p>Tel:461 250 7482</p>
                 <p>ventas@gmail.com</p>
-                <?php foreach ($atendido_por as $atendido): ?>
-                <p style="margin-top: 5px;"><strong>Asigando a:</strong> <?php echo $atendido['destinatario_nombre'] ?></p>
-                <?php endforeach ?>
             </td>
             <td width="2%">&nbsp;</td>
             <td width="49%" style="border: 0.5mm solid #95a5a6; text-align: left;">
-                <?php foreach ($kardex as $key): ?>
-                <p><strong>Kardex No: <?php echo $key['id_kardex'] ?> </strong></p>   
-                <p><strong>Fecha: <?php echo  $key['created_at'] ?> </strong></p>   
-                <p><strong>Generado por: <?php echo  $key['generado_nombre'] ?> </strong></p>
-                <p style="margin-top:15px;"><strong>Datos del cliente:</strong></p>   
-                <p style="margin-top: 10px; text-transform: uppercase; font-size: 20px;"><?php echo $key['hospital'] ?></p>
-                <p><strong>Titular:</strong> <?php echo $key['titular'] ?></p>
-                <p><strong>Responsable:</strong> <?php echo $key['responsable'] ?></p>
-                <p style="margin-top:10px;"><strong>Día: <?php echo $key['dia'] ?></strong></p>
-                <p><strong>Horario asignado: <?php echo $key['hora'] ?></strong></p>
+                <?php foreach ($id_cotizacion as $key): ?>
+                <p><strong>Cotizacion No: <?php echo $key['idQt'] ?> </strong></p>   
+                <p><strong>Fecha: <?php echo $key['fecha'] ?> </strong></p>   
+                <p><strong>Valida hasta: <?php echo $key['caduca'] ?> </strong></p>   
+                <?php endforeach ?>
+                <?php foreach ($cliente as $data_cliente): ?>
+                <p style="margin-top: 10px;"><?php echo $data_cliente['nombre'] ?></p>
+                <p><?php echo $data_cliente['correo'] ?></p>
+                <p><?php echo $data_cliente['telefono'] ?></p>
                 <?php endforeach ?>
             </td>
         </tr>
@@ -102,7 +114,7 @@
     <table class="items" width="100%" style="font-size: 14px; border-collapse: collapse;"  cellpadding="8">
         <thead>
             <tr>
-                <td width="50%" style="text-align: left; border: 1px solid #95a5a6;"><strong>Descripción</strong></td>
+                <td width="50%" style="text-align: left; border: 1px solid #95a5a6;"><strong>Artículo</strong></td>
                 <td width="20%" style="text-align: left;border: 1px solid #95a5a6"><strong>Modelo</strong></td>
                 <td width="6%" style="text-align: center;border: 1px solid #95a5a6"><strong>Cant.</strong></td>
                 <td width="12%" style="text-align: left;border: 1px solid #95a5a6"><strong>P/U</strong></td>
@@ -111,24 +123,24 @@
         </thead>
         <tbody>
             <!-- ITEMS HERE -->
-            <?php //foreach ($detalles as $linea): ?>
+            <?php foreach ($detalles as $linea): ?>
             <tr>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; "><?php echo 'Modelo' //$linea['nombre'] ?></td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; "><?php echo 'Modelo' //$linea['modelo'] ?></td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; text-align: center;"><?php echo 'formato'//$linea['cantidad'] ?></td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo 'saludos' //number_format($linea['p_unitario'],2)  ?></td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo 'saludos' //number_format($linea['total'],2) ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; "><?php echo $linea['nombre'] ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; "><?php echo $linea['modelo'] ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; text-align: center;"><?php echo $linea['cantidad'] ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo number_format($linea['p_unitario'],2)  ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo number_format($linea['total'],2) ?></td>
             </tr>
-            <?php //endforeach ?>
-            <?php //foreach ($detalles_ind as $linea_i): ?>
+            <?php endforeach ?>
+            <?php foreach ($detalles_ind as $linea_i): ?>
             <tr>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; "><?php echo 'Ajuste de motor'//$linea_i['descripcion'] ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; "><?php echo $linea_i['descripcion'] ?></td>
                     <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">ND</td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; text-align: center;"><?php echo '5'//$linea_i['cantidad'] ?></td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo '$253.00'//number_format($linea_i['p_unitario'],2)  ?></td>
-                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo '$562.22'//number_format($linea_i['total'],2) ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; text-align: center;"><?php echo $linea_i['cantidad'] ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo number_format($linea_i['p_unitario'],2)  ?></td>
+                    <td style="padding: 9px 7px; line-height: 20px; border: 1px solid #95a5a6; ">$<?php echo number_format($linea_i['total'],2) ?></td>
             </tr>
-            <?php //endforeach ?>
+            <?php endforeach ?>
         </tbody>
     </table>
     <br>
@@ -143,19 +155,19 @@
                 <table width="30%" align="right" style="font-family: sans-serif; font-size: 14px; border-collapse: collapse;" >
                     <tr>
                         <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;"><strong>Sub-Total</strong></td>
-                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;">$<?php echo  '$2530.00'// number_format($sub_total,2)  ?></td>
+                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;">$<?php echo number_format($sub_total,2)  ?></td>
                     </tr>
                     <tr>
                         <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;"><strong>Dcto</strong></td>
-                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;"><?php echo  '$2530.00'// number_format($descuento,2); ?></td>
+                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;"><?php echo number_format($descuento,2); ?></td>
                     </tr>
                     <tr>
                         <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;"><strong>IVA</strong></td>
-                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;">$<?php echo  '$2530.00'// number_format($iva,2); ?></td>
+                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;">$<?php echo number_format($iva,2); ?></td>
                     </tr>
                     <tr>
                         <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;"><strong>Total</strong></td>
-                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;">$<?php echo  '$2530.00'// number_format($total,2)?></td>
+                        <td style="border: 1px solid #95a5a6; padding: 10px 8px; line-height: 20px;">$<?php echo number_format($total,2)?></td>
                     </tr>
                 </table>
             </td>

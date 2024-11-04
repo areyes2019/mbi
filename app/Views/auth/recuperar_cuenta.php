@@ -9,15 +9,17 @@
                     <h1 class="h4 text-gray-900 mb-4">¿Olvidaste tu contraseña?</h1>
                     <p>Te ayudamos a recuperarla</p>
                 </div>
-                <form class="user">
+                <?= session()->getFlashdata('error') ?>
+                <?= session()->getFlashdata('message') ?>
+                <form class="user" action="<?php echo base_url('password/email'); ?>" method="POST">
                     <div class="form-group">
                         <input type="email" class="form-control form-control-user"
                             id="exampleInputEmail" aria-describedby="emailHelp"
-                            placeholder="Escribe tu correo de inicio">
+                            placeholder="Escribe tu correo de inicio" name="email">
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <button type="submit" class="btn btn-primary btn-user btn-block">
                         Recuperar Contraseña
-                    </a>
+                    </button>
                     <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Login with Google
                     </a> -->

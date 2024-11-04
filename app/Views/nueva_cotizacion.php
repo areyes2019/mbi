@@ -1,36 +1,34 @@
-<?php echo $this->extend('Panel/panel_template')?>
+<?php echo $this->extend('panel_template')?>
 <?php echo $this->section('contenido')?>
 <div id="app">
+    <?php foreach ($cotizacion as $item): ?>        
     <div class="card shadow mb-4 rounded-0">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between rounded-0">
-        <h6 class="m-0 font-weight-bold text-primary">Cotización <span ref="id_cotizacion"><?php echo $id_cotizacion?></span></h6>
+        <h6 class="m-0 font-weight-bold text-primary">Cotización <span ref="id_cotizacion"><?php echo $item['id_cotizacion'] ?></span></h6>
         <div class="dropdown no-arrow">
             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
                 <div class="dropdown-header"></div>
-                <a class="dropdown-item" href="<?php echo base_url('/descargar_cotizacion/'.$id_cotizacion); ?>"><span class="bi bi-download"></span> Descargar</a>
-                <a class="dropdown-item" href="<?php echo base_url('/enviar_pdf/'.$id_cotizacion); ?>"><span class="bi bi-send"></span> Enviar</a>
-                <a class = "dropdown-item"  href="#" @click.prevent="entregada('<?php echo $id_cotizacion ?>')"><span class="bi bi-truck"></span> Marcar Entregado</a>
+                <a class="dropdown-item" href=""><span class="bi bi-download"></span> Descargar</a>
+                <a class="dropdown-item" href=""><span class="bi bi-send"></span> Enviar</a>
+                <a class = "dropdown-item"  href="#"><span class="bi bi-truck"></span> Marcar Entregado</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url('/eliminar_cotizacion/'.$id_cotizacion); ?>" onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');"><span class="bi bi-trash3"></span> Eliminar Cotización</a>
+                <a class="dropdown-item" href="" onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');"><span class="bi bi-trash3"></span> Eliminar Cotización</a>
             </div>
         </div>
     </div>
     <!-- Card Body -->
     <div class="card-body rounded-0">
-        <?php foreach ($cliente as $data): ?>
         <p class="m-0"><strong>Para:</strong></p>
-        <p class="m-0"><?php echo $data['empresa']?></p>
-        <p class="m-0"><?php echo $data['nombre']?></p>
-        <p class="m-0">Tel: <?php echo $data['telefono']?></p>
-        <p class="m-0"><?php echo $data['correo']?></p>
-        <p class="m-0">Descuento asignado a este proveedor: <span ref="descuento"><?php echo $data['descuento']?></span>%</p>
-        <?php endforeach ?>
-        <h5 class="mt-2">Anticipo sugerido: ${{sugerido}}</h5>
-        <h5 class="mt-0">Utilidad: ${{utilidad}}</h5>
+        <p class="m-0"><?php echo $item['hospital'] ?></p>
+        <p class="m-0">Att: <?php echo $item['responsable'] ?></p>
+        <p class="m-0">Tel: <?php echo $item['telefono'] ?></p>
+        <p class="m-0"><?php echo $item['correo'] ?></p>
+        <p class="m-0"><strong>Kardex asociado: </strong><a href="<?php echo base_url('kardex/').$slug?>"><?php echo $item['id_kardex'] ?></a></p>
+        
     </div>
 </div>
 <div class="card shadow mb-4 rounded-0">
@@ -45,14 +43,14 @@
             <span class="icon text-white-50">
                 <i class="bi bi-list-check"></i>
             </span>
-            <span class="text">Articulo de Lista</span>
+            <span class="text">Agregar Diagnóstico</span>
         </button>
-        <!--  Modal agregar articulos -->  
+        <!--  Modal agregar diagnosticos  -->  
         <div class="modal fade" id="agregar_articulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Seleecione un artículo</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Seleecione un diagnostico</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -183,6 +181,7 @@
         </table>
     </div>
 </div>
+<?php endforeach ?>
 </div>
 <script src="<?php echo base_url('public/js/cotizaciones.js');?>"></script> 
 <?php echo $this->endSection()?>

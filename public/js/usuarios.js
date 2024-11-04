@@ -125,7 +125,8 @@ createApp({
 					}
 				})
 			}
-		}
+		},
+		
 	},
 	mounted(){
 		this.mostrar();

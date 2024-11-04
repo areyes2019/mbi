@@ -50,6 +50,7 @@
                                 if ($estatus): ?>
                                     <span class="badge <?php echo $estatus['estilo']." ".$estatus['icon']?> "> <?php echo $estatus['nombre'] ?></span> 
                                 <?php endif ?>
+            
 
                             </td>
                             <td>

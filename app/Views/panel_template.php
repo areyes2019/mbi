@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -62,15 +63,6 @@
             
             <?php endif; ?>
 
-            <?php if (tiene_seccion('2') || es_super_admin()):?>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('mi_tablero')?>">
-                    <i class="bi bi-envelope"></i>
-                    <span>Inbox</span></a>
-            </li>     
-            
-            <?php endif;?>
-
             <?php if (tiene_seccion('3') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('usuarios')?>">
@@ -93,14 +85,14 @@
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-bar-chart-steps"></i>
-                    <span>WorkFlow</span></a>
+                    <span>Cotizaciones</span></a>
             </li>
             
             <?php endif; ?>
 
             <?php if (tiene_seccion('6') || es_super_admin()): ?>
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
+                <a class="nav-link" href="<?php echo base_url('calendario')?>">
                     <i class="bi bi-calendar"></i>
                     <span>Calendario</span></a>
             </li>
@@ -108,7 +100,7 @@
             <?php endif; ?>
             <?php if (tiene_seccion('7') || es_super_admin()): ?>
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
+                <a class="nav-link" href="<?php echo base_url('facturacion')?>">
                     <i class="bi bi-filetype-pdf"></i>
                     <span>Facturación</span></a>
             </li>
@@ -303,17 +295,9 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?php echo base_url('editar_usuario/'.session('id_usuario')); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Mi perfil
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -330,9 +314,6 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div id="customAlert" class="alert alert-primary" role="alert">
-                            Este es un alert de éxito.
-                    </div>
                     <?php echo $this->renderSection('contenido') ?>  
                 </div>
                 <!-- /.container-fluid -->
@@ -382,6 +363,7 @@
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url('public/panel/vendor/jquery/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('public/js/notify.min.js'); ?>"></script>
     <script src="<?php echo base_url('public/panel/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- Core plugin JavaScript-->

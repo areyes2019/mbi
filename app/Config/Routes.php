@@ -15,6 +15,11 @@ $routes->group('',['filter' => 'NoLoggin'],static function($routes){
 	$routes->get('crear_cuenta', 'Login::crear');
 	$routes->post('nueva_cuenta', 'Login::insertar');
 	$routes->post('entrar', 'Login::validar_entrada');
+
+	$routes->get('password/request', 'PasswordResetController::requestForm');
+	$routes->post('password/email', 'PasswordResetController::sendResetLink');
+	$routes->get('password/reset/(:any)', 'PasswordResetController::showResetForm/$1');
+	$routes->post('password/reset', 'PasswordResetController::resetPassword');
 });
 
 
@@ -38,6 +43,8 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('/actualizar_permiso', 'Usuarios::actualizar_permiso');	
 	$routes->post('/agregar_seccion_usuario', 'Usuarios::agregar_seccion_usuario');	
 	$routes->get('/ver_secciones_asignadas/(:num)', 'Usuarios::ver_secciones_asignadas/$1');	
+	$routes->get('perfil', 'Usuarios::modificar_perfil');	
+	$routes->post('/agregar_numero_empleado', 'Usuarios::agregar_numero_empleado');	
 	
 	//roles y permisos
 	$routes->get('roles', 'Roles::index');
@@ -77,6 +84,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	
 	//kardex
 	$routes->get('kardex/(:any)','Kardex::index/$1');
+	$routes->get('kardex_general/(:any)','Kardex::master/$1');
 	$routes->get('kardex_reporte','Kardex::kardex_repo');
 	$routes->post('crear_kardex','Kardex::crear_kardex');
 	$routes->post('detalle_kardex','Kardex::detalle_kardex');
@@ -98,6 +106,10 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('actualizacion_diagnostico','Kardex::actualizacion_diagnostico');
 	$routes->get('eliminar_diagnostico/(:any)','Kardex::eliminar_diagnostico/$1');
 	$routes->get('ver_galeria/(:any)','Kardex::ver_galeria/$1');
+	$routes->get('liberar_diagnostico/(:num)','Kardex::liberar_diagnostico/$1');
+	$routes->get('pdf_os/(:num)','Kardex::pdf_os/$1');
+	$routes->post('/agregar_refacciones','Kardex::agregar_refacciones');
+	$routes->get('borrar_refaccion/(:num)','Kardex::borrar_refaccion/$1');
 	
 	
 	/*Proveedores*/
@@ -134,8 +146,8 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 
 	/*Panel*/
 	$routes->get('cotizaciones', 'Cotizaciones::index');
-	$routes->get('nueva_cotizacion/(:num)', 'Cotizaciones::nueva/$1');
-	$routes->get('pagina_cotizador/(:any)', 'Cotizaciones::pagina/$1');
+	$routes->post('nueva_cotizacion', 'Cotizaciones::nueva');
+	$routes->get('pagina_cotizador/(:any)/(:num)', 'Cotizaciones::pagina/$1');
 	$routes->get('editar_cotizacion/(:num)', 'Cotizaciones::editar/$1');
 	$routes->get('actualizar_cotizacion/(:num)', 'Cotizaciones::actualizar/$1');
 	$routes->get('eliminar_cotizacion/(:num)', 'Cotizaciones::eliminar/$1');
@@ -202,7 +214,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('nueva_venta', 'admin\Ventas::nueva');
 	$routes->get('cotizaciones', 'admin\Cotizaciones::index');
 	$routes->get('editar_cotizacion', 'admin\Cotizaciones::editar');
-	$routes->get('nueva_cotizacion', 'admin\Cotizaciones::nueva');
+	//$routes->get('nueva_cotizacion', 'admin\Cotizaciones::nueva');
 });
 
 

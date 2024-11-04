@@ -1,8 +1,10 @@
 const {createApp, ref} = Vue
 
 createApp({
+
 	data(){
 		return{
+			datos:{},
 			lista:[],
 			existencias:[],
 			tipos:[],
@@ -24,7 +26,7 @@ createApp({
 
 			//formulario agregar diagnostico
 			diagnostico:"",
-			refacciones:"",
+			reparacion:"",
 			tiempo_estimado:"",
 			precio_estimado:"",
 
@@ -39,10 +41,44 @@ createApp({
 			id_slug:"",
 			diagnostico_slug:"",
 
-			imagenes:[]
+			imagenes:[],
+			refacciones:[
+                { nombre: '', marca: '', modelo: '', costo: '',id:''} // Fila inicial
+            ],
+            id_diagnostico:"",
+
+            //alert
+            showAlert:false,
+            alertText: "Contenido actualizado",
+
+            imagenGrande: null,
 		}
 	},
 	methods:{
+		mostrar_general(){
+			var id = this.$refs.kardex_id.innerHTML;
+			axios.get('/kardex_general/'+id).then((response)=>{
+				this.datos = response.data;
+				console.log(response.data);
+			})
+		},
+		formatearFecha(fechaString) {
+	      const date = new Date(fechaString);
+	      return date.toLocaleDateString("es-ES", {
+	        weekday: "long",
+	        day: "numeric",
+	        month: "long",
+	        year: "numeric"
+	      });
+	    },
+	    formatearHora(horaString) {
+	      const time = new Date(`1970-01-01T${horaString}`);
+	      return time.toLocaleTimeString("es-ES", {
+	        hour: "numeric",
+	        minute: "2-digit",
+	        hour12:true
+	      });
+	    },
 		validar(){
 			this.errores = {};
 			if (!this.formulario.nombre) {
@@ -66,41 +102,31 @@ createApp({
 			return Object.keys(this.errores).length === 0;
 		},
 		limpiar_error(event,campo){
-				this.texto = event.target.value;
-				if (campo =='nombre') {
-					this.errores.nombre = "";
-				}else if (campo=='marca') {
-					this.errores.marca = "";
-				}else if (campo=='modelo') {
-					this.errores.modelo = "";
-				}else if (campo=='serie') {
-					this.errores.serie = "";
-				}else if (campo == 'inventario') {
-					this.errores.inventario = "";
-				}else if (campo == 'falla') {
-					this.errores.falla = "";
-				}
-			},
-		mostrar(){
-			var me = this;
-			var id = this.$refs.kardex_id.innerHTML;
-			var url = '/mostrar_kardex/'+id;
-			axios.get(url)
-			.then(response => {
-				me.lista = response.data;
-			})
-			.catch(error => {
-				console.error(error);
-			});
+			this.texto = event.target.value;
+			if (campo =='nombre') {
+				this.errores.nombre = "";
+			}else if (campo=='marca') {
+				this.errores.marca = "";
+			}else if (campo=='modelo') {
+				this.errores.modelo = "";
+			}else if (campo=='serie') {
+				this.errores.serie = "";
+			}else if (campo == 'inventario') {
+				this.errores.inventario = "";
+			}else if (campo == 'falla') {
+				this.errores.falla = "";
+			}
 		},
 		insertar(){
 			if (this.validar()) {
 				var me = this;
 				var url = '/detalle_kardex';
-				this.formulario.kardex = this.$refs.kardex_id.innerHTML;
-				axios.post(url,this.formulario).then(function (response){
+				this.formulario.kardex = this.$refs.id_kardex.innerHTML;
+				axios.post(url,this.formulario).then((response)=>{
 					if (response.data == 1) {
-						location.reload();
+						$('#equipos').modal('hide');
+						$.notify('Reporte agregado');
+						this.mostrar_general();
 					}
 				})
 			}    
@@ -112,56 +138,70 @@ createApp({
 
 			}else if(tipo == 2){
 				//actualizar
+				this.vaciar_campos()
 				var me = this;
 				var url = '/modificar_diagnostico/'+ data;
-				axios.get(url).then(function (response){
-					me.diagnostico = response.data[0].diagnostico;
-					me.refacciones = response.data[0].refacciones;
-					me.tiempo_estimado = response.data[0].tiempo_entrega;
-					me.precio_estimado = response.data[0].precio_estimado;
-					me.modal_text = "Actualizar diagnostico";
-					me.id_slug = response.data[0].id_detalle_kardex;
-					me.clase = 2;
+				axios.get(url).then((response)=>{
+					this.diagnostico = response.data[0].diagnostico;
+					this.reparacion = response.data[0].reparacion;
+					this.tiempo_estimado = response.data[0].tiempo_entrega;
+					this.precio_estimado = response.data[0].precio_estimado;
+					this.modal_text = "Actualizar diagnostico";
+					this.id_slug = response.data[0].id_detalle_kardex;
+					this.clase = 2;
 				})
 			}
 		},
 		generar_diagnostico(clase){
-			var me = this;
 			var url = '/agregar_diagnostico';
 			var url2 = '/actualizacion_diagnostico';
 
 			if (clase == 1) {
 				axios.post(url,{
-					'diagnostico': me.diagnostico,
-					'refacciones': me.refacciones,
-					'tiempo_entrega':me.tiempo_estimado,
-					'precio_estimado':me.precio_estimado,		
-					'id_detalle': me.id_detalle,
+					'diagnostico': this.diagnostico,
+					'reparacion': this.reparacion,
+					'tiempo_entrega':this.tiempo_estimado,
+					'precio_estimado':this.precio_estimado,		
+					'id_detalle': this.id_detalle,
 					'clase':clase
-				}).then(function (response){
-					location.reload();
+				}).then((response)=>{
+					$('#diagnostico').modal('hide');
+					this.vaciar_campos_diagnostico();
+					this.mostrar_general();
+					$.notify("Diagnóstico agregado");
 				})
 			}else if(clase == 2){
 				axios.post(url2,{
-					'diagnostico': me.diagnostico,
-					'refacciones': me.refacciones,
-					'tiempo_entrega':me.tiempo_estimado,
-					'precio_estimado':me.precio_estimado,		
-					'slug': me.id_slug,
-				}).then(function (response){
+					'diagnostico': this.diagnostico,
+					'reparacion': this.reparacion,
+					'tiempo_entrega':this.tiempo_estimado,
+					'precio_estimado':this.precio_estimado,		
+					'slug': this.id_slug,
+				}).then((response)=>{
 					if (response.data == 1) {
-						location.reload();
+						$('#diagnostico').modal('hide');
+						this.mostrar_general();
+						this.vaciar_campos_diagnostico();
+						$.notify("Diagnóstico actualizado",'info');
 					}
 				})
 			}
 		},
+		vaciar_campos_diagnostico(){
+			this.diagnostico = "";
+			this.reparacion = "";
+			this.tiempo_estimado = "";
+			this.precio_estimado = "";
+			this.id_detalle = "";
+		},
 		borrar_diagnostico(data){
-			var me = this;
 			var url = '/eliminar_diagnostico/'+data;
 			if (confirm('¿Deseas eliminar este diagnóstico?')) {
-				axios.get(url).then(function (response){
+				axios.get(url).then((response)=>{
 					if (response.data == 1) {
-						location.reload();
+						this.mostrar_general();
+						this.vaciar_campos_diagnostico();
+						$.notify("Diagnóstico eliminado");
 					}
 				})
 			}
@@ -189,11 +229,12 @@ createApp({
 			var me = this;
 			var url = '/borrar_linea/'+data;
 			if (window.confirm("¿Realmente quieres borrar esta linea?")) {
-				axios.get(url).then(function (response) {
+				axios.get(url).then((response)=>{
 					if (response.data == 1) {
-						me.mostrar();
-						location.reload();
-					}
+						$.notify('El reporta ha sido borrado');
+						this.mostrar_general();
+						this.vaciar_campos();
+					}	
 				})
 			}
 		},
@@ -203,8 +244,8 @@ createApp({
 			var url = '/enviar_kardex';
 			axios.post(url,{
 				'destinatario':me.usuario,
-				'slug':me.$refs.kardex.innerHTML,
-				'kardex':me.$refs.kardex_id.innerHTML,
+				'slug':me.$refs.kardex_id.innerHTML,
+				'kardex':me.$refs.id_kardex.innerHTML,
 				'asunto':me.asunto,
 				'dia':me.dia,
 				'hora':me.hora
@@ -273,10 +314,11 @@ createApp({
 		actualizar_detalle(id){
 			var me = this;
 			var url = "/actualizar_final/"+id;
-			axios.post(url,this.actualizar_linea).then(function (response){
+			axios.post(url,this.actualizar_linea).then((response)=>{
 				if (response.data == 1) {
 					$('#equipos_actualizar').modal('hide');
-					me.mostrar();
+					this.mostrar_general();
+					$.notify('Registro actualizado');
 				}
 			})
 		},
@@ -321,8 +363,10 @@ createApp({
 				headers:{
 					'Content-Type':'multipart/form-data'
 				}
-			}).then(function (response){
-				location.reload();
+			}).then((response)=>{
+				$('#agregar_imagen').modal('hide');
+				$.notify('Imagen agregada con exito');
+				this.mostrar_general();
 			})
 		},
 		ver_galeria(data){
@@ -331,11 +375,85 @@ createApp({
 			axios.get(url).then(function (response){
 				me.imagenes = response.data;
 			})
-		}
+		},
+		liberar(kardex){
+			//alert('saludo');
+			var me = this;
+			var url = '/liberar_diagnostico/'+ kardex ;
+			if (confirm('Vas a liberar este diagnostico, ¿Estas seguro?')) {}
+			axios.get(url).then(function (response){
+				if (response.data == 1) {
+					$.notify('Este cardex ha sido liberado')
+					setTimeout(function() {
+					    window.location.href = '/inicio';
+					}, 3000);
+				}
+			})
+		},
+		agregarFila() {
+            // Agregar una nueva fila con campos vacíos
+            this.refacciones.push({ nombre: '', marca: '', modelo: '', costo: '' });
+        },
+        eliminarFila(index) {
+            // Eliminar la fila en el índice especificado
+            this.refacciones.splice(index, 1);
+        },
+        submitForm() {
+            axios.post('/agregar_refacciones',{
+            	'id_diagnostico':this.id_diagnostico,
+            	'refacciones':this.refacciones,
+
+            }).then((response)=>{
+            	if (response.data == 1) {
+            		$('#agregar_refacciones').modal('hide');
+            		this.refacciones = [{ nombre: '', marca: '', modelo: '', costo: '' }];
+            		this.mostrar_general();
+            	}
+            })
+        },
+        borrar_refaccion(data){
+        	var url = '/borrar_refaccion/'+data;
+        	if (confirm('¿Realmente deseas eliminar este registro?')==true) {	
+	        	axios.get(url).then((response)=>{
+	        		if (response.data == 1) {
+	        			$.notify('Registro eliminado');
+	        			this.mostrar_general();
+	        		}
+	        	})
+        	}
+        },
+        abrir_modal_refacciones(id){
+        	this.id_diagnostico = id;
+        },
+        a_cotizacion(data) {
+        	var url = '/nueva_cotizacion';
+        	if (confirm('¿Deseas enviar este kardex a cotizacion?') == true) {
+		      	axios.post(url,{
+		      		'id':data
+		      	}).then((response)=>{
+		      		if (response.data.hecho == 1) {
+		      			$.notify('Se ha generado un folio de cotizacion')
+		      			setTimeout(function() {
+		      				$.notify('En breve seras redirigido a la cotizacion');
+						}, 1000);
+
+						setTimeout(function(){
+							window.location.href = '/pagina_cotizador/'+ response.data.slug +'/'+response.data.id;
+						},2000);
+		      		}
+		      	})
+
+        	}
+	    },
+	    mostrarImagenGrande(imagen) {
+      		this.imagenGrande = imagen;
+    	},
+    	cerrarImagenGrande() {
+      		this.imagenGrande = null;
+    	},
 
 	},
 	mounted(){
-		this.mostrar();
-
+		this.mostrar_general();
 	}
 }).mount('#app')

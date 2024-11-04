@@ -9,6 +9,7 @@
 		<table id="example" class="table table-bordered" style="width:100%">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Nombre</th>
                     <th>Contacto</th>
                     <th>Fecha</th>
@@ -17,26 +18,26 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($cotizaciones as $cotizacion): ?>
                 <tr>
-                    <td>Hospital Santa Maria</td>
-                    <td>Elena Santos</td>
-                    <td>12/12/2024</td>
-                    <td>SD</td>
+                    <td><?php echo $cotizacion['id_cotizacion'] ?></td>
+                    <td><?php echo $cotizacion['hospital'] ?></td>
+                    <td><?php echo $cotizacion['responsable'] ?></td>
+                    <td><?php echo date('d-m-y', strtotime($cotizacion['created_at'])); ?></td>
+
                     <td>
-                        <a class="btn btn-primary btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
+                        <?php 
+                        $estatus = asignar_estatus($cotizacion['estatus']);
+                        if ($estatus): ?>
+                            <span class="badge <?php echo $estatus['estilo']." ".$estatus['icon']?> "> <?php echo $estatus['nombre'] ?></span> 
+                        <?php endif ?>        
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-circle btn-sm" href="<?php echo base_url('pagina_cotizador')."/".$cotizacion['slug']."/".$cotizacion['id_cotizacion']; ?> " class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
                         <a class="btn btn-danger btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-danger" onclick="return confirm('Esta eliminación no se puede revertir, ¿Deseas continuar?');"><span class="bi bi-trash3"></span></a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Hospital San José</td>
-                    <td>Pedro Baltrierrez</td>
-                    <td>12/12/2024</td>
-                    <td>SD</td>
-                    <td>
-                        <a class="btn btn-primary btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
-                        <a class="btn btn-danger btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-danger" onclick="return confirm('Esta eliminación no se puede revertir, ¿Deseas continuar?');"><span class="bi bi-trash3"></span></a>
-                    </td>
-                </tr>
+                <?php endforeach ?>
             </tbody>
             <tfoot>
                 <tr>

@@ -13,10 +13,22 @@ createApp({
 			data:{
 				solo_ver:0
 			},
-			valor:0
+			valor:0,
+			perfil:[],
+			empleado_numero:"",
+			empleado:"",
+			errores:""
 		}
 	},
 	methods:{
+		validar_form(){
+			this.errores = {};
+			const regex = /^[0-9]*$/;
+	      	if (!regex.test(this.empleado_numero)) {
+		        this.errores = 'El campo solo adminte numeros'; //nombre del encargado o DR
+	      	}
+		    return Object.keys(this.errores).length === 0;
+		},
 		ver_secciones(){
 			var me = this;
 			var url = '/ver_secciones';
@@ -123,7 +135,34 @@ createApp({
 				}
 			})
 			 //console.log(valor);
-		}
+		},
+		modificar_perfil(){
+			var me = this;
+			var url = '/perfil';
+			axios.get(url).then(function (response){
+				me.perfil = response.data[0];
+			})
+		},
+		numero_empleado(data){
+			this.empleado = data;
+		},
+		agregar_numero_empleado(){
+			var me = this;
+			var url = "/agregar_numero_empleado";
+			if (this.validar_form()) {
+				axios.post(url,{
+					'empleado': me.empleado,
+					'numero':me.empleado_numero
+				}).then(function (response){
+					if (response.data == 1) {
+						$('#agregar_datos').modal('hide');
+						showAlert('Numero de Emplado Actualziado');
+					}
+				})
+			}
+		},
+
+
 	},
 	mounted(){
 		this.ver_secciones();

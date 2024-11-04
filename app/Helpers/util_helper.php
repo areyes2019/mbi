@@ -191,6 +191,17 @@
                     	return true;
                     }
 	               break;
+
+				case 'diagnostico_borrador':
+                    if ($estatus == 6 && $rol == 3) {
+                    	return true;
+                    }
+	               break;
+	            case 'cotizacion':
+                    if ($estatus == 7 && $rol == 2) {
+                    	return true;
+                    }
+	               break;         
                 default:
                     return false;
         	}

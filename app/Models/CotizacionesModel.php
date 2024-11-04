@@ -5,17 +5,18 @@ use CodeIgniter\Model;
 
 class CotizacionesModel extends Model
 {
-    protected $table = 'sellopro_cotizaciones';
-    protected $primaryKey = 'idQt';
+    protected $table = 'mbi_cotizaciones';
+    protected $primaryKey = 'id_cotizacion';
+    protected $useTimestamps = true;
+    protected $createdField  = 'created_at';  // Campo para created_at
+    protected $updatedField  = 'updated_at';
     protected $allowedFields = [
         'slug',
-        'cliente',
-        'fecha',
-        'caduca',
-        'total',
-        'anticipo',
-        'descuento',
-        'pago',
-        'entregada',
+        'id_cliente',
+        'estatus',
+        'validez',
+        'id_kardex',
+        'id_cotizacion'
     ];
+
 }
