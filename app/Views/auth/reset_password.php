@@ -13,12 +13,12 @@
 				<form action="<?= site_url('password/reset') ?>" method="POST">
 				    <input type="hidden" name="token" value="<?= $token ?>">
 				    <label for="password">Nueva contraseña:</label>
-				    <input type="password" name="password" required>
+				    <input type="password" name="password" required class="form-control">
 				    
 				    <label for="password_confirm">Confirmar contraseña:</label>
-				    <input type="password" name="password_confirm" required>
+				    <input type="password" name="password_confirm" required class="form-control">
 				    
-				    <button type="submit">Restablecer contraseña</button>
+				    <button type="submit" class="btn btn-primary btn-sm rounded-0 mt-2">Restablecer contraseña</button>
 				</form>
                 <hr>
                 <div class="text-center">

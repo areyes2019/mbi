@@ -52,10 +52,7 @@ class PasswordResetController extends Controller
 
         // Enviar enlace al correo
         $resetLink = site_url("password/reset/$token");
-        $message = "
-            <p>Haga clic en el siguiente enlace para restablecer su contraseña:</p>
-            <p><a href='$resetLink'>$resetLink</a></p>
-        ";
+        $message = view('email/resetPasswordTemplate', ['resetLink' => $resetLink]);
 
         $email_service = \Config\Services::email();
         $email_service->setFrom($enviado_por[0]['correo'],'Grupo MBI');
