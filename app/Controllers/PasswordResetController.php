@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UsuariosModel;
+use App\Models\ConfigModel;
 use CodeIgniter\Controller;
 use CodeIgniter\I18n\Time;
 
@@ -15,6 +16,12 @@ class PasswordResetController extends Controller
 
     public function sendResetLink()
     {
+        //vamos a traer el correo del config
+        $config = new ConfigModel();
+        $enviado_por = $config->findAll();
+
+        //return json_encode($enviado_por[0]['correo']);
+
         $correo = $this->request->getPost('email');
         // Validar que el email exista en la base de datos
         $userModel = new UsuariosModel();
@@ -45,12 +52,15 @@ class PasswordResetController extends Controller
 
         // Enviar enlace al correo
         $resetLink = site_url("password/reset/$token");
-        $message = "Haga clic en este enlace para restablecer su contraseña: $resetLink";
+        $message = "
+            <p>Haga clic en el siguiente enlace para restablecer su contraseña:</p>
+            <p><a href='$resetLink'>$resetLink</a></p>
+        ";
 
         $email_service = \Config\Services::email();
-        $email_service->setFrom('ventas@sellopronto.com.mx','Sello Pronto');
+        $email_service->setFrom($enviado_por[0]['correo'],'Grupo MBI');
         $email_service->setTo($correo);
-        $email_service->setSubject('Cusrsos');
+        $email_service->setSubject('Reseteo de contraseña');
         $email_service->setMessage($message);
         $email_service->send();
 
