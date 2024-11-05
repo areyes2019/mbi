@@ -62,6 +62,7 @@ class PasswordResetController extends Controller
         $email_service->setTo($correo);
         $email_service->setSubject('Reseteo de contraseña');
         $email_service->setMessage($message);
+        $email_service->setMailType('html');
         $email_service->send();
 
         return redirect()->back()->with('message', 'Enlace de recuperación enviado al correo.');

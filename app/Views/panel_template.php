@@ -90,14 +90,6 @@
             
             <?php endif; ?>
 
-            <?php if (tiene_seccion('6') || es_super_admin()): ?>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('calendario')?>">
-                    <i class="bi bi-calendar"></i>
-                    <span>Calendario</span></a>
-            </li>
-            
-            <?php endif; ?>
             <?php if (tiene_seccion('7') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('facturacion')?>">
