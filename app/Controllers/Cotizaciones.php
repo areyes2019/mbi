@@ -70,6 +70,8 @@ class Cotizaciones extends BaseController
 		$db = \Config\Database::connect();
 		$cotizacion_id = $this->request->uri->getSegment(3);
 
+		
+
 		//encongrar cotizacoin
 		$cotizacion = $db->table('mbi_cotizaciones');
 		$cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');

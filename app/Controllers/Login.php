@@ -52,6 +52,30 @@ class Login extends BaseController{
         }
 
 	}
+	public function insertar()
+	{
+		$request = $this->request->getJSON();
+
+        $nombre = $request->nombre ?? '';
+        $apellidos = $request->apellidos ?? '';
+        $correo = $request->correo ?? '';
+        $password = password_hash($request->password, PASSWORD_BCRYPT);
+
+        $usuarioModel = new UsuariosModel();
+
+        $data = [
+            'nombre' => $nombre,
+            'apellidos' => $apellidos,
+            'correo' => $correo,
+            'password' => $password
+        ];
+        if ($usuarioModel->insert($data)) {
+            return $this->response->setJSON(['status' => 1]);
+        } else {
+            return $this->response->setJSON(['status' => 0, 'errors' => $usuarioModel->errors()]);
+        }
+
+	}
 	public function entrada()
 	{
 		// code...

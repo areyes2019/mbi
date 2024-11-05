@@ -31,15 +31,16 @@
         <!-- Outer Row -->
         <div id="app">
             <div class="row justify-content-center">
-            <?php echo $this->renderSection('login-panel') ?>
+                <?php echo $this->renderSection('login-panel') ?>
             </div>
         </div>
 
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url('public/js/login.js'); ?> "></script>
     <script src="<?php echo base_url('public/panel/vendor/jquery/jquery.min.js'); ?> "></script>
+    <script src="<?php echo base_url('public/js/notify.min.js'); ?>"></script>
+    <script src="<?php echo base_url('public/js/login.js'); ?> "></script>
     <script src="<?php echo base_url('public/panel/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 
     <!-- Core plugin JavaScript-->

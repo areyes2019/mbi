@@ -32,6 +32,7 @@ const {createApp,ref} = Vue
 					}
 				})
 			},
+
 			validar_form(){
 				this.errores = {};
 		      	if (!this.form.nombre) {
@@ -67,9 +68,12 @@ const {createApp,ref} = Vue
 			    		'correo':me.form.correo,
 			    		'password':me.form.password_confirmada
 			    	}).then(function (response){
-			    		if (response.data == 1) {
-			    			me.form =""
-			    			window.location = "/";
+			    		if (response.data.status == 1) {
+			    			me.form ="";
+			    			$.notify('Se creo la cuenta correctamente');
+			    			setTimeout(function(){
+			    				window.location = "/";
+			    			},2000);
 			    		}
 			    	})
 			    }

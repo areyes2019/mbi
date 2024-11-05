@@ -58,5 +58,4 @@
         </div>
     </div>
 </div>
-<script src="<?php echo base_url('public/js/login.js'); ?>"></script>
 <?php echo $this->endSection()?>
