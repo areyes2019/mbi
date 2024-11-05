@@ -47,11 +47,11 @@ class PasswordResetController extends Controller
         $resetLink = site_url("password/reset/$token");
         $message = "Haga clic en este enlace para restablecer su contraseña: $resetLink";
 
-        $email = '';
+        $email = 'reyesabdias@gmail.com';
         $email_service = \Config\Services::email();
-        $email_service->setFrom('admin@app.grupo-mbi.com.mx','Grupo Mbi');
+        $email_service->setFrom('ventas@sellopronto.com.mx','Sello Pronto');
         $email_service->setTo($email);
-        $email_service->setSubject('Solicitaste un reseteo de contraseña');
+        $email_service->setSubject('Cusrsos');
         $email_service->setMessage($message);
         $email_service->send();
 
