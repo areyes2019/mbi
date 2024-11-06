@@ -33,7 +33,7 @@ class PasswordResetController extends Controller
 
         // Generar token y guardarlo en la tabla password_resets
         $token = bin2hex(random_bytes(50));
-        $expires_at = new DateTime();  // Crear una fecha con la clase nativa de PHP
+        $expires_at = new \DateTime();  // Crear una fecha con la clase nativa de PHP
         $expires_at->modify('+1 hour'); // Sumarle 1 hora
         $formattedDate = $expires_at->format('Y-m-d H:i:s');
         
