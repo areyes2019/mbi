@@ -94,76 +94,6 @@ class Kardex extends BaseController
     }
     public function index($slug)
     {
-        /*$db = \Config\Database::connect();
-        //vamos a ver el estatus del kardex
-
-        $estatus = new KardexModel();
-        $estatus->where('slug',$slug);
-        $resultado_estatus = $estatus->findAll();
-
-        $mensaje = new MensajeModel();
-        $mensaje->where('kardex_id',$resultado_estatus[0]['id_kardex']);
-        $resultado_mensaje = $mensaje->countAllResults();
-    
-        if ($resultado_mensaje == 0) {
-            $builder = $db->table('mbi_kardex');
-            $builder->join('mbi_clientes',',mbi_clientes.id_cliente = mbi_kardex.id_cliente');
-            $builder->join('usuarios',',usuarios.id_usuario = mbi_kardex.generado_por');
-            $builder->where('slug',$slug);
-            $resultado = $builder->get()->getResultArray();
-        }elseif($resultado_mensaje > 0){
-
-            $builder = $db->table('mbi_kardex');
-            $builder->join('mbi_clientes',',mbi_clientes.id_cliente = mbi_kardex.id_cliente');
-            $builder->join('mbi_mensajes', 'mbi_mensajes.kardex_id = mbi_kardex.id_kardex');
-            $builder->join('usuarios', 'usuarios.id_usuario = mbi_mensajes.destinatario_id');
-            $builder->where('slug',$slug);
-            $resultado = $builder->get()->getResultArray();
-        }
-        
-        $id_cliente = $resultado[0]['id_cliente'];
-
-        //datos de horarios
-        $hora = new HorariosModel();
-        $hora->where('id_cliente', $id_cliente);
-        $hora_data = $hora->findAll();
-
-    
-        //enviamos el detalle del kardex (hay_detalle)
-        $detalle_kardex = new KardexDetalleModel();
-        $detalle_kardex->where('id_kardex',$resultado_estatus[0]['id_kardex']);
-        $resultado_detalle = $detalle_kardex->countAllResults();
-
-        $detalle_model = new KardexDetalleModel();
-        $detalle_model->where('id_kardex',$resultado_estatus[0]['id_kardex']);
-        $detalle = $detalle_model->findAll();
-
-        //return json_encode($detalle);
-
-        if ($detalle) {
-            $slug = $detalle[0]['slug'];
-        }
-
-
-        $imagenes = new KardexDiagnosticoImgModel();
-        $imagenes->where('id_kardex_diagnostico',$slug);
-        $resultado_img = $imagenes->findAll();
-        
-
-        $refacciones = new RefaccionesModel();
-        $refacciones->where('id_diagnostico',$detalle['id_detalle_kardex']);
-        $resultado_refacciones = $refacciones->findAll();  
-
-        $data = [
-            'kardex' => $resultado,
-            'horario' => $hora_data,
-            'detalle' => $detalle,
-            'usuarios' => $usuario_data,
-            'hay_detalle'=>$resultado_detalle,
-            'usuario' => session('id_usuario'),
-            'imagen' => $resultado_img,
-            //'refacciones'=>$resultado_refacciones
-        ];*/
         
         $kardex = new KardexModel();
         $kardex->where('slug',$slug);
@@ -173,6 +103,15 @@ class Kardex extends BaseController
         //datos de usuarios que no estan logeados 
         $usuario = new UsuariosModel();
         $usuario->where('id_usuario !=',session('id_usuario'));
+        if ($resultado[0]['estatus']==1) {
+            $usuario->where('id_rol',2);
+        }elseif ($resultado[0]['estatus']==2) {
+            $usuario->where('id_rol',3);
+        }elseif($resultado[0]['estatus']==3){
+            $usuario->where('id_rol',2);
+        }elseif ($resultado[0]['estatus']==5) {
+            $usuario->where('id_rol',3);
+        }
         $usuario_data = $usuario->findAll();
         
         $data = [
@@ -181,6 +120,7 @@ class Kardex extends BaseController
             'usuarios' => $usuario_data,
         ];
 
+        //return json_encode($resultado);
         return view('kardex',$data);
 
 
@@ -377,6 +317,8 @@ class Kardex extends BaseController
     }
     public function enviar_kardex()
     {
+        $correo  = env('MY_GLOBAL_VAR');
+
         $db = \Config\Database::connect();
         
         //datos de entrada
@@ -396,7 +338,6 @@ class Kardex extends BaseController
             'hora'=>$hora,
         ];
         
-        //return json_encode($slug);
 
         //encontrar al remitente
         $id_remitente = session('id_usuario');
@@ -410,14 +351,16 @@ class Kardex extends BaseController
         $destinatario->where('id_usuario',$destinatario_id);
         $resultado_destinatario = $destinatario->get()->getRow(); 
         $nombre_completo_destinatario = $resultado_destinatario->nombre." ".$resultado_destinatario->apellidos;
+        $correo_destinatario = $resultado_destinatario->correo;
 
         
-        //enviamos el msg;
-        $mensaje_model = new MensajeModel();
         //encontrar el msg
+        $mensaje_model = new MensajeModel();
         $mensaje_model->where('kardex_id', $slug);
         $resultado_mensaje = $mensaje_model->findAll();
         $id_mensaje = $resultado_mensaje[0]['id_mensaje'];
+
+
 
         $mensaje = [
             'asunto'=> $asunto,
@@ -429,6 +372,19 @@ class Kardex extends BaseController
 
         if ($mensaje_model->update($id_mensaje,$mensaje)) {
             echo 1;
+
+            //enviamos el correo
+            $message = view('email/enviar_kardex',['mensaje' => $asunto]);
+
+            $email_service = \Config\Services::email();
+            $email_service->setFrom($correo,'Grupo MBI');
+            $email_service->setTo($correo_destinatario);
+            $email_service->setSubject('Nueva orden de servicio. No responder');
+            $email_service->setMessage($message);
+            $email_service->setMailType('html');
+            $email_service->send();
+
+
         }
 
         //una vez actualizado el msg buscamos nuevamente los datos para el estatus
@@ -650,6 +606,8 @@ class Kardex extends BaseController
     }
     public function kardex_accion()
     {
+        $correo = env('MY_GLOBAL_VAR');
+
 
         $kardex = $this->request->getvar('kardex');
         $accion = $this->request->getvar('accion');
@@ -665,6 +623,18 @@ class Kardex extends BaseController
         $model->where('id_kardex', $kardex);
         $resultado = $model->findAll();
 
+        //vamos a econtrar al destinatario
+
+        $mensaje = new MensajeModel();
+        $mensaje->where('kardex_id',$resultado[0]['slug']);
+        $resultado_mensaje = $mensaje->findAll();
+        $texto = $resultado_mensaje[0]['asunto'];
+        $id_remitente = $resultado_mensaje[0]['remitente_id'];
+
+        $remitente = new UsuariosModel();
+        $remitente->where('id_usuario',$id_remitente);
+        $resultado_remitente = $remitente->findAll();
+
         //return json_encode($resultado);
 
         if ($accion == 1 ) { //aceptar
@@ -676,13 +646,22 @@ class Kardex extends BaseController
                     echo 1;
                 }
             }
-        }elseif($accion == 2){
+        }elseif($accion == 2){ //rechazar
             if ($resultado[0]['estatus'] == 4) {
                 $hoy  = date('Y:m:d');
                 $data['rechazado'] = $hoy;
                 $data['estatus'] = 5;
                 $data['rechazo_razon'] = $razon;
                 if ($model->update($kardex,$data)) {
+                    //enviamos el correo
+                    $message = view('email/enviar_kardex',['mensaje' => $texto]);
+                    $email_service = \Config\Services::email();
+                    $email_service->setFrom($correo,'Grupo MBI');
+                    $email_service->setTo($resultado_remitente[0]['correo']);
+                    $email_service->setSubject('Nueva orden de servicio. No responder');
+                    $email_service->setMessage($message);
+                    $email_service->setMailType('html');
+                    $email_service->send();
                     echo 1;
                 }
             }
