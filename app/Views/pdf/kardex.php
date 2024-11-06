@@ -112,19 +112,27 @@
             <td width="2%">&nbsp;</td>
             <td width="49%" style="border: 0.5mm solid #95a5a6; text-align: left;">
                 <p><strong>Diagnóstico Técnico</strong></p>
-                <?php foreach ($diagnostico as $data_diagnostico):?>
-                <p><strong>Diagnóstico: </strong> <?php echo $data_diagnostico['diagnostico'] ?></p>   
-                <p><strong>Reparación: </strong> <?php echo  $data_diagnostico['reparacion'] ?></p>   
-                <p><strong>Tiempo de Entrega: </strong><?php echo  $data_diagnostico['tiempo_entrega'] ?></p>
-                <p><strong>Costo aproximado: </strong><?php echo  $data_diagnostico['precio_estimado'] ?></p>
-                <?php endforeach ?>
+                <?php if (!empty($diagnostico)): ?>
+                    <?php foreach ($diagnostico as $data_diagnostico):?>
+                    <p><strong>Diagnóstico: </strong> <?php echo $data_diagnostico['diagnostico'] ?></p>   
+                    <p><strong>Reparación: </strong> <?php echo  $data_diagnostico['reparacion'] ?></p>   
+                    <p><strong>Tiempo de Entrega: </strong><?php echo  $data_diagnostico['tiempo_entrega'] ?></p>
+                    <p><strong>Costo aproximado: </strong><?php echo  $data_diagnostico['precio_estimado'] ?></p>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <p>No hay datos de diagnóstico disponibles.</p>
+                <?php endif; ?>
                 <p style="margin-top: 15px; font-size: 20px;"><strong>Refacciones</strong></p>
-                <?php foreach ($refacciones as $refaccion): ?>
-                <p><strong>Nombre: </strong><?php echo $refaccion['refaccion'] ?></p>        
-                <p><strong>Marca: </strong><?php echo $refaccion['marca'] ?></p>        
-                <p><strong>Modelo: </strong><?php echo $refaccion['modelo'] ?></p>        
-                <p><strong>Precio: </strong>$<?php echo $refaccion['precio'] ?></p>        
-                <?php endforeach ?>
+                <?php if (!empty($refacciones)): ?>
+                    <?php foreach ($refacciones as $refaccion): ?>
+                    <p><strong>Nombre: </strong><?php echo $refaccion['refaccion'] ?></p>        
+                    <p><strong>Marca: </strong><?php echo $refaccion['marca'] ?></p>        
+                    <p><strong>Modelo: </strong><?php echo $refaccion['modelo'] ?></p>        
+                    <p><strong>Precio: </strong>$<?php echo $refaccion['precio'] ?></p>        
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <p>No hay refacciones</p>
+                <?php endif ?>
             </td>
         </tr>
     </table>

@@ -734,87 +734,86 @@ class Kardex extends BaseController
     }
     public function pdf_os($id)
     {
-        
-
         $db = \Config\Database::connect();
-        //vamos a ver el estatus del kardex
 
+        // Obtener el estatus del kardex
         $estatus = new KardexModel();
-        $estatus->where('id_kardex',$id);
+        $estatus->where('id_kardex', $id);
         $resultado_estatus = $estatus->findAll();
 
-
         $mensaje = new MensajeModel();
-        $mensaje->where('kardex_id',$resultado_estatus[0]['slug']);
+        $mensaje->where('kardex_id', $resultado_estatus[0]['slug']);
         $resultado_mensaje = $mensaje->get()->getResultArray();
-    
+
         $builder = $db->table('mbi_kardex');
-        $builder->join('mbi_clientes',',mbi_clientes.id_cliente = mbi_kardex.id_cliente');
-        $builder->join('usuarios',',usuarios.id_usuario = mbi_kardex.generado_por');
-        $builder->where('id_kardex',$id);
+        $builder->join('mbi_clientes', 'mbi_clientes.id_cliente = mbi_kardex.id_cliente');
+        $builder->join('usuarios', 'usuarios.id_usuario = mbi_kardex.generado_por');
+        $builder->where('id_kardex', $id);
         $resultado = $builder->get()->getResultArray();
-        
+
         $id_cliente = $resultado[0]['id_cliente'];
 
-        //datos de horarios
+        // Obtener datos de horarios
         $hora = new HorariosModel();
         $hora->where('id_cliente', $id_cliente);
         $hora_data = $hora->findAll();
 
-
+        // Obtener detalles del kardex
         $detalle_model = new KardexDetalleModel();
-        $detalle_model->where('id_kardex',$id);
+        $detalle_model->where('id_kardex', $id);
         $detalle = $detalle_model->findAll();
 
-        //diagnostico
-        $valoracion = new KardexDiagnosticoModel();
-        $valoracion->where('id_detalle_kardex',$detalle[0]['slug']);
-        $resultado_diagnostico = $valoracion->findAll();
-        if ($resultado_diagnostico) {
-            $diagnostico = $resultado_diagnostico;
-        }else{
-            $diagnostico = null;
+        // Obtener diagnóstico y refacciones
+        $diagnostico = null;
+        $refaccion = null;
+
+        if (!empty($detalle)) {
+            $valoracion = new KardexDiagnosticoModel();
+            $valoracion->where('id_detalle_kardex', $detalle[0]['slug']);
+            $resultado_diagnostico = $valoracion->findAll();
+
+            if (!empty($resultado_diagnostico)) {
+                $diagnostico = $resultado_diagnostico;
+
+                // Obtener refacciones si existen
+                $repuesto = new RefaccionesModel();
+                $repuesto->where('id_diagnostico', $resultado_diagnostico[0]['id_detalle_kardex']);
+                $resultado_repuesto = $repuesto->findAll();
+
+                if (!empty($resultado_repuesto)) {
+                    $refaccion = $resultado_repuesto;
+                }
+            }
         }
 
-        
-        //refacciones
-
-        $repuesto = new RefaccionesModel();
-        $repuesto->where('id_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
-        $resultado_repuesto = $refacciones->findAll();
-
-        if ($resultado_repuesto) {
-            $refaccion = $resultado_repuesto;
-        }else{
-            $refaccion = null;
-        }
-
-
-
-        //datos de usuarios que no estan logeados 
+        // Obtener datos de usuarios que no están logeados
         $usuario = new UsuariosModel();
-        $usuario->where('id_usuario !=',session('id_usuario'));
-        $usuario_data = $usuario->findAll(); 
+        $usuario->where('id_usuario !=', session('id_usuario'));
+        $usuario_data = $usuario->findAll();
 
-
-
+        // Crear el array de datos
         $data = [
             'kardex' => $resultado,
             'horario' => $hora_data,
             'detalle' => $detalle,
             'usuarios' => $usuario_data,
-            'atendido_por'=>$resultado_mensaje,
-            'diagnostico'=>$diagnostico,
-            'refacciones'=>$refaccion
+            'atendido_por' => $resultado_mensaje,
         ];
 
+        // Solo agregar 'diagnostico' y 'refacciones' si existen
+        if ($diagnostico) {
+            $data['diagnostico'] = $diagnostico;
+        }
+        if ($refaccion) {
+            $data['refacciones'] = $refaccion;
+        }
         $doc = new Dompdf();
         $html = view('pdf/kardex.php',$data);
         $doc->loadHTML($html);
         $doc->setPaper('A4','portrait');
         $doc->render();
         $doc->stream("KDX-".$resultado_estatus[0]['id_kardex'].".pdf");
-
+                
     }
     public function agregar_refacciones()
     {
