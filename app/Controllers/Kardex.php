@@ -769,7 +769,7 @@ class Kardex extends BaseController
         //diagnostico
         $valoracion = new KardexDiagnosticoModel();
         $valoracion->where('id_detalle_kardex',$detalle[0]['slug']);
-        $resultado_diagnostico = $diagnostico->findAll();
+        $resultado_diagnostico = $valoracion->findAll();
         if ($resultado_diagnostico) {
             $diagnostico = $resultado_diagnostico;
         }else{
