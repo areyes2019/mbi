@@ -767,15 +767,29 @@ class Kardex extends BaseController
         $detalle = $detalle_model->findAll();
 
         //diagnostico
-        $diagnostico = new KardexDiagnosticoModel();
-        $diagnostico->where('id_detalle_kardex',$detalle[0]['slug']);
+        $valoracion = new KardexDiagnosticoModel();
+        $valoracion->where('id_detalle_kardex',$detalle[0]['slug']);
         $resultado_diagnostico = $diagnostico->findAll();
+        if ($resultado_diagnostico) {
+            $diagnostico = $resultado_diagnostico;
+        }else{
+            $diagnostico = null;
+        }
+
         
         //refacciones
 
-        $refacciones = new RefaccionesModel();
-        $refacciones->where('id_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
-        $resultado_refacciones = $refacciones->findAll();
+        $repuesto = new RefaccionesModel();
+        $repuesto->where('id_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
+        $resultado_repuesto = $refacciones->findAll();
+
+        if ($resultado_repuesto) {
+            $refaccion = $resultado_repuesto;
+        }else{
+            $refaccion = null;
+        }
+
+
 
         //datos de usuarios que no estan logeados 
         $usuario = new UsuariosModel();
@@ -790,8 +804,8 @@ class Kardex extends BaseController
             'detalle' => $detalle,
             'usuarios' => $usuario_data,
             'atendido_por'=>$resultado_mensaje,
-            'diagnostico'=>$resultado_diagnostico,
-            'refacciones'=>$resultado_refacciones
+            'diagnostico'=>$diagnostico,
+            'refacciones'=>$refaccion
         ];
 
         $doc = new Dompdf();
