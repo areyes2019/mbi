@@ -53,12 +53,12 @@
         <tr>
             <td width="20%" style="padding: 0px; text-align: left;">
                 <?php
-                    $path = base_url('public/img/logo2.png');
+                    $path = base_url('public/img/mbi_logo.png');
                     $type = pathinfo($path, PATHINFO_EXTENSION);
                     $data = file_get_contents($path);
                     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
                 ?>
-                <img src="<?php echo $base64; ?>" alt="logo" align="center" width="550" height="150">
+                <img src="<?php echo $base64; ?>" alt="logo" align="center" width="300" height="200">
             </td>
             <td width="40%">&nbsp;</td>
             <td width="40%" style="text-align: left;">
@@ -162,9 +162,6 @@
         </tr>
     </table>
     <br>
-    <div style="position: absolute; bottom: 0px; left: 90px;">
-        <p style="text-align:center;">Real del Seminario 122, Valle del Real Celaya, Gto. 38024. RFC RERA7701272R1. ventas@sellopronto.com.mx</p>
-        <p style="text-align:center;">La siguente cotización esta expresada en pesos Mexicanos. Una vez confirmado el pago, comenzamos a trabajar en tu diseño. Nunca fabricamos nada sin tu aprobación</p>
-    </div>
+    
 </body>
 </html>

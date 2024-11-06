@@ -766,11 +766,23 @@ class Kardex extends BaseController
         $detalle_model->where('id_kardex',$id);
         $detalle = $detalle_model->findAll();
 
+        //diagnostico
+        $diagnostico = new KardexDiagnosticoModel();
+        $diagnostico->where('id_detalle_kardex',$detalle[0]['slug']);
+        $resultado_diagnostico = $diagnostico->findAll();
         
+        //refacciones
+
+        $refacciones = new RefaccionesModel();
+        $refacciones->where('id_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
+        $resultado_refacciones = $refacciones->findAll();
+
         //datos de usuarios que no estan logeados 
         $usuario = new UsuariosModel();
         $usuario->where('id_usuario !=',session('id_usuario'));
         $usuario_data = $usuario->findAll(); 
+
+
 
         $data = [
             'kardex' => $resultado,
@@ -778,16 +790,16 @@ class Kardex extends BaseController
             'detalle' => $detalle,
             'usuarios' => $usuario_data,
             'atendido_por'=>$resultado_mensaje,
+            'diagnostico'=>$resultado_diagnostico,
+            'refacciones'=>$resultado_refacciones
         ];
 
-        return view('PDF',$data);
-        /*$doc = new Dompdf();
-        $html = view('PDF',$data);
-        //return $html;
+        $doc = new Dompdf();
+        $html = view('pdf/kardex.php',$data);
         $doc->loadHTML($html);
         $doc->setPaper('A4','portrait');
         $doc->render();
-        $doc->stream("QT-".'escuela'.".pdf");*/
+        $doc->stream("KDX-".$resultado_estatus[0]['id_kardex'].".pdf");
 
     }
     public function agregar_refacciones()
