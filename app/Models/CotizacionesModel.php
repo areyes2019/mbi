@@ -16,6 +16,7 @@ class CotizacionesModel extends Model
         'estatus',
         'validez',
         'id_kardex',
+        'total',
         'id_cotizacion'
     ];
 

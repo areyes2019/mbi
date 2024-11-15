@@ -5,15 +5,13 @@ use CodeIgniter\Model;
 
 class DetalleModel extends Model
 {
-    protected $table = 'sellopro_detalles';
-    protected $primaryKey = 'idDetalle';
+    protected $table = 'mbi_cotizaciones_detalles';
+    protected $primaryKey = 'id_cotizacion_detalle';
     protected $allowedFields = [
-        'cantidad',
-        'id_articulo',
-        'p_unitario',
+        'descripcion',
+        'precio_unitario',
+        'iva',
         'total',
-        'id_cotizacion',
-        'inversion',
-        'descripcion'
+        'id_cotizacion'
     ];
 }

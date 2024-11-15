@@ -26,57 +26,68 @@ class Cotizaciones extends BaseController
 	}
 	public function nueva()
 	{
-		//vamops a encontrar el cliente
+		// Obtener el ID del Kardex desde la solicitud
+	    $id = $this->request->getVar('id');
 
-		$id = $this->request->getvar('id');
+	    // Obtener el registro del cliente usando el ID de Kardex
+	    $kardexModel = new KardexModel();
+	    $clienteData = $kardexModel->where('id_kardex', $id)->first();
 
-		$cliente = new KardexModel();
-		$cliente->where('id_kardex',$id);
-		$resultado = $cliente->findAll();
+	    if (!$clienteData) {
+	        return json_encode(['hecho' => 0, 'mensaje' => 'Cliente no encontrado']);
+	    }
 
-		$id_cliente = $resultado[0]['id_cliente'];
-		$kardex_id = 'QT-'.$id;
+	    $id_cliente = $clienteData['id_cliente'];
+	    $kardex_id = $id;
 
+	    // Generar un slug aleatorio
+	    $caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $longitud = 12;
+	    $slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
 
-		$caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-   		$longitud = 12;
-   		$slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
-   		$nuevo_registro = new CotizacionesModel();
-   		$data=[
-   			'id_cotizacion'=> $kardex_id,
-   			'slug'=>$slug,
-   			'id_cliente'=>$id_cliente,
-   			'id_kardex'=>$id,
-   			'estatus'=>1
-   		];
+	    // Crear el registro de la cotización
+	    $cotizacionesModel = new CotizacionesModel();
+	    $data = [
+	        'id_cotizacion' => $kardex_id,
+	        'slug' => $slug,
+	        'id_cliente' => $id_cliente,
+	        'id_kardex' => $id,
+	        'estatus' => 1
+	    ];
 
+	    // Intentar la inserción y verificar el ID insertado
+	    $cotizacionesModel->insert($data);
+	    if ($cotizacionesModel->db->affectedRows() > 0) { // Confirma que el registro fue insertado
+	        // Actualizar el estatus de Kardex
+	        $kardexUpdate = ['estatus' => 8];
+	        $kardexModel->update($id, $kardexUpdate);
 
-   		$kardex = [
-   			'estatus' => 8
-   		];
-   		if ($nuevo_registro->insert($data)) {
-   			$cliente->update($id,$kardex);
-   			$datos = [
-   				'slug'=>$slug,
-   				'id'=>$id,
-   				'hecho'=> 1
-   			];
-			return json_encode($datos);
-   		}
-		
+	        return json_encode([
+	            'hecho' => 1,
+	            'slug' => $slug,
+	            'id' => $id,
+	            'mensaje' => 'Cotización creada exitosamente'
+	        ]);
+	    } else {
+	        return json_encode([
+	            'hecho' => 0,
+	            'mensaje' => 'Error al crear la cotización'
+	        ]);
+	    }
 	}
 	public function pagina($slug)
 	{
 		$db = \Config\Database::connect();
 		$cotizacion_id = $this->request->uri->getSegment(3);
+		$id = $cotizacion_id;
 
 		
-
 		//encongrar cotizacoin
 		$cotizacion = $db->table('mbi_cotizaciones');
 		$cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');
-		$cotizacion->where('id_cotizacion',$cotizacion_id);
+		$cotizacion->where('id_cotizacion',$id);
 		$resultado_cotizacion = $cotizacion->get()->getResultArray();
+
 
 		$kardex = new KardexModel();
 		$kardex->where('id_kardex',$resultado_cotizacion[0]['id_kardex']);
@@ -104,7 +115,7 @@ class Cotizaciones extends BaseController
 			'cotizacion'=>$resultado_cotizacion,
 			'diagnostico'=>$resultado_diagnostico,
 			'refacciones'=>$resultado_refaccion,
-			'slug'=>$kardex_slug
+			'slug'=>$kardex_slug,
 		];
 
 		return view('nueva_cotizacion',$data);
@@ -229,119 +240,103 @@ class Cotizaciones extends BaseController
 	}
 	public function agregar_ind()
 	{
+		$request = \Config\Services::request();
+		// Conectar a la base de datos y cargar los modelos necesarios
 		$model = new DetalleModel();
-		$request = \Config\Services::Request();
+		$totalModel = new CotizacionesModel();
 		$db = \Config\Database::connect();
 
-		$data['descripcion'] = $request->getvar('descripcion');
-		$data['id_articulo'] = 0;
-		$data['cantidad'] = $request->getvar('cantidad');
-		$data['p_unitario'] = $request->getvar('p_unitario');
-		$data['id_cotizacion'] = $request->getvar('id_cotizacion');
-		$data['total'] = $request->getvar('p_unitario') * $request->getvar('cantidad');
+		// Obtener datos JSON de la solicitud
+		$requestData = $request->getJSON(true);
 
-		//return json_encode($data);
+		//agregamos el iva
+		$precio = $requestData['p_unitario'];
+		$precio_con_iva = ($requestData['p_unitario'] ?? 0) * 1.16;
+		$iva = $precio_con_iva - $precio;
+
+		$data = [
+		    'descripcion' => $requestData['descripcion'] ?? '',
+		    'precio_unitario' => $precio,
+		    'iva'=>$iva,
+		    'id_cotizacion' => $requestData['id_cotizacion'] ?? '',
+		    'total' => $precio_con_iva,
+		];
+
+
+		// Insertar el detalle en la base de datos
 		$model->insert($data);
 
-		//actualizamos el total
-		$builder = $db->table('sellopro_detalles');
-		$builder->where('id_cotizacion',$request->getvar('id_cotizacion'));
-		$builder->selectSum('total');
-		$sum = $builder->get()->getResultArray();
-		$suma_total = $sum[0]['total'];
-		$total = new CotizacionesModel();
-		$datos=[
-			'total'=>$suma_total,
-		];
-		$total->update($request->getvar('id_cotizacion'),$datos);
+		// Actualizar el total en la tabla de cotizaciones
+		$builder = $db->table('mbi_cotizaciones_detalles');
+		$suma_total = $builder->where('id_cotizacion', $data['id_cotizacion'])
+		                      ->selectSum('total')
+		                      ->get()
+		                      ->getRow()
+		                      ->total;
+		
+		$totalModel->update($data['id_cotizacion'], ['total' => $suma_total]);
+
+		// Retornar una respuesta JSON
+		return $this->response->setJSON(['status' => 'success', 'total' => $suma_total]);
 
 	}
 	public function mostrar_detalles($id)
 	{
-		//encontrar el articulo completo
-		$db = \Config\Database::connect();
-		$builder = $db->table('sellopro_detalles');
-		$builder->where('id_cotizacion',$id);
-		$builder->join('sellopro_articulos','sellopro_articulos.idArticulo = sellopro_detalles.id_articulo');
-		$resultado = $builder->get()->getResultArray();
-
-		//Mostrar articulos independientes
-		$query = new DetalleModel();
-		$query->where('id_cotizacion',$id);
-		$query->where('id_articulo',0);
-		$independiente = $query->findAll();
 		
-		//mostrar totales
+		$detalles = new DetalleModel();
+		$detalles_data = $detalles->where('id_cotizacion',$id);
+		$resultado = $detalles_data->findAll();
+
 		$total = new CotizacionesModel();
-		$total->where('idQt',$id);
-		$suma_total = $total->findAll();
-		$porcenteje = 16;
-		$monto = $suma_total[0]['total'];
-		$abono = $suma_total[0]['pago'];
-		$iva = $monto*($porcenteje/100);
-		$pago_total = $monto + $iva;
-		$debe = 0;
-		if ($suma_total[0]['pago'] < 0) {
-			$debe = 1;
-		}else if($suma_total[0]['pago'] > $suma_total[0]['total']){
-			$debe = 2;
+		$total->where('id_cotizacion',$id);
+		$resultado_total = $total->findAll();
+
+		// Suponiendo que el total que necesitas está en el campo 'total'
+		if (!empty($resultado_total)) {
+		    $valor_total = $resultado_total[0]['total'];
+		    $valor_total_formateado = number_format($valor_total,2);
+		    $sin_iva = $valor_total / 1.16; // Quitar el 16% de IVA
+		    $sin_iva_formateado = number_format($sin_iva, 2); // Formato a dos decimales
+		    $iva = $valor_total - $sin_iva;
+		    $iva_formateado = number_format($iva,2);
+		    
+		} else {
+		    echo "No se encontró la cotización con el ID especificado.";
 		}
 
-		$saldo = $pago_total - $suma_total[0]['pago'];
+		$suma = [
+			'sub_total'=>$sin_iva_formateado,
+			'iva'=>$iva_formateado,
+			'total'=>$valor_total_formateado
+		];
 
-		//mostramos el beneficio
-		$beneficio = new DetalleModel();
-		$beneficio->where('id_cotizacion',$id);
-		$beneficio->selectSum('inversion');
-		$beneficio->selectSum('total');
-		$inversion = $beneficio->findAll();
-
-		$gasto = $inversion[0]['inversion'];
-		$cobro = $inversion[0]['total'];
-		$utilidad = $cobro - $gasto;
-		
-		$data=[
-			'independiente'=>$independiente,
-			'articulo'=>$resultado,
-			'sub_total'=> number_format($monto,2),
-			'descuento'=> number_format($suma_total[0]['descuento'],2),
-			'iva'=> number_format($iva,2),
-			'total'=>number_format($pago_total,2),
-			'abono'=>number_format($suma_total[0]['pago'],2),
-			'saldo'=>number_format($saldo,2),
-			'debe'=>$debe,
-			'sugerido'=>number_format($pago_total / 2,2),
-			'utilidad'=>number_format($utilidad,2)
+		$data = [
+			'detalles'=> $resultado,
+			'totales'=>$suma
 		];
 
 		return json_encode($data);
 		
 	}
-	public function borrar_linea($id)
+	public function borrar_linea_detalle($id)
 	{
-		$db = \Config\Database::connect();
-		$modelo = new DetalleModel();
+		$totalModel = new CotizacionesModel();
 
-		//sacamos el numero de cotizacion
-		$modelo->where('idDetalle',$id);
-		$ver_modelo = $modelo->findAll();
-
-		$numero = $ver_modelo[0]['id_cotizacion'];
-
-		$modelo->delete($id);
-
-		//actualizamos el total
-		$builder = $db->table('sellopro_detalles');
-		$builder->where('id_cotizacion',$numero);
-		$builder->selectSum('total');
-		$sum = $builder->get()->getResultArray();
-
-		$suma_total = $sum[0]['total'];
-		$total = new CotizacionesModel();
-		$datos=[
-			'total'=>$suma_total,
-		];
-		$total->update($numero,$datos);
+		$model = new DetalleModel();
+		if ($model->delete($id)) {
+			echo 1;
+			//actualizar el total en la cotizacion
+			$request = \Config\Services::request();
+			$db = \Config\Database::connect();
+			// Actualizar el total en la tabla de cotizaciones
+			$builder = $db->table('mbi_cotizaciones_detalles');
+			$suma_total = $builder->where('id_cotizacion', $id)
+			                      ->selectSum('total')
+			                      ->get()
+			                      ->getRow();
+			
+			$totalModel->update($id, ['total' => $suma_total]);
+			}
 
 	}
 	public function eliminar($id)

@@ -22,12 +22,44 @@
     </div>
     <!-- Card Body -->
     <div class="card-body rounded-0">
-        <p class="m-0"><strong>Para:</strong></p>
-        <p class="m-0"><?php echo $item['hospital'] ?></p>
-        <p class="m-0">Att: <?php echo $item['responsable'] ?></p>
-        <p class="m-0">Tel: <?php echo $item['telefono'] ?></p>
-        <p class="m-0"><?php echo $item['correo'] ?></p>
-        <p class="m-0"><strong>Kardex asociado: </strong><a href="<?php echo base_url('kardex/').$slug?>"><?php echo $item['id_kardex'] ?></a></p>
+        <div class="row">
+            <div class="col-md-8">
+                <p class="m-0"><strong>Para:</strong></p>
+                <p class="m-0"><?php echo $item['hospital'] ?></p>
+                <p class="m-0">Att: <?php echo $item['responsable'] ?></p>
+                <p class="m-0">Tel: <?php echo $item['telefono'] ?></p>
+                <p class="m-0"><?php echo $item['correo'] ?></p>
+                <p class="m-0"><strong>Kardex asociado: </strong><a href="<?php echo base_url('kardex/').$slug?>"><?php echo $item['id_kardex'] ?></a></p>
+            </div>
+            <div class="col-md-4">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <h5><strong>Sub-total</strong></h5>
+                        </td>
+                        <td>
+                            <h5 class="text-primary">${{totales.sub_total}}</h5>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <h5><strong>IVA</strong></h5>
+                        </td>
+                        <td>
+                            <h5 class="text-primary">${{totales.iva}}</h5>
+                        </td>
+                    </tr>
+                     <tr class="bg-dark">
+                        <td>
+                            <h5 class="text-white"><strong>Pago Total</strong></h5>
+                        </td>
+                        <td>
+                            <h5 class="text-white">${{totales.total}}</h5>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         
     </div>
 </div>
@@ -92,8 +124,7 @@
         </div>
         <div class="collapse mt-4" id="independiente">
           <div class="d-flex justify-content-between align-items-center">
-            <input type="text" class="form-control rounded-0 shadow-none" placeholder="Artículo" v-model="articulo_ind">
-            <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Cant." v-model="cantidad_ind">
+            <input type="text" class="form-control rounded-0 shadow-none" placeholder="Descripción" v-model="articulo_ind">
             <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Precio" v-model="precio_ind">
             <button class="btn btn-primary ml-2" @click="agregar_ind"><span class="bi bi-check"></span></button>
           </div>
@@ -102,82 +133,21 @@
 </div>
 <div class="card shadow mb-4 rounded-0">
     <div class="card-body">
-        <table class="table mt-4">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Modelo</th>
-                <th>Cantidad</th>
-                <th>PU</th>
+        <table class="table">
+            <tr>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>IVA</th>
                 <th>Total</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <th colspan="3"></th>
-                <td><strong>Sub-Total</strong></th>
-                <td>${{sub_total}}</td> 
                 <td></td>
-              </tr>
-              <tr>
-                <th colspan="3"></th>
-                <td><strong>Descuento</strong></th>
-                <td>${{descuento}}</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th colspan="3"></th>
-                <td><strong>IVA</strong></th>
-                <td>${{iva}}</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th colspan="3"></th>
-                <td><strong>Total</strong></th>
-                <td>
-                    ${{total}}
-                    <button  :class="[display,'btn', 'btn-success', 'btn-sm', 'btn-circle', 'ml-4']" @click="mostrar_collapse()"><span class="bi bi-cash"></span></button>
-                    <div class="collapse mt-2" id="pago">
-                        <input type="text" v-model="anticipo" style="width: 55px;">
-                        <button class="my-btn-primary" @click="agregar_pago()"><span class="bi-check-lg"></span></button>
-                    </div>
-                </td>
-                <td></td>
-              </tr>
-              <tr>
-                <th colspan="3"></th>
-                <td><strong>Pago</strong></th>
-                <td>${{pago}}</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th colspan="3"></th>
-                <td><strong>Saldo</strong></th>
-                <td>${{saldo}}</td>
-                <td></td>
-              </tr>
-            </tfoot>
-            <tbody>
-              <tr v-for = "dato in articulos ">
-                <td>{{dato.nombre}}</td>
-                <td>{{dato.modelo}}</td>
-                <td>
-                    <input type="number" min="1" :value="dato.cantidad" style="width:50px" @change="modificar_cantidad(dato.idDetalle)" :ref="dato.idDetalle" :disabled="disabled">
-                </td>
-                <td>${{dato.p_unitario}}</td>
+            </tr>
+            <tr v-for = "dato in detalles">
+                <td>{{dato.descripcion}}</td>
+                <td>${{dato.precio_unitario}}</td>
+                <td>${{dato.iva}}</td>
                 <td>${{dato.total}}</td>
-                <td :class="[display]"><a href="#" @click.prevent="borrar_linea(dato.idDetalle)"><span class="bi bi-x-lg"></span></a></td>
-              </tr>
-              <tr v-for="data in independiente">
-                <td>{{data.descripcion}}</td>
-                <td>S/M</td>
-                <td>{{data.cantidad}}</td>
-                <td>${{data.p_unitario}}</td>
-                <td>${{data.total}}</td>
-                <td :class="[display]"><a href="#" @click.prevent="borrar_linea(data.idDetalle)"><span class="bi bi-x-lg"></span></a></td>
-              </tr>
-            </tbody>
+                <td><button class="btn btn-danger btn-sm rounded-0"><span class="bi bi-x-lg" @click = "borrar_linea_detalle(dato.id_cotizacion_detalle)"></span></button></td>
+            </tr>
         </table>
     </div>
 </div>

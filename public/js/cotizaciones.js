@@ -5,7 +5,9 @@ const { createApp, ref } = Vue
       return {
         articulos:[],
         lista:[],
+        totales:{},
         independiente:[],
+        detalles:{},
         cantidad:"1",
         anticipo:"",
         sub_total:"",
@@ -58,23 +60,33 @@ const { createApp, ref } = Vue
         })
       },
       agregar_ind(){
-        if (this.articulo_ind && this.cantidad_ind && this.precio_ind) {    
-          var me = this;
+        if (this.articulo_ind && this.precio_ind) {    
           var cotizacion = this.$refs.id_cotizacion.innerHTML;
           axios.post('/agregar_articulo_ind',{
-            'cantidad':me.cantidad_ind,
             'id_cotizacion':cotizacion,
-            'descripcion':me.articulo_ind,
-            'p_unitario':me.precio_ind
-          }).then(function (response){
-              me.mostrar_lineas();
-              me.articulo_ind = "";
-              me.cantidad_ind = "";
-              me.precio_ind="";
+            'descripcion':this.articulo_ind,
+            'p_unitario':this.precio_ind
+          }).then((response)=>{
+              if (response.data.status == "success"){
+                $.notify('Se agregó el concepto');
+                this.mostrar_lineas();
+                this.mostrar_detalle();
+                this.articulo_ind = "";
+                this.cantidad_ind = "";
+                this.precio_ind="";
+              }
           })
         }else{
           alert("No puedes dejar campos vacios");
         }
+      },
+      mostrar_detalle(){
+        var cotizacion = this.$refs.id_cotizacion.innerHTML;
+        var url = '/mostrar_detalles/'+cotizacion;
+        axios.get(url).then((response)=>{
+          this.detalles = response.data.detalles;
+          this.totales = response.data.totales;
+        })
       },
       modificar_cantidad(data){
         var me = this;
@@ -95,32 +107,20 @@ const { createApp, ref } = Vue
         $('#pago').collapse('show');
       },
       mostrar_lineas(){
-        var me = this;
         var cotizacion = this.$refs.id_cotizacion.innerHTML;
-        axios.get('/mostrar_detalles/'+cotizacion).then(function (response) {
-            me.independiente = response.data['independiente'];
-            me.articulos = response.data['articulo'];
-            me.sub_total = response.data['sub_total'];
-            me.iva = response.data['iva'];
-            me.total = response.data['total'];
-            me.pago = response.data['abono'];
-            me.saldo = response.data['saldo'];
-            me.sugerido = response.data['sugerido'];
-            me.utilidad = response.data['utilidad'];
-            me.descuento = response.data['descuento'];
-            if (response.data['debe'] === 2) {
-              me.display = "d-none";
-              me.disabled = 1;
-              me.mostrar_lineas();
-            }
-
+        axios.get('/mostrar_detalles/'+cotizacion).then((response)=>{
+            this.independiente = response.data;
         })
       },
-      borrar_linea(data){
-        var me = this;
-        if (window.confirm("¿Realmente quieres borrar esta linea?")) {
-            axios.get('/borrar_linea/'+data).then(function (response) {
-                me.mostrar_lineas();
+      borrar_linea_detalle(data){
+  
+        if (confirm("¿Realmente quieres borrar esta linea?")) {
+            axios.get('/borrar_linea_detalle/'+data).then((response)=> {
+                if (response.data==1) {
+                  $.notify('Registro eliminado');
+                  this.mostrar_lineas();
+                  this.mostrar_detalle();
+                }
             })
         }
       },
@@ -164,6 +164,6 @@ const { createApp, ref } = Vue
     },
     mounted(){
       this.mostrar_lineas();
-      this.mostrar_articulos();
+      this. mostrar_detalle();
     }
 }).mount('#app')

@@ -426,24 +426,29 @@ createApp({
         	this.id_diagnostico = id;
         },
         a_cotizacion(data) {
-        	var url = '/nueva_cotizacion';
-        	if (confirm('¿Deseas enviar este kardex a cotizacion?') == true) {
-		      	axios.post(url,{
-		      		'id':data
-		      	}).then((response)=>{
-		      		if (response.data.hecho == 1) {
-		      			$.notify('Se ha generado un folio de cotizacion')
-		      			setTimeout(function() {
-		      				$.notify('En breve seras redirigido a la cotizacion');
-						}, 1000);
+        	const url = '/nueva_cotizacion';
+		    if (confirm('¿Deseas enviar este kardex a cotización?')) {
+		        axios.post(url, { 'id': data })
+		            .then((response) => {
+		                if (response.data.hecho === 1) {
+		                    $.notify(response.data.mensaje);
 
-						setTimeout(function(){
-							window.location.href = '/pagina_cotizador/'+ response.data.slug +'/'+response.data.id;
-						},2000);
-		      		}
-		      	})
+		                    setTimeout(() => {
+		                        $.notify('En breve serás redirigido a la cotización');
+		                    }, 1000);
 
-        	}
+		                    setTimeout(() => {
+		                        window.location.href = `/pagina_cotizador/${response.data.slug}/${response.data.id}`;
+		                    }, 2000);
+		                } else {
+		                    $.notify(response.data.mensaje || 'Error inesperado');
+		                }
+		            })
+		            .catch((error) => {
+		                console.error(error);
+		                $.notify('Error al procesar la solicitud');
+		            });
+		    }
 	    },
 	    mostrarImagenGrande(imagen) {
       		this.imagenGrande = imagen;
