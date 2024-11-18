@@ -12,9 +12,8 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
                 <div class="dropdown-header"></div>
-                <a class="dropdown-item" href=""><span class="bi bi-download"></span> Descargar</a>
-                <a class="dropdown-item" href=""><span class="bi bi-send"></span> Enviar</a>
-                <a class = "dropdown-item"  href="#"><span class="bi bi-truck"></span> Marcar Entregado</a>
+                <a class="dropdown-item" href="<?php echo base_url('descargar_cotizacion/'.$item['id_cotizacion']); ?>"><span class="bi bi-download"></span> Descargar</a>
+                <a class="dropdown-item" href="" @click.prevent = "enviar_cotizacion(<?php  echo $item['id_cotizacion'] ?>)"><span class="bi bi-send"></span> Enviar</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="" onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');"><span class="bi bi-trash3"></span> Eliminar Cotización</a>
             </div>
@@ -71,7 +70,7 @@
             </span>
             <span class="text">Articulo Independiente</span>
         </button>
-        <button class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#agregar_articulo">
+        <button class="btn btn-primary btn-icon-split" @click = "agregar_diagnostico_modal(<?php echo $item['id_kardex'] ?>)" data-toggle="modal" data-target="#agregar_articulo">
             <span class="icon text-white-50">
                 <i class="bi bi-list-check"></i>
             </span>
@@ -87,29 +86,48 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" v-for = "diag in diagnostico">
                         <table class="table w-100" id="articulos">
                             <thead>
                                 <tr>
-                                    <th>Artículo</th>
-                                    <th>Modelo</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th>Diagnóstico</th>
+                                    <th>Reparacion sugerida</th>
+                                    <th>Precio estimado</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for = "articulo in lista">
-                                    <td>{{articulo.nombre}}</td>
-                                    <td>{{articulo.modelo}}</td>
-                                    <td>
-                                        <input type="number" value="1" min="1" style="width: 50px;" :ref="articulo.idArticulo">
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-primary btn-circle" @click="add_articulo(articulo.idArticulo)"><span class="bi bi-check"></span></button>
-                                    </td>
+                                <tr>
+                                    <td>{{diag.diagnostico}}</td>
+                                    <td>{{diag.reparacion}}</td>
+                                    <td>${{total = diag.precio_estimado}}</td>
                                 </tr>
                             </tbody>
                         </table>
+                        <table class="table w-100" id="articulos">
+                            <thead>
+                                <tr>
+                                    <th>Refacciones</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for = "refa in refacciones">
+                                    <td>{{refa.refaccion}}</td>
+                                    <td>${{costo = refa.precio}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div v-if="diag.agregado != 1">
+                            <h4 class="text-primary">Costo total: ${{+total + +costo}}</h4>
+                            <div class="d-block mr-2">
+                                <label for="">Descripción</label>
+                                <textarea name="" id="" class="form-control rounded-0 shadow-none" v-model="articulo_ind"></textarea>
+                            </div>
+                            <div class="d-block w-25">
+                                <label for="">Precio</label>
+                                <input type="text" class="form-control form-control-sm rounded-0 shadow-none" v-model="precio_ind">
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-icon-split" data-dismiss="modal">
@@ -118,6 +136,14 @@
                             </span>
                             <span class="text">Cerrar</span>
                         </button>
+                        <div v-for="id_diagnostico in diagnostico">
+                            <button type="button"  v-if="id_diagnostico.agregado != 1" class="btn btn-success btn-icon-split" @click = "agregar_ind(id_diagnostico.id_detalle_kardex)">
+                                <span class="icon text-white-50">
+                                    <i class="bi bi-check2"></i>
+                                </span>
+                                <span class="text">Agregar</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,7 +152,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <input type="text" class="form-control rounded-0 shadow-none" placeholder="Descripción" v-model="articulo_ind">
             <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Precio" v-model="precio_ind">
-            <button class="btn btn-primary ml-2" @click="agregar_ind"><span class="bi bi-check"></span></button>
+            <button class="btn btn-primary ml-2" @click="agregar_ind('independiente')"><span class="bi bi-check"></span></button>
           </div>
         </div>
     </div>

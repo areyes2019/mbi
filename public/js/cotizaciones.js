@@ -7,6 +7,8 @@ const { createApp, ref } = Vue
         lista:[],
         totales:{},
         independiente:[],
+        diagnostico:{},
+        refacciones:{},
         detalles:{},
         cantidad:"1",
         anticipo:"",
@@ -24,7 +26,8 @@ const { createApp, ref } = Vue
         cantidad_ind:"",
         precio_ind:"",
         descuento:"",
-        disabled:0
+        disabled:0,
+        costo:""
       }
     },
     methods:{
@@ -59,10 +62,10 @@ const { createApp, ref } = Vue
             }
         })
       },
-      agregar_ind(){
+      agregar_ind(data){
         if (this.articulo_ind && this.precio_ind) {    
           var cotizacion = this.$refs.id_cotizacion.innerHTML;
-          axios.post('/agregar_articulo_ind',{
+          axios.post('/agregar_articulo_ind/'+data,{
             'id_cotizacion':cotizacion,
             'descripcion':this.articulo_ind,
             'p_unitario':this.precio_ind
@@ -72,8 +75,8 @@ const { createApp, ref } = Vue
                 this.mostrar_lineas();
                 this.mostrar_detalle();
                 this.articulo_ind = "";
-                this.cantidad_ind = "";
                 this.precio_ind="";
+                $('#agregar_articulo').modal('hide');
               }
           })
         }else{
@@ -161,6 +164,19 @@ const { createApp, ref } = Vue
           new DataTable('#articulos');
         });
       },
+      agregar_diagnostico_modal(data){
+        axios.get('/ver_diagnostico_kardex/'+ data).then((response)=>{
+          this.diagnostico = response.data.diagnostico;
+          this.refacciones = response.data.refacciones;
+        })
+      },
+      enviar_cotizacion(data){
+        axios.get('/enviar_pdf/'+data).then((response)=>{
+          if (response.data == 1) {
+            $.notify('Correo enviado al cliente');
+          }
+        })
+      }
     },
     mounted(){
       this.mostrar_lineas();

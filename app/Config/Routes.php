@@ -152,7 +152,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('actualizar_cotizacion/(:num)', 'Cotizaciones::actualizar/$1');
 	$routes->get('eliminar_cotizacion/(:num)', 'Cotizaciones::eliminar/$1');
 	$routes->post('agregar_articulo', 'Cotizaciones::agregar');
-	$routes->post('agregar_articulo_ind', 'Cotizaciones::agregar_ind');
+	$routes->post('agregar_articulo_ind/(:any)', 'Cotizaciones::agregar_ind/$1');
 	$routes->get('mostrar_detalles/(:any)', 'Cotizaciones::mostrar_detalles/$1');
 	$routes->get('borrar_linea_detalle/(:num)', 'Cotizaciones::borrar_linea_detalle/$1');
 	$routes->get('descargar_cotizacion/(:num)', 'Cotizaciones::cotizacion_pdf/$1');
@@ -161,6 +161,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('pago', 'Cotizaciones::pago');
 	$routes->post('modificar_cantidad', 'Cotizaciones::modificar_cantidad');
 	$routes->post('marcar_entregado', 'Cotizaciones::entregado');
+	$routes->get('/ver_diagnostico_kardex/(:num)', 'Cotizaciones::ver_diagnostico_kardex/$1');
 
 	/*Compras*/
 	$routes->get('compras', 'admin\Compras::index');

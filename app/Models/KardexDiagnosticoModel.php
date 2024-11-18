@@ -15,6 +15,7 @@ class KardexDiagnosticoModel extends Model
         'reparacion',
         'tiempo_entrega',
         'precio_estimado',
+        'agregado'
     ];
 
 }

@@ -12,6 +12,7 @@ class DetalleModel extends Model
         'precio_unitario',
         'iva',
         'total',
-        'id_cotizacion'
+        'id_cotizacion',
+        'diagnostico'
     ];
 }

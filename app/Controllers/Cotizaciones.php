@@ -11,6 +11,7 @@ use App\Models\MensajeModel;
 use App\Models\KardexDetalleModel;
 use App\Models\KardexDiagnosticoModel;
 use App\Models\RefaccionesModel;
+use App\Models\UsuariosModel;
 use Dompdf\Dompdf;
 class Cotizaciones extends BaseController
 {
@@ -238,8 +239,9 @@ class Cotizaciones extends BaseController
 
 
 	}
-	public function agregar_ind()
+	public function agregar_ind($slug)
 	{
+
 		$request = \Config\Services::request();
 		// Conectar a la base de datos y cargar los modelos necesarios
 		$model = new DetalleModel();
@@ -262,9 +264,18 @@ class Cotizaciones extends BaseController
 		    'total' => $precio_con_iva,
 		];
 
+		if ($slug != 'independiente') {
+			$agregado['agregado']= 1;	
+		}
+
+
 
 		// Insertar el detalle en la base de datos
 		$model->insert($data);
+
+		//atcualizar el diagnostico para que aparezca agregado
+		$diagnostico  = new KardexDiagnosticoModel();
+		$diagnostico->update($slug,$agregado);
 
 		// Actualizar el total en la tabla de cotizaciones
 		$builder = $db->table('mbi_cotizaciones_detalles');
@@ -320,23 +331,38 @@ class Cotizaciones extends BaseController
 	}
 	public function borrar_linea_detalle($id)
 	{
-		$totalModel = new CotizacionesModel();
+		
+		//return json_encode($id);	
 
+		$totalModel = new CotizacionesModel();
 		$model = new DetalleModel();
+
+		$model->where('id_cotizacion_detalle',$id);
+		$resultado = $model->findAll();
+		$id_cotizacion = $resultado[0]['id_cotizacion'];
+
 		if ($model->delete($id)) {
 			echo 1;
-			//actualizar el total en la cotizacion
-			$request = \Config\Services::request();
-			$db = \Config\Database::connect();
-			// Actualizar el total en la tabla de cotizaciones
-			$builder = $db->table('mbi_cotizaciones_detalles');
-			$suma_total = $builder->where('id_cotizacion', $id)
-			                      ->selectSum('total')
-			                      ->get()
-			                      ->getRow();
-			
-			$totalModel->update($id, ['total' => $suma_total]);
-			}
+
+		}
+		//actualizar el total en la cotizacion
+		$db = \Config\Database::connect();
+		// Actualizar el total en la tabla de cotizaciones
+		$builder = $db->table('mbi_cotizaciones_detalles');
+		$suma_total = $builder->where('id_cotizacion', $id_cotizacion)
+		                      ->selectSum('total')
+		                      ->get()
+		                      ->getRow()
+		                      ->total;
+
+		if ($suma_total) {
+		    $totalModel->update($id_cotizacion, ['total' => $suma_total]);
+		} else {
+		    // Manejar el caso donde la suma es cero o no hay resultados
+		    $totalModel->update($id_cotizacion, ['total' => 0]);
+		}
+
+		//cambiar el 
 
 	}
 	public function eliminar($id)
@@ -355,56 +381,63 @@ class Cotizaciones extends BaseController
 	}
 	public function cotizacion_pdf($id)
 	{
-		$db = \Config\Database::connect();
 
 		//datos del cliente
 		$cliente_query = new CotizacionesModel();
-		$cliente_query->where('idQt',$id);
+		$cliente_query->where('id_cotizacion',$id);
 		$resultado_cotizacion = $cliente_query->findAll();
 
 		$cliente = new ClientesModel();
-		$cliente->where('idCliente',$resultado_cotizacion[0]['cliente']);
+		$cliente->where('id_cliente',$resultado_cotizacion[0]['id_cliente']);
 		$resultado = $cliente->findAll();
 
-		//mostrar los articulos
-		$builder = $db->table('sellopro_detalles');
-		$builder->where('id_cotizacion',$id);
-		$builder->join('sellopro_articulos','sellopro_articulos.idArticulo = sellopro_detalles.id_articulo');
-		$resultado_lineas = $builder->get()->getResultArray();
+		$detalles = new DetalleModel();
+		$detalles->where('id_cotizacion',$id);
+		$resultado_detalles = $detalles->findAll();
 
-		//mostrar independientes
-		//Mostrar articulos independientes
-		$query = new DetalleModel();
-		$query->where('id_cotizacion',$id);
-		$query->where('id_articulo',0);
-		$independiente = $query->findAll();
+		//buscamos al usuario que genero todo
+		$usuario = new UsuariosModel();
+		$usuario->where('id_usuario',$resultado_cotizacion[0]['atendido_por']);
+		$resultado_usuario = $usuario->findAll();
 
-		//sacamos los totales 
+		$total_con_iva = $resultado_cotizacion[0]['total']; // Total con IVA
+		$iva_porcentaje = 16; // IVA en porcentaje
+		$factor_iva = 1 + ($iva_porcentaje / 100); // Calcula el factor del IVA
 
-		//actualizamos el total
-		$sum = $db->table('sellopro_detalles');
-		$sum->where('id_cotizacion',$id);
-		$sum->selectSum('total');
-		$result = $sum->get()->getResultArray();
-		$total_sum = $result[0]['total'];
-		$porcenteje = 16;
-		$iva = $total_sum*($porcenteje/100);
-		$total = $total_sum + $iva;	
-			
+		$total_sin_iva = $total_con_iva / $factor_iva; // Total sin IVA
+		$iva = $total_con_iva - $total_sin_iva; // Solo IVA
+
+		$importe = number_format($total_sin_iva,2);
+		$iva_formateado = number_format($iva,2);
+		$total = number_format($total_con_iva,2); //total total
+
+		//mandamos la fecha formateada
+		$fechaOriginal = $resultado_cotizacion[0]['created_at'];
+		// Mapas para días y meses
+		$dias = ['Sunday' => 'domingo', 'Monday' => 'lunes', 'Tuesday' => 'martes', 'Wednesday' => 'miércoles', 'Thursday' => 'jueves', 'Friday' => 'viernes', 'Saturday' => 'sábado'];
+		$meses = ['January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo', 'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre', 'November' => 'noviembre', 'December' => 'diciembre'];
+
+		// Convertir la fecha y traducir
+		$fecha = new \DateTime($fechaOriginal);
+		$dia = $dias[$fecha->format('l')];
+		$mes = $meses[$fecha->format('F')];
+		// Formatear la fecha
+		$fechaFormateada = ucfirst("$dia, " . $fecha->format('d') . " de $mes de " . $fecha->format('Y'));
 
 		$data = [
 			'cliente'=>$resultado,
 			'id_cotizacion'=>$resultado_cotizacion,
-			'detalles'=>$resultado_lineas,
-			'detalles_ind'=>$independiente,
-			'sub_total'=>$total_sum,
-			'descuento'=>$resultado_cotizacion[0]['descuento'],
-			'iva'=>$iva,
+			'detalles'=>$resultado_detalles,
+			'sub_total'=>$importe,
+			'iva'=>$iva_formateado,
 			'total'=>$total,
+			'cotizacion'=> $id,
+			'usuario'=>$resultado_usuario,
+			'fecha'=>$fechaFormateada
 		];
-		//return view('Panel/PDF',$data);
+		//return view('pdf/cotizacion',$data);
 		$doc = new Dompdf();
-		$html = view('Panel/PDF',$data);
+		$html = view('pdf/cotizacion',$data);
 		//return $html;
 		$doc->loadHTML($html);
 		$doc->setPaper('A4','portrait');
@@ -413,60 +446,156 @@ class Cotizaciones extends BaseController
 	}
 	public function enviar_pdf($id)
 	{
-		$db = \Config\Database::connect();
-
 		//datos del cliente
 		$cliente_query = new CotizacionesModel();
-		$cliente_query->where('idQt',$id);
+		$cliente_query->where('id_cotizacion',$id);
 		$resultado_cotizacion = $cliente_query->findAll();
+
 		$cliente = new ClientesModel();
-		$cliente->where('idCliente',$resultado_cotizacion[0]['cliente']);
+		$cliente->where('id_cliente',$resultado_cotizacion[0]['id_cliente']);
 		$resultado = $cliente->findAll();
 
-		//mostrar los articulos
-		$builder = $db->table('sellopro_detalles');
-		$builder->where('id_cotizacion',$id);
-		$builder->join('sellopro_articulos','sellopro_articulos.idArticulo = sellopro_detalles.id_articulo');
-		$resultado_lineas = $builder->get()->getResultArray();
+		$detalles = new DetalleModel();
+		$detalles->where('id_cotizacion',$id);
+		$resultado_detalles = $detalles->findAll();
 
-		//sacamos los totales 
+		//buscamos al usuario que genero todo
+		$usuario = new UsuariosModel();
+		$usuario->where('id_usuario',$resultado_cotizacion[0]['atendido_por']);
+		$resultado_usuario = $usuario->findAll();
 
-		//actualizamos el total
-		$sum = $db->table('sellopro_detalles');
-		$sum->where('id_cotizacion',$id);
-		$sum->selectSum('total');
-		$result = $sum->get()->getResultArray();
-		$total_sum = $result[0]['total'];
-		$porcenteje = 16;
-		$iva = $total_sum*($porcenteje/100);
-		$total = $total_sum + $iva;	
-			
+		$total_con_iva = $resultado_cotizacion[0]['total']; // Total con IVA
+		$iva_porcentaje = 16; // IVA en porcentaje
+		$factor_iva = 1 + ($iva_porcentaje / 100); // Calcula el factor del IVA
+
+		$total_sin_iva = $total_con_iva / $factor_iva; // Total sin IVA
+		$iva = $total_con_iva - $total_sin_iva; // Solo IVA
+
+		$importe = number_format($total_sin_iva,2);
+		$iva_formateado = number_format($iva,2);
+		$total = number_format($total_con_iva,2); //total total
+
+		//mandamos la fecha formateada
+		$fechaOriginal = $resultado_cotizacion[0]['created_at'];
+		// Mapas para días y meses
+		$dias = ['Sunday' => 'domingo', 'Monday' => 'lunes', 'Tuesday' => 'martes', 'Wednesday' => 'miércoles', 'Thursday' => 'jueves', 'Friday' => 'viernes', 'Saturday' => 'sábado'];
+		$meses = ['January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo', 'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre', 'November' => 'noviembre', 'December' => 'diciembre'];
+
+		// Convertir la fecha y traducir
+		$fecha = new \DateTime($fechaOriginal);
+		$dia = $dias[$fecha->format('l')];
+		$mes = $meses[$fecha->format('F')];
+		// Formatear la fecha
+		$fechaFormateada = ucfirst("$dia, " . $fecha->format('d') . " de $mes de " . $fecha->format('Y'));
 
 		$data = [
 			'cliente'=>$resultado,
 			'id_cotizacion'=>$resultado_cotizacion,
-			'detalles'=>$resultado_lineas,
-			'sub_total'=>$total_sum,
-			'descuento'=>$resultado_cotizacion[0]['descuento'],
-			'iva'=>$iva,
+			'detalles'=>$resultado_detalles,
+			'sub_total'=>$importe,
+			'iva'=>$iva_formateado,
 			'total'=>$total,
+			'cotizacion'=> $id,
+			'usuario'=>$resultado_usuario,
+			'fecha'=>$fechaFormateada
 		];
-		//return view('Panel/PDF',$data);
+		//return view('pdf/cotizacion',$data);
 		$doc = new Dompdf();
-		$html = view('Panel/PDF',$data);
+		$html = view('pdf/cotizacion',$data);
 		//return $html;
 		$doc->loadHTML($html);
 		$doc->setPaper('A4','portrait');
 		$doc->render();
-		$salida = $doc->output();
-		$nombre = "QT-".$id.".pdf";
-		$email = \Config\Services::email();
-		$email->setFrom('ventas@sellopronto.com.mx','Sello Pronto');
-		$email->setTo('reyesabdias@gmail.com');
-		$email->setSubject('Cusrsos');
-		$email->setMessage('Este es un mensaje de prueba');
-		$email->attach('img/40.png');
-		$email->send();
+
+		// Guardar el PDF en un archivo temporal
+        $filePath = WRITEPATH . "uploads/QT-$id.pdf";
+        file_put_contents($filePath, $doc->output());
+
+        // Configurar el correo
+        $email = \Config\Services::email();
+        $email->setFrom('tu-email@tu-dominio.com', 'Tu Nombre o Empresa');
+        $email->setTo($resultado_usuario[0]['correo']); // Cambia por el correo del destinatario
+        $email->setSubject("Cotización QT-$id");
+        // Definir el contenido HTML del correo
+		$htmlContent = "
+		<!DOCTYPE html>
+		<html lang='es'>
+		<head>
+		    <meta charset='UTF-8'>
+		    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		    <title>Cotización Solicitada</title>
+		    <style>
+		        body {
+		            font-family: Arial, sans-serif;
+		            background-color: #f4f4f4;
+		            color: #333;
+		            margin: 0;
+		            padding: 0;
+		        }
+		        .container {
+		            width: 100%;
+		            max-width: 600px;
+		            margin: 20px auto;
+		            background-color: #fff;
+		            padding: 20px;
+		            border-radius: 8px;
+		            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		        }
+		        h2 {
+		            color: #007BFF;
+		        }
+		        p {
+		            font-size: 14px;
+		            line-height: 1.6;
+		        }
+		        .footer {
+		            margin-top: 30px;
+		            font-size: 12px;
+		            color: #777;
+		            text-align: center;
+		        }
+		    </style>
+		</head>
+		<body>
+
+		<div class='container'>
+		    <h2>Cotización Solicitada</h2>
+
+		    <p>Estimado/a <strong>Cliente</strong>,</p>
+
+		    <p>Gracias por tu interés en nuestros productos/servicios. Adjunto a este correo encontrarás el archivo PDF con la cotización solicitada.</p>
+
+		    <p>Si tienes alguna duda o necesitas realizar alguna modificación, no dudes en contactarnos. Estaremos encantados de ayudarte.</p>
+
+		    <p>Detalles de nuestra empresa:</p>
+		    <ul>
+		        <li><strong>Nombre de la Empresa:</strong> Grupo MBI S.A de C.V</li>
+		        <li><strong>Dirección:</strong> Privada Reynosa 455, Irapuato Gto</li>
+		        <li><strong>Teléfono:</strong> 4652554</li>
+		        <li><strong>Correo electrónico:</strong> admin@grupombi.com</li>
+		        <li><strong>Website:</strong> www.grupombi.com.mx</li>
+		    </ul>
+
+		    <p>Quedamos atentos a tu respuesta. ¡Gracias por confiar en nosotros!</p>
+
+		</div>
+
+		</body>
+		</html>
+		";
+        $email->setMessage($htmlContent);
+        $email->attach($filePath);
+
+        // Enviar el correo
+        if ($email->send()) {
+            echo 1;
+        } else {
+            echo "Error al enviar el correo: " . $email->printDebugger(['headers']);
+        }
+
+        // Eliminar el archivo temporal
+        unlink($filePath);
+
 	}
 	public function pago()
 	{
@@ -511,5 +640,32 @@ class Cotizaciones extends BaseController
 
 		return json_encode($resultado);
 
+	}
+	public function ver_diagnostico_kardex($data)
+	{
+		//primero sacamos el detalle del kardex
+		$detalle_kardex = new KardexDetalleModel();
+		$detalle_kardex->where('id_kardex', $data);
+		$resultado_kardex = $detalle_kardex->findAll();
+
+		$id = $resultado_kardex[0]['slug'];
+		
+		//ahora vamos por el disgnostico
+		$diagnostico = new KardexDiagnosticoModel();
+		$diagnostico->where('id_detalle_kardex',$id);
+		$resultado_diagnostico = $diagnostico->findAll();
+
+		//y las refacciones 
+
+		$refaccion = new RefaccionesModel();
+		$refaccion->where('id_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
+		$resultado_refaccion = $refaccion->findAll();
+
+		$data = [
+			'diagnostico'=>$resultado_diagnostico,
+			'refacciones'=>$resultado_refaccion,
+		];
+
+		return json_encode($data);
 	}
 }
