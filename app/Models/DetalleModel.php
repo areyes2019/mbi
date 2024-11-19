@@ -13,6 +13,8 @@ class DetalleModel extends Model
         'iva',
         'total',
         'id_cotizacion',
-        'diagnostico'
+        'diagnostico',
+        'partida',
+        'cantidad'
     ];
 }

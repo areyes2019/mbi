@@ -17,7 +17,7 @@ class CotizacionesModel extends Model
         'validez',
         'id_kardex',
         'total',
-        'id_cotizacion'
+        'id_cotizacion',
     ];
 
 }
