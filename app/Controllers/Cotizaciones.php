@@ -518,6 +518,7 @@ class Cotizaciones extends BaseController
         $email->setFrom($mi_email, 'Grupo MBI');
         $email->setTo($resultado_usuario[0]['correo']); // Cambia por el correo del destinatario
         $email->setSubject("Cotización QT-$id");
+        $email->setMailType('html');
         // Definir el contenido HTML del correo
 		
 		$htmlContent = view('email/enviar_cotizacion');
