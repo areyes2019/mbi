@@ -18,6 +18,7 @@ class CotizacionesModel extends Model
         'id_kardex',
         'total',
         'id_cotizacion',
+        'atendido_por'
     ];
 
 }

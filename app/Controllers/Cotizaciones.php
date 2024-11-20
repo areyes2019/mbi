@@ -38,6 +38,7 @@ class Cotizaciones extends BaseController
 	        return json_encode(['hecho' => 0, 'mensaje' => 'Cliente no encontrado']);
 	    }
 
+
 	    $id_cliente = $clienteData['id_cliente'];
 	    $kardex_id = $id;
 
@@ -53,7 +54,8 @@ class Cotizaciones extends BaseController
 	        'slug' => $slug,
 	        'id_cliente' => $id_cliente,
 	        'id_kardex' => $id,
-	        'estatus' => 1
+	        'estatus' => 1,
+	        'atendido_por'=>$clienteData['generado_por']
 	    ];
 
 	    // Intentar la inserción y verificar el ID insertado
