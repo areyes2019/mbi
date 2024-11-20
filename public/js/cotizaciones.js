@@ -10,8 +10,13 @@ const { createApp, ref } = Vue
         diagnostico:{},
         refacciones:{},
         detalles:{},
+        
+        //para el formulario independiente
         cantidad:"1",
-        anticipo:"",
+        partida:"1",
+        articulo_ind:"",
+        precio_ind:"",
+
         sub_total:"",
         iva:"",
         total:"",
@@ -22,9 +27,7 @@ const { createApp, ref } = Vue
         saldo:"",
         sugerido:"",
         utilidad:"",
-        articulo_ind:"",
         cantidad_ind:"",
-        precio_ind:"",
         descuento:"",
         disabled:0,
         costo:""
@@ -67,6 +70,8 @@ const { createApp, ref } = Vue
           var cotizacion = this.$refs.id_cotizacion.innerHTML;
           axios.post('/agregar_articulo_ind/'+data,{
             'id_cotizacion':cotizacion,
+            'cantidad':this.cantidad,
+            'partida':this.partida,
             'descripcion':this.articulo_ind,
             'p_unitario':this.precio_ind
           }).then((response)=>{

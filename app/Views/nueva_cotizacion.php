@@ -150,6 +150,10 @@
         </div>
         <div class="collapse mt-4" id="independiente">
           <div class="d-flex justify-content-between align-items-center">
+            <label for="">Cantidad</label>
+            <input type="number" class="form-control rounded-0 shadow-none w-25"  v-model="cantidad">
+            <label for="">Partida</label>
+            <input type="number" class="form-control rounded-0 shadow-none w-25"  v-model="partida">
             <input type="text" class="form-control rounded-0 shadow-none" placeholder="Descripción" v-model="articulo_ind">
             <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Precio" v-model="precio_ind">
             <button class="btn btn-primary ml-2" @click="agregar_ind('independiente')"><span class="bi bi-check"></span></button>

@@ -266,16 +266,15 @@ class Cotizaciones extends BaseController
 
 		if ($slug != 'independiente') {
 			$agregado['agregado']= 1;	
+			//atcualizar el diagnostico para que aparezca agregado
+			$diagnostico  = new KardexDiagnosticoModel();
+			$diagnostico->update($slug,$agregado);
 		}
-
 
 
 		// Insertar el detalle en la base de datos
 		$model->insert($data);
 
-		//atcualizar el diagnostico para que aparezca agregado
-		$diagnostico  = new KardexDiagnosticoModel();
-		$diagnostico->update($slug,$agregado);
 
 		// Actualizar el total en la tabla de cotizaciones
 		$builder = $db->table('mbi_cotizaciones_detalles');
@@ -512,8 +511,9 @@ class Cotizaciones extends BaseController
         file_put_contents($filePath, $doc->output());
 
         // Configurar el correo
+        $mi_email = env('MY_GLOBAL_VAR');
         $email = \Config\Services::email();
-        $email->setFrom('tu-email@tu-dominio.com', 'Tu Nombre o Empresa');
+        $email->setFrom($mi_email, 'Grupo MBI');
         $email->setTo($resultado_usuario[0]['correo']); // Cambia por el correo del destinatario
         $email->setSubject("Cotización QT-$id");
         // Definir el contenido HTML del correo
