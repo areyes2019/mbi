@@ -222,7 +222,8 @@
                     <table id="modal" class="table table-bordered w-100">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Hospital</th>
+                                <th>Dr Encarg.</th>
                                 <th>Tipo de sol.</th>
                                 <th>Acción</th>
                             </tr>
@@ -232,6 +233,7 @@
                             <?php foreach ($cliente as $clientes): ?>
                             <tr class="w-100">
                                 <td style="width: 50%;"><?php echo $clientes['hospital'] ?></td>
+                                <td style="width: 50%;"><?php echo $clientes['titular'] ?></td>
                                 <td>
                                     <!--  -->
                                     <select class="form-select rounded-0" v-model="tipos_model['<?php echo $clientes['id_cliente'] ?>']" style="width: 130px;">
