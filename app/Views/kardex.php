@@ -20,7 +20,10 @@
             <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" @click="rechazar_tarea_modal(<?php echo $data['id_kardex'] ?>)"><span class="bi bi-x-lg"></span> Rechazar</button>
             <?php endif ?>
             <?php if (esc(permisos($data['estatus'],'cotizacion'))):?>
-            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" @click = "a_cotizacion('<?php echo $data['id_kardex'] ?>')"><span class="bi bi-send"></span> Enviar a cotización</button>
+            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#miModal"><span class="bi bi-send"></span> Enviar a cotización</button>
+            <?php endif ?>
+            <?php if (esc(permisos($data['estatus'],'cotizar'))): ?>
+            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#entidad"><span class="bi bi-send"></span> Cotizar</button> 
             <?php endif ?>
             <a  v-if="Array.isArray(datos.reporte) && datos.reporte.length > 0" href="<?php echo base_url('pdf_os')."/".$data['id_kardex']; ?>" class="btn btn-primary btn-sm rounded-0 mr-2"><span class="bi bi-filetype-pdf"></span> Descargar pdf</a>
             <p class="d-none">Clave: <span ref="kardex_id"><?php echo $id ?></span></p>
@@ -29,7 +32,7 @@
         <div class="card-body" v-for="(kardex, index) in datos.kardex" :key="index">
             <div class="row">
                 <div class="col-md-12">
-                    <span class="badge badge-primary">{{kardex.tipo_txt}}</span>   
+                    <h4><span class="badge badge-primary">{{kardex.tipo_txt}}</span></h4>
                 </div>
                 <div class="col-md-12">
                     <h5 class="m-0 text-primary"><strong>Orden de Trabajo {{kardex.id_kardex}}</strong></h5>
@@ -50,6 +53,7 @@
                     <p class="m-0"><strong>Cita el {{ formatearFecha(kardex.dia) }}</strong></p>
                     <p class="m-0"><strong>Hora: </strong>{{ formatearHora(kardex.hora) }}</p>
                 </div>
+                <h4><span class="text-danger">Costo total ${{datos.costo_total}}</span></h4>
             </div>
         </div>
     </div>
@@ -166,6 +170,60 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!--  Modal agregar precio por el administrador -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="miModalLabel">Ingrese el Costo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="row row-cols-lg-auto g-3 align-items-center">
+              <div class="col-12">
+                <label class="visually-hidden" for="inlineFormInputGroupUsername">Costo</label>
+                <div class="input-group">
+                  <div class="input-group-text">$</div>
+                  <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="Costo" v-model = "precio_admin">
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary" @click.prevent="a_cotizacion(datos.user,datos.kardex_id)">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Modal definir entidad -->
+    <div class="modal fade" id="entidad" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="miModalLabel">Ingrese el Costo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="">Entidad</label>
+                <select name="" id="" class="form-control rounded-0 shadow-none" v-model="entidad">
+                    <option value="" selected>Seleccione una entidad</option>
+                    <?php foreach ($entidades as $entidad): ?>
+                    <option value=""><?php echo $entidad['razon_social'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-sm rounded-0" @click="cotizar(<?php echo $data['id_kardex'] ?>)">Cotizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Agregar diagnostico -->
     <div class="modal fade" id="diagnostico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

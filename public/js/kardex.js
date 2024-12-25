@@ -52,6 +52,7 @@ createApp({
             alertText: "Contenido actualizado",
 
             imagenGrande: null,
+            precio_admin:"",
 		}
 	},
 	methods:{
@@ -59,7 +60,6 @@ createApp({
 			var id = this.$refs.kardex_id.innerHTML;
 			axios.get('/kardex_general/'+id).then((response)=>{
 				this.datos = response.data;
-				console.log(response.data);
 			})
 		},
 		formatearFecha(fechaString) {
@@ -253,7 +253,7 @@ createApp({
 				if (response.data == 11) {
 					//window.location.href = '/inicio/';
 					//window.location.assign("/inicio")
-					setTimeout(function(){document.location.href = "/inicio"},500);
+					setTimeout(function(){document.location.href = "/inicio"},300);
 				}
 			})
 		},
@@ -425,8 +425,25 @@ createApp({
         abrir_modal_refacciones(id){
         	this.id_diagnostico = id;
         },
-        a_cotizacion(data) {
-        	const url = '/nueva_cotizacion';
+        a_cotizacion(data,kardex) {
+        	
+        	if (confirm('Deseas enviar este kardex a cotizacion por el vendedor')) {
+	        	axios.post('/enviar_a_cotizar',{
+	        		'usuario':data,
+	        		'costo': this.precio_admin,
+	        		'kardex':kardex
+	        	}).then((response)=>{
+	        		if (response.data == 1) {
+	        			$('#miModal').modal('hide');
+	        			$.notify('Se ha enviado a cotizar');
+	        			location.reload();
+	        		}
+	        	})
+
+        	}
+	    },
+	    cotizar(data){
+	    	const url = '/nueva_cotizacion';
 		    if (confirm('¿Deseas enviar este kardex a cotización?')) {
 		        axios.post(url, { 'id': data })
 		            .then((response) => {

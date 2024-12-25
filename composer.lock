@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a20fb108d65fe0aefff5a842ecb0ed4",
+    "content-hash": "57c75d615b36d88b910c9ebc2f3e7e91",
     "packages": [
         {
             "name": "dompdf/dompdf",
@@ -160,6 +160,60 @@
                 "source": "https://github.com/dompdf/php-svg-lib/tree/1.0.0"
             },
             "time": "2024-04-29T13:26:35+00:00"
+        },
+        {
+            "name": "facturapi/facturapi-php",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FacturAPI/facturapi-php.git",
+                "reference": "64d041ceaca4b248c026069cae59371ae2546084"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FacturAPI/facturapi-php/zipball/64d041ceaca4b248c026069cae59371ae2546084",
+                "reference": "64d041ceaca4b248c026069cae59371ae2546084",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "/src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jhonatan Laguna",
+                    "email": "hola@jhonatanlaguna.com",
+                    "homepage": "http://jhonatanlaguna.com"
+                }
+            ],
+            "description": "Facturapi's PHP client library",
+            "homepage": "https://www.facturapi.io/",
+            "keywords": [
+                "api",
+                "cfdi",
+                "factura",
+                "facturapi",
+                "mexico",
+                "sat"
+            ],
+            "support": {
+                "issues": "https://github.com/FacturAPI/facturapi-php/issues",
+                "source": "https://github.com/FacturAPI/facturapi-php/tree/3.1.0"
+            },
+            "time": "2024-10-10T18:03:30+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -4924,5 +4978,5 @@
         "ext-mbstring": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

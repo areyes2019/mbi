@@ -81,7 +81,7 @@
             </li>
             <?php endif; ?>
 
-            <?php if (tiene_seccion('5') || es_super_admin()): ?>
+            <?php if (tiene_seccion('8') || es_super_admin()): ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('cotizaciones')?>">
                     <i class="bi bi-bar-chart-steps"></i>
@@ -95,6 +95,15 @@
                 <a class="nav-link" href="<?php echo base_url('facturacion')?>">
                     <i class="bi bi-filetype-pdf"></i>
                     <span>Facturación</span></a>
+            </li>
+            
+            <?php endif; ?>
+
+            <?php if (tiene_seccion('8') || es_super_admin()): ?>
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url('entidades')?>">
+                    <i class="bi bi-gear"></i>
+                    <span>Configuración</span></a>
             </li>
             
             <?php endif; ?>

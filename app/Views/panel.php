@@ -1,5 +1,10 @@
 <?php echo $this->extend('panel_template') ?>
 <?php echo $this->section('contenido') ?>
+<style>
+    .dropdown-toggle::after {
+      display: none; /* Oculta el caret */
+    }
+  </style>
 <div class="container-fluid mb-5" id="app">
     <!-- Page Heading -->
     <div class="mb-4">
@@ -22,13 +27,13 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Cliente</th>
+                            <th>Clientess</th>
                             <th>Elaborado por:</th>
                             <th>Fecha</th>
                             <th>Estado</th>
                             <th>Tipo</th>
                             <th>Atendido por:</th>
-                            <th></th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +74,7 @@
                                 <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
                                 <!--  Vista Rápida -->
                                 <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
+
                             </td>
                         </tr>
                         <?php endforeach ?>
@@ -81,13 +87,13 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Cliente</th>
+                            <th>Clientess</th>
                             <th>Elaborado por:</th>
                             <th>Fecha</th>
                             <th>Estado</th>
                             <th>Tipo</th>
                             <th>En Atencion</th>
-                            <th></th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -144,7 +150,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Cliente</th>
+                            <th>Clientes</th>
                             <th>Elaborado por:</th>
                             <th>Fecha</th>
                             <th>Estado</th>
@@ -181,22 +187,25 @@
                             </td>
                             <td><?php echo $mis_tareas['destinatario_nombre'] ?></td>
                             <td>
-                                <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?>       
-                                <!--  Eliminar -->
-                                <button class="btn btn-danger btn-sm shadow-none mr-1" @click = "eliminar_kardex('<?php echo $mis_tareas['id_kardex'] ?>')"><span class="bi bi-trash3"></span></button>
-                                <?php endif ?>
-
-                                <?php if (esc(permisos($mis_tareas['estatus'],'panel_editar'))): ?>
-                                <!--  Editar -->
-                                <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
-                                <!--  Vista Rápida -->
-                                <?php endif ?>
-
-                                <?php if (esc(permisos($mis_tareas['estatus'],'ver_kardex'))):?>
-                                <button class="btn btn-primary btn-sm shadow-none mr-1"@click.prevent="editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-box-arrow-right"></span></button>
-                                <?php endif ?>
-
-                                <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['id_kardex'] ?>')" data-toggle="modal" data-target="#ver_doc"><i class="bi bi-eye"></i></button>
+                                <div class="dropdown">
+                                  <button class="btn btn-outline-dark dropdown-toggle btn-sm rounded-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!--  Eliminar -->
+                                    <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?> 
+                                    <a class="dropdown-item" href="#" @click.prevent = "eliminar_kardex('<?php echo $mis_tareas['id_kardex'] ?>')">Eliminar</a>
+                                    <?php endif ?>
+                                    
+                                    <!--  Editar-->
+                                    <?php if (esc(permisos($mis_tareas['estatus'],'panel_editar'))): ?>
+                                    <a class="dropdown-item" href="#" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')">Editar</a>
+                                    <?php endif ?>
+                                    <!--  -->
+                                    <a class="dropdown-item" href="#" @click.prevent="ver_doc('<?php echo $mis_tareas['id_kardex'] ?>')" data-toggle="modal" data-target="#ver_doc">Vista Rápida</a>
+                                    <a class="dropdown-item" href="#">Enviar</a>
+                                  </div>
+                                </div>
                             </td>
                         </tr>
                         <?php endforeach ?>

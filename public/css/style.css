@@ -137,6 +137,18 @@ input:checked + .slider:before {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
 }
+/* Estilo para las banderas dentro del select */
+.select-with-flags .option-with-flag {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la bandera y el texto */
+}
+
+.select-with-flags .option-with-flag img {
+    width: 20px; /* Ajusta el tamaño de la bandera */
+    height: 15px;
+    margin-right: 5px; /* Espacio entre la bandera y el texto */
+    border: 1px solid #ccc; /* Agrega un borde a las banderas (opcional) */
+}
 @media screen and (max-width: 600px) {
     .thumbnail {
         width: 70px;

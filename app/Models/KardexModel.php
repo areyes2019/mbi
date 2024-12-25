@@ -29,6 +29,7 @@ class KardexModel extends Model
         'fecha_leido',
         'fecha_enviado',
         'enviado',
+        'costo_total'
     ];
     
 }

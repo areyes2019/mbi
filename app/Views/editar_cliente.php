@@ -28,7 +28,8 @@
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#horarios" v-if="vista==0" ><span class="bi bi-plus-circle"></span> Agregar Horarios de Atención</a>
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modificar_horarios" v-else><span class="bi bi-pencil"></span> Modificar Horarios de Atención</a>
 		                    <div class="dropdown-divider"></div>
-		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#equipos"><span class="bi bi-gear"></span> Agregar Equipos</a>
+		                    <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#equipos"><span class="bi bi-gear"></span> Agregar Equipos</a> -->
+		                    
 		                </div>
 		            </div>
 		        </div>
@@ -420,6 +421,7 @@
                           </div>
                       </div>
                       <div class="col-6">
+                      		<label for="">Estado</label>
                           <select v-model="estado"  id="estados" class="form-control">
                               <option value=""></option>
                               <option v-for="estado in estados" :key="estado" :value="estado.abreviatura">{{ estado.nombre}}</option>

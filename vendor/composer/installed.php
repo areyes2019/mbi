@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'codeigniter4/framework',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '4d7bb4ca980c0f653911ddb7f29f28a18f170040',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => true,
         ),
         'codeigniter4/framework' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '4d7bb4ca980c0f653911ddb7f29f28a18f170040',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -108,6 +108,15 @@
             'install_path' => __DIR__ . '/../evenement/evenement',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'facturapi/facturapi-php' => array(
+            'pretty_version' => '3.1.0',
+            'version' => '3.1.0.0',
+            'reference' => '64d041ceaca4b248c026069cae59371ae2546084',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../facturapi/facturapi-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'fakerphp/faker' => array(
             'pretty_version' => 'v1.23.1',

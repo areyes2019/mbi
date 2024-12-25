@@ -30,8 +30,18 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('/salir', 'Login::salir');	
 	//usuarios
 
+	//config
+	$routes->get('entidades', 'Entidades::index');
+	$routes->get('entidades/create', 'Entidades::create');
+	$routes->post('entidades/store', 'Entidades::store');
+	$routes->get('entidades/show/(:num)', 'Entidades::show/$1');
+	$routes->get('entidades/edit/(:num)', 'Entidades::edit/$1');
+	$routes->post('entidades/update/(:num)', 'Entidades::update/$1');
+	$routes->get('entidades/delete/(:num)', 'Entidades::delete/$1');
+
+
+
 	$routes->get('/inicio', 'Admin::index');	
-	
 	$routes->get('/usuarios', 'Usuarios::index');	
 	$routes->post('/nuevo_usuario', 'Usuarios::nuevo');	
 	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
@@ -109,6 +119,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('liberar_diagnostico/(:num)','Kardex::liberar_diagnostico/$1');
 	$routes->get('pdf_os/(:num)','Kardex::pdf_os/$1');
 	$routes->post('/agregar_refacciones','Kardex::agregar_refacciones');
+	$routes->post('/enviar_a_cotizar','Kardex::enviar_a_cotizar');
 	$routes->get('borrar_refaccion/(:num)','Kardex::borrar_refaccion/$1');
 	
 	
@@ -133,8 +144,6 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('vista_previa/(:num)','Inbox::vista_previa/$1');
 	$routes->get('primer_kardex','Inbox::primer_kardex');
 
-
-
 	/*Articulos*/
 	$routes->get('articulos', 'admin\Articulos::index');
 	$routes->get('mostrar_articulos', 'admin\Articulos::mostrar');
@@ -147,6 +156,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	/*Panel*/
 	$routes->get('cotizaciones', 'Cotizaciones::index');
 	$routes->post('nueva_cotizacion', 'Cotizaciones::nueva');
+	$routes->get('clonar/(:any)', 'Cotizaciones::clonar/$1');
 	$routes->get('pagina_cotizador/(:any)/(:any)', 'Cotizaciones::pagina/$1');
 	$routes->get('editar_cotizacion/(:num)', 'Cotizaciones::editar/$1');
 	$routes->get('actualizar_cotizacion/(:num)', 'Cotizaciones::actualizar/$1');
@@ -161,7 +171,12 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('pago', 'Cotizaciones::pago');
 	$routes->post('modificar_cantidad', 'Cotizaciones::modificar_cantidad');
 	$routes->post('marcar_entregado', 'Cotizaciones::entregado');
+	$routes->post('agregar_condiciones', 'Cotizaciones::condiciones');
+	$routes->post('/cambiar_moneda', 'Cotizaciones::cambiar_moneda');
 	$routes->get('/ver_diagnostico_kardex/(:num)', 'Cotizaciones::ver_diagnostico_kardex/$1');
+	$routes->post('/aceptar_rechazar', 'Cotizaciones::accion');
+	$routes->get('/mostrar_entidades', 'Cotizaciones::mostrar_entidades');
+
 
 	/*Compras*/
 	$routes->get('compras', 'admin\Compras::index');
@@ -188,7 +203,6 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('editar_cuenta/(:num)', 'admin\Contabiidad::editar/$1');
 	$routes->post('actualizar_cuenta', 'admin\Contabiidad::actualizar');
 	$routes->get('eliminar_cuenta/(:num)', 'admin\Contabiidad::eliminar/$1');
-
 	
 	/*Pedidos*/
 	$routes->get('pedidos', 'admin\Pedidos::index');
@@ -216,6 +230,11 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('cotizaciones', 'admin\Cotizaciones::index');
 	$routes->get('editar_cotizacion', 'admin\Cotizaciones::editar');
 	//$routes->get('nueva_cotizacion', 'admin\Cotizaciones::nueva');
+
+	//facturacion
+	$routes->post('/facturar/', 'Facturacion::index');
+
+
 });
 
 

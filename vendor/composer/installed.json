@@ -639,6 +639,63 @@
             "install-path": "../evenement/evenement"
         },
         {
+            "name": "facturapi/facturapi-php",
+            "version": "3.1.0",
+            "version_normalized": "3.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FacturAPI/facturapi-php.git",
+                "reference": "64d041ceaca4b248c026069cae59371ae2546084"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FacturAPI/facturapi-php/zipball/64d041ceaca4b248c026069cae59371ae2546084",
+                "reference": "64d041ceaca4b248c026069cae59371ae2546084",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "time": "2024-10-10T18:03:30+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "/src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jhonatan Laguna",
+                    "email": "hola@jhonatanlaguna.com",
+                    "homepage": "http://jhonatanlaguna.com"
+                }
+            ],
+            "description": "Facturapi's PHP client library",
+            "homepage": "https://www.facturapi.io/",
+            "keywords": [
+                "api",
+                "cfdi",
+                "factura",
+                "facturapi",
+                "mexico",
+                "sat"
+            ],
+            "support": {
+                "issues": "https://github.com/FacturAPI/facturapi-php/issues",
+                "source": "https://github.com/FacturAPI/facturapi-php/tree/3.1.0"
+            },
+            "install-path": "../facturapi/facturapi-php"
+        },
+        {
             "name": "fakerphp/faker",
             "version": "v1.23.1",
             "version_normalized": "1.23.1.0",

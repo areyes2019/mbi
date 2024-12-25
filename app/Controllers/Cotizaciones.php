@@ -12,6 +12,7 @@ use App\Models\KardexDetalleModel;
 use App\Models\KardexDiagnosticoModel;
 use App\Models\RefaccionesModel;
 use App\Models\UsuariosModel;
+use App\Models\EntidadesModel;
 use Dompdf\Dompdf;
 class Cotizaciones extends BaseController
 {
@@ -55,7 +56,8 @@ class Cotizaciones extends BaseController
 	        'id_cliente' => $id_cliente,
 	        'id_kardex' => $id,
 	        'estatus' => 1,
-	        'atendido_por'=>$clienteData['generado_por']
+	        'atendido_por'=>$clienteData['generado_por'],
+	        'total'=>$clienteData['costo_total'] //aqui sacamos el costo total del kardes, no confundirse con clienteData
 	    ];
 
 	    // Intentar la inserción y verificar el ID insertado
@@ -85,12 +87,17 @@ class Cotizaciones extends BaseController
 		$id = $cotizacion_id;
 
 		
-		//encongrar cotizacoin
+		//encongrar cotizacion
 		$cotizacion = $db->table('mbi_cotizaciones');
 		$cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');
 		$cotizacion->where('id_cotizacion',$id);
 		$resultado_cotizacion = $cotizacion->get()->getResultArray();
 
+		$sub_total = $resultado_cotizacion[0]['total']; //es la suma que puso el administrador
+		$iva = number_format($sub_total * 0.16,2); //saca el iva
+		$total = number_format($sub_total + $iva,2);
+
+		//return json_encode($total);
 
 		$kardex = new KardexModel();
 		$kardex->where('id_kardex',$resultado_cotizacion[0]['id_kardex']);
@@ -119,6 +126,9 @@ class Cotizaciones extends BaseController
 			'diagnostico'=>$resultado_diagnostico,
 			'refacciones'=>$resultado_refaccion,
 			'slug'=>$kardex_slug,
+			'sub_total'=>$sub_total,
+			'iva'=>$iva,
+			'total'=>$total,
 		];
 
 		return view('nueva_cotizacion',$data);
@@ -131,62 +141,21 @@ class Cotizaciones extends BaseController
 	}
 	public function agregar()
 	{
-		$db = \Config\Database::connect();
-		$query = new ArticulosModel();
 		$model = new DetalleModel();
+		$servicio = $this->request->getvar('servicio');
+		$cotizacion = $this->request->getvar('cotizacion');
+		$partida = 1;
+		$cantidad = 1;
 
-		$request = \Config\Services::Request();
-		$articulo = $request->getvar('id_articulo');
-		$cantidad = $request->getvar('cantidad');
-		$cotizacion = $request->getvar('id_cotizacion');
-		$descuento = $request->getvar('descuento');
-		//verificamos si el producto ya esta agregado
-		$doble = $db->table('sellopro_detalles');
-		$doble->where('id_cotizacion',$cotizacion);
-		$doble->where('id_articulo',$articulo);
-		$es_duplicado = $doble->countAllResults();
+		$data = [
+			'cantidad'=>$cantidad,
+			'partida'=>$partida,
+			'descripcion'=>$servicio,
+			'id_cotizacion'=>$cotizacion
+		];
 
-		//return json_encode($es_duplicado);
-		
-		if ($es_duplicado > 0) {
-			//esta duplicado
-			return "1";
-		}else{
-
-			//sacar el precio
-			$query->where('idArticulo',$articulo);
-			$resultado = $query->findAll();
-
-			$precio = $resultado[0]['precio_pub'];
-			$total = $precio * $cantidad;
-			$inversion = $resultado[0]['precio_prov'] * $cantidad;
-			
-			$data = [
-			    'id_articulo' => $request->getvar('id_articulo'),
-			    'cantidad' => $request->getvar('cantidad'),
-			    'p_unitario'=>$precio,
-			    'total'=>$total,
-			    'id_cotizacion'=>$cotizacion,
-			    'inversion'=>$inversion
-			];
-
-			$model->insert($data);
-
-			//actualizamos el total
-			$builder = $db->table('sellopro_detalles');
-			$builder->where('id_cotizacion',$cotizacion);
-			$builder->selectSum('total');
-			$sum = $builder->get()->getResultArray();
-			$suma_total = $sum[0]['total'];
-			
-			$suma_con_desc = $suma_total-($suma_total*$descuento/100);
-			$suma_desc = ($suma_total*$descuento/100);
-			$total = new CotizacionesModel();
-			
-			$datos['total'] = $suma_con_desc;
-			$datos['descuento'] = $suma_desc;
-
-			$total->update($cotizacion,$datos);
+		if ($model->insert($data)) {
+			echo 1;
 		}
 
 	}
@@ -302,6 +271,7 @@ class Cotizaciones extends BaseController
 		$total = new CotizacionesModel();
 		$total->where('id_cotizacion',$id);
 		$resultado_total = $total->findAll();
+		return json_encode($resultado);
 
 		// Suponiendo que el total que necesitas está en el campo 'total'
 		if (!empty($resultado_total)) {
@@ -327,7 +297,6 @@ class Cotizaciones extends BaseController
 			'totales'=>$suma
 		];
 
-		return json_encode($data);
 		
 	}
 	public function borrar_linea_detalle($id)
@@ -445,8 +414,13 @@ class Cotizaciones extends BaseController
 		$doc->render();
 		$doc->stream("QT-".$id.".pdf");
 	}
+	private function actualizar_estatus($id)
+	{
+		
+	}
 	public function enviar_pdf($id)
 	{
+
 		//datos del cliente
 		$cliente_query = new CotizacionesModel();
 		$cliente_query->where('id_cotizacion',$id);
@@ -526,8 +500,21 @@ class Cotizaciones extends BaseController
         $email->attach($filePath);
 
         // Enviar el correo
-        if ($email->send()) {
-            echo 1;
+        if ($email->send()) {     	
+            $model = new CotizacionesModel();
+			$model->where('id_cotizacion',$id);
+			$id = $model->findAll();
+			$estatus = $id[0]['estatus'];
+			$cot = $id[0]['id_cotizacion'];
+			$data = [
+				'estatus'=> 10
+			];
+			if ($estatus==9) {
+				$model->update($cot,$data); //si el estatus de 9 lo cambiamos a 10
+			}else{
+				//return "no se puede actualizar";
+			}
+			echo 1;
         } else {
             echo "Error al enviar el correo: " . $email->printDebugger(['headers']);
         }
@@ -606,5 +593,93 @@ class Cotizaciones extends BaseController
 		];
 
 		return json_encode($data);
+	}
+	public function clonar($slug)
+	{
+		//vamos a buscar la cotizacion con este slug
+		$model = new CotizacionesModel();
+		$model->where('slug',$slug);
+		$resultado = $model->findAll();
+
+	    //Generar un slug aleatorio
+	    $caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $longitud = 12;
+	    $slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
+
+	    
+
+	    // Crear el registro de la cotización
+	    $cotizacionesModel = new CotizacionesModel();
+	    $data = [
+	        'id_cotizacion' => $kardex_id,
+	        'slug' => $slug,
+	        'id_cliente' => $id_cliente,
+	        'id_kardex' => $id,
+	        'estatus' => 1,
+	        'atendido_por'=>$clienteData['generado_por']
+	    ];
+
+	}
+	public function facturar()
+	{
+		
+	}
+	public function condiciones()
+	{
+		$model = new CotizacionesModel();
+
+		$id = $this->request->getvar('cotizacion');
+		$condiciones = $this->request->getvar('condiciones');
+		$entrega = $this->request->getvar('entrega');
+		$garantia = $this->request->getvar('garantia');
+
+		$data = [
+			'condiciones'=>$condiciones,
+			'entrega'=>$entrega,
+			'garantia'=>$garantia
+		];
+
+		//return json_encode($data);
+
+		if ($model->update($id,$data)) {
+			echo 1;
+		}
+
+	}
+	public function cambiar_moneda()
+	{
+		$model = new CotizacionesModel();
+		$id = $this->request->getvar('cotizacion');
+		$moneda = $this->request->getvar('moneda');
+
+		$data['moneda'] = $moneda; 
+		if ($model->update($id,$data)) {
+			echo 1;
+		}
+	}
+	public function accion()
+	{
+		$cotizacion = $this->request->getvar('cotizacion');
+		$accion = $this->request->getvar('accion');
+
+		$model = new CotizacionesModel();
+
+		if ($accion == 1) {
+			$data['estatus'] = 11;
+			if ($model->update($cotizacion,$data)) {
+				echo 1;
+			}	
+		}else if($accion==2){
+			$data['estatus'] = 12;
+			if ($model->update($cotizacion,$data)) {
+				echo 1;
+			}	
+		}
+	}
+	public function mostrar_entidades()
+	{
+		$model = new EntidadesModel();
+		$resultado = $model->findAll();
+		return json_encode($resultado);
 	}
 }

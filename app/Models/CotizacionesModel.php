@@ -12,13 +12,19 @@ class CotizacionesModel extends Model
     protected $updatedField  = 'updated_at';
     protected $allowedFields = [
         'slug',
+        'entidad',
         'id_cliente',
         'estatus',
         'validez',
         'id_kardex',
         'total',
         'id_cotizacion',
-        'atendido_por'
+        'atendido_por',
+        'referencia',
+        'moneda',
+        'condiciones',
+        'entrega',
+        'garantia',
     ];
 
 }

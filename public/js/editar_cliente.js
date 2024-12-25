@@ -253,9 +253,9 @@ const {createApp,ref} = Vue
 			actualizar_datos_fiscales(){
 				var me = this;
 				var url = "/actualizar_datos_fiscales"
-				axios.post(url,this.editar_datos_fiscales[0]).then(function (response){
+				axios.post(url,this.editar_datos_fiscales[0]).then((response)=>{
 					$('#actualizar_datos_fiscales').modal('hide');
-					showAlert('Datos fiscales modificados');
+					$.notify('Datos Fiscales Actualizados');
 
 				})
 			},

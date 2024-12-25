@@ -2,8 +2,7 @@
 <?php echo $this->section('contenido')?>
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <button data-toggle="modal" data-target="#exampleModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Genera Reporte</button>
+        <h1 class="h3 mb-0 text-gray-800">Cortizaciones</h1>
     </div>
 	<div class="my-card mt-3">
 		<table id="example" class="table table-bordered" style="width:100%">
@@ -32,15 +31,26 @@
                             <span class="badge <?php echo $estatus['estilo']." ".$estatus['icon']?> "> <?php echo $estatus['nombre'] ?></span> 
                         <?php endif ?>        
                     </td>
-                    <td>
-                        <a class="btn btn-primary btn-circle btn-sm" href="<?php echo base_url('pagina_cotizador')."/".$cotizacion['slug']."/".$cotizacion['id_cotizacion']; ?> " class="btn btn-sm rounded-0 my-btn-success"><span class="bi bi-pencil"></span></a>
-                        <a class="btn btn-danger btn-circle btn-sm" href="" class="btn btn-sm rounded-0 my-btn-danger" onclick="return confirm('Esta eliminación no se puede revertir, ¿Deseas continuar?');"><span class="bi bi-trash3"></span></a>
+                    <td class="d-flex justify-content-end">
+                        <div class="btn-group dropleft">
+                            <button class="btn btn-outline-dark btn-sm rounded-0" data-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <div class="dropdown-menu rounded-0">
+                                <a href="" class="dropdown-item"  onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');">Eliminar</a>
+                                <a href="" class="dropdown-item">Enviar por correo</a>
+                                <a href="" class="dropdown-item">Vista previa</a>
+                                <a href="" class="dropdown-item">Descargar</a>
+                                <a href="<?php echo base_url('pagina_cotizador')."/".$cotizacion['slug']."/".$cotizacion['id_cotizacion']; ?> " class="dropdown-item">Editar</a>
+                            </div>
+                        </div> 
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
             <tfoot>
                 <tr>
+                    <th>#</th>
                     <th>Nombre</th>
                     <th>Contacto</th>
                     <th>Fecha</th>
@@ -100,5 +110,4 @@
         new DataTable('#example');
     });
 </script>
-<script type="" src="<?php echo base_url('public/js/cotizaciones.js'); ?>"></script>
 <?php echo $this->endSection(); ?>

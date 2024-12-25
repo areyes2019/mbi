@@ -1,146 +1,263 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización 026/M/24</title>
+    <title>Invoice</title>
     <style>
+        @page {
+           size: 21cm 29.7cm;
+           margin-top: 1cm;
+           margin-bottom: 0cm;
+           border: 1px solid blue;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
         }
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 20px;
+        .invoice-container {
+            width: 100%;
+            margin:auto;
+            background: #fff;
+            padding:0px;
         }
-        .header, .footer {
+        .header-banner {
+            background-color: #012a4a; /* Color azul oscuro */
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .header-banner .logo {
+            flex: 1;
+        }
+        .header-banner .logo img {
+            max-height: 450px;
+        }
+        .header-banner .company-info {
+            flex: 3;
+            text-align: right;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .header {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .header .brand {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .header .brand small {
+            font-size: 14px;
+            color: #888;
+        }
+        .header .invoice-banner {
+            background-color: #ffc107;
+            height: 40px;
+            width: 100%;
+            position: relative;
+        }
+        .header .invoice-title {
+            background-color: #fff;
+            padding: 0 15px;
+            position: absolute;
+            height: 40px;
+            line-height: 40px;
+            right: 50px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
             text-align: center;
+        }
+        .details {
             margin-bottom: 20px;
         }
-        .header img {
-            width: 150px;
+        .details .to {
+            font-size: 16px;
+            color: #555;
         }
-        .client-info, .conditions {
-            margin-bottom: 20px;
+        .details .to strong {
+            font-size: 18px;
+            color: #000;
         }
-        table {
+        .table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        th, td {
-            border: 1px solid #333;
-            padding: 8px;
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
             text-align: left;
         }
-        th {
-            background-color: #f4f4f4;
+        .table th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+            color: #333;
         }
-        .totals {
-            text-align: right;
-        }
-        .totals th, .totals td {
-            border: none;
-            padding: 5px 8px;
-        }
-        .observations, .footer p {
-            font-size: 12px;
+        .table td {
+            font-size: 14px;
             color: #555;
         }
-        .signature {
-            margin-top: 50px;
-            text-align: center;
+        .table .total {
+            font-weight: bold;
+            color: #000;
         }
-        .signature-line {
-            margin-top: 40px;
-            border-top: 1px solid #000;
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
+        .summary {
+            margin-top: 20px;
+            width: 25%;
+            margin-left: 600px;
+        }
+
+        .summary .row {
+            display: flex;
+            justify-content: space-between; /* Esto separa las dos columnas */
+            margin: 5px 0;
+        }
+
+        .summary .row p {
+            font-size: 16px;
+            width: 50%; /* Cada columna ocupa un poco menos de la mitad del espacio */
+            text-align: right; /* Alinea el texto a la derecha */
+            line-height: 2px;
+        }
+
+        .summary .total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer .payment-info {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .footer .payment-info strong {
+            color: #000;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="invoice-container">
+        <!-- Header Banner -->
+        <table style="width: 100%; background-color: #012a4a;">
+            <tr>
+                <td style="padding: 15px; align-items: center; display: flex;">
+                    <?php
+                        $path = base_url('public/img/logo.png');
+                        $type = pathinfo($path, PATHINFO_EXTENSION);
+                        $data = file_get_contents($path);
+                        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                    ?>
+                    <img src="<?php echo $base64;?>" alt="logo" width="90">
+                    <p style="color: white; margin-left: 5px;">Mantenimiento médico de confianza, salud garantizada</p>
+                </td>
+                <td style="color: white;padding: auto;">
+                    <p style="text-align:right;">
+                    Grupo MBI S.A de C.V<br>
+                    Privada Reynosa, #45<br>
+                    Col Anzurez<br>
+                    Irapuato, Gto
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <!-- Header -->
         <div class="header">
-            <h1>COTIZACIÓN: <?php echo $cotizacion ?>  /M/24</h1>
-            <p><strong>Contacto:</strong> Monserrat Cano</p>
-            <p><strong>E-mail:</strong> admonbajio@grupo-mbi.com.mx</p>
+            <div class="invoice-banner" style="margin-top:15px;">
+                <div class="invoice-title">COTIZACIÓN</div>
+            </div>
         </div>
-
-        <div class="client-info">
-            <?php foreach ($cliente as $clientes): ?>
-            <p><strong>At'n a: </strong><?php echo $clientes['responsable'] ?></p>
-            <p><strong>Institución:</strong> <?php echo $clientes['hospital']; ?></p>
-            <p><strong>Campus:</strong> <?php echo $clientes['facultad']; ?></p>
-            <?php endforeach ?>
+        
+        <!-- Rest of the content remains the same -->
+        <div class="details">
+            <div class="to">
+                <?php foreach ($id_cotizacion as $key): ?>
+                <p style="margin: 5px;"><strong>No: <?php echo $key['id_cotizacion'] ?></strong></p>
+                <p style="margin: 5px; font-size: 13px;"><?php echo $fecha?></p>
+                <?php endforeach ?>
+                <?php foreach ($usuario as $vendedor): ?>
+                <p style="margin:5px;"><strong><?php echo $vendedor['nombre']." ".$vendedor['apellidos'] ?></strong><br>Asesor de ventas</p>
+                <?php endforeach ?>
+            </div>
+            <div class="to">
+                <p style="margin:5px;"><strong>Cn Att:</strong></p>
+                <?php foreach ($cliente as $clientes): ?>
+                <p style="margin:5px; font-size: 12px;"><?php echo $clientes['responsable'] ?></p>
+                <p style="margin:5px; font-size: 12px;">Tel: <?php echo $clientes['telefono'] ?></p>
+                <p style="margin:5px; font-size: 12px;"><?php echo $clientes['hospital']; ?></p>
+                <p style="margin:5px; font-size: 12px;"><?php echo $clientes['facultad']; ?></p>
+                <?php endforeach ?>
+            </div>
         </div>
-
-        <table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Equipo</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Serie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>tque labore repudiandae perspiciatis quae tempore, quod illo. Animi explicabo, modi eligendi. Quod, quia.</td>
+                    <td>Phillips</td>
+                    <td>HT67</td>
+                    <td>456545465</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Partida</th>
-                    <th>Cantidad</th>
                     <th>Descripción</th>
-                    <th>Precio Unitario</th>
                     <th>Importe</th>
+                    <th>Cant.</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($detalles as $detalle): ?>
                 <tr>
                     <td><?php echo $detalle['partida'] ?></td>
-                    <td><?php echo $detalle['cantidad'] ?></td>
                     <td><?php echo $detalle['descripcion'] ?></td>
                     <td>$<?php echo number_format($detalle['precio_unitario'],2)?></td>
+                    <td><?php echo $detalle['cantidad'] ?></td>
                     <td>$<?php echo number_format($detalle['precio_unitario'] * $detalle['cantidad'],2)?></td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
         </table>
-
-        <div class="totals">
-            <table>
-                <tr>
-                    <th>Importe:</th>
-                    <td>$<?php echo $sub_total ?></td>
-                </tr>
-                <tr>
-                    <th>IVA (16%):</th>
-                    <td>$<?php echo $iva ?></td>
-                </tr>
-                <tr>
-                    <th>Total:</th>
-                    <td><strong>$<?php echo $total ?></strong></td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="conditions">
-            <h3>Condiciones Comerciales</h3>
-            <p style="margin: 0px;"><strong>Validez de la cotización:</strong> 15 días</p>
-            <p style="margin: 0px;"><strong>Forma de pago:</strong> Crédito UNAM</p>
-            <p style="margin: 0px;"><strong>Tipo de moneda:</strong> Moneda nacional</p>
-            <p style="margin: 0px;"><strong>Tiempo de entrega:</strong> 10 - 20 días hábiles</p>
-        </div>
-
-        <div class="observations">
-            <p>Esta cotización se convertirá en pedido cuando cuente con la firma del cliente, y se respetará el precio establecido. 
-            Quedando en entendido todos los términos, características y condiciones descritos en esta cotización y/o anexos adjuntos.</p>
-            <p>El tiempo de entrega es a partir de recibir por vía o e-mail su orden de compra o cotización firmada y el anticipo correspondiente.</p>
-            <p>Toda cancelación genera un cargo equivalente al 20% del valor total de esta cotización.</p>
-        </div>
-        <div class="signature">
-            <p>Atentamente,</p>
-            <div class="signature-line"></div>
+        <div class="summary">
+            <div class="row">
+                <p><strong>Sub Total:</strong></p>
+                <p>$<?php echo $sub_total?></p>
+            </div>
+            <div class="row">
+                <p><strong>IVA (16%):</strong></p>
+                <p>$<?php echo $iva ?></p>
+            </div>
+            <div class="row total">
+                <p><strong>Total:</strong></p>
+                <p>$<?php echo $total ?></p>
+            </div>
         </div>
         <div class="footer">
-            <?php foreach ($usuario as $vendedor): ?>
-            <p><strong><?php echo $vendedor['nombre']." ".$vendedor['apellidos'] ?></strong><br>Asesor de ventas</p>
-            <p><?php echo $vendedor['mobil'] ?><br><?php echo $fecha ?></p>
-            <?php endforeach ?>
+            <p><strong>Terminos & Condiciones:</strong> Esta cotización se convertirá en pedido cuando cuente con la firma del cliente, y se respetará el precio establecido. Quedando en entendido todos los términos, características y condiciones descritos en esta cotización y/o anexos adjuntos. El tiempo de entrega es a partir de recibir por vía o e-mail su orden de compra o cotización firmada y el anticipo correspondiente. Toda cancelación genera un cargo equivalente al 20% del valor total de esta cotización.</p>
         </div>
     </div>
 </body>

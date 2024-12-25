@@ -191,6 +191,11 @@
                     	return true;
                     }
 	               break;
+	            case 'cotizar':
+                    if ($estatus == 8 && $rol == 1) {
+                    	return true;
+                    }
+	            break;
 
 				case 'diagnostico_borrador':
                     if ($estatus == 6 && $rol == 3) {
@@ -221,5 +226,14 @@
 			return json_encode($horario_definido);
 		}
 	}
+	if (!function_exists('cotizacion')) {
+		function cotizacion($status)
+		{
+			if ($status == 1 && session('id_rol')==1) {
+				return true;
+			}
+		}
+	}
+	
 	
 ?>

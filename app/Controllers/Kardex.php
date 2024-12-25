@@ -14,6 +14,7 @@ use App\Models\RefaccionesModel;
 use App\Models\InboxModel;
 use App\Models\KardexDiagnosticoModel;
 use App\Models\KardexDiagnosticoImgModel;
+use App\Models\EntidadesModel;
 use Dompdf\Dompdf;
 class Kardex extends BaseController
 {
@@ -26,22 +27,27 @@ class Kardex extends BaseController
         $builder->where('slug',$slug);
         $resultado = $builder->get()->getResultArray();
 
-        //aqui mandamos el nombre del asignado a este reporte
-        $mensaje = new MensajeModel();
-        $mensaje->where('kardex_id',$slug);
-        $resultado_mensaje = $mensaje->findAll();
-
         //aqui vamos a poner los detalles del kardex como fallas etc
-
         $reporte = new KardexDetalleModel();
         $reporte->where('id_kardex',$resultado[0]['id_kardex']);
         $resultado_reporte = $reporte->findAll();
+        $costo_reparacion = 0; // Inicializar como 0 para evitar errores si no hay diagnóstico
+        $costo_refacciones = 0; // Inicializar para evitar errores si no hay refacciones
+        $sumaPrecios = 0;      // Inicializar para evitar errores si no hay refacciones
+        $resultado_img = null;
+        $resultado_diagnostico = null;
+        $resultado_refacciones = null;
+        $display = true; // Valor por defecto
 
         //aqui mostramos el diagnóstico
         if ($resultado_reporte) {
             $diagnostico = new KardexDiagnosticoModel();
             $diagnostico->where('id_detalle_kardex',$resultado_reporte[0]['slug']);
             $resultado_diagnostico = $diagnostico->findAll();
+            if ($resultado_diagnostico) {
+                $costo_reparacion = $resultado_diagnostico[0]['precio_estimado'];
+            }
+
             if ($resultado_diagnostico) {
                 $imagenes = new KardexDiagnosticoImgModel();
                 $imagenes->where('id_kardex_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
@@ -61,11 +67,10 @@ class Kardex extends BaseController
             $refacciones = new RefaccionesModel();
             $refacciones->where('id_diagnostico', $resultado_diagnostico[0]['id_detalle_kardex']);
             $resultado_refacciones = $refacciones->findAll();
-
             //sumamos todos las refacciones
             $sumaPrecios = 0;
             foreach ($resultado_refacciones as $producto) {
-                $sumaPrecios += $producto['precio'];
+                $sumaPrecios += floatval($producto['precio']);
             }        
             $display = false;
         }else{
@@ -73,7 +78,7 @@ class Kardex extends BaseController
             $sumaPrecios = 0;
             $display = true;
         }
-
+        $costo_total = $costo_reparacion + $sumaPrecios;
         //datos de horarios
         $hora = new HorariosModel();
         $hora->where('id_cliente', $resultado[0]['id_cliente']);
@@ -81,14 +86,16 @@ class Kardex extends BaseController
 
         $data = [
             'kardex'=>$resultado,
-            'mensaje'=>$resultado_mensaje,
             'reporte'=>$resultado_reporte,
             'diagnostico'=>$resultado_diagnostico,
+            'costo_total'=>$costo_total,
             'refacciones'=>$resultado_refacciones,
             'total'=> number_format($sumaPrecios,2),
             'display'=>$display,
             'horario' => $hora_data,
-            'imagenes'=>$resultado_img
+            'imagenes'=>$resultado_img,
+            'user'=>$resultado[0]['generado_por'],
+            'kardex_id'=>$resultado[0]['id_kardex']
         ];
         return json_encode($data);
     }
@@ -99,6 +106,8 @@ class Kardex extends BaseController
         $kardex->where('slug',$slug);
         $resultado = $kardex->findAll();
 
+        $entidad = new EntidadesModel();
+        $resultado_entidad = $entidad->findAll();
         
         //datos de usuarios que no estan logeados 
         $usuario = new UsuariosModel();
@@ -118,6 +127,7 @@ class Kardex extends BaseController
             'id'=> $slug,
             'kardex'=>$resultado,
             'usuarios' => $usuario_data,
+            'entidades'=> $resultado_entidad
         ];
 
         //return json_encode($resultado);
@@ -856,6 +866,26 @@ class Kardex extends BaseController
         if ($model->delete($id)) {
             echo 1;
         }
+    }
+    public function enviar_a_cotizar()
+    {
+        $model = new KardexModel();
+
+        $costo = $this->request->getvar('costo');
+        $kardex = $this->request->getvar('kardex');
+        $estatus = 8;
+
+        $data=[
+            'estatus' => $estatus,
+            'costo_total' => $costo,
+        ];
+
+        //return json_encode($data);
+        if ($model->update($kardex,$data)) {
+            echo 1;
+        }
+
+
     }
     
 }
