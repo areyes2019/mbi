@@ -176,6 +176,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('/ver_diagnostico_kardex/(:num)', 'Cotizaciones::ver_diagnostico_kardex/$1');
 	$routes->post('/aceptar_rechazar', 'Cotizaciones::accion');
 	$routes->get('/mostrar_entidades', 'Cotizaciones::mostrar_entidades');
+	$routes->post('/agregar_inner', 'Cotizaciones::agregar_inner');
 
 
 	/*Compras*/
@@ -233,6 +234,9 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 
 	//facturacion
 	$routes->post('/facturar/', 'Facturacion::index');
+	$routes->get('/facturas/', 'Facturacion::lista');
+	$routes->post('/descargar_factura/', 'Facturacion::descargar');
+	$routes->get('/descargar/(:num)', 'Facturacion::descargar/$1');
 
 
 });

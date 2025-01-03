@@ -15,6 +15,7 @@ class DetalleModel extends Model
         'id_cotizacion',
         'diagnostico',
         'partida',
-        'cantidad'
+        'cantidad',
+        'clave'
     ];
 }

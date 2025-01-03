@@ -11,6 +11,7 @@ use App\Models\MensajeModel;
 use App\Models\KardexDetalleModel;
 use App\Models\KardexDiagnosticoModel;
 use App\Models\RefaccionesModel;
+use App\Models\DetalleDetalleModel;
 use App\Models\UsuariosModel;
 use App\Models\EntidadesModel;
 use Dompdf\Dompdf;
@@ -60,12 +61,25 @@ class Cotizaciones extends BaseController
 	        'total'=>$clienteData['costo_total'] //aqui sacamos el costo total del kardes, no confundirse con clienteData
 	    ];
 
+	    //creamos la linea de destalle
+
+
 	    // Intentar la inserción y verificar el ID insertado
 	    $cotizacionesModel->insert($data);
 	    if ($cotizacionesModel->db->affectedRows() > 0) { // Confirma que el registro fue insertado
 	        // Actualizar el estatus de Kardex
 	        $kardexUpdate = ['estatus' => 8];
 	        $kardexModel->update($id, $kardexUpdate);
+	        //agregamos linea de detalle 
+	    	$detalle = new DetalleModel();
+	    	$data_detalle = [
+	    		'cantidad'=> 1,
+	    		'partida'=> 1,
+	    		'precio_unitario'=> $clienteData['costo_total'],
+	    		'total'=>$clienteData['costo_total'],
+	    		'id_cotizacion'=> $id
+	    	];
+	    	$detalle->insert($data_detalle);
 
 	        return json_encode([
 	            'hecho' => 1,
@@ -73,6 +87,7 @@ class Cotizaciones extends BaseController
 	            'id' => $id,
 	            'mensaje' => 'Cotización creada exitosamente'
 	        ]);
+
 	    } else {
 	        return json_encode([
 	            'hecho' => 0,
@@ -94,9 +109,9 @@ class Cotizaciones extends BaseController
 		$resultado_cotizacion = $cotizacion->get()->getResultArray();
 
 		$sub_total = $resultado_cotizacion[0]['total']; //es la suma que puso el administrador
-		$iva = number_format($sub_total * 0.16,2); //saca el iva
-		$total = number_format($sub_total + $iva,2);
-
+		$iva =$sub_total * 0.16; //saca el iva
+		$total = $sub_total + $iva;
+		
 		//return json_encode($total);
 
 		$kardex = new KardexModel();
@@ -115,6 +130,7 @@ class Cotizaciones extends BaseController
 		$resultado_diagnostico = $diagnostico->findAll();
 
 
+
 		//encontramos las refacciones
 
 		$refaccion = new RefaccionesModel();
@@ -126,9 +142,9 @@ class Cotizaciones extends BaseController
 			'diagnostico'=>$resultado_diagnostico,
 			'refacciones'=>$resultado_refaccion,
 			'slug'=>$kardex_slug,
-			'sub_total'=>$sub_total,
-			'iva'=>$iva,
-			'total'=>$total,
+			'sub_total'=> number_format($sub_total,2),
+			'iva'=>number_format($iva,2),
+			'total'=>number_format($total,2),
 		];
 
 		return view('nueva_cotizacion',$data);
@@ -569,9 +585,14 @@ class Cotizaciones extends BaseController
 	}
 	public function ver_diagnostico_kardex($data)
 	{
+		
+		$detalle_cotizacion = new DetalleModel();
+		$detalle_cotizacion->where('id_cotizacion_detalle',$data);
+		$resultado_detalle_cotizaciones = $detalle_cotizacion->findAll();
+
 		//primero sacamos el detalle del kardex
 		$detalle_kardex = new KardexDetalleModel();
-		$detalle_kardex->where('id_kardex', $data);
+		$detalle_kardex->where('id_kardex', $resultado_detalle_cotizaciones[0]['id_cotizacion']);
 		$resultado_kardex = $detalle_kardex->findAll();
 
 		$id = $resultado_kardex[0]['slug'];
@@ -681,5 +702,29 @@ class Cotizaciones extends BaseController
 		$model = new EntidadesModel();
 		$resultado = $model->findAll();
 		return json_encode($resultado);
+	}
+	public function agregar_inner()
+	{
+		$detalleModel = new DetalleDetalleModel();
+        // Obtener datos enviados por Axios
+        $data = $this->request->getJSON(true); // Decodifica JSON
+
+        $id_detalle = $data['id_detalle']; // Obtenemos el id_diagnostico
+        $detalle = $data['detalles'];
+
+
+        // Validar si se enviaron refacciones
+        if (!isset($detalles) || empty($detalles)) {
+            echo 1;
+        }
+
+        // Guardar cada refacción en la base de datos con el id_diagnostico
+        foreach ($detalle as $data_detalle) {
+            $detalleModel->insert([
+                'id_detalle' => $id_detalle,   // Se añade el id_diagnostico
+                'detalles' => $data_detalle['detalles'],
+            ]);
+        }
+        echo 1;
 	}
 }

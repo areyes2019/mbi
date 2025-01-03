@@ -86,20 +86,7 @@
     </div>
 </div>
 <div class="card shadow mb-4 rounded-0">
-    <?php if ($item['estatus']==9 || $item['estatus']==10): ?>
         <div class="card-body d-flex align-items-center">
-            <button class="btn btn-primary btn-icon-split mb-3 mb-sm-0 mr-2" data-toggle="collapse" data-target="#independiente">
-                <span class="icon text-white-50">
-                    <i class="bi bi-cart"></i>
-                </span>
-                <span class="text">Articulo Independiente</span>
-            </button>
-            <button class="btn btn-primary btn-icon-split" @click = "agregar_diagnostico_modal(<?php echo $item['id_kardex'] ?>)" data-toggle="modal" data-target="#agregar_articulo">
-                <span class="icon text-white-50">
-                    <i class="bi bi-list-check"></i>
-                </span>
-                <span class="text">Agregar por Diagnóstico</span>
-            </button>
              <button class="btn btn-primary btn-icon-split ml-2" data-toggle="modal" data-target="#condiciones">
                 <span class="icon text-white-50">
                     <i class="bi bi-list-check"></i>
@@ -118,7 +105,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content rounded-0">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Seleecione un diagnostico</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Selecione un diagnóstico</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -155,10 +142,15 @@
                                 </tbody>
                             </table>
                             <div v-if="diag.agregado != 1">
-                                <div class="d-block mr-2">
-                                    <label for="">Descripción</label>
-                                    <textarea name="" id="" class="form-control rounded-0 shadow-none" v-model="servicio"></textarea>
-                                </div>
+                                <button type="button" class="btn btn-primary btn-sm rounded-0 mb-3" @click="agregarFila"><span class="bi bi-plus-circle"></span></button>
+                                <form @submit.prevent="submitForm">
+                                    <div v-for="(linea_item, index) in linea" :key="index" class="d-flex justify-content-between">
+                                        <input type="text" v-model="detalle_inner">
+                                        <input class="form-control form-control-sm rounded-0 shadow-none mt-1" type="text" v-model="linea_item.detalles" placeholder="Descripción del consepto">
+                                        <button class="btn btn-danger btn-sm rounded-0" @click = "eliminarFila(index)"><span class="bi bi-x-square"></span></button>
+                                    </div>
+                                    <button type="submit" class="btn btn-success mt-3">Enviar</button>
+                                </form>
                                 <!--  <div class="d-block w-25">
                                     <label for="">Precio</label>
                                     <input type="text" class="form-control form-control-sm rounded-0 shadow-none" v-model="precio_ind">
@@ -229,33 +221,29 @@
                     </div>
                 </div>
             </div>
-            <div class="collapse mt-4" id="independiente">
-              <div class="d-flex justify-content-between align-items-center">
-                <label for="">Cantidad</label>
-                <input type="number" class="form-control rounded-0 shadow-none w-25"  v-model="cantidad">
-                <label for="">Partida</label>
-                <input type="number" class="form-control rounded-0 shadow-none w-25"  v-model="partida">
-                <input type="text" class="form-control rounded-0 shadow-none" placeholder="Descripción" v-model="articulo_ind">
-                <input type="text" class="form-control rounded-0 shadow-none w-25" placeholder="Precio" v-model="precio_ind">
-                <button class="btn btn-primary ml-2" @click="agregar_ind('independiente')"><span class="bi bi-check"></span></button>
-              </div>
-            </div>
         </div>
-    <?php endif ?>
 </div>
 <div class="card shadow mb-4 rounded-0">
     <div class="card-body">
-        <table class="table">
+        <table class="table table-bordered">
             <tr>
                 <th>Cant.</th>
                 <th>Partida</th>
                 <th>Descripción</th>
+                <th>P/U</th>
+                <th>Importe</th>
                 <td></td>
             </tr>
             <tr v-for = "dato in detalles">
                 <td>{{dato.cantidad}}</td>
                 <td>{{dato.partida}}</td>
-                <td>{{dato.descripcion}}</td>
+                <td>
+                    <button class="btn btn-primary btn-icon-split btn-sm rounded-0" @click = "agregar_diagnostico_modal(dato.id_cotizacion_detalle)" data-toggle="modal" data-target="#agregar_articulo">
+                        <span class="text bi bi-plus-circle"></span>
+                    </button>
+                </td>
+                <td>{{dato.total}}</td>
+                <td>{{dato.total}}</td>
                 <?php if ($item['estatus']==9 || $item['estatus']==10): ?>
                 <td><button class="btn btn-danger btn-sm rounded-0"><span class="bi bi-x-lg" @click = "borrar_linea_detalle(dato.id_cotizacion_detalle)"></span></button></td>
                 <?php endif ?>
@@ -295,15 +283,19 @@
                     <option v-for="(uso, index) in listaConceptos">{{ uso.clave }} - {{ uso.descripcion }}</option>
                 </select>
             </div>
-
-          <!-- Entidad -->
-          <div class="form-group">
-            <label for="entidad">Entidad</label>
-            <select class="form-control" id="entidad" v-model="entidad">
-              <option value="">Seleccione...</option>
-              <option v-for="entidad in entidades" :value="entidad.id_entidad">{{entidad.razon_social}}</option>
-            </select>
-          </div>
+            <!-- Clave de producto-->
+            <div class="form-group">
+                <label for="entidad">Clave del producto</label>
+                <input type="text" class="form-control rounded-0 shadow-none" v-model="clave_prod">
+            </div>
+            <!-- Entidad -->
+            <div class="form-group">
+                <label for="entidad">Entidad</label>
+                <select class="form-control rounded-0 shadow-none" id="entidad" v-model="entidad">
+                    <option value="">Seleccione...</option>
+                    <option v-for="entidad in entidades" :value="entidad.id_entidad">{{entidad.razon_social}}</option>
+                </select>
+            </div>
         </form>
       </div>
 

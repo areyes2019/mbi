@@ -11,12 +11,16 @@ const { createApp, ref } = Vue
         refacciones:{},
         detalles:{},
         
+        linea:[
+          { detalles: ''} // Fila inicial
+        ],
         //para el formulario independiente
+        detalle_inner:"",
         cantidad:"1",
         partida:"1",
         articulo_ind:"",
         precio_ind:"",
-
+        fields:[],
         sub_total:"",
         iva:"",
         total:"",
@@ -36,12 +40,12 @@ const { createApp, ref } = Vue
         entrega:"",
         garantia:"",
         moneda:"",
-        lista:"esta lista",
         baseUrl: window.location.origin + '/',
         entidades:"",
         metodo_pago:"",
         usoCFDI:"",
         entidad:"",
+        clave_prod:"",
         listaConceptos:[
           { clave: 'G01', descripcion: 'Adquisición de mercancías' },
           { clave: 'G02', descripcion: 'Devoluciones, descuentos o bonificaciones' },
@@ -160,7 +164,6 @@ const { createApp, ref } = Vue
       },
       mostrar_detalle(){
         var cotizacion = this.$refs.id_cotizacion.innerHTML;
-        console.log(cotizacion);
         axios.get("/mostrar_detalles/"+cotizacion).then((response)=>{
           this.detalles = response.data;
         })
@@ -263,6 +266,7 @@ const { createApp, ref } = Vue
         axios.get('/ver_diagnostico_kardex/'+ data).then((response)=>{
           this.diagnostico = response.data.diagnostico;
           this.refacciones = response.data.refacciones;
+          this.detalle_inner = data;
         })
       },
       enviar_cotizacion(data){
@@ -288,13 +292,35 @@ const { createApp, ref } = Vue
             'uso_cfdi':this.usoCFDI,
             'entidad':this.entidad,
             'cotizacion':data,
-            'cliente':cliente
+            'cliente':cliente,
+            'clave_prod':this.clave_prod
         }).then((response)=>{
             if (response.data == 1) {
               $.notify('Se genero la factura');
             }
         })
-      }
+      },
+      agregarFila() {
+            // Agregar una nueva fila con campos vacíos
+            this.linea.push({ detalles: ''});
+      },
+      eliminarFila(index) {
+            // Eliminar la fila en el índice especificado
+            this.linea.splice(index, 1);
+      },
+      submitForm() {
+          axios.post('/agregar_inner',{
+            'detalles':this.linea,
+            'id_detalle':this.detalle_inner
+
+          }).then((response)=>{
+            if (response.data == 1) {
+              $('#agregar_refacciones').modal('hide');
+              this.linea = [{ nombre: '', marca: '', modelo: '', costo: '' }];
+              this.mostrar_general();
+            }
+          })
+      },
     },
     mounted(){
       this.mostrar_lineas();

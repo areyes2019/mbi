@@ -286,6 +286,7 @@
                   <!-- contacto -->
                   <!-- Regimen Fiscasl -->
                   <div class="form-group">
+                  		<label for="">Seleccione el régimen fiscal</label>
 	                  	<select class="selectpicker form-control" id="picker_agregar" data-live-search="true" v-model="regimen" style="width: 100%;">
 	                  		<option disabled selected value=""> Selecciona el régimen... </option>
 	                  		<?php foreach ($regimenes as $regimen): ?>
@@ -390,6 +391,19 @@
                                   <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'contacto')" placeholder="Colonia" v-model="colonia">
                               </div>
                               <small class="text-danger mt-0"></small>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                              <div class="input-group">
+                                  <div class="input-group-prepend input-group-sm">
+                                    <div class="input-group-text rounded-0">
+                                      <i class="bi bi-person"></i>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control rounded-0 form-control-sm shadow-none" @input="limpiar_error($event,'cp')" placeholder="Código Postal *" v-model="cp" name="zip">
+                              </div>
+                              <small class="text-danger mt-0">{{errores.cp}}</small>
                           </div>
                       </div>
                       <div class="col">

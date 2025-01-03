@@ -198,8 +198,8 @@
                                     <?php endif ?>
                                     
                                     <!--  Editar-->
-                                    <?php if (esc(permisos($mis_tareas['estatus'],'panel_editar'))): ?>
                                     <a class="dropdown-item" href="#" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')">Editar</a>
+                                    <?php if (esc(permisos($mis_tareas['estatus'],'panel_editar'))): ?>
                                     <?php endif ?>
                                     <!--  -->
                                     <a class="dropdown-item" href="#" @click.prevent="ver_doc('<?php echo $mis_tareas['id_kardex'] ?>')" data-toggle="modal" data-target="#ver_doc">Vista Rápida</a>

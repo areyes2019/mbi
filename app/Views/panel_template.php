@@ -92,7 +92,7 @@
 
             <?php if (tiene_seccion('7') || es_super_admin()): ?>
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('facturacion')?>">
+                <a class="nav-link" href="<?php echo base_url('facturas')?>">
                     <i class="bi bi-filetype-pdf"></i>
                     <span>Facturación</span></a>
             </li>
