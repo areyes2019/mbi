@@ -46,6 +46,7 @@ const { createApp, ref } = Vue
         usoCFDI:"",
         entidad:"",
         clave_prod:"",
+        microdatos:[],
         listaConceptos:[
           { clave: 'G01', descripcion: 'Adquisición de mercancías' },
           { clave: 'G02', descripcion: 'Devoluciones, descuentos o bonificaciones' },
@@ -315,14 +316,29 @@ const { createApp, ref } = Vue
 
           }).then((response)=>{
             if (response.data == 1) {
-              $('#agregar_refacciones').modal('hide');
-              this.linea = [{ nombre: '', marca: '', modelo: '', costo: '' }];
-              this.mostrar_general();
+              this.ver_microdetalles();
             }
           })
       },
+      ver_microdetalles(){
+        var id = this.$refs.id_cotizacion.innerHTML;
+        axios.get('/ver_microdados/'+id).then((response)=>{
+          this.microdatos = response.data;
+        })
+      },
+      eliminar_micro(data){
+        if (confirm("Deseas eliminar esta linea")) {
+          axios.get('/eliminar_micro/'+data).then((response)=>{
+            if (response.data==1) {
+              this.ver_microdetalles();
+            }
+          })
+
+        }
+      }
     },
     mounted(){
+      this.ver_microdetalles();
       this.mostrar_lineas();
       this.mostrar_detalle();
       this.mostrar_entidades();

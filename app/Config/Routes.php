@@ -177,6 +177,8 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('/aceptar_rechazar', 'Cotizaciones::accion');
 	$routes->get('/mostrar_entidades', 'Cotizaciones::mostrar_entidades');
 	$routes->post('/agregar_inner', 'Cotizaciones::agregar_inner');
+	$routes->get('/ver_microdados/(:num)', 'Cotizaciones::ver_microdados/$1');
+	$routes->get('/eliminar_micro/(:num)', 'Cotizaciones::eliminar_micro/$1');
 
 
 	/*Compras*/

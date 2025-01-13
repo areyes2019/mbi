@@ -727,4 +727,27 @@ class Cotizaciones extends BaseController
         }
         echo 1;
 	}
+	public function ver_microdados($id)
+	{
+		//sacamos el detalle
+		$model = new DetalleModel();
+		$model->where('id_cotizacion',$id);
+		$resultado_cotizacion = $model->findAll();
+
+		//sacamos los microdatos
+
+		$micro = new DetalleDetalleModel();
+		$micro->where('id_detalle',$resultado_cotizacion[0]['id_cotizacion_detalle']);
+		$resultado = $micro->findAll();
+		return json_encode($resultado);
+
+
+	}
+	public function eliminar_micro($id)
+	{
+		$model = new DetalleDetalleModel();
+		if ($model->delete($id)) {
+			echo 1;
+		}
+	}
 }

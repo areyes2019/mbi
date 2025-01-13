@@ -145,7 +145,7 @@
                                 <button type="button" class="btn btn-primary btn-sm rounded-0 mb-3" @click="agregarFila"><span class="bi bi-plus-circle"></span></button>
                                 <form @submit.prevent="submitForm">
                                     <div v-for="(linea_item, index) in linea" :key="index" class="d-flex justify-content-between">
-                                        <input type="text" v-model="detalle_inner">
+                                        <input type="text" v-model="detalle_inner" class="d-none">
                                         <input class="form-control form-control-sm rounded-0 shadow-none mt-1" type="text" v-model="linea_item.detalles" placeholder="Descripción del consepto">
                                         <button class="btn btn-danger btn-sm rounded-0" @click = "eliminarFila(index)"><span class="bi bi-x-square"></span></button>
                                     </div>
@@ -241,6 +241,7 @@
                     <button class="btn btn-primary btn-icon-split btn-sm rounded-0" @click = "agregar_diagnostico_modal(dato.id_cotizacion_detalle)" data-toggle="modal" data-target="#agregar_articulo">
                         <span class="text bi bi-plus-circle"></span>
                     </button>
+                    <p class="m-0" v-for="micro in microdatos">{{micro.detalles}} <a href="" @click.prevent="eliminar_micro(micro.id_lista)"><span class="bi bi-x-square"></span></a></p>
                 </td>
                 <td>{{dato.total}}</td>
                 <td>{{dato.total}}</td>
