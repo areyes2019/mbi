@@ -149,6 +149,29 @@ input:checked + .slider:before {
     margin-right: 5px; /* Espacio entre la bandera y el texto */
     border: 1px solid #ccc; /* Agrega un borde a las banderas (opcional) */
 }
+/* Por defecto, oculta ambas clases */
+.mobile {
+  display: none;
+}
+
+.main-pc {
+  display: none;
+}
+
+/* Mostrar solo .mobile en pantallas pequeñas (teléfonos) */
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+}
+
+/* Mostrar solo .main-pc en pantallas grandes (tabletas y computadoras) */
+@media (min-width: 769px) {
+  .main-pc {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 600px) {
     .thumbnail {
         width: 70px;
