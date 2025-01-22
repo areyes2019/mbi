@@ -1,8 +1,14 @@
 <?php echo $this->extend('panel_template')?>
 <?php echo $this->section('contenido')?>
 <div class="container-fluid" id="app">
+    <nav aria-label="breadcrumb" class="mb-2">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/inicio'); ?>">Inicio</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Facturas</li>
+        </ol>
+    </nav>
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Cortizaciones</h1>
+        <h1 class="h3 mb-0 text-gray-800">Facturas</h1>
     </div>
 	<div class="my-card mt-3">
 		<table id="factura" class="table table-bordered" style="width:100%">

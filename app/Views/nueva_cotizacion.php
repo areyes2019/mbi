@@ -2,6 +2,13 @@
 <?php echo $this->section('contenido')?>
 <div id="app">
     <?php foreach ($cotizacion as $item): ?>        
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="<?php echo base_url('/inicio'); ?>">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('/cotizaciones'); ?>">Cotizaciones</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cotización <?php echo $item['id_cotizacion'] ?></li>
+        </ol>
+    </nav>
     <div class="card shadow mb-4 rounded-0">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between rounded-0">
