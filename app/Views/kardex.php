@@ -2,6 +2,12 @@
 <?php echo $this->section('contenido') ?>
 <?php foreach ($kardex as $data): ?>    
 <div id="app">
+    <nav aria-label="breadcrumb" class="mb-2">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="<?php echo base_url('/inicio'); ?>">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Kardex <?php echo $data['id_kardex'] ?></li>
+        </ol>
+    </nav>
     <div class="card rounded-0">
         <div class="card-header">
             <?php if (esc(permisos($data['estatus'],'imagen_diagnostico'))): ?>
