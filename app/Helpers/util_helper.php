@@ -170,11 +170,13 @@
 	                }
 	               break;
 	            case 'panel_eliminar':
-                    if ($estatus == 1 && $rol==1) {
+                    if ($estatus == 2 && $rol==2) {
                     	return true;
-                    }elseif ($estatus == 3 && $rol == 1) {
+                    }elseif ($estatus == 3 && $rol == 2) {
                     	return true;
-                    }
+                    }elseif($estatus==1 && $rol ==1){
+	                	return true;
+	                }
 	               break;
 	            case 'ver_kardex':
                     if ($rol==3) {
