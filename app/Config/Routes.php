@@ -47,7 +47,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('editar_usuario/(:num)', 'Usuarios::editar/$1');	
 	$routes->get('ver_usuario/(:num)', 'Usuarios::ver/$1');	
 	$routes->post('actualizar_usuario', 'Usuarios::actualizar');	
-	$routes->get('eliminar_usuario', 'Usuarios::eliminar');	
+	$routes->get('eliminar_usuario/(:num)', 'Usuarios::eliminar/$1');	
 	$routes->get('permisos/(:num)', 'Usuarios::permisos/$1');
 	$routes->get('/ver_permisos/(:num)', 'Usuarios::ver_permisos/$1');
 	$routes->post('/actualizar_permiso', 'Usuarios::actualizar_permiso');	

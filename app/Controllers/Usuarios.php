@@ -169,13 +169,22 @@ class Usuarios extends BaseController
            return true;     
        }
    }
-   public function eliminar()
+   public function eliminar($id)
    {
-       $modelo = new Model();
-       $modelo->delete($id);
-       if ($modelo->delete($id)) {
-           return true;
-       }
+        $usuarioModel = new UsuariosModel();
+        $usuarioModel->where('id_usuario',$id);
+        // Verifica si el registro existe
+        $usuario = $usuarioModel->findAll();
+        if (!$usuario) {
+            return $this->response->setJSON(['error' => 'Usuario no encontrado'])->setStatusCode(404);
+        }
+
+        // Elimina el registro
+        if ($usuarioModel->delete($id)) {
+            return $this->response->setJSON(['mensaje' => 'Usuario eliminado exitosamente'])->setStatusCode(200);
+        }
+
+        return $this->response->setJSON(['error' => 'No se pudo eliminar el usuario'])->setStatusCode(500);
    }
    public function agregar_seccion_usuario()
    {

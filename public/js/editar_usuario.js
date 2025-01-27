@@ -161,6 +161,19 @@ createApp({
 				})
 			}
 		},
+		eliminar_usuario(data){
+			console.log(data);
+			if (confirm('¿Deseas eliminar este usuario?. Esta acción no se pude revertir')) {
+				axios.get('/eliminar_usuario/'+data).then((response)=>{
+					if (response.status===200) {
+						alert(response.data.mensaje)
+						setTimeout(() => {
+						    window.location.href = "/usuarios";
+						}, 2000);
+					}
+				})
+			}
+		},
 
 
 	},

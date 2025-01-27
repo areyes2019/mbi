@@ -95,7 +95,7 @@
                     <td>
                         <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?>
                         <!--  Eliminar -->
-                        <button class="btn btn-danger btn-sm shadow-none mr-1"><span class="bi bi-trash3"></span></button>
+                        <button class="btn btn-danger btn-sm shadow-none mr-1" @click = "eliminar_kardex"><span class="bi bi-trash3"></span></button>
                         <?php endif ?>
                         <!--  Editar -->
                         <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>

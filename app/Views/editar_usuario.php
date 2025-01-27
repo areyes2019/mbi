@@ -10,6 +10,15 @@
     		<li class="breadcrumb-item active" aria-current="page"><?php echo $user['nombre'].' '.$user['apellidos'] ?></li>
   		</ol>
 	</nav>
+    <?php if (es_super_admin()): ?>
+	<div class="card mb-2">
+		<div class="card-body">
+  			<a href="" class="mr-3" @click.prevent = "eliminar_usuario(<?php echo $user['id_usuario'] ?>)">Eliminar usuario</a>
+            <a  href="" class="mr-3" data-toggle="modal" data-target="#agregar_datos_personales" @click ="modificar_perfil">Modificar mis Datos</a>
+            <a href="" class="mr-3" data-toggle="modal" data-target="#cambiar_contraseña">Cambiar Contraseña</a>
+		</div>
+	</div>
+    <?php endif ?>
 	<div class="row">
         <div class="col-md-4">
             <div class="card rounded-0">
@@ -22,13 +31,6 @@
                     <?php if (es_super_admin()): ?>
                     <button  class="btn btn-primary rounded-0 ml-2" data-toggle="modal" data-target="#agregar_seccion">Asignar Funciones</a>
                     <button  class="btn btn-primary rounded-0 ml-2" data-toggle="modal" data-target="#agregar_datos" @click="numero_empleado('<?php echo $user['id_usuario'] ?>')">Agregar Datos</a>
-                    <?php endif ?>
-
-                    <?php if (!es_super_admin()): ?>
-                   	<div class="d-flex justify-content-between">
-	                    <button  class="btn btn-primary rounded-0 ml-2" data-toggle="modal" data-target="#agregar_datos_personales" @click ="modificar_perfil">Modificar mis Datos</a>
-	                    <button  class="btn btn-primary rounded-0 ml-2" data-toggle="modal" data-target="#cambiar_contraseña">Cambiar Contraseña</a>
-                   	</div>
                     <?php endif ?>
                 </div>
             </div>
@@ -270,7 +272,7 @@
 				<button class="btn btn-primary btn-sm rounded-0">Modificar</button> 
 	      	</div>
 	    </div>
-	  </div>
+	  	</div>
 	</div>	
 </div>
 <?php endforeach ?>
