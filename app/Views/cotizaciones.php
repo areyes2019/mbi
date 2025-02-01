@@ -11,7 +11,9 @@
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Cortizaciones</h1>
     </div>
-    <button class="btn btn-primary btn-sm rounded-0 shadow-none" data-toggle="modal" data-target="#nueva_cotizacion">Generar cotización</button>
+    <?php if (esc(tiene_permisos(session('id_usuario'),'2','2'))): ?>
+    <button class="btn btn-primary btn-sm rounded-0 shadow-none" data-toggle="modal" data-target="#nueva_cotizacion">Generar cotización</button>        
+    <?php endif ?>
 	<div class="my-card mt-3">
 		<table id="example" class="table table-bordered" style="width:100%">
             <thead>
