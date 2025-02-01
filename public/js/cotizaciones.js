@@ -187,9 +187,6 @@ const { createApp, ref } = Vue
       mostrar_collapse(){
         $('#pago').collapse('show');
       },
-      mostrar_lineas(){
-        
-      },
       borrar_linea_detalle(data){
   
         if (confirm("¿Realmente quieres borrar esta linea?")) {

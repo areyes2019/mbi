@@ -1,5 +1,6 @@
 <?php echo $this->extend('panel_template')?>
 <?php echo $this->section('contenido')?>
+<div id="app">
 <div class="container-fluid">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb mb-0">
@@ -10,6 +11,7 @@
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Cortizaciones</h1>
     </div>
+    <button class="btn btn-primary btn-sm rounded-0 shadow-none" data-toggle="modal" data-target="#nueva_cotizacion">Generar cotización</button>
 	<div class="my-card mt-3">
 		<table id="example" class="table table-bordered" style="width:100%">
             <thead>
@@ -68,10 +70,8 @@
 	</div>
 </div>
 
-<div id="app"></div>
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="nueva_cotizacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog rounded-0">
     <div class="modal-content rounded-0">
       <div class="modal-header">
@@ -81,26 +81,24 @@
         </button>
       </div>
       <div class="modal-body">
-        <table id="modal" class="table table-bordered w-100">
+        <table class="table table-bordered" id="modal" style="width:100%">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Acción</th>
+                    <th>Hospital</th>
+                    <th>Dirigida a:</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="w-100">
-                    <td>Hospital Santa Helena</td>
+                <?php foreach ($clientes as $cliente): ?>
+                <tr>
+                    <td><?php echo $cliente['hospital'] ?></td>
+                    <td><?php echo $cliente['titular'] ?></td>
                     <td>
-                        <a class="btn btn-primary btn-circle" href="<?php echo base_url('kardex'); ?>"  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
+                        <a href="<?php echo base_url('/cotizacion_independiente/'.$cliente['id_cliente']); ?>" class="btn btn-primary btn-sm rounded-0"><span class="bi-check-lg"></span></button>
                     </td>
                 </tr>
-                <tr class="w-100">
-                    <td>Hospital Santa Helena</td>
-                    <td>
-                        <a class="btn btn-primary btn-circle" href=""  class="my-btn-primary p-1"><span class="bi bi-check"></span></a>
-                    </td>
-                </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
       </div>
@@ -110,10 +108,12 @@
     </div>
   </div>
 </div>
+</div>
 <script>
     $( document ).ready(function() {
         new DataTable('#modal');
         new DataTable('#example');
     });
 </script>
+<script src="<?php echo base_url('public/js/cotizaciones.js'); ?>"></script>
 <?php echo $this->endSection(); ?>

@@ -156,6 +156,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	/*Panel*/
 	$routes->get('cotizaciones', 'Cotizaciones::index');
 	$routes->post('nueva_cotizacion', 'Cotizaciones::nueva');
+	$routes->get('cotizacion_independiente/(:num)', 'Cotizaciones::independiente/$1');
 	$routes->get('clonar/(:any)', 'Cotizaciones::clonar/$1');
 	$routes->get('pagina_cotizador/(:any)/(:any)', 'Cotizaciones::pagina/$1');
 	$routes->get('editar_cotizacion/(:num)', 'Cotizaciones::editar/$1');

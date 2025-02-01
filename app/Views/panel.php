@@ -10,7 +10,9 @@
     <div class="mb-4">
         <p class="d-none" ref="usuario"><?php echo session('id_usuario') ?></p>
         <h1 class="h3 mb-0 text-gray-800">Panel Principal</h1>
+        <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))): ?>
         <button class="btn btn-primary rounded-0 btn-sm mt-2 btn-sm shadow-none" data-toggle="modal" data-target="#nuevo_reporte"><span class="bi bi-filetype-pdf"></span> Nuevo Reporte</button>
+        <?php endif ?>
     </div>
     <div class="mobile">
         <ul class="list-group">
@@ -37,14 +39,20 @@
                 <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-blue "><?php echo $mis_tareas['tipo_txt'] ?></span>
                 <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 4" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
                 <br>
-                <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?>
+                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
                 <!--  Eliminar -->
                 <button class="btn btn-danger btn-sm shadow-none mr-1"><span class="bi bi-trash3"></span></button>
                 <?php endif ?>
+
+                <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
                 <!--  Editar -->
                 <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
+                <?php endif ?>
+
+                <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
                 <!--  Vista Rápida -->
                 <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
+                <?php endif ?>
             </li>
             <?php endforeach ?>        
         </ul>
@@ -93,14 +101,20 @@
                     </td>
                     <td><strong><?php echo $mis_tareas['destinatario_nombre'] ?></strong></td>
                     <td>
-                        <?php if (esc(permisos($mis_tareas['estatus'],'panel_eliminar'))): ?>
+                        <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
                         <!--  Eliminar -->
-                        <button class="btn btn-danger btn-sm shadow-none mr-1" @click = "eliminar_kardex"><span class="bi bi-trash3"></span></button>
+                        <button class="btn btn-danger btn-sm shadow-none mr-1"><span class="bi bi-trash3"></span></button>
                         <?php endif ?>
+
+                        <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
                         <!--  Editar -->
                         <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
+                        <?php endif ?>
+
+                        <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
                         <!--  Vista Rápida -->
                         <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
+                        <?php endif ?>
                     </td>
                 </tr>
                 <?php endforeach ?>        

@@ -24,8 +24,39 @@ class Cotizaciones extends BaseController
 		$builder = $db->table('mbi_cotizaciones');
 		$builder->join('mbi_clientes','mbi_clientes.id_cliente = mbi_cotizaciones.id_cliente');
 		$resultado = $builder->get()->getResultArray();
-		$data['cotizaciones'] = $resultado;
+		//$data['cotizaciones'] = $resultado;
+		
+		$clientes = new ClientesModel();
+		$data_cliente = $clientes->findAll();
+
+		$data = [
+			'cotizaciones'=>$resultado,
+			'clientes'=>$data_cliente
+		];
+
 		return view('cotizaciones',$data);
+	}
+	public function independiente($id)
+	{
+		//primero buscamos al cliente
+		$cliente = new ClientesModel();
+		$resultado = $cliente->select('hospital,titular,responsable,correo')
+							 ->where('id_cliente',$id)
+							 ->first();
+
+
+		// Generar un slug aleatorio
+	    $caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $longitud = 12;
+	    $slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
+
+	    //generamos la cotización
+
+	    //vemos la sesion
+	    $session = \Config\Services::session();
+
+
+		return json_encode($session->get());
 	}
 	public function nueva()
 	{
