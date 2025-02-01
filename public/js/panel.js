@@ -80,10 +80,9 @@ createApp({
 			})
 		},
 		eliminar_kardex(data){
-			var me = this;
 			var url = "eliminar_kardex/"+data;
-			if (confirm('Vas a eliminar todo un registro, ¿Deseas continuar?')==true) {
-				axios.get(url).then(function (response){
+			if (confirm('¿Estas seguro de querer eliminar este kardex? Esta accion ya no se puede revocar')==true) {
+				axios.get(url).then((response)=>{
 					if (response.data == 1) {
 						location.reload();
 					}

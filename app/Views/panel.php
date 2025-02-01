@@ -41,7 +41,7 @@
                 <br>
                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
                 <!--  Eliminar -->
-                <button class="btn btn-danger btn-sm shadow-none mr-1"><span class="bi bi-trash3"></span></button>
+                <button class="btn btn-danger btn-sm shadow-none mr-1" @click = "eliminar_kardex(<?php echo $mis_tareas['id_kardex'] ?>)"><span class="bi bi-trash3"></span></button>
                 <?php endif ?>
 
                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
@@ -51,7 +51,7 @@
 
                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
                 <!--  Vista Rápida -->
-                <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
+                <button class="btn btn-success btn-sm shadow-none"@click="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
                 <?php endif ?>
             </li>
             <?php endforeach ?>        
@@ -119,7 +119,7 @@
 
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))|| esc(es_super_admin())): ?>
                                 <!--  Eliminar -->
-                                <a href="#" class="dropdown-item">Eliminar</a>
+                                <a href="#" class="dropdown-item" @click.prevent = "eliminar_kardex(<?php echo $mis_tareas['id_kardex'] ?>)">Eliminar</a>
                                 <?php endif ?>
                                 
                             </div>
