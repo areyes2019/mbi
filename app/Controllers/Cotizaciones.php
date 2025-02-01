@@ -384,16 +384,10 @@ class Cotizaciones extends BaseController
 	}
 	public function eliminar($id)
 	{
-		$db = \Config\Database::connect();
-
-		$modelo = new CotizacionesModel();
-		$modelo->delete($id);
-
-		$builder = $db->table('sellopro_detalles');
-		$builder->where('id_cotizacion',$id);
-		$builder->delete();
-
-		return redirect()->to('/cotizaciones');
+		$model = new CotizacionesModel();
+		if ($model->delete($id)) {
+			echo 1;
+		}
 
 	}
 	public function cotizacion_pdf($id)

@@ -34,7 +34,7 @@
                 <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm"><span class="bi bi-file-earmark-text"></span> Facturar</a>
                 <?php endif ?>
                 <?php if ($item['estatus']!= 11): ?>
-                <a class="dropdown-item" href="" onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');"><span class="bi bi-trash3"></span> Eliminar Cotización</a>
+                <a class="dropdown-item" href="" @click.prevent = "eliminar_cotizacion(<?php echo $item['id_cotizacion']?>)"><span class="bi bi-trash3"></span> Eliminar Cotización</a>
                 <?php endif ?>
             </div>
         </div>

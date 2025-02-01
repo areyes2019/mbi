@@ -132,7 +132,7 @@ const { createApp, ref } = Vue
             if (response.data == 1) {
               alert('Este producto ya agregado')
             }else{
-              me.mostrar_lineas();
+              //me.mostrar_lineas();
             }
         })
       },
@@ -155,7 +155,7 @@ const { createApp, ref } = Vue
         }).then((response)=>{
             if (response.data.status == "success"){
               $.notify('Se agregó el concepto');
-              this.mostrar_lineas();
+              //this.mostrar_lineas();
               this.mostrar_detalle();
               this.articulo_ind = "";
               this.precio_ind="";
@@ -193,7 +193,7 @@ const { createApp, ref } = Vue
             axios.get('/borrar_linea_detalle/'+data).then((response)=> {
                 if (response.data==1) {
                   $.notify('Registro eliminado');
-                  this.mostrar_lineas();
+                  //this.mostrar_lineas();
                   this.mostrar_detalle();
                 }
             })
@@ -206,7 +206,7 @@ const { createApp, ref } = Vue
           'pago':me.anticipo,
           'id':cotizacion
         }).then(function (response){
-            me.mostrar_lineas();
+            //me.mostrar_lineas();
             me.anticipo = "";
         })
         $("#pago").collapse('hide');
@@ -332,11 +332,21 @@ const { createApp, ref } = Vue
           })
 
         }
+      },
+      eliminar_cotizacion(data){
+        var url = '/eliminar_cotizacion/'+data;
+        if (confirm('¿En verdad deseas eliminar esta cotización? Esta acción ya no se puede revocar')) {
+          axios.get(url).then((response)=>{
+            if (response.data==1) {
+              window.location.href = "/cotizaciones";
+            }
+          })
+        }
       }
     },
     mounted(){
       this.ver_microdetalles();
-      this.mostrar_lineas();
+      //this.mostrar_lineas();
       this.mostrar_detalle();
       this.mostrar_entidades();
     }

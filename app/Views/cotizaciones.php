@@ -45,11 +45,15 @@
                                 <i class="bi bi-three-dots-vertical"></i>
                             </button>
                             <div class="dropdown-menu rounded-0">
-                                <a href="" class="dropdown-item"  onclick="return confirm('¿Estas seguro de querer eliminar esta cotización?');">Eliminar</a>
                                 <a href="" class="dropdown-item">Enviar por correo</a>
                                 <a href="" class="dropdown-item">Vista previa</a>
                                 <a href="" class="dropdown-item">Descargar</a>
+                                <!--  Editar -->
                                 <a href="<?php echo base_url('pagina_cotizador')."/".$cotizacion['slug']."/".$cotizacion['id_cotizacion']; ?> " class="dropdown-item">Editar</a>
+                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
+                                <!--  Eliminar -->
+                                <a href="#" class="dropdown-item" @click.prevent = "eliminar_cotizacion(<?php echo $cotizacion['id_cotizacion'] ?>)">Eliminar</button>
+                                <?php endif ?>
                             </div>
                         </div> 
                     </td>
