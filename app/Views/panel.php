@@ -101,20 +101,29 @@
                     </td>
                     <td><strong><?php echo $mis_tareas['destinatario_nombre'] ?></strong></td>
                     <td>
-                        <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
-                        <!--  Eliminar -->
-                        <button class="btn btn-danger btn-sm shadow-none mr-1"><span class="bi bi-trash3"></span></button>
-                        <?php endif ?>
 
-                        <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
-                        <!--  Editar -->
-                        <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
-                        <?php endif ?>
+                        <div class="btn-group dropleft">
+                            <button class="btn btn-outline-dark btn-sm rounded-0" data-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <div class="dropdown-menu rounded-0">
+                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
+                                <!--  Editar -->
+                                <a href="#" class="dropdown-item" @click.prevent = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')">Editar</a>
+                                <?php endif ?>
 
-                        <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
-                        <!--  Vista Rápida -->
-                        <button class="btn btn-success btn-sm shadow-none"@click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc"><span class="bi bi-eye"></span></button>
-                        <?php endif ?>
+                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
+                                <!--  Vista Rápida -->
+                                <a href="#" class="dropdown-item" @click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc">Vista Rápida</a>
+                                <?php endif ?>
+
+                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
+                                <!--  Eliminar -->
+                                <a href="#" class="dropdown-item">Eliminar</a>
+                                <?php endif ?>
+                                
+                            </div>
+                        </div> 
                     </td>
                 </tr>
                 <?php endforeach ?>        
