@@ -117,7 +117,7 @@
                                 <a href="#" class="dropdown-item" @click.prevent="ver_doc('<?php echo $mis_tareas['slug'] ?>')" data-toggle="modal" data-target="#ver_doc">Vista Rápida</a>
                                 <?php endif ?>
 
-                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
+                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))|| esc(es_super_admin())): ?>
                                 <!--  Eliminar -->
                                 <a href="#" class="dropdown-item">Eliminar</a>
                                 <?php endif ?>
