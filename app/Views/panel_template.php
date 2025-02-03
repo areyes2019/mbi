@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sello Pronto</title>
+    <title>MBI</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('public/panel/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">

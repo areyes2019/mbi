@@ -11,8 +11,8 @@
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Cortizaciones</h1>
     </div>
-    <?php if (esc(tiene_permisos(session('id_usuario'),'2','2'))): ?>
-    <button class="btn btn-primary btn-sm rounded-0 shadow-none" data-toggle="modal" data-target="#nueva_cotizacion">Generar cotización</button>        
+    <?php if (esc(tiene_permisos(session('id_usuario'),'8','2'))): ?>
+    <!-- <button class="btn btn-primary btn-sm rounded-0 shadow-none" data-toggle="modal" data-target="#nueva_cotizacion">Generar cotización</button> -->
     <?php endif ?>
 	<div class="my-card mt-3">
 		<table id="example" class="table table-bordered" style="width:100%">
@@ -75,9 +75,34 @@
         </table>
 	</div>
 </div>
-
 <!-- Modal -->
-<div class="modal fade" id="nueva_cotizacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="nueva_cotizacion" tabindex="-1" role="dialog" aria-labelledby="empresaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="empresaModalLabel">Seleccionar Empresa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="empresa">Empresa:</label>
+        <select class="form-control" id="empresa" v-model="empresa_seleccionada">
+            <option value="" selected disabled>Selecciona una empresa...</option>
+            <?php foreach ($entidades as $entidad): ?>
+            <option value="<?php echo $entidad['id_entidad'] ?>"><?php echo $entidad['razon_social'] ?></option>
+            <?php endforeach ?>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" @click = "cotizacion_independiente">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog rounded-0">
     <div class="modal-content rounded-0">
       <div class="modal-header">
@@ -101,7 +126,7 @@
                     <td><?php echo $cliente['hospital'] ?></td>
                     <td><?php echo $cliente['titular'] ?></td>
                     <td>
-                        <a href="<?php echo base_url('/cotizacion_independiente/'.$cliente['id_cliente']); ?>" class="btn btn-primary btn-sm rounded-0"><span class="bi-check-lg"></span></button>
+                        <a href="#" @click.prevent = "cotizacion_independiente(<?php echo $cliente['id_cliente'] ?>)" class="btn btn-primary btn-sm rounded-0"><span class="bi-check-lg"></span></button>
                     </td>
                 </tr>
                 <?php endforeach ?>

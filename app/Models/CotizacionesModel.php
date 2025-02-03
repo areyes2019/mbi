@@ -13,6 +13,7 @@ class CotizacionesModel extends Model
     protected $allowedFields = [
         'slug',
         'entidad',
+        'generado_por',
         'id_cliente',
         'estatus',
         'validez',

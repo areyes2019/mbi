@@ -19,6 +19,9 @@ class Cotizaciones extends BaseController
 {
 	public function index()
 	{
+		$entidad = new EntidadesModel();
+		$entidades = $entidad->select('id_entidad, razon_social')->findAll();
+
 		$db = \Config\Database::connect();
 
 		$builder = $db->table('mbi_cotizaciones');
@@ -31,32 +34,39 @@ class Cotizaciones extends BaseController
 
 		$data = [
 			'cotizaciones'=>$resultado,
-			'clientes'=>$data_cliente
+			'clientes'=>$data_cliente,
+			'entidades'=>$entidades,
 		];
 
 		return view('cotizaciones',$data);
 	}
 	public function independiente($id)
 	{
-		//primero buscamos al cliente
-		$cliente = new ClientesModel();
-		$resultado = $cliente->select('hospital,titular,responsable,correo')
-							 ->where('id_cliente',$id)
-							 ->first();
-
 
 		// Generar un slug aleatorio
 	    $caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $longitud = 12;
 	    $slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
 
+	    
+	    //buscamos a quien genera la cotización
+	    $usuario = session('id_usuario');
+
 	    //generamos la cotización
 
-	    //vemos la sesion
-	    $session = \Config\Services::session();
+	    $cotizacion = new CotizacionesModel();
+	    $data = [
+	    	'slug'=>$slug,
+	    	'generado_por'=>$usuario
+
+	    ];
+	    
+	    if ($cotizacion->insert($data)) {
+	    	return view('pagina_cotizador_independiente',$data);
+	    }
 
 
-		return json_encode($session->get());
+
 	}
 	public function nueva()
 	{

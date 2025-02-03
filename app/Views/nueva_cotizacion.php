@@ -319,5 +319,5 @@
 <?php endforeach ?>
 </div>
 
-<script src="<?php echo base_url('public/js/cotizaciones.js');?>"></script> 
+<script src="<?php echo base_url('public/js/cotizacion.js');?>"></script> 
 <?php echo $this->endSection()?>
