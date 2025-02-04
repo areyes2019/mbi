@@ -26,7 +26,7 @@
             <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" @click="rechazar_tarea_modal(<?php echo $data['id_kardex'] ?>)"><span class="bi bi-x-lg"></span> Rechazar</button>
             <?php endif ?>
             <?php if (esc(permisos($data['estatus'],'cotizacion'))):?>
-            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#miModal"><span class="bi bi-send"></span> Enviar a cotización</button>
+            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#entidad"><span class="bi bi-send"></span> Enviar a cotización</button>
             <?php endif ?>
             <?php if (esc(permisos($data['estatus'],'cotizar'))): ?>
             <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#entidad"><span class="bi bi-send"></span> Cotizar</button> 
@@ -209,18 +209,17 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="miModalLabel">Ingrese el Costo</h5>
+            <h5 class="modal-title" id="miModalLabel">Escoge la entidad</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-                <label for="">Entidad</label>
-                <select name="" id="" class="form-control rounded-0 shadow-none" v-model="entidad">
-                    <option value="" selected>Seleccione una entidad</option>
+                <label for="">Selecciona una entidad...</label>
+                <select name="" id=""  class="form-control rounded-0 shadow-none" v-model="entidad">
                     <?php foreach ($entidades as $entidad): ?>
-                    <option value=""><?php echo $entidad['razon_social'] ?></option>
+                    <option value="<?php echo $entidad['id_entidad'] ?>"><?php echo $entidad['razon_social'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>

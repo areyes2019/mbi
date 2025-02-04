@@ -72,18 +72,17 @@ class Cotizaciones extends BaseController
 	{
 		// Obtener el ID del Kardex desde la solicitud
 	    $id = $this->request->getVar('id');
+		$entidad = $this->request->getvar('entidad'); 
 
 	    // Obtener el registro del cliente usando el ID de Kardex
 	    $kardexModel = new KardexModel();
-	    $clienteData = $kardexModel->where('id_kardex', $id)->first();
+		$clienteData = $kardexModel->select('id_cliente, generado_por')->where('id_kardex', $id)->first();
 
 	    if (!$clienteData) {
 	        return json_encode(['hecho' => 0, 'mensaje' => 'Cliente no encontrado']);
 	    }
 
-
 	    $id_cliente = $clienteData['id_cliente'];
-	    $kardex_id = $id;
 
 	    // Generar un slug aleatorio
 	    $caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -93,24 +92,42 @@ class Cotizaciones extends BaseController
 	    // Crear el registro de la cotización
 	    $cotizacionesModel = new CotizacionesModel();
 	    $data = [
-	        'id_cotizacion' => $kardex_id,
 	        'slug' => $slug,
 	        'id_cliente' => $id_cliente,
 	        'id_kardex' => $id,
-	        'estatus' => 1,
+	        'estatus' => 9,
 	        'atendido_por'=>$clienteData['generado_por'],
-	        'total'=>$clienteData['costo_total'] //aqui sacamos el costo total del kardes, no confundirse con clienteData
+	        'aprobado_por'=>session('id_usuario'),
+	        'total'=> 0,
 	    ];
 
-	    //creamos la linea de destalle
-
-
+	    //sacamos la cotizacin
 	    // Intentar la inserción y verificar el ID insertado
-	    $cotizacionesModel->insert($data);
-	    if ($cotizacionesModel->db->affectedRows() > 0) { // Confirma que el registro fue insertado
+	    
+
+	    if ($cotizacionesModel->insert($data)){
+	    	return json_encode([
+	    		'estado'=>1,
+	    		'mensaje'=>'Cotización creada con éxito',
+	    		'slug'=>$slug,
+	    	]);
+
+	    }else{
+	    	return json_encode([
+	    		'mensaje'=>'Error al crear la cotización',
+	    	]);
+	    }
+
+	    /*if ($cotizacionesModel->db->affectedRows() > 0) { // Confirma que el registro fue insertado
 	        // Actualizar el estatus de Kardex
 	        $kardexUpdate = ['estatus' => 8];
 	        $kardexModel->update($id, $kardexUpdate);
+	        
+	        //sacamos el id de la cotizacion
+
+	        $id_cotizacion = new CotizacionesModel();
+	        $id_cotizacion->select('id_cotizacion')->where()
+
 	        //agregamos linea de detalle 
 	    	$detalle = new DetalleModel();
 	    	$data_detalle = [
@@ -134,36 +151,29 @@ class Cotizaciones extends BaseController
 	            'hecho' => 0,
 	            'mensaje' => 'Error al crear la cotización'
 	        ]);
-	    }
+	    }*/
 	}
 	public function pagina($slug)
 	{
 		$db = \Config\Database::connect();
-		$cotizacion_id = $this->request->uri->getSegment(3);
-		$id = $cotizacion_id;
-
+		$cotizacion_id = $this->request->uri->getSegment(2);
+		
 		
 		//encongrar cotizacion
 		$cotizacion = $db->table('mbi_cotizaciones');
 		$cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');
-		$cotizacion->where('id_cotizacion',$id);
+		$cotizacion->where('slug',$cotizacion_id);
 		$resultado_cotizacion = $cotizacion->get()->getResultArray();
 
-		$sub_total = $resultado_cotizacion[0]['total']; //es la suma que puso el administrador
-		$iva =$sub_total * 0.16; //saca el iva
-		$total = $sub_total + $iva;
-		
 		//return json_encode($total);
 
 		$kardex = new KardexModel();
-		$kardex->where('id_kardex',$resultado_cotizacion[0]['id_kardex']);
-		$resultado_kardex = $kardex->findAll();
-		$kardex_slug = $resultado_kardex[0]['slug'];
+		$resultado_kardex = $kardex->select('id_kardex')->where('id_kardex',$resultado_cotizacion[0]['id_kardex'])->first();
 
 		//econtrar los diagnosticos
 
 		$detalles = new KardexDetalleModel();
-		$detalles->where('id_kardex', $resultado_cotizacion[0]['id_kardex']);
+		$detalles->where('id_kardex', $resultado_kardex['id_kardex']);
 		$resultado_detalles = $detalles->findAll();
 
 		$diagnostico = new KardexDiagnosticoModel();
@@ -182,10 +192,8 @@ class Cotizaciones extends BaseController
 			'cotizacion'=>$resultado_cotizacion,
 			'diagnostico'=>$resultado_diagnostico,
 			'refacciones'=>$resultado_refaccion,
-			'slug'=>$kardex_slug,
-			'sub_total'=> number_format($sub_total,2),
-			'iva'=>number_format($iva,2),
-			'total'=>number_format($total,2),
+			'slug'=>$resultado_kardex['id_kardex'],
+		
 		];
 
 		return view('nueva_cotizacion',$data);
@@ -394,6 +402,13 @@ class Cotizaciones extends BaseController
 	}
 	public function eliminar($id)
 	{
+		
+		//borramos micro datos
+
+		//borramos detalle
+
+		//borramos la cotizacion
+
 		$model = new CotizacionesModel();
 		if ($model->delete($id)) {
 			echo 1;
@@ -618,19 +633,17 @@ class Cotizaciones extends BaseController
 		return json_encode($resultado);
 
 	}
-	public function ver_diagnostico_kardex($data)
+	public function ver_diagnostico_kardex($id)
 	{
+		//sacamos el kardex
+		$cotizacionModel = new CotizacionesModel();
+		$resultado_cotizacion = $cotizacionModel->select('id_kardex')->where('id_cotizacion',$id)->first();
 		
-		$detalle_cotizacion = new DetalleModel();
-		$detalle_cotizacion->where('id_cotizacion_detalle',$data);
-		$resultado_detalle_cotizaciones = $detalle_cotizacion->findAll();
-
-		//primero sacamos el detalle del kardex
+		//sacamos el slug del detalle para poder sacar el diagnostico
 		$detalle_kardex = new KardexDetalleModel();
-		$detalle_kardex->where('id_kardex', $resultado_detalle_cotizaciones[0]['id_cotizacion']);
-		$resultado_kardex = $detalle_kardex->findAll();
+		$resultado_kardex = $detalle_kardex->select('slug')->where('id_kardex',$resultado_cotizacion['id_kardex'])->first();
 
-		$id = $resultado_kardex[0]['slug'];
+		$id = $resultado_kardex['slug'];
 		
 		//ahora vamos por el disgnostico
 		$diagnostico = new KardexDiagnosticoModel();
@@ -647,8 +660,8 @@ class Cotizaciones extends BaseController
 			'diagnostico'=>$resultado_diagnostico,
 			'refacciones'=>$resultado_refaccion,
 		];
-
 		return json_encode($data);
+
 	}
 	public function clonar($slug)
 	{
@@ -770,11 +783,15 @@ class Cotizaciones extends BaseController
 		$resultado_cotizacion = $model->findAll();
 
 		//sacamos los microdatos
-
-		$micro = new DetalleDetalleModel();
-		$micro->where('id_detalle',$resultado_cotizacion[0]['id_cotizacion_detalle']);
-		$resultado = $micro->findAll();
-		return json_encode($resultado);
+		if ($resultado_cotizacion) {
+			$micro = new DetalleDetalleModel();
+			$micro->where('id_detalle',$resultado_cotizacion[0]['id_cotizacion_detalle']);
+			$resultado = $micro->findAll();
+			return json_encode($resultado);
+			
+		}else{
+			return json_encode(0);
+		}
 
 
 	}

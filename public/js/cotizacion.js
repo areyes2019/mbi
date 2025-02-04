@@ -334,16 +334,7 @@ const { createApp, ref } = Vue
 
         }
       },
-      eliminar_cotizacion(data){
-        var url = '/eliminar_cotizacion/'+data;
-        if (confirm('¿En verdad deseas eliminar esta cotización? Esta acción ya no se puede revocar')) {
-          axios.get(url).then((response)=>{
-            if (response.data==1) {
-              window.location.href = "/cotizaciones";
-            }
-          })
-        }
-      },
+      
     },
     mounted(){
       this.ver_microdetalles();

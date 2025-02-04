@@ -67,7 +67,7 @@
                             <h5><strong>Sub-total</strong></h5>
                         </td>
                         <td>
-                            <h5 class="text-primary">$<?php echo $sub_total?></h5>
+                            <h5 class="text-primary">$5200</h5>
                         </td>
                     </tr>
                      <tr>
@@ -75,7 +75,7 @@
                             <h5><strong>IVA</strong></h5>
                         </td>
                         <td>
-                            <h5 class="text-primary">$<?=$iva?></h5>
+                            <h5 class="text-primary">$890</h5>
                         </td>
                     </tr>
                      <tr class="bg-dark">
@@ -83,7 +83,7 @@
                             <h5 class="text-white"><strong>Pago Total</strong></h5>
                         </td>
                         <td>
-                            <h5 class="text-white">$<?php echo $total ?></h5>
+                            <h5 class="text-white">$456</h5>
                         </td>
                     </tr>
                 </table>
@@ -94,11 +94,17 @@
 </div>
 <div class="card shadow mb-4 rounded-0">
         <div class="card-body d-flex align-items-center">
-             <button class="btn btn-primary btn-icon-split ml-2" data-toggle="modal" data-target="#condiciones">
+             <button class="btn btn-primary btn-icon-split ml-2 rounded-0" data-toggle="modal" data-target="#condiciones">
                 <span class="icon text-white-50">
                     <i class="bi bi-list-check"></i>
                 </span>
                 <span class="text">Condiciones</span>
+            </button>
+            <button class="btn btn-danger btn-icon-split ml-2 rounded-0" data-toggle="modal" data-target="#agregar_articulo" @click = "agregar_diagnostico_modal(<?php echo $item['id_cotizacion'] ?>)">
+                <span class="icon text-white-50">
+                    <i class="bi bi-list-check"></i>
+                </span>
+                <span class="text">Agregar Conceptos</span>
             </button>
             <div class="w-25 d-flex ml-2 align-items-center">
                 <label for="moneda">Selecciona una moneda:</label>
@@ -148,6 +154,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <p>Gran Total ${{(Number(total)+Number(costo)).toFixed(2)}}</p>
                             <div v-if="diag.agregado != 1">
                                 <button type="button" class="btn btn-primary btn-sm rounded-0 mb-3" @click="agregarFila"><span class="bi bi-plus-circle"></span></button>
                                 <form @submit.prevent="submitForm">
@@ -172,14 +179,6 @@
                                 </span>
                                 <span class="text">Cerrar</span>
                             </button>
-                            <div v-for="id_diagnostico in diagnostico">
-                                <button type="button"  class="btn btn-success btn-icon-split" @click = "agregar_por_diagnostico(<?php echo $item['id_cotizacion'] ?>)">
-                                    <span class="icon text-white-50">
-                                        <i class="bi bi-check2"></i>
-                                    </span>
-                                    <span class="text">Agregar</span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -252,9 +251,7 @@
                 </td>
                 <td>{{dato.total}}</td>
                 <td>{{dato.total}}</td>
-                <?php if ($item['estatus']==9 || $item['estatus']==10): ?>
                 <td><button class="btn btn-danger btn-sm rounded-0"><span class="bi bi-x-lg" @click = "borrar_linea_detalle(dato.id_cotizacion_detalle)"></span></button></td>
-                <?php endif ?>
             </tr>
         </table>
     </div>

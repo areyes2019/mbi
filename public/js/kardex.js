@@ -9,6 +9,14 @@ createApp({
 			existencias:[],
 			tipos:[],
 			formulario:{},
+			formularioDefault: {
+	            nombre:"",
+				marca:"",
+				modelo:"",
+				serie:"",
+				inventario:"",
+				falla:"",
+        	}
 			actualizar_linea:{},
 			errores:{},
 			destinatario:"",
@@ -53,6 +61,7 @@ createApp({
 
             imagenGrande: null,
             precio_admin:"",
+            entidad:"",
 		}
 	},
 	methods:{
@@ -119,13 +128,22 @@ createApp({
 		},
 		insertar(){
 			if (this.validar()) {
-				var me = this;
 				var url = '/detalle_kardex';
 				this.formulario.kardex = this.$refs.id_kardex.innerHTML;
 				axios.post(url,this.formulario).then((response)=>{
 					if (response.data == 1) {
 						$('#equipos').modal('hide');
 						$.notify('Reporte agregado');
+						// Limpiar formulario
+			            this.formulario.nombre = "";
+			            this.formulario = {
+			                nombre: '',
+			                marca: '',  // Asegúrate de incluir todos los campos del formulario aquí
+			                modelo: '',
+			                serie: '',
+			                inventario: '',
+			                falla: '',
+			            };
 						this.mostrar_general();
 					}
 				})
@@ -427,16 +445,16 @@ createApp({
         },
         a_cotizacion(data,kardex) {
         	
-        	if (confirm('Deseas enviar este kardex a cotizacion por el vendedor')) {
+        	if (confirm('Deseas enviar este kardex a cotizacion')) {
 	        	axios.post('/enviar_a_cotizar',{
 	        		'usuario':data,
-	        		'costo': this.precio_admin,
 	        		'kardex':kardex
 	        	}).then((response)=>{
 	        		if (response.data == 1) {
-	        			$('#miModal').modal('hide');
 	        			$.notify('Se ha enviado a cotizar');
-	        			location.reload();
+	        			setTimeout(function() {
+					        window.location.href = "cotizaciones";
+					    }, 2000);
 	        		}
 	        	})
 
@@ -445,9 +463,12 @@ createApp({
 	    cotizar(data){
 	    	const url = '/nueva_cotizacion';
 		    if (confirm('¿Deseas enviar este kardex a cotización?')) {
-		        axios.post(url, { 'id': data })
+		        axios.post(url, { 
+		        	'id': data,
+		        	'entidad':this.entidad,
+		        })
 		            .then((response) => {
-		                if (response.data.hecho === 1) {
+		                if (response.data.estado === 1) {
 		                    $.notify(response.data.mensaje);
 
 		                    setTimeout(() => {
@@ -455,8 +476,8 @@ createApp({
 		                    }, 1000);
 
 		                    setTimeout(() => {
-		                        window.location.href = `/pagina_cotizador/${response.data.slug}/${response.data.id}`;
-		                    }, 2000);
+		                        window.location.href = `/pagina_cotizador/${response.data.slug}`;
+		                    }, 1000);
 		                } else {
 		                    $.notify(response.data.mensaje || 'Error inesperado');
 		                }

@@ -83,9 +83,12 @@ createApp({
 			var url = "eliminar_kardex/"+data;
 			if (confirm('¿Estas seguro de querer eliminar este kardex? Esta accion ya no se puede revocar')==true) {
 				axios.get(url).then((response)=>{
-					if (response.data == 1) {
-						location.reload();
-					}
+					if (response.data.kardex.status == 'success') {
+						$.notify('Se elimió correctamente el kardex');
+						setTimeout(()=>{
+							location.reload();
+						},1000)
+					};
 				})
 
 			}

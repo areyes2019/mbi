@@ -52,7 +52,7 @@
                                 <a href="" class="dropdown-item">Descargar</a>
                                 <!--  Editar -->
                                 <a href="<?php echo base_url('pagina_cotizador')."/".$cotizacion['slug']."/".$cotizacion['id_cotizacion']; ?> " class="dropdown-item">Editar</a>
-                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))): ?>
+                                <?php if (esc(tiene_permisos(session('id_usuario'),'1','4'))|| es_super_admin()): ?>
                                 <!--  Eliminar -->
                                 <a href="#" class="dropdown-item" @click.prevent = "eliminar_cotizacion(<?php echo $cotizacion['id_cotizacion'] ?>)">Eliminar</button>
                                 <?php endif ?>

@@ -11,7 +11,7 @@ use App\Models\HorariosModel;
 use App\Models\UsuariosModel;
 use App\Models\MensajeModel;
 use App\Models\RefaccionesModel;
-use App\Models\InboxModel;
+use App\Models\CotizacionesModel;
 use App\Models\KardexDiagnosticoModel;
 use App\Models\KardexDiagnosticoImgModel;
 use App\Models\EntidadesModel;
@@ -490,22 +490,84 @@ class Kardex extends BaseController
     }
     public function eliminar_kardex($id)
     {
-        //encontramos el msg que corresponde
 
-        $mensaje = new MensajeModel();
-        $mensaje->where('kardex_id',$id);
-        $resultado = $mensaje->findAll();
+        $kardex = new KardexModel();
+        $diagnosticoModel = new KardexDiagnosticoModel();
+        $slugModel = new KardexDetalleModel();
+        $imgModel = new KardexDiagnosticoImgModel();
         
-        //return json_encode($resultado);
+        $slug = $slugModel->select('slug')->where('id_kardex', $id)->first();
+        $no_slug = "";
+        if (!$slug) {
+            if ($kardex->where('id_kardex',$id)->delete()) {
+                $mensajeKardex = ['status'=>'success','message'=>'Se eliminó el kardex correctamente'];
+            }else{
+                $mensajeKardex = ['status'=>'error','message'=>'No se pudo eliminar el kardex'];
+            }
+            $no_slug = ['status'=>'error', 'message'=> 'No hay slug'];
+        }
+        //sacar imagen 
+        $imgModel->where('id_kardex_diagnostico',$slug['slug']);
+        $img_resultado = $imgModel->findAll();
+        #comrobamos si existe
+        if (!empty($img_resultado)) {
+            $img = $img_resultado[0]['img']; //sacamos la imagen
+            $ruta = FCPATH.'public/equipos/'.$img; //ruta completa del archivo
+            //return json_encode($ruta);
 
-        if ($resultado) {
-            $mensaje->delete($resultado[0]['id_mensaje']);
+            //verificmaos si el archivo existe antes de eliminarlo
+            if (file_exists($ruta)) {
+                if (unlink($ruta)) { //eliminamos el archivo del directorio
+                    $mensajeArchivo = ['status'=>'success', 'message'=>'Archivo eliminado'];
+                }else{
+                    $mensajeArchivo = ['status'=>'error','message'=>'No se pudo eliminar el archivo'];
+                }    
+            }else{
+                $mensajeArchivo = ['message'=>'El archivo no existe'];
+            }
+        }else{
+            $mensajeArchivo = ['message'=>'No se encontraron imágenes'];
         }
 
-        $model = new KardexModel();
-        if ($model->delete($id)) {
-            echo 1;
-        }       
+        //eliminar el registro de img
+        if ($imgModel->where('id_kardex_diagnostico',$slug)->delete()) {
+            $mensajeRegistro = ['status'=>'success', 'message'=>'Se elimino el registro correctamente'];
+        }else{
+            $mensajeRegistro = ['message'=>'No se pudo eliminar el registro'];
+        } 
+        
+        //eliminar kardex diagnostico
+        if ($diagnosticoModel->where('id_detalle_kardex',$slug)->delete()) {
+            $mensajeDiagnostico = ['status'=>'success','message'=>'Diagnostico elminado'];
+        }else{
+            $mensajeDiagnostico = ['status'=>'error','No se pudo elimianar el diagnóstico'];
+        }
+
+        //eliminar kardex detalle
+        if ($slugModel->where('slug',$slug['slug'])->delete()) {
+            $mensajeDetalle = ['status'=>'success', 'message'=>'Detalle eliminado correctamente'];
+        }else{
+            $mensajeDetalle = ['status'=>'error', 'message'=>'No se pudo eliminar el detalle'];
+        }
+        
+        //elimiar kardex
+
+        if ($kardex->where('id_kardex',$id)->delete()) {
+            $mensajeKardex = ['status'=>'success','message'=>'Se eliminó el kardex correctamente'];
+        }else{
+            $mensajeKardex = ['status'=>'error','message'=>'No se pudo eliminar el kardex'];
+        }
+
+        $data = [
+            'arvhivo'=>$mensajeArchivo,
+            'registro'=>$mensajeRegistro,
+            'diagnostico'=>$mensajeDiagnostico,
+            'detalle'=>$mensajeDetalle,
+            'kardex'=>$mensajeKardex,
+            'no_slug'=>$no_slug
+        ];
+
+        return json_encode($data);
     }   
     public function borrar_linea($id)
     {
@@ -870,21 +932,28 @@ class Kardex extends BaseController
     public function enviar_a_cotizar()
     {
         $model = new KardexModel();
-
-        $costo = $this->request->getvar('costo');
-        $kardex = $this->request->getvar('kardex');
-        $estatus = 8;
+        $usuario = $this->request->getvar('usuario'); //Vendedor que esta atendiendo este cliente
+        $kardex = $this->request->getvar('kardex');  //Kardex relacionado
+        $aprobado_por = session('id_usuario'); //El administrador que genero la cotización
+        $estatus = 8; // El estatus que se actualiza en la tabla kardex
 
         $data=[
             'estatus' => $estatus,
-            'costo_total' => $costo,
+            'usuario' => $costo,
         ];
 
         //return json_encode($data);
+        //actualizar el estatus del cardex
         if ($model->update($kardex,$data)) {
             echo 1;
         }
 
+        //crear la base de una cotización
+
+        ##Generar un slug aleatorio
+        $caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $longitud = 12;
+        $slug = substr(str_shuffle($caracteres_permitidos), 0, $longitud);
 
     }
     

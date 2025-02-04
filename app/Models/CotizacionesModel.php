@@ -14,6 +14,7 @@ class CotizacionesModel extends Model
         'slug',
         'entidad',
         'generado_por',
+        'aprobado_por',
         'id_cliente',
         'estatus',
         'validez',

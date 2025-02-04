@@ -8,14 +8,14 @@ class DetalleModel extends Model
     protected $table = 'mbi_cotizaciones_detalles';
     protected $primaryKey = 'id_cotizacion_detalle';
     protected $allowedFields = [
-        'descripcion',
+        'cantidad',
+        'partida',
         'precio_unitario',
+        'clave',
+        'descripcion',
         'iva',
         'total',
         'id_cotizacion',
         'diagnostico',
-        'partida',
-        'cantidad',
-        'clave'
     ];
 }
