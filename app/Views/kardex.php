@@ -12,12 +12,27 @@
     <!-- Card principal -->
     <div class="card rounded-0">
         <div class="card-header">
-            <button class="btn btn-primary btn-sm rounded-0 mr-2">Liberar Kardex</button>
+            <!--  esto lo ve el vendedor en la etapa 1 y el administrador en la etapa 2 -->
+            <?php if (($proceso == 1 && $rol== 1)||($proceso==2 && $rol== 2)): ?>
             <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex">Turnar</button>
+            <?php endif ?>
+            
+            <?php if ($proceso == 6 && $rol==3): ?>
+            <button class="btn btn-primary btn-sm rounded-0 mr-2">Liberar Kardex</button>
+            <?php endif ?>
+            
+            <?php if ($proceso==1 && $rol == 1): ?>
             <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#equipos">Agregar Equipos</button>
+            <?php endif ?>
+
+            <?php if ($proceso == 4 && $rol==3): ?>
             <button class="btn btn-success btn-sm rounded-0 shadow-none mr-1">Aceptar</button>
             <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" data-toggle = "modal" data-target="#rechazar_tarea">Rechazar</button>
+            <?php endif ?>
+
+            <?php if ($proceso == 7 && $rol==2): ?>
             <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle = "modal" data-target="#entidad">Enviar a cotización</button>
+            <?php endif ?>
             <a href="/pdf_os/123" class="btn btn-primary btn-sm rounded-0 mr-2" data-toggle = "modal" data-target="#enviar_cardex">Descargar PDF</a>
         </div>
         <div class="card-body">

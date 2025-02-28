@@ -114,7 +114,15 @@ class Kardex extends BaseController
             $diagnostico_datos['imagenes'] = $imagen_data;
 
          } 
-
+        $proceso =  $resultado[0]['estatus'];
+        $rol = $usuarios->find(session('id_usuario'));
+        if (empty($rol)){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'Usuario',
+                'flag'=>0
+            ]);
+        }
         $fecha = $this->formatearFecha($resultado[0]['created_at']); //mostramos al fecha formateada
         $data = [
             'kardex'=> $resultado,
@@ -124,7 +132,9 @@ class Kardex extends BaseController
             'diagnostico'=>$diagnostico_datos,
             'errores'=>$errores,
             'id'=>$resultado[0]['id_kardex'],
-            'usuarios'=>$users
+            'usuarios'=>$users,
+            'proceso'=>$proceso,
+            'rol'=>$rol['id_rol']
         ];
             
         // Conexión a la base de datos
