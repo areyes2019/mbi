@@ -85,6 +85,7 @@
         <?php foreach ($reporte as $isue): ?>
         <div class="card">
             <div class="card-header">
+                <?php if ($proceso == 1): ?>
                 <button 
                     class="btn btn-primary btn-sm rounded-0 mr-1" 
                     data-toggle="modal" 
@@ -92,6 +93,7 @@
                     @click = "actualizar(<?= $isue['id_detalle']?>)"
                     >Editar</button>
                 <button class="btn btn-danger btn-sm rounded-0" @click = "borrar_linea(<?= $isue['id_detalle'] ?>)">Eliminar</button>
+                <?php endif ?>
             </div>
             <div class="card-body">
                 <p class="m-0"><strong>Nombre del equipo:</strong> <?php echo $isue['nombre'] ?></p>
