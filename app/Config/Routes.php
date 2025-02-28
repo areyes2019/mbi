@@ -112,7 +112,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('actualizar_detalle/(:num)','Kardex::actualizar_detalle/$1');
 	$routes->post('actualizar_final/(:num)','Kardex::actualizar_final/$1');
 	$routes->get('eliminar_kardex/(:num)','Kardex::eliminar_kardex/$1');
-	$routes->get('si_ingeniero/(:num)','Kardex::si_ingeniero/$1');
+	$routes->post('si_ingeniero','Kardex::si_ingeniero');
 	$routes->post('agregar_diagnostico','Kardex::agregar_diagnostico');
 	$routes->post('subir_imagen','Kardex::subir_imagen');
 	$routes->get('eliminar_img/(:num)','Kardex::eliminar_img/$1');

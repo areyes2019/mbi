@@ -425,6 +425,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <p ref="id_kardex" class="d-none"><?= $id ?></p>
             <div class="modal-body">
                 <?php if (isset($reporte['flag']) && $reporte['flag']==0): ?>
                     <div class=" alert alert-primary">
@@ -455,10 +456,10 @@
                             <td>De:</td>
                             <td>A:</td>
                         </tr>
-                        <tr v-for = "horario in datos.horario">
-                            <td>{{horario.dia}}</td>
-                            <td>{{horario.hora_inicio}}</td>
-                            <td>{{horario.hora_fin}}</td>
+                        <tr v-for = "horarios in horario">
+                            <td>{{horarios.dia}}</td>
+                            <td>{{horarios.hora_inicio}}</td>
+                            <td>{{horarios.hora_fin}}</td>
                         </tr>
                     </table>
                     <div class="row">

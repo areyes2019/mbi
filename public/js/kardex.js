@@ -53,7 +53,8 @@ createApp({
 
             imagenGrande: null,
             precio_admin:"",
-            entidad:""
+            entidad:"",
+            horario:{}
 		}
 	},
 	methods:{
@@ -328,13 +329,17 @@ createApp({
 			})
 		},
 		si_ingeniero(usuario){
-			var me  = this;
-			var url = '/si_ingeniero/'+ usuario;
-			axios.get(url).then(function (response){
-				if (response.data ==  1) {
-					me.ingeniero = 1;
+			var id  = this.$refs.id_kardex.innerHTML;
+			var url = '/si_ingeniero';
+			axios.post(url,{
+					'usuario':usuario,
+					'id':id  //estes es el ik kardex
+				}).then((response)=>{
+				if (response.data.flag ==  1) {
+					this.ingeniero = 1;
+					this.horario = response.data.datos
 				}else{
-					me.ingeniero = 0;
+					this.ingeniero = 0;
 				}
 			})
 		},

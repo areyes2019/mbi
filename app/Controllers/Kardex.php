@@ -469,13 +469,43 @@ class Kardex extends BaseController
         #necesitamos un destinatario*/
 
     }
-    public function si_ingeniero($id)
-    {
+    public function si_ingeniero()
+    {   
+        //traemos los modelos
+        $cliente_query = new KardexModel();
+        $horarios = new HorariosModel();
         $model = new UsuariosModel();
-        $model->where('id_usuario',$id);
+
+        $usuario = $this->request->getvar('usuario'); 
+        $id = $this->request->getvar('id'); 
+        //sacamos al cliente
+        $resultado_cliente = $cliente_query->select('id_cliente')->where('id_kardex',$id)->findAll();
+        if (!$resultado_cliente){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay consulta',
+                'flag'=>0
+            ]);
+        }
+
+        $cliente = $resultado_cliente[0]['id_cliente'];
+
+        $model->where('id_usuario',$usuario);
         $resultado = $model->findAll();
-        if ($resultado[0]['id_rol']==3) {
-            echo 1;
+        if ($resultado[0]['id_rol'] ==3 ) {
+            //sacamos los horarios 
+            $horarios->where('id_cliente',$cliente);
+            $resultado_horarios = $horarios->findAll();
+            return json_encode([
+              'datos'=> $resultado_horarios,
+              'flag'=>1
+            ]);
+        }else{
+            return json_encode([
+                'status'=>'error',
+                'message'=>'No hay horarios',
+                'flag'=>0,
+            ]);
         }
     }
     public function eliminar_kardex($id)
