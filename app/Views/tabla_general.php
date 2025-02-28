@@ -114,7 +114,7 @@
                             <div class="dropdown-menu rounded-0">
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
                                 <!--  Editar -->
-                                <a href="<?php echo base_url('/kardex/'.$mis_tareas['id_kardex']."/".$mis_tareas['slug']); ?>" class="dropdown-item">Editar</a>
+                                <a href="<?php echo base_url('/kardex/'.$mis_tareas['slug']); ?>" class="dropdown-item">Editar</a>
                                 <?php endif ?>
 
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
