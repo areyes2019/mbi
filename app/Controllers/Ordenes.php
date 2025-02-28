@@ -38,6 +38,7 @@ class Ordenes extends Controller
             $builder->where('estatus', 7); //atendido por el
             $resultado = $builder->get()->getResultArray();
         }elseif ($rol == 2) { //esto es lo que ve el administrador
+            $builder->where('atendido_por !=', $usuario); //atendido por el
             $resultado = $builder->get()->getResultArray();
         }
 
