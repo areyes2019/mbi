@@ -16,6 +16,10 @@
             <?php if (($proceso == 1 && $rol== 1)||($proceso==2 && $rol== 2)): ?>
             <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex">Turnar</button>
             <?php endif ?>
+
+            <?php if ($proceso == 3 && $rol== 1): ?>
+            <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex">Turnar</button>
+            <?php endif ?>
             
             <?php if ($proceso == 6 && $rol==3): ?>
             <button class="btn btn-primary btn-sm rounded-0 mr-2">Liberar Kardex</button>
@@ -25,6 +29,10 @@
             <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#equipos">Agregar Equipos</button>
             <?php endif ?>
 
+            <?php if ($proceso==2 && $rol == 2): ?>
+            <button class="btn btn-primary btn-sm rounded-0 mr-1" @click ="regresar_kardex(<?=$id?>)">Regresar a revisión</button>
+            <?php endif ?>
+            
             <?php if ($proceso == 4 && $rol==3): ?>
             <button class="btn btn-success btn-sm rounded-0 shadow-none mr-1">Aceptar</button>
             <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" data-toggle = "modal" data-target="#rechazar_tarea">Rechazar</button>
@@ -85,7 +93,7 @@
         <?php foreach ($reporte as $isue): ?>
         <div class="card">
             <div class="card-header">
-                <?php if ($proceso == 1): ?>
+                <?php if ($proceso == 1 || $proceso == 3): ?>
                 <button 
                     class="btn btn-primary btn-sm rounded-0 mr-1" 
                     data-toggle="modal" 
@@ -612,6 +620,36 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary rounded-0 btn-sm btn-block" data-dismiss="modal" @click = "rechazar_tarea">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  modal regresar  -->
+    <div class="modal fade" id="regresar_tarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content rounded-0 ba">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tarea {{kardex}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mt-2">
+                    <label for="" class="text-left">Escribe la razón</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend input-group-sm">
+                          <div class="input-group-text rounded-0">
+                            <i class="bi bi-card-text"></i>
+                          </div>
+                        </div>
+                        <input class="form-control rounded-0 shadow-none" placeholder="Razon..." v-model="razon">
+                    </div>
+                </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary rounded-0 btn-sm btn-block" data-dismiss="modal" @click = "regresar(<?= $id ?>)">Continuar</button>
                 </div>
             </div>
         </div>

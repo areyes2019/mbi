@@ -22,7 +22,14 @@ class Admin extends BaseController
 	    if ($rol == 1) {
 	    	$builder->where('estatus',1);
 	    	$builder->where('atendido_por',session('id_usuario'));
-	    }else{
+	    	$builder->orWhere('estatus',3);
+	    }elseif($rol == 2) {
+	    	$builder->where('estatus',2);
+	    	$builder->where('atendido_por',session('id_usuario'));
+	    	$builder->orWhere('estatus',7);
+	    }elseif($rol == 3) {
+	    	$builder->where('estatus',4);
+	    	$builder->orWhere('estatus',6);
 	    	$builder->where('atendido_por',session('id_usuario')); //lo que van a ver todos los demas
 	    }
 

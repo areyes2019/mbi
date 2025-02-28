@@ -365,12 +365,13 @@ class Kardex extends BaseController
     }
     public function enviar_kardex()
     {
+
         $kardex_data = new KardexModel();
+        $usuario = new UsuariosModel();
         //en este punto solo cambiamos el estatus y el atendido por, luego se manda el correo
 
         //datos de entrada
-        $correo  = env('MY_GLOBAL_VAR'); //correo global
-
+        $correo_mbi  = env('MY_GLOBAL_VAR'); //correo global
         $db = \Config\Database::connect(); //nos conectamos
         
         //datos de entrada
@@ -379,6 +380,11 @@ class Kardex extends BaseController
         $dia = $this->request->getvar('dia');
         $hora = $this->request->getvar('hora');
 
+        if (empty($dia)&&empty($hora)) {
+            $dia = null;
+            $hora = null;
+        }
+
         $data = [
             'kardex'=>$kardex,
             'destinatario_id'=>$destinatario_id,
@@ -386,14 +392,18 @@ class Kardex extends BaseController
             'hora'=>$hora,
         ];
 
-        if (empty($data)){
+
+        //vamos a traer el correo del destinatario
+        $correo = $usuario->select('correo')->where('id_usuario',$destinatario_id)->findAll();
+        if (!$correo){
             return $this->response->setJSON([
                 'status'=>'error',
-                'message'=>'No hay datos completos',
+                'message'=>'No hay correo',
                 'flag'=>0
             ]);
         }
 
+        $mail = $correo[0]['correo'];
         //vamos a traer los datos del status del kardex
         $estatus = $kardex_data->select('estatus')->where('id_kardex',$kardex)->findAll();
 
@@ -406,27 +416,46 @@ class Kardex extends BaseController
         }
         $stage = $estatus[0]['estatus']; //ya tenemos el estatuso para la logica
 
-        if ($stage == 1) {
+        if ($stage == 1 || $stage == 3) {
             // cambiamos a dos y enviamos a un adminstrador
             $data = [
                 'estatus'=> 2,
                 'atendido_por'=>$destinatario_id,
+                'dia'=>$dia,
+                'hora'=>$hora,
             ];
         }elseif ($stage == 2) {
             // cambiamos a cuatro y enviamos a un tecnico
             $data = [
                 'estatus'=> 4,
                 'atendido_por'=>$destinatario_id,
+                'dia'=>$dia,
+                'hora'=>$hora,
             ];
         }
 
         $update = $kardex_data->update($kardex,$data); 
         if ($update == true){
-            return $this->response->setJSON([
-                'status'=>'success',
-                'message'=>'Se envio el kardex',
-                'flag'=>1
-            ]);
+            // Enviar el correo electrónico
+            $email = \Config\Services::email();
+            $email->setTo($mail);
+            $email->setFrom($correo_mbi, 'Tu Nombre');
+            $email->setSubject('Nueva Orden de Servicio');
+
+            // Cargar la vista y pasar los datos
+            $email->setMessage(view('email/emailGeneral', [
+                'kardex' => $kardex,
+                'mensaje'=>"Tienes una nueva orden de servicio para tu atanción"
+            ]));
+            if ($email->send()) {
+                return $this->response->setJSON([
+                    'status'=>'error',
+                    'message'=>'Correo enviado',
+                    'flag'=>1
+                ]);
+            }else{
+
+            }
         }else{
             return $this->response->setJSON([
                 'status'=>'error',
@@ -435,6 +464,9 @@ class Kardex extends BaseController
             ]);
         }
 
+        //aqui enviamos el correo
+
+        #necesitamos un destinatario*/
 
     }
     public function si_ingeniero($id)
@@ -642,34 +674,64 @@ class Kardex extends BaseController
     }
     public function regresar_kardex()
     {
+        $correo = env('MY_GLOBAL_VAR');
         $id = session('id_usuario');
-
+        $email = \Config\Services::email();
         $kardex_query = new KardexModel();    
+        $model = new UsuariosModel();
+
         //estos son los datos que vienen del formulario
         $kardex = $this->request->getvar('kardex');
         $razon = $this->request->getvar('razon');
 
-        $model = new UsuariosModel();
-        $model->where('id_usuario',$id);
-        $resultado = $model->findAll();
-        $nombre_completo = $resultado['0']['nombre']." ".$resultado[0]['apellidos'];
+        //buscamos el mail del destinatario y su id
+        $usuario = $kardex_query->select('generado_por')->where('id_kardex',$kardex)->findAll();
+        if (!$usuario){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No existe el usuario',
+                'flag'=>0
+            ]);
+        }
 
-        //vamos a encontrar los datos del destinatario
-
-        $kardex_query->where('id_kardex', $kardex);
-        $resultado_kardex = $kardex_query->findAll();
-
+        //buscamos el correo
+        $correo = $model->select('correo')->where('id_usuario',$usuario[0]['generado_por'])->findAll();
+        if (!$correo){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No existe el correo',
+                'flag'=>0
+            ]);
+        }
+        //reunimos los datos
         $data = [
-            'comentarios' => $razon,
             'estatus'=>3,
-            'reenviado_por'=>$id,
-            'reenviado_nombre'=>$nombre_completo
-
+            'atendido_por'=>$usuario[0]['generado_por'],
         ];
 
-        if ($kardex_query->update($kardex,$data)) {
-            echo 1;
-        }      
+        $mail = $correo[0]['correo'];
+        $update = $kardex_query->update($kardex,$data);
+        if ($update == true) {
+            $email->setTo($mail);
+            $email->setFrom($correo[0]['correo'], 'MBI');
+            $email->setSubject('Kardex Regresado');
+
+            // Cargar la vista y pasar los datos
+            $email->setMessage(view('email/emailGeneral', [
+                'kardex' => $kardex,
+                'mensaje' => $razon,
+            ]));
+        }
+
+        if ($email->send()) {
+            return json_encode([
+                'status'=>'success',
+                'message'=>'correo enviado',
+                'flag'=>1,
+            ]);
+        }
+
+        
     }
     public function actualizar_detalle($id)
     {

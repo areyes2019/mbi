@@ -67,7 +67,7 @@
                     <th>Fecha</th>
                     <th>Estado</th>
                     <th>Tipo</th>
-                    <th>Atendido por:</th>
+                    <th>Asignado a:</th>
                     <th>Acciones</th>
                 </tr>
             </thead>

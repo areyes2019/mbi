@@ -293,18 +293,20 @@ createApp({
 		},
 		regresar_kardex(data){
 			this.id_kardex = data;
-			$('#regresar').modal('show');
+			$('#regresar_tarea').modal('show');
 		},
-		regresar(){
-			var me = this;
+		regresar(id){
 			var url = '/regresar_kardex';
 			axios.post(url,{
-				'razon':me.razon,
-				'kardex':me.id_kardex,
-			}).then(function (response){
-				if (response.data == 1) {
+				'razon':this.razon,
+				'kardex':id,
+			}).then((response)=>{
+				if (response.data.flag == 1) {
+					$.notify('Kardex devuelto con exito');
 					$('#regresar').modal('hide');
-					window.location.href='/inicio';
+					setTimeout(function() {
+						window.location.href='/inicio';
+					}, 1000);
 				}
 			})
 		},

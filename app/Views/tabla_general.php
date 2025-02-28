@@ -104,7 +104,7 @@
                         <?php endif ?>
 
                     </td>
-                    <td><strong><?php echo $mis_tareas['generado_nombre'] ?></strong></td>
+                    <td><strong><?php echo $mis_tareas['nombre']." ".$mis_tareas['apellidos'] ?></strong></td> <!--  asignado a: -->
                     <td>
 
                         <div class="btn-group dropleft">
