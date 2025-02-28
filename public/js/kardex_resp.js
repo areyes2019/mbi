@@ -5,15 +5,24 @@ createApp({
 	data(){
 		return{
 			datos:{},
+			reporte:{},
+			diagnostico:{},
 			lista:[],
 			existencias:[],
 			tipos:[],
 			formulario:{},
+			formularioDefault: {
+	            nombre:"",
+				marca:"",
+				modelo:"",
+				serie:"",
+				inventario:"",
+				falla:"",
+        	},
 			actualizar_linea:{},
 			errores:{},
 			destinatario:"",
 			kardex_id:"",
-			usuario:"defecto",
 			asunto:"",
 			kardex_data:[],
 			id_kardex:"",
@@ -25,7 +34,6 @@ createApp({
 			razon:"",
 
 			//formulario agregar diagnostico
-			diagnostico:"",
 			reparacion:"",
 			tiempo_estimado:"",
 			precio_estimado:"",
@@ -41,10 +49,8 @@ createApp({
 			id_slug:"",
 			diagnostico_slug:"",
 
-			imagenes:[],
-			refacciones:[
-                { nombre: '', marca: '', modelo: '', costo: '',id:''} // Fila inicial
-            ],
+			imagenes:{},
+			refacciones:{},
             id_diagnostico:"",
 
             //alert
@@ -53,13 +59,91 @@ createApp({
 
             imagenGrande: null,
             precio_admin:"",
+            entidad:"",
+            mensaje:"",
+            asunto:"",
+            usuario_model:"",
+            horario_seleccionado:"",
+            error_datos:{},
+            imagen_modal:""
 		}
 	},
 	methods:{
 		mostrar_general(){
-			var id = this.$refs.kardex_id.innerHTML;
+			var id = this.$refs.kardex.innerHTML;
+			console.log(id);
+			/*var usuario = this.$refs.usuario.innerHTML;
 			axios.get('/kardex_general/'+id).then((response)=>{
-				this.datos = response.data;
+				this.datos = response.data.data;
+				this.usuario = usuario;
+				this.error_datos = response.data.errors;
+				this.ver_galeria();
+			})
+			.catch((error) => {
+                    console.error('Error cargando los datos:', error);
+                    this.error_datos = { fallas: 'Error al cargar los datos' };
+            })
+            .finally(() => {
+            	console.log('solicitud completada');
+            });*/
+		},
+		mostrar_reporte() {
+			var id = this.$refs.kardex.innerHTML;
+			axios.get('/mostrar_reporte/'+ id).then((response)=>{ //aqui vemos el reporte del vendedor
+				
+				if (response.data.length > 0) { //comprueba que la consulta trea datos
+					this.reporte = response.data;
+					this.mostrar_diagnostico(response.data[0].id_detalle);
+				}
+
+			})
+		},
+		mostrar_diagnostico(data){
+			if (!data) {
+				console.log('no hay data');
+			}else{
+				var url = "/diagnosticos_mostrar/"+ data;
+				axios.get(url).then((response)=>{
+					if (response.data.length == 0) {
+						this.errores.diagnostico = 1;
+					}else{
+						this.diagnostico = response.data
+						this.mostrar_refacciones(response.data.id_diagnostico);
+						this.mostrar_imagenes(response.data.id_diagnostico);
+					}
+				})
+			}
+		},
+		mostrar_refacciones(data){
+			var url = "/ver_refacciones/"+data;
+			axios.get(url).then((response)=>{
+				if (response.data.status == "error") {
+					this.errores.refaccion = 1;
+				}else{
+					this.refacciones = response.data;
+				}
+					
+			});
+		},
+		mostrar_imagenes(data){
+			var url = "/ver_galeria/"+ data;
+			axios.get(url).then((response)=>{
+				if (response.data.length > 0) {
+					this.imagenes = response.data;
+				}else{
+					this.errores.imagen = 1;
+				}
+
+			})
+		},
+		mandar_img_modal(data){  //manda la imagen de la miniatura al modal
+			this.imagen_modal = data;
+		},
+		eliminarImagen(data){ //elimina la imagen del diagnostico
+			axios.get('/eliminar_img/'+data).then((response)=>{
+				if (response.data == 1) {
+					$.notify('La imagen se ha eliminado');
+				}
 			})
 		},
 		formatearFecha(fechaString) {
@@ -119,19 +203,29 @@ createApp({
 		},
 		insertar(){
 			if (this.validar()) {
-				var me = this;
 				var url = '/detalle_kardex';
-				this.formulario.kardex = this.$refs.id_kardex.innerHTML;
+				this.formulario.kardex = this.$refs.kardex.innerHTML;
 				axios.post(url,this.formulario).then((response)=>{
 					if (response.data == 1) {
 						$('#equipos').modal('hide');
 						$.notify('Reporte agregado');
-						this.mostrar_general();
+						// Limpiar formulario
+			            this.formulario.nombre = "";
+			            this.formulario = {
+			                nombre: '',
+			                marca: '',  // Asegúrate de incluir todos los campos del formulario aquí
+			                modelo: '',
+			                serie: '',
+			                inventario: '',
+			                falla: '',
+			            };
+						this.mostrar_reporte();
 					}
 				})
 			}    
 		},
 		modal_diagnostico(data,tipo){
+
 			if (tipo == 1) {
 				//crear
 				this.id_detalle = data;
@@ -155,28 +249,44 @@ createApp({
 		generar_diagnostico(clase){
 			var url = '/agregar_diagnostico';
 			var url2 = '/actualizacion_diagnostico';
-
 			if (clase == 1) {
-				axios.post(url,{
+				var data = {
 					'diagnostico': this.diagnostico,
 					'reparacion': this.reparacion,
 					'tiempo_entrega':this.tiempo_estimado,
 					'precio_estimado':this.precio_estimado,		
 					'id_detalle': this.id_detalle,
-					'clase':clase
+					'clase':clase,
+					'kardex':this.$refs.id_kardex.innerHTML
+				};
+				axios.post(url,data,{
+					headers:{
+						'Content-Type': 'application/json'
+					}
+					
 				}).then((response)=>{
-					$('#diagnostico').modal('hide');
-					this.vaciar_campos_diagnostico();
-					this.mostrar_general();
-					$.notify("Diagnóstico agregado");
+					if (response.data.flag == 1) {
+						$('#diagnostico').modal('hide');
+						this.mostrar_general();
+						this.vaciar_campos_diagnostico();
+						$.notify(response.data.message);
+					}else{
+						$.notify(response.data.message);
+					};
 				})
 			}else if(clase == 2){
-				axios.post(url2,{
+				var data = {
 					'diagnostico': this.diagnostico,
 					'reparacion': this.reparacion,
 					'tiempo_entrega':this.tiempo_estimado,
 					'precio_estimado':this.precio_estimado,		
-					'slug': this.id_slug,
+					'id_detalle': this.id_detalle,
+					'slug':this.id_slug
+				};
+				axios.post(url2,data,{
+					headers:{
+						'Content-Type':'application/json'
+					}
 				}).then((response)=>{
 					if (response.data == 1) {
 						$('#diagnostico').modal('hide');
@@ -198,7 +308,7 @@ createApp({
 			var url = '/eliminar_diagnostico/'+data;
 			if (confirm('¿Deseas eliminar este diagnóstico?')) {
 				axios.get(url).then((response)=>{
-					if (response.data == 1) {
+					if (response.data.flag==1) {
 						this.mostrar_general();
 						this.vaciar_campos_diagnostico();
 						$.notify("Diagnóstico eliminado");
@@ -226,47 +336,54 @@ createApp({
 		},
 
 		borrar_linea(data){
-			var me = this;
-			var url = '/borrar_linea/'+data;
-			if (window.confirm("¿Realmente quieres borrar esta linea?")) {
-				axios.get(url).then((response)=>{
-					if (response.data == 1) {
-						$.notify('El reporta ha sido borrado');
-						this.mostrar_general();
-						this.vaciar_campos();
-					}	
-				})
+			if (!data) {
+				console.log('no hay data');
+			}else{
+				var url = '/borrar_linea/'+data;
+				if (window.confirm("¿Realmente quieres borrar esta linea?")) {
+					axios.get(url).then((response)=>{
+						if (response.data.flag == 1) {
+							$.notify('El reporta ha sido borrado');
+							this.mostrar_reporte();
+						}	
+					})
+				}
 			}
 		},
 		enviar() {
-			//alert('hola');
-			var me = this;
 			var url = '/enviar_kardex';
 			axios.post(url,{
-				'destinatario':me.usuario,
-				'slug':me.$refs.kardex_id.innerHTML,
-				'kardex':me.$refs.id_kardex.innerHTML,
-				'asunto':me.asunto,
-				'dia':me.dia,
-				'hora':me.hora
-			}).then(function (response){
-				if (response.data == 11) {
-					//window.location.href = '/inicio/';
-					//window.location.assign("/inicio")
-					setTimeout(function(){document.location.href = "/inicio"},300);
+				'destinatario':this.usuario_model,
+				'kardex':this.$refs.id_kardex.innerHTML,
+				'horario_seleccionado':this.horario_seleccionado,
+				'dia':this.dia,
+				'hora':this.hora
+			}).then((response)=>{
+				if (response.data.status == 'success') {
+					$('#enviar_cardex').modal('hide');
+					$.notify('Se envió el Kardex correctamente');
+					setTimeout(function(){document.location.href = "/inicio"},1000);
 				}
 			})
 		},
 		aceptar_tarea(kardex){
 			if (confirm('¿Deseas aceptar esta tarea?')==true) {
-				var me = this;
+				// Configurar los datos y headers
+		        const data = {
+		            kardex: kardex,
+		            accion: 1,
+		            razon: 'aceptado'
+		        };
 				var url = "/kardex_accion";
-				axios.post(url,{
-					'kardex':kardex,
-					'accion':1
-				}).then(function (response){
-					if (response.data == 1) {
-						setTimeout(function(){document.location.href = "/inicio"},500);
+				axios.post(url,data,{
+					headers:{
+						'Content-Type':'application/json',
+						'Accept': 'application/json'
+					}
+				}).then((response)=>{
+					if (response.data.success == true) {
+						$.notify('Usted ha aceptado la orden de servicio')
+						setTimeout(function(){document.location.href = "/inicio"},100);
 					}
 				})
 			}
@@ -276,13 +393,12 @@ createApp({
 			$('#rechazar_tarea').modal('show');
 		},
 		rechazar_tarea(){
-			var me = this;
 			var url = '/kardex_accion';
 			axios.post(url,{
-				'kardex':me.kardex,
+				'kardex':this.kardex,
 				'accion':2,
-				'razon':me.razon,
-			}).then(function (response){
+				'razon':this.razon,
+			}).then((response)=>{
 				if (response.data == 1) {
 					setTimeout(function(){document.location.href = "/inicio"},500);
 
@@ -294,7 +410,24 @@ createApp({
 				this.horario = id_horario;
 			}
 		},
-		regresar_kardex(data){
+		regresar_vendedor(){
+			var id = this.$refs.id_kardex.innerHTML;
+			axios.post('/regresar_vendedor',{
+				'id':id,
+				'mensaje':this.mensaje,
+				'asunto':this.asunto
+			}).then((response)=>{
+				if (response.data.status == 'success') {
+					$('#regresar_cardex').modal('hide');
+					$.notify('Se regresó el Kardex al vendedor');
+					setTimeout(function(){document.location.href="/inicio"},1000);
+				}else{
+					console('no se realizo la acción');
+				}
+			})
+
+		},
+		regresar(data){
 			this.id_kardex = data;
 			$('#regresar').modal('show');
 		},
@@ -317,26 +450,24 @@ createApp({
 			axios.post(url,this.actualizar_linea).then((response)=>{
 				if (response.data == 1) {
 					$('#equipos_actualizar').modal('hide');
-					this.mostrar_general();
+					this.mostrar_reporte();
 					$.notify('Registro actualizado');
 				}
 			})
 		},
 		actualizar(detalle){
-			var me  = this;
 			var url = '/actualizar_detalle/'+ detalle;
-			axios.get(url).then(function (response){
-				me.actualizar_linea = response.data[0];
+			axios.get(url).then((response)=>{
+				this.actualizar_linea = response.data;
 			})
 		},
 		si_ingeniero(usuario){
-			var me  = this;
 			var url = '/si_ingeniero/'+ usuario;
-			axios.get(url).then(function (response){
+			axios.get(url).then((response)=>{
 				if (response.data ==  1) {
-					me.ingeniero = 1;
+					this.ingeniero = 1;
 				}else{
-					me.ingeniero = 0;
+					this.ingeniero = 0;
 				}
 			})
 		},
@@ -352,9 +483,10 @@ createApp({
 	        }
 		},
 		guardar_imgen_diangostico(data){
-			this.diagnostico_slug = data;
+			this.diagnostico_slug = data; //este es el id del diagnostico: id_diagnostico
 		},
 		subir_imagen(){
+			alert('si esta bien');
 			const formData = new FormData();
 			formData.append('imagen',this.imagen);
 			formData.append('slug',this.diagnostico_slug);
@@ -369,13 +501,6 @@ createApp({
 				this.mostrar_general();
 			})
 		},
-		ver_galeria(data){
-			var me = this;
-			var url = "/ver_galeria/"+data;
-			axios.get(url).then(function (response){
-				me.imagenes = response.data;
-			})
-		},
 		liberar(kardex){
 			//alert('saludo');
 			var me = this;
@@ -386,7 +511,7 @@ createApp({
 					$.notify('Este cardex ha sido liberado')
 					setTimeout(function() {
 					    window.location.href = '/inicio';
-					}, 3000);
+					}, 1000);
 				}
 			})
 		},
@@ -404,7 +529,8 @@ createApp({
             	'refacciones':this.refacciones,
 
             }).then((response)=>{
-            	if (response.data == 1) {
+            	if (response.data.status === 'success') {
+            		$.notify('Refacciones agregadas');
             		$('#agregar_refacciones').modal('hide');
             		this.refacciones = [{ nombre: '', marca: '', modelo: '', costo: '' }];
             		this.mostrar_general();
@@ -425,29 +551,16 @@ createApp({
         abrir_modal_refacciones(id){
         	this.id_diagnostico = id;
         },
-        a_cotizacion(data,kardex) {
-        	
-        	if (confirm('Deseas enviar este kardex a cotizacion por el vendedor')) {
-	        	axios.post('/enviar_a_cotizar',{
-	        		'usuario':data,
-	        		'costo': this.precio_admin,
-	        		'kardex':kardex
-	        	}).then((response)=>{
-	        		if (response.data == 1) {
-	        			$('#miModal').modal('hide');
-	        			$.notify('Se ha enviado a cotizar');
-	        			location.reload();
-	        		}
-	        	})
-
-        	}
-	    },
-	    cotizar(data){
+	    cotizar(){
+        	var id = this.$refs.id_kardex.innerHTML;
 	    	const url = '/nueva_cotizacion';
 		    if (confirm('¿Deseas enviar este kardex a cotización?')) {
-		        axios.post(url, { 'id': data })
+		        axios.post(url, { 
+		        	'id':id,
+		        	'entidad':this.entidad,
+		        })
 		            .then((response) => {
-		                if (response.data.hecho === 1) {
+		                if (response.data.estado === 1) {
 		                    $.notify(response.data.mensaje);
 
 		                    setTimeout(() => {
@@ -455,8 +568,8 @@ createApp({
 		                    }, 1000);
 
 		                    setTimeout(() => {
-		                        window.location.href = `/pagina_cotizador/${response.data.slug}/${response.data.id}`;
-		                    }, 2000);
+		                        window.location.href = `/pagina_cotizador/${response.data.slug}`;
+		                    }, 1000);
 		                } else {
 		                    $.notify(response.data.mensaje || 'Error inesperado');
 		                }
@@ -476,6 +589,7 @@ createApp({
 
 	},
 	mounted(){
-		this.mostrar_general();
+		//this.mostrar_general();
+		this.mostrar_reporte();
 	}
 }).mount('#app')
