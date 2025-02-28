@@ -19,121 +19,142 @@ use Dompdf\Dompdf;
 class Kardex extends BaseController
 {
     public function master($slug)
-    {
-        //aqui mandamos los datos generales del kardes como nombre del clietne y quien genero etc.
-        $db = \Config\Database::connect();
-        $builder = $db->table('mbi_kardex');
-        $builder->join('mbi_clientes','mbi_clientes.id_cliente = mbi_kardex.id_cliente');
-        $builder->where('slug',$slug);
-        $resultado = $builder->get()->getResultArray();
-
-        //aqui vamos a poner los detalles del kardex como fallas etc
-        $reporte = new KardexDetalleModel();
-        $reporte->where('id_kardex',$resultado[0]['id_kardex']);
-        $resultado_reporte = $reporte->findAll();
-        $costo_reparacion = 0; // Inicializar como 0 para evitar errores si no hay diagnóstico
-        $costo_refacciones = 0; // Inicializar para evitar errores si no hay refacciones
-        $sumaPrecios = 0;      // Inicializar para evitar errores si no hay refacciones
-        $resultado_img = null;
-        $resultado_diagnostico = null;
-        $resultado_refacciones = null;
-        $display = true; // Valor por defecto
-
-        //aqui mostramos el diagnóstico
-        if ($resultado_reporte) {
-            $diagnostico = new KardexDiagnosticoModel();
-            $diagnostico->where('id_detalle_kardex',$resultado_reporte[0]['slug']);
-            $resultado_diagnostico = $diagnostico->findAll();
-            if ($resultado_diagnostico) {
-                $costo_reparacion = $resultado_diagnostico[0]['precio_estimado'];
-            }
-
-            if ($resultado_diagnostico) {
-                $imagenes = new KardexDiagnosticoImgModel();
-                $imagenes->where('id_kardex_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
-                $resultado_img = $imagenes->findAll();
-            }else{
-                $resultado_img = null;
-            }
-
-        }else{
-            $resultado_diagnostico = null;
-            $resultado_img = null;
-        }
-
-
-
-        if ($resultado_diagnostico) {
-            $refacciones = new RefaccionesModel();
-            $refacciones->where('id_diagnostico', $resultado_diagnostico[0]['id_detalle_kardex']);
-            $resultado_refacciones = $refacciones->findAll();
-            //sumamos todos las refacciones
-            $sumaPrecios = 0;
-            foreach ($resultado_refacciones as $producto) {
-                $sumaPrecios += floatval($producto['precio']);
-            }        
-            $display = false;
-        }else{
-            $resultado_refacciones = null;
-            $sumaPrecios = 0;
-            $display = true;
-        }
-        $costo_total = $costo_reparacion + $sumaPrecios;
-        //datos de horarios
-        $hora = new HorariosModel();
-        $hora->where('id_cliente', $resultado[0]['id_cliente']);
-        $hora_data = $hora->findAll();
-
-        $data = [
-            'kardex'=>$resultado,
-            'reporte'=>$resultado_reporte,
-            'diagnostico'=>$resultado_diagnostico,
-            'costo_total'=>$costo_total,
-            'refacciones'=>$resultado_refacciones,
-            'total'=> number_format($sumaPrecios,2),
-            'display'=>$display,
-            'horario' => $hora_data,
-            'imagenes'=>$resultado_img,
-            'user'=>$resultado[0]['generado_por'],
-            'kardex_id'=>$resultado[0]['id_kardex']
-        ];
-        return json_encode($data);
+    {   
     }
-    public function index($slug)
+    public function index($slug) //este nos muestra el kardex 
     {
-        
-        $kardex = new KardexModel();
-        $kardex->where('slug',$slug);
-        $resultado = $kardex->findAll();
-
-        $entidad = new EntidadesModel();
-        $resultado_entidad = $entidad->findAll();
-        
-        //datos de usuarios que no estan logeados 
-        $usuario = new UsuariosModel();
-        $usuario->where('id_usuario !=',session('id_usuario'));
-        if ($resultado[0]['estatus']==1) {
-            $usuario->where('id_rol',2);
-        }elseif ($resultado[0]['estatus']==2) {
-            $usuario->where('id_rol',3);
-        }elseif($resultado[0]['estatus']==3){
-            $usuario->where('id_rol',2);
-        }elseif ($resultado[0]['estatus']==5) {
-            $usuario->where('id_rol',3);
+        $db = \Config\Database::connect(); //servicio de conexion
+        $usuarios = new UsuariosModel();
+        $reportes = new KardexDetalleModel();
+        $diagnostico = new KardexDiagnosticoModel();
+        $refacciones = new RefaccionesModel();
+        $imagen = new KardexDiagnosticoImgModel();
+        $entidades = new EntidadesModel();
+        $errores = [];  //declaramos errores vacios para que no se detenga;
+        if (empty($slug)){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay id',
+                'flag'=>0
+            ]);
         }
-        $usuario_data = $usuario->findAll();
-        
-        $data = [
-            'id'=> $slug,
-            'kardex'=>$resultado,
-            'usuarios' => $usuario_data,
-            'entidades'=> $resultado_entidad
-        ];
+        // Consulta principal del kardex
+        $builder = $db->table('mbi_kardex');
+        $builder->select('mbi_kardex.*, mbi_clientes.hospital, mbi_clientes.titular, mbi_clientes.responsable, mbi_clientes.telefono, mbi_clientes.movil,mbi_clientes.facultad,mbi_clientes.laboratorio');
+        $builder->join('mbi_clientes', 'mbi_clientes.id_cliente = mbi_kardex.id_cliente');
+        $builder->where('mbi_kardex.slug', $slug); // Asegúrate de que 'slug' pertenece a 'mbi_kardex'
+        $resultado = $builder->get()->getResultArray();
+        if (!$resultado){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay kardex',
+                'flag'=>0
+            ]);
+        }
+        //sacamos entidades
+        $entidad = $entidades->findAll();
+        if (empty($entidad)){
+            $entidad=[
+                'status'=>'error',
+                'message'=>'No hay entidades',
+                'flag'=>0
+            ];
+        }
 
-        //return json_encode($resultado);
+        //sacamos usuarios
+        $users = $usuarios->findAll();
+        if (empty($users)){
+            $users=[
+                'status'=>'error',
+                'message'=>'No hay reporte aun',
+                'flag'=>0
+            ];
+        }
+        //sacamos los detalles
+        $reporte_data = $reportes->where('id_kardex',$resultado[0]['id_kardex'])->findAll();
+        if (empty($reporte_data)){
+            $reporte_data=[
+                'status'=>'error',
+                'message'=>'No hay reporte aun',
+                'flag'=>0
+            ];
+        }
+
+        //sacamos el diagnostico
+
+        $diagnostico_datos = $diagnostico->find($reporte_data[0]['id_detalle']);
+        if (empty($diagnostico_datos)){
+             $diagnostico_datos = [
+                 'status'=>'error',
+                 'message'=>'No hay diagnóstico disponible',
+                 'flag'=>0
+             ];
+             $errores['refacciones'] = "No hay refacciones";
+             $errores['imagenes'] = "No hay imagenes";
+         }else{
+            //buscamos las refacciones
+            $refacciones_data = $refacciones->where('id_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
+            $imagen_data = $imagen->where('id_kardex_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
+            if (empty($refacciones_data)){
+                $refacciones_data=[
+                    'status'=>'error',
+                    'message'=>'No hay refacciones aun',
+                    'flag'=>0
+                ];
+            }
+            if (empty($imagen_data)){
+                $imagen_data=[
+                    'status'=>'error',
+                    'message'=>'No hay imagenes aun',
+                    'flag'=>0
+                ];
+            }
+            // Agregar refacciones e imágenes al diagnóstico
+            $diagnostico_datos['refacciones'] = $refacciones_data;
+            $diagnostico_datos['imagenes'] = $imagen_data;
+
+         } 
+
+        $fecha = $this->formatearFecha($resultado[0]['created_at']); //mostramos al fecha formateada
+        $data = [
+            'kardex'=> $resultado,
+            'entidades'=>$entidad,
+            'reporte'=>$reporte_data,
+            'fecha'=> $fecha,
+            'diagnostico'=>$diagnostico_datos,
+            'errores'=>$errores,
+            'id'=>$resultado[0]['id_kardex'],
+            'usuarios'=>$users
+        ];
+            
+        // Conexión a la base de datos
+
         return view('kardex',$data);
 
+        //return json_encode($data);
 
+
+
+
+    }
+    private function formatearFecha($fechaOriginal)
+    {
+        $dias = [
+            'Sunday' => 'domingo', 'Monday' => 'lunes', 'Tuesday' => 'martes',
+            'Wednesday' => 'miércoles', 'Thursday' => 'jueves', 'Friday' => 'viernes',
+            'Saturday' => 'sábado'
+        ];
+        $meses = [
+            'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo',
+            'April' => 'abril', 'May' => 'mayo', 'June' => 'junio', 'July' => 'julio',
+            'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
+            'November' => 'noviembre', 'December' => 'diciembre'
+        ];
+
+        $fecha = new \DateTime($fechaOriginal);
+        $dia = $dias[$fecha->format('l')];
+        $mes = $meses[$fecha->format('F')];
+        return ucfirst("$dia, " . $fecha->format('d') . " de $mes de " . $fecha->format('Y'));
     }
     public function crear_kardex()
     {

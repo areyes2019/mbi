@@ -1,208 +1,147 @@
 <?php echo $this->extend('panel_template') ?>
 <?php echo $this->section('contenido') ?>
-<?php foreach ($kardex as $data): ?>    
 <div id="app">
+    <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="mb-2">
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('/inicio'); ?>">Inicio</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Kardex <?php echo $data['id_kardex'] ?></li>
+            <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Kardex <?php echo $id ?></li>
         </ol>
     </nav>
+
+    <!-- Card principal -->
     <div class="card rounded-0">
         <div class="card-header">
-            <?php if (esc(permisos($data['estatus'],'imagen_diagnostico'))): ?>
-            <button class="btn btn-primary btn-sm rounded-0 mr-2" @click="liberar('<?php echo $data['id_kardex'] ?>')">Liberar Kardex</button>
-            <?php endif; ?>
-
-            <?php if (esc(permisos($data['estatus'], 'turnar'))): ?>
-            <button  class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex"><span class="bi bi-gear"></span> Turnar</button>
-            <?php endif ?>
-
-            <?php if (esc(permisos($data['estatus'],'equipos'))): ?>
-            <button  class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle="modal" data-target="#equipos"><i class="bi bi-plus-circle"></i> Agregar Equipos</button>
-            <?php endif; ?>
-            <?php if (esc(permisos($data['estatus'],'aceptar_tarea'))):?>
-            <button class="btn btn-success btn-sm rounded-0 shadow-none mr-1" @click="aceptar_tarea(<?php echo $data['id_kardex'] ?>)"><span class="bi bi-check2"></span> Acetpar</button>
-            <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" @click="rechazar_tarea_modal(<?php echo $data['id_kardex'] ?>)"><span class="bi bi-x-lg"></span> Rechazar</button>
-            <?php endif ?>
-            <?php if (esc(permisos($data['estatus'],'cotizacion'))):?>
-            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#miModal"><span class="bi bi-send"></span> Enviar a cotización</button>
-            <?php endif ?>
-            <?php if (esc(permisos($data['estatus'],'cotizar'))): ?>
-            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle="modal" data-target="#entidad"><span class="bi bi-send"></span> Cotizar</button> 
-            <?php endif ?>
-            <a  v-if="Array.isArray(datos.reporte) && datos.reporte.length > 0" href="<?php echo base_url('pdf_os')."/".$data['id_kardex']; ?>" class="btn btn-primary btn-sm rounded-0 mr-2"><span class="bi bi-filetype-pdf"></span> Descargar pdf</a>
-            <p class="d-none">Clave: <span ref="kardex_id"><?php echo $id ?></span></p>
-            <p class="d-none" ref="id_kardex"><?php echo $data['id_kardex']?></p>
+            <button class="btn btn-primary btn-sm rounded-0 mr-2">Liberar Kardex</button>
+            <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex">Turnar</button>
+            <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#equipos">Agregar Equipos</button>
+            <button class="btn btn-success btn-sm rounded-0 shadow-none mr-1">Aceptar</button>
+            <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" data-toggle = "modal" data-target="#rechazar_tarea">Rechazar</button>
+            <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle = "modal" data-target="#entidad">Enviar a cotización</button>
+            <a href="/pdf_os/123" class="btn btn-primary btn-sm rounded-0 mr-2" data-toggle = "modal" data-target="#enviar_cardex">Descargar PDF</a>
         </div>
-        <div class="card-body" v-for="(kardex, index) in datos.kardex" :key="index">
+        <div class="card-body">
+            <?php foreach ($kardex as $k):?>
             <div class="row">
                 <div class="col-md-12">
-                    <h4><span class="badge badge-primary">{{kardex.tipo_txt}}</span></h4>
+                    <?php if ($k['tipo']==1): ?>
+                    <h4><span class="badge badge-primary"><?= $k['tipo_txt'] ?></span></h4>
+                    <?php endif ?>
+
+                    <?php if ($k['tipo']==2): ?>
+                    <h4><span class="badge badge-secondary"><?= $k['tipo_txt'] ?></span></h4>
+                    <?php endif ?>
+                    <?php if ($k['tipo']==3): ?>
+                    <h4><span class="badge badge-success"><?= $k['tipo_txt'] ?></span></h4>
+                    <?php endif ?>
+                    
+                    <?php if ($k['tipo']==4): ?>
+                    <h4><span class="badge badge-warning text-dark"><?= $k['tipo_txt'] ?></span></h4>
+                    <?php endif ?>
                 </div>
                 <div class="col-md-12">
-                    <h5 class="m-0 text-primary"><strong>Orden de Trabajo {{kardex.id_kardex}}</strong></h5>
+                    <h5 class="m-0 text-primary"><strong>Orden de Trabajo <?php echo $id ?></strong></h5>
+                    <h6>Fecha: <strong><?php echo $fecha ?> </strong></h6>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="m-0">{{kardex.hospital}}</h5>
-                    <p class="m-0">{{kardex.ubicacion}}</p>
-                    <p class="m-0"><strong>Facultad:</strong> {{kardex.facultad}}</p>
-                    <p class="m-0"><strong>Laboratorio:</strong> {{kardex.laboratorio}}</p>
-                    <p class="m-0"><strong>Contacto:</strong> {{kardex.responsable}}</p>
-                    <p class="m-0"><strong>Teléfono:</strong> {{kardex.telefono}}</p>
+                    <h5 class="m-0">Hospital General</h5>
+                    <p class="m-0">Ubicación: Edificio A</p>
+                    <p class="m-0"><strong>Facultad:</strong> <?= $k['facultad']?></p>
+                    <p class="m-0"><strong>Laboratorio:</strong><?= $k['laboratorio'] ?></p>
+                    <p class="m-0"><strong>Contacto:</strong><?= $k['responsable'] ?></p>
+                    <p class="m-0"><strong>Teléfono:</strong><?= $k['movil'] ?></p>
+                    <p class="m-0"><strong>Generado por:</strong> <?php echo $k['generado_nombre'] ?></p>
+                    <h4><span class="text-danger">Costo total $1000</span></h4>
                 </div>
-                <div class="col-md-4">
-                    <p class="m-0"><strong>Generado por:</strong></p>
-                    <p class="m-0">{{kardex.generado_nombre}}</p>
-                    <p class="m-0"><strong>Aceptado por:</strong></p>
-                    <p class="m-0" v-for = "nombre in datos.mensaje">{{nombre.destinatario_nombre}}</p>
-                    <p class="m-0"><strong>Cita el {{ formatearFecha(kardex.dia) }}</strong></p>
-                    <p class="m-0"><strong>Hora: </strong>{{ formatearHora(kardex.hora) }}</p>
-                </div>
-                <h4><span class="text-danger">Costo total ${{datos.costo_total}}</span></h4>
             </div>
+            <?php endforeach ?>
         </div>
     </div>
-    <div v-for = "reporte in datos.reporte">
-        <div class="card mt-4 rounded-0 mb-4">
+    <!-- Reporte de falla -->
+    <div class="row mt-4 mb-5">
+        <div class="col-md-6">
+        <p><strong>Reporte</strong></p>
+        <div class="card">
             <div class="card-header">
-                <!--  Generar diagostico -->
-                <?php if (esc(permisos($data['estatus'],'imagen_diagnostico'))): ?>
-                <button v-if="datos.display" class="btn btn-primary btn-sm rounded-0 mt-2"  data-toggle = "modal" data-target = "#diagnostico" @click = "modal_diagnostico(reporte.id_detalle,1)"><i class="bi bi-pen"></i> Agregar Diagnostico</button>
-                <?php endif ?>
+                <button class="btn btn-primary btn-sm rounded-0 mr-1">Editar</button>
+                <button class="btn btn-danger btn-sm rounded-0">Eliminar</button>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <p><strong>Reporte</strong></p>
-                        <div class="card rounded-0">
-                            <div class="card-body">
-                                <p class="m-0"><strong>Nombre del equipo:</strong></p>
-                                <p class="m-0">{{reporte.nombre}}</p>
-                                <p class="m-0"><strong>Marca:</strong></p>
-                                <p class="m-0">{{reporte.marca}}</p>
-                                <p class="m-0"><strong>Modelo:</strong></p>
-                                <p class="m-0">{{reporte.modelo}}</p>
-                                <p class="m-0"><strong>Inventario:</strong></p>
-                                <p class="m-0">{{reporte.inventario}}</p>
-                                <p class="m-0"><strong>Falla:</strong></p>
-                                <p class="m-0">{{reporte.falla}}</p>
-                                <?php if (esc(permisos($data['estatus'],'editar_eliminiar'))): ?>
-                                <button class="btn btn-primary btn-sm rounded-0 mr-1 mt-2"data-toggle="modal" data-target="#equipos_actualizar" @click = "actualizar(reporte.id_detalle)"><span class="bi bi-pencil"></span></button>
-                                <button  class="btn btn-danger btn-sm rounded-0 mt-2"><span class="bi bi-trash3" @click = "borrar_linea(reporte.id_kardex)"></span></button>
-                                <?php endif ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div v-if="datos.diagnostico && datos.diagnostico.length">
-                            <p><strong>Diagnóstico</strong></p>
-                            <div class="card rounded-0" v-for = "diagnostico in datos.diagnostico">
-                                <div class="card-header">
-                                    <?php if (esc(permisos($data['estatus'],'imagen_diagnostico'))): ?>
-                                    <!--  imagenes de diagnostico  -->
-                                    <button  class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle="modal" data-target="#agregar_imagen" @click="guardar_imgen_diangostico(diagnostico.id_detalle_kardex)"><i class="bi bi-camera"></i></button>
-                                    <!--  modificar diagnostico -->
-                                    <button  class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target = "#diagnostico" @click = "modal_diagnostico(diagnostico.id_detalle_kardex,2)"><i class="bi bi-pencil"></i></button>
-                                    <!--  eliminar -->
-                                    <button   class="btn btn-danger btn-sm rounded-0 mr-1" @click = "borrar_diagnostico(diagnostico.id_detalle_kardex)"><span class="bi bi-trash3"></span></button>
-                                    <button  class="btn btn-secondary btn-sm rounded-0" data-toggle="modal" data-target="#agregar_refacciones" @click = "abrir_modal_refacciones(diagnostico.id_detalle_kardex)"><span class="bi bi-tools"></span> Refacciones</button>
-                                    <?php endif ?>
-                                </div>
-                                <div class="card-body">
-                                    <p class="m-0"><strong>Diagnóstico:</strong></p>
-                                    <p class="m-0">{{diagnostico.diagnostico}}</p>
-                                    <p class="m-0"><strong>Reparación sugerida:</strong></p>
-                                    <p class="m-0">{{diagnostico.reparacion}}</p>
-                                    <p class="m-0"><strong>Tiempo de entrega:</strong></p>
-                                    <p class="m-0">{{diagnostico.tiempo_entrega}}</p>
-                                    <p class="m-0"><strong>Precio sugerido:</strong></p>
-                                    <p class="m-0">${{diagnostico.precio_estimado}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div v-else>
-                            <p><strong>Diagnóstico</strong></p>
-                            <div class="alert alert-danger"><strong>Aun no hay diagnóstico</strong></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div v-if="datos.diagnostico && datos.diagnostico.length">
-                            <p><strong>Refacciones</strong></p>
-                            <div class="card rounded-0" v-for = "diagnostico in datos.diagnostico">
-                                <div class="card-body">
-                                    <table class="table">
-                                        <tr>
-                                            <th>Refacción</th>
-                                            <th>Marca</th>
-                                            <th>Modelo</th>
-                                            <th>Precio</th>
-                                            <th></th>
-                                        </tr>
-                                        <tr v-for = "refacciones in datos.refacciones">
-                                            <td>{{refacciones.refaccion}}</td>
-                                            <td>{{refacciones.marca}}</td>
-                                            <td>{{refacciones.modelo}}</td>
-                                            <td>${{refacciones.precio}}</td>
-                                            <?php if (esc(permisos($data['estatus'],'imagen_diagnostico'))): ?>
-                                            <td><button class="btn btn-danger btn-sm rounded-0" @click = "borrar_refaccion(refacciones.id_refaccion)"><span class=" bi bi-x-lg"></span></button></td>
-                                            <?php endif ?>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" class="text-right"><strong>Total</strong></td>
-                                            <td>${{datos.total}}</td>
-                                        </tr>
-                                    </table>
-                                    <div class="d-flex flex-wrap">
-                                        <div v-for = "data_img in datos.imagenes" class="p-2 position-relative">
-                                            <img  class="foto d-flex mr-1" :src="'/public/equipos/' + data_img.img" alt="Miniatura 1" @click = "mostrarImagenGrande(data_img.img)">
-                                            <?php if (esc(permisos($data['estatus'],'imagen_diagnostico'))): ?>                                                
-                                            <button class="btn-close position-absolute top-0 end-0" aria-label="Close" @click="eliminarImagen(data_img)"></button>
-                                            <?php endif ?>
-                                        </div>
-                                    </div>
-                                    <!-- Modal para mostrar imagen en grande -->
-                                    <div v-if="imagenGrande" class="my-modal" @click="cerrarImagenGrande">
-                                      <img :src="'/public/equipos/' + imagenGrande" alt="Imagen en grande" class="imagen-grande">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div v-else>
-                            <p><strong>Refacciones</strong></p>
-                            <div class="alert alert-danger"><strong>No se han agregado refacciones</strong></div>
-                        </div>
-                    </div>
+                <?php foreach ($reporte as $isue): ?>
+                <p class="m-0"><strong>Nombre del equipo:</strong> <?php echo $isue['nombre'] ?></p>
+                <p class="m-0"><strong>Marca:</strong> <?php echo $isue['marca'] ?></p>
+                <p class="m-0"><strong>Modelo:</strong> <?php echo $isue['modelo'] ?></p>
+                <p class="m-0"><strong>Inventario:</strong> <?php echo $isue['inventario'] ?></p>
+                <p class="m-0"><strong>Falla:</strong> <?php echo $isue['falla'] ?></p>
+                <?php endforeach ?>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-6">
+            <p><strong>Diagnóstico</strong></p>
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-primary btn-sm rounded-0 mr-1">Agregar Imagen</button>
+                    <button class="btn btn-primary btn-sm rounded-0 mr-1">Editar</button>
+                    <button class="btn btn-danger btn-sm rounded-0 mr-1">Eliminar</button>
+                    <button class="btn btn-secondary btn-sm rounded-0">Refacciones</button>
                 </div>
+                <div class="card-body">
+                    <p class="m-0"><strong>Diagnóstico:</strong></p>
+                    <p><?php echo $diagnostico['diagnostico'] ?></p>
+                    <p class="m-0"><strong>Reparación sugerida:</strong></p>
+                    <p><?php echo $diagnostico['reparacion'] ?></p>
+                    <p class="m-0"><strong>Tiempo de entrega:</strong></p>
+                    <p><?php echo $diagnostico['tiempo_entrega'] ?></p>
+                    <p class="m-0"><strong>Precio estimado:</strong></p>
+                    <p><?php echo $diagnostico['precio_estimado'] ?></p>
+                </div>
+            </div>
+            <h5>Refacciones necesarias</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Refacción</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($diagnostico['refacciones'] as $refaccion): ?>
+                    <tr>
+                        <td><?php echo $refaccion['refaccion'] ?></td>
+                        <td><?php echo $refaccion['marca'] ?></td>
+                        <td><?php echo $refaccion['modelo'] ?></td>
+                        <td>$<?php echo $refaccion['precio'] ?></td>
+                        <td><button class="btn btn-danger btn-sm rounded-0">Eliminar</button></td>
+                    </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+            <div class="d-flex flex-nowrap overflow-auto">
+                <!-- Miniaturas -->
+                <?php foreach ($diagnostico['imagenes'] as $mini): ?>
+                <img src="/equipos/<?php echo $mini['img'] ?>" class="thumbnail" data-toggle="modal" data-target="#imageModal" data-src="https://via.placeholder.com/600">
+                <?php endforeach ?>
             </div>
         </div>
     </div>
-    <!--  Modal agregar precio por el administrador -->
-    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="miModalLabel">Ingrese el Costo</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form class="row row-cols-lg-auto g-3 align-items-center">
-              <div class="col-12">
-                <label class="visually-hidden" for="inlineFormInputGroupUsername">Costo</label>
-                <div class="input-group">
-                  <div class="input-group-text">$</div>
-                  <input type="number" class="form-control" id="inlineFormInputGroupUsername" placeholder="Costo" v-model = "precio_admin">
+    <!--  Modal para ver la miniatura -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <?php foreach ($diagnostico['imagenes'] as $img): ?>
+                    <img src="/equipos/<?= $img['img'] ?>" class="modal-img" id="modalImage">
+                    <?php endforeach ?>
                 </div>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary" @click.prevent="a_cotizacion(datos.user,datos.kardex_id)">Enviar</button>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
     <!--  Modal definir entidad -->
     <div class="modal fade" id="entidad" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
@@ -225,7 +164,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-sm rounded-0" @click="cotizar(<?php echo $data['id_kardex'] ?>)">Cotizar</button>
+                <button class="btn btn-primary btn-sm rounded-0" @click="cotizar(<?php echo $id ?>)">Cotizar</button>
             </div>
           </div>
         </div>
@@ -661,7 +600,7 @@
         </div>
     </div>
 </div>
-<?php endforeach ?>
 <script type="text/javascript" src="<?php echo base_url('public/js/alert.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/kardex.js');?>"></script>
 <?php echo $this->endSection() ?>
+
