@@ -5,6 +5,7 @@ createApp({
 		return{
 			mis_tareas:[],
 			tareas:[],
+			tipo_servicio:"",
 			tipos_model:['0'],
 			tipos:[
 				{clave:'0',tipo:'Selecciona...'},
@@ -45,22 +46,28 @@ createApp({
 			})
 		},
 		nuevo_kardex(cliente){
-			var url = '/crear_kardex';
-			//aqui juntamos los datos para enviarlos por json
-			var data = {
-				cliente: cliente,
-				tipo:this.tipos_model[cliente]
-			}
-			//aqui envaimos por ajax
-			axios.post(url, data,{
-				headers: {
-		            'Content-Type': 'application/json'
-		        }
-			}).then((response)=>{
-				if (response.data['exito'] == 1) {
-					window.location = '/kardex/'+response.data['slug']+'/'+response.data['slg'];	
+			var url = '/crear_kardex'; //aqui creamos la ruta
+			
+			if (!cliente) {  //confirmamos que si ha y cliente
+				console.log('no hay cliente');
+			}else{
+				//aqui juntamos los datos para enviarlos por json
+				var data = {
+					cliente: cliente,
+					tipo:this.tipos_model[cliente]
 				}
-			})
+				//aqui envaimos por ajax
+				axios.post(url, data,{
+				headers: {
+				    'Content-Type': 'application/json'
+				}
+				}).then((response)=>{
+					if (response.data['exito'] == 1) {
+						window.location = '/kardex/'+response.data['slug'];	
+					}
+				})
+
+			}
 		},
 		aceptar_tarea(kardex, data){
 			this.accion = data;

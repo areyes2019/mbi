@@ -130,6 +130,7 @@
             </tbody>
         </table>
     </div>
+    <!--  modal nuevo reporte -->
     <div class="modal fade" id="nuevo_reporte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-0">

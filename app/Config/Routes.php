@@ -92,7 +92,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('actualizar_hora', 'Clientes::actualizar_hora');
 	$routes->post('agregar_equipo', 'Clientes::agregar_equipo');
 	//kardex
-	$routes->get('kardex/(:num)/(:any)','Kardex::index/$1/$2');
+	$routes->get('kardex/(:any)','Kardex::index/$1');
 	$routes->get('kardex_general/(:num)','Kardex::master/$1');
 	$routes->get('kardex_reporte','Kardex::kardex_repo');
 	$routes->post('crear_kardex','Kardex::crear_kardex');
