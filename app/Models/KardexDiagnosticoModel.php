@@ -7,15 +7,15 @@ use CodeIgniter\Model;
 class KardexDiagnosticoModel extends Model
 {
     protected $table            = 'mbi_kardex_diagnostico';
-    protected $primaryKey       = 'id_detalle_kardex';
+    protected $primaryKey       = 'id_diagnostico';
     protected $allowedFields    = [
-
-        'id_detalle_kardex',
+        'id_diagnostico',
         'diagnostico',
         'reparacion',
         'tiempo_entrega',
         'precio_estimado',
-        'agregado'
+        'agregado',
+        'id_kardex'
     ];
 
 }

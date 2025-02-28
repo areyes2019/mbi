@@ -91,14 +91,16 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('eliminar_horario/(:num)', 'Clientes::eliminar_horario/$1');
 	$routes->post('actualizar_hora', 'Clientes::actualizar_hora');
 	$routes->post('agregar_equipo', 'Clientes::agregar_equipo');
-	
 	//kardex
-	$routes->get('kardex/(:any)','Kardex::index/$1');
-	$routes->get('kardex_general/(:any)','Kardex::master/$1');
+	$routes->get('kardex/(:num)/(:any)','Kardex::index/$1/$2');
+	$routes->get('kardex_general/(:num)','Kardex::master/$1');
 	$routes->get('kardex_reporte','Kardex::kardex_repo');
 	$routes->post('crear_kardex','Kardex::crear_kardex');
 	$routes->post('detalle_kardex','Kardex::detalle_kardex');
 	$routes->get('mostrar_kardex/(:num)','Kardex::mostrar_kardex/$1');
+	$routes->get('mostrar_reporte/(:num)','Kardex::mostrar_reporte/$1');
+	$routes->get('/diagnosticos_mostrar/(:num)','Kardex::ver_diagnostico/$1');
+	$routes->get('ver_refacciones/(:num)','Kardex::mostrar_refacciones/$1');
 	$routes->get('ver_mis_tareas/(:num)','Kardex::ver_mis_tareas/$1');
 	$routes->post('enviar_kardex','Kardex::enviar_kardex');
 	$routes->get('borrar_linea/(:num)','Kardex::borrar_linea/$1');
@@ -106,22 +108,25 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('ver_primer_kardex','Kardex::ver_kardex_lateral');
 	$routes->post('kardex_accion','Kardex::kardex_accion');
 	$routes->post('regresar_kardex','Kardex::regresar_kardex');
+	$routes->post('regresar_vendedor','Kardex::regresar_vendedor');
 	$routes->get('actualizar_detalle/(:num)','Kardex::actualizar_detalle/$1');
 	$routes->post('actualizar_final/(:num)','Kardex::actualizar_final/$1');
 	$routes->get('eliminar_kardex/(:num)','Kardex::eliminar_kardex/$1');
 	$routes->get('si_ingeniero/(:num)','Kardex::si_ingeniero/$1');
 	$routes->post('agregar_diagnostico','Kardex::agregar_diagnostico');
 	$routes->post('subir_imagen','Kardex::subir_imagen');
+	$routes->get('eliminar_img/(:num)','Kardex::eliminar_img/$1');
 	$routes->get('modificar_diagnostico/(:any)','Kardex::modificar_diagnostico/$1');
 	$routes->post('actualizacion_diagnostico','Kardex::actualizacion_diagnostico');
 	$routes->get('eliminar_diagnostico/(:any)','Kardex::eliminar_diagnostico/$1');
-	$routes->get('ver_galeria/(:any)','Kardex::ver_galeria/$1');
+	$routes->get('ver_galeria/(:num)','Kardex::mostrar_imagenes/$1');
 	$routes->get('liberar_diagnostico/(:num)','Kardex::liberar_diagnostico/$1');
 	$routes->get('pdf_os/(:num)','Kardex::pdf_os/$1');
 	$routes->post('/agregar_refacciones','Kardex::agregar_refacciones');
 	$routes->post('/enviar_a_cotizar','Kardex::enviar_a_cotizar');
 	$routes->get('borrar_refaccion/(:num)','Kardex::borrar_refaccion/$1');
 	
+	$routes->get('ordenes','Ordenes::index');
 	
 	/*Proveedores*/
 	$routes->get('proveedores', 'admin\Proveedores::index');
@@ -162,8 +167,10 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('pagina_cotizador_independiente', 'Cotizaciones::independiente/$1');
 	$routes->get('editar_cotizacion/(:num)', 'Cotizaciones::editar/$1');
 	$routes->get('actualizar_cotizacion/(:num)', 'Cotizaciones::actualizar/$1');
+	$routes->get('editar_detalle/(:num)', 'Cotizaciones::editar_detalle/$1');
 	$routes->get('eliminar_cotizacion/(:num)', 'Cotizaciones::eliminar/$1');
 	$routes->post('agregar_articulo', 'Cotizaciones::agregar');
+	$routes->post('agregar_inner_update', 'Cotizaciones::actualizar_detalle');
 	$routes->post('agregar_articulo_ind/(:any)', 'Cotizaciones::agregar_ind/$1');
 	$routes->get('mostrar_detalles/(:any)', 'Cotizaciones::mostrar_detalles/$1');
 	$routes->get('borrar_linea_detalle/(:num)', 'Cotizaciones::borrar_linea_detalle/$1');
@@ -181,6 +188,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('/agregar_inner', 'Cotizaciones::agregar_inner');
 	$routes->get('/ver_microdados/(:num)', 'Cotizaciones::ver_microdados/$1');
 	$routes->get('/eliminar_micro/(:num)', 'Cotizaciones::eliminar_micro/$1');
+	$routes->get('ver_pdf_secolab', 'Cotizaciones::secolab');
 
 
 	/*Compras*/
@@ -209,20 +217,6 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('actualizar_cuenta', 'admin\Contabiidad::actualizar');
 	$routes->get('eliminar_cuenta/(:num)', 'admin\Contabiidad::eliminar/$1');
 	
-	/*Pedidos*/
-	$routes->get('pedidos', 'admin\Pedidos::index');
-	$routes->get('nuevo_pedido/(:num)', 'admin\Pedidos::nueva/$1');
-	$routes->get('pagina_pedido/(:any)', 'admin\Pedidos::pagina/$1');
-	$routes->get('editar_pedido/(:num)', 'admin\Pedidos::editar/$1');
-	$routes->get('actualizar_pedido/(:num)', 'admin\Pedidos::actualizar/$1');
-	$routes->get('eliminar_pedido/(:num)', 'admin\Pedidos::eliminar/$1');
-	$routes->post('agregar_articulo_pedido', 'admin\Pedidos::agregar');
-	$routes->get('mostrar_detalles_pedido/(:num)', 'admin\Pedidos::mostrar_detalles/$1');
-	$routes->get('borrar_linea_pedido/(:num)', 'admin\Pedidos::borrar_linea/$1');
-	$routes->get('descargar_pedido/(:num)', 'admin\Pedidos::cotizacion_pdf/$1');
-	$routes->get('enviar_pedido', 'admin\Pedidos::enviar');
-	$routes->get('enviar_pdf_pedido/(:num)', 'admin\Pedidos::enviar_pdf/$1');
-	$routes->post('pago_pedido', 'admin\Pedidos::pago');
 
 	/*Existencias*/
 	$routes->get('existencias', 'admin\Existencias::index');

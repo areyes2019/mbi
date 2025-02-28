@@ -35,6 +35,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="<?php echo base_url('public/js/toaster.js'); ?>"></script>
     <script src="<?php echo base_url('public/js/html2Canvas.js'); ?>"></script>
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.2.1/ckeditor5.css" />
 
 </head>
 
@@ -61,6 +62,11 @@
                     <span>Inicio</span></a>
             </li>
             
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url('ordenes')?>">
+                    <i class="bi bi-list-check"></i>
+                    <span>Ordenes de Servicio</span></a>
+            </li>
             <?php endif; ?>
 
             <?php if (tiene_seccion('3') || es_super_admin()): ?>

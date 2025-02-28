@@ -9,7 +9,6 @@ class KardexDetalleModel extends Model
     protected $table            = 'mbi_kardex_detalle';
     protected $primaryKey       = 'id_detalle';
     protected $allowedFields    = [
-        'slug',
         'nombre',
         'marca',
         'modelo',

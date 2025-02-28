@@ -45,15 +45,20 @@ createApp({
 			})
 		},
 		nuevo_kardex(cliente){
-			var me = this;
-			var url = 'crear_kardex';
-			var data =this.tipos_model[cliente];
-			axios.post(url,{
-				'cliente':cliente,
-				'tipo':data,
-			}).then(function (response){
+			var url = '/crear_kardex';
+			//aqui juntamos los datos para enviarlos por json
+			var data = {
+				cliente: cliente,
+				tipo:this.tipos_model[cliente]
+			}
+			//aqui envaimos por ajax
+			axios.post(url, data,{
+				headers: {
+		            'Content-Type': 'application/json'
+		        }
+			}).then((response)=>{
 				if (response.data['exito'] == 1) {
-					window.location = '/kardex/'+response.data['slug'];	
+					window.location = '/kardex/'+response.data['slug']+'/'+response.data['slg'];	
 				}
 			})
 		},

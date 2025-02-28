@@ -11,9 +11,8 @@ const { createApp, ref } = Vue
         refacciones:{},
         detalles:{},
         
-        linea:[
-          { detalles: ''} // Fila inicial
-        ],
+        form:{},
+        formEdit:{},
         //para el formulario independiente
         detalle_inner:"",
         cantidad:"1",
@@ -272,6 +271,9 @@ const { createApp, ref } = Vue
         axios.get('/enviar_pdf/'+data).then((response)=>{
           if (response.data == 1) {
             $.notify('Correo enviado al cliente');
+            setTimeout(function() {
+                window.location.href = '/cotizaciones';
+            }, 1000);
           }
         })
       },
@@ -308,15 +310,37 @@ const { createApp, ref } = Vue
             this.linea.splice(index, 1);
       },
       submitForm() {
-          axios.post('/agregar_inner',{
-            'detalles':this.linea,
-            'id_detalle':this.detalle_inner
+        let editor = document.querySelector(".editor");
+        this.form.contenido = editor.innerHTML;
+        this.form.id = this.$refs.id_cotizacion.innerHTML;
+        axios.post('/agregar_inner',this.form).then((response)=>{
+          if (response.data.flag == 1){ 
+              $('#agregar_articulo').modal('hide');
+              $.notify('Datos agregados');
+              this.mostrar_detalle();
+              this.form = "";
+          }
+        })
+      },
+      submitFormEdit(){
+        let editor = document.querySelector(".editor");
+        this.formEdit.contenido = editor.innerHTML;
+        this.formEdit.id = this.$refs.id_cotizacion.innerHTML;
+        this.formEdit.id_detalle = this.$refs.id_detalle.innerHTML;
 
-          }).then((response)=>{
-            if (response.data == 1) {
-              this.ver_microdetalles();
-            }
-          })
+        axios.post('/agregar_inner_update',this.formEdit).then((response)=>{
+          if (response.data.flag == 1){ 
+              $('#editar_detalle').modal('hide');
+              $.notify('Datos actualizados');
+              this.mostrar_detalle();
+          }
+        })
+      },
+      editar_detalle(data){
+        var url = '/editar_detalle/'+ data;
+        axios.get(url).then((response)=>{
+          this.formEdit = response.data;
+        })
       },
       ver_microdetalles(){
         var id = this.$refs.id_cotizacion.innerHTML;
@@ -334,11 +358,12 @@ const { createApp, ref } = Vue
 
         }
       },
-      
+      formatText(command) {
+        document.execCommand(command, false, null);
+      },
     },
     mounted(){
       this.ver_microdetalles();
-      //this.mostrar_lineas();
       this.mostrar_detalle();
       this.mostrar_entidades();
     }

@@ -1,5 +1,5 @@
 <?php
-	if (!function_exists('tiene_permiso')) {
+	if (!function_exists('tiene_seccion')) {
 		
 		function tiene_seccion($seccion)
 		{
@@ -146,6 +146,13 @@
 	                	return true;
 	                }elseif ($estatus == 5 && $rol == 2) {
 	                	return true;
+	                }
+	               break;
+	            case 'regresar':
+	                if ($estatus == 2 && $rol== 2) {
+	                	return true;
+	                }else{
+	                	return false;
 	                }
 	               break;
                 case 'equipos':

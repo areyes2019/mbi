@@ -9,6 +9,12 @@
             <li class="breadcrumb-item active" aria-current="page">Cotización <?php echo $item['id_cotizacion'] ?></li>
         </ol>
     </nav>
+    <!-- Mostrar el mensaje de éxito -->
+    <?php if (session()->has('mensaje')): ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata('mensaje') ?>
+        </div>
+    <?php endif; ?>
     <div class="card shadow mb-4 rounded-0">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between rounded-0">
@@ -53,7 +59,7 @@
                 <p class="m-0">Att: <?php echo $item['responsable'] ?></p>
                 <p class="m-0">Tel: <?php echo $item['telefono'] ?></p>
                 <p class="m-0"><?php echo $item['correo'] ?></p>
-                <p class="m-0"><strong>Kardex asociado: </strong><a href="<?php echo base_url('kardex/').$slug?>"><?php echo $item['id_kardex'] ?></a></p>
+                <p class="m-0"><strong>Kardex asociado: </strong><a href="<?php echo base_url('kardex/').$id_kardex."/".$slug?>"><?php echo $item['id_kardex'] ?></a></p>
                 <p class="m-0"><strong>Condiciones de pago:</strong> <?php echo $item['condiciones'] ?></p>
                 <p class="m-0"><strong>Entrega:</strong> <?php echo $item['entrega'] ?> días</p>
                 <p class="m-0" v-if="<?php echo $item['garantia']?>== 1"><strong>Garantia:</strong> 3 meses por servicio</p>
@@ -93,141 +99,154 @@
     </div>
 </div>
 <div class="card shadow mb-4 rounded-0">
-        <div class="card-body d-flex align-items-center">
-             <button class="btn btn-primary btn-icon-split ml-2 rounded-0" data-toggle="modal" data-target="#condiciones">
-                <span class="icon text-white-50">
-                    <i class="bi bi-list-check"></i>
-                </span>
-                <span class="text">Condiciones</span>
-            </button>
-            <button class="btn btn-danger btn-icon-split ml-2 rounded-0" data-toggle="modal" data-target="#agregar_articulo" @click = "agregar_diagnostico_modal(<?php echo $item['id_cotizacion'] ?>)">
-                <span class="icon text-white-50">
-                    <i class="bi bi-list-check"></i>
-                </span>
-                <span class="text">Agregar Conceptos</span>
-            </button>
-            <div class="w-25 d-flex ml-2 align-items-center">
-                <label for="moneda">Selecciona una moneda:</label>
-                <select class="form-control select-with-flags" id="moneda" @change="cambiar_moneda(<?php echo $item['id_cotizacion'] ?>)" v-model="moneda">
-                    <option value="MXM">Pesos Mexicanos (MXM)</option>
-                    <option value="USD">Dolar (USD)</option>
-                </select>
-            </div>
-            <!--  Modal agregar diagnosticos  -->  
-            <div class="modal fade" id="agregar_articulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content rounded-0">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Selecione un diagnóstico</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" v-for = "diag in diagnostico">
-                            <table class="table w-100" id="articulos">
-                                <thead>
-                                    <tr>
-                                        <th>Diagnóstico</th>
-                                        <th>Reparacion sugerida</th>
-                                        <th>Precio estimado</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{diag.diagnostico}}</td>
-                                        <td>{{diag.reparacion}}</td>
-                                        <td>${{total = diag.precio_estimado}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="table w-100" id="articulos">
-                                <thead>
-                                    <tr>
-                                        <th>Refacciones</th>
-                                        <th>Precio</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for = "refa in refacciones">
-                                        <td>{{refa.refaccion}}</td>
-                                        <td>${{costo = refa.precio}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p>Gran Total ${{(Number(total)+Number(costo)).toFixed(2)}}</p>
-                            <div v-if="diag.agregado != 1">
-                                <button type="button" class="btn btn-primary btn-sm rounded-0 mb-3" @click="agregarFila"><span class="bi bi-plus-circle"></span></button>
-                                <form @submit.prevent="submitForm">
-                                    <div v-for="(linea_item, index) in linea" :key="index" class="d-flex justify-content-between">
-                                        <input type="text" v-model="detalle_inner" class="d-none">
-                                        <input class="form-control form-control-sm rounded-0 shadow-none mt-1" type="text" v-model="linea_item.detalles" placeholder="Descripción del consepto">
-                                        <button class="btn btn-danger btn-sm rounded-0" @click = "eliminarFila(index)"><span class="bi bi-x-square"></span></button>
-                                    </div>
-                                    <button type="submit" class="btn btn-success mt-3">Enviar</button>
-                                </form>
-                                <!--  <div class="d-block w-25">
-                                    <label for="">Precio</label>
-                                    <input type="text" class="form-control form-control-sm rounded-0 shadow-none" v-model="precio_ind">
-                                </div>-->
-                                
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger btn-icon-split" data-dismiss="modal">
-                                <span class="icon text-white-50">
-                                    <i class="bi bi-box-arrow-right"></i>
-                                </span>
-                                <span class="text">Cerrar</span>
-                            </button>
-                        </div>
+    <div class="card-body d-flex align-items-center">
+         <button class="btn btn-primary btn-icon-split ml-2 rounded-0" data-toggle="modal" data-target="#condiciones">
+            <span class="icon text-white-50">
+                <i class="bi bi-list-check"></i>
+            </span>
+            <span class="text">Condiciones</span>
+        </button>
+        <button class="btn btn-danger btn-icon-split ml-2 rounded-0" data-toggle="modal" data-target="#agregar_articulo" @click = "agregar_diagnostico_modal(<?php echo $item['id_cotizacion'] ?>)">
+            <span class="icon text-white-50">
+                <i class="bi bi-list-check"></i>
+            </span>
+            <span class="text">Agregar Conceptos</span>
+        </button>
+        <div class="w-25 d-flex ml-2 align-items-center">
+            <label for="moneda">Selecciona una moneda:</label>
+            <select class="form-control select-with-flags" id="moneda" @change="cambiar_moneda(<?php echo $item['id_cotizacion'] ?>)" v-model="moneda">
+                <option value="MXM">Pesos Mexicanos (MXM)</option>
+                <option value="USD">Dolar (USD)</option>
+            </select>
+        </div>
+        <!--  Modal agregar diagnosticos  -->  
+        <div class="modal fade" id="agregar_articulo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Selecione un diagnóstico</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-            </div>
-            <!-- Agregar condiciones -->
-            <div class="modal fade" id="condiciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content rounded-0">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Condicones</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="miFormulario">
-                                <div class="form-group">
-                                    <label for="condicionesPago">Condiciones de Pago:</label>
-                                    <input type="text" class="form-control rounded-0 shadow-none" v-model="condiciones">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="tiempoEntrega">Tiempo de Entrega:</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control rounded-0 shadow-none" id="tiempoEntrega" min="1" v-model="entrega">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text rounded-0">Días</span>
-                                        </div>
+                    <div class="modal-body" v-for = "diag in diagnostico">
+                        <table class="table w-100" id="articulos">
+                            <thead>
+                                <tr>
+                                    <th>Diagnóstico</th>
+                                    <th>Reparacion sugerida</th>
+                                    <th>Precio estimado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{diag.diagnostico}}</td>
+                                    <td>{{diag.reparacion}}</td>
+                                    <td>${{total = diag.precio_estimado}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table w-100" id="articulos">
+                            <thead>
+                                <tr>
+                                    <th>Refacciones</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for = "refa in refacciones">
+                                    <td>{{refa.refaccion}}</td>
+                                    <td>${{costo = refa.precio}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Gran Total ${{(Number(total)+Number(costo)).toFixed(2)}}</p>
+                        <div v-if="diag.agregado != 1">
+                            <form @submit.prevent="submitForm">
+                                <div class="editor-container">
+                                    <div class="toolbar">
+                                      <button class="btn_editor" @click.prevent="formatText('bold')"><b>B</b></button>
+                                      <button class="btn_editor" @click.prevent="formatText('italic')"><i>Italica</i></button>
+                                      <button class="btn_editor" @click.prevent="formatText('insertUnorderedList')">• Lista</button>
                                     </div>
-                                    <div id="tiempoEntregaError" class="error-message"></div>
+                                    <div 
+                                      ref="editor" 
+                                      contenteditable="true" 
+                                      class="editor"
+                                    >
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="garantia">Garantía:</label>
-                                    <select class="form-control" id="garantia" v-model="garantia">
-                                        <option value="" selected>Selecciona una opción</option>
-                                        <option value="1">3 meses (Servicio)</option>
-                                        <option value="2">12 meses (Equipo)</option>
-                                        <option value="3">Sin garantía</option>
-                                    </select>
-                                    <div id="garantiaError" class="error-message"></div>
+                                <div class="row mt-2">
+                                    <div class="col-md-4">
+                                        <input type="number" v-model="form.partida" class="form-control rounded-0 shadow-none" placeholder="Partida">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="number" v-model="form.cantidad" class="form-control rounded-0 shadow-none" placeholder="Cantidad">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" v-model="form.precio" class="form-control rounded-0 shadow-none" placeholder="Precio Unt.">
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary" @click.prevent = "agregar_condiciones('<?php echo $item['id_cotizacion'] ?>')">Enviar</button>
+                                <button type="submit" class="btn btn-success mt-3">Enviar</button>
                             </form>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-icon-split" data-dismiss="modal">
+                            <span class="icon text-white-50">
+                                <i class="bi bi-box-arrow-right"></i>
+                            </span>
+                            <span class="text">Cerrar</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Agregar condiciones -->
+        <div class="modal fade" id="condiciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Condicones</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="miFormulario">
+                            <div class="form-group">
+                                <label for="condicionesPago">Condiciones de Pago:</label>
+                                <input type="text" class="form-control rounded-0 shadow-none" v-model="condiciones">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tiempoEntrega">Tiempo de Entrega:</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control rounded-0 shadow-none" id="tiempoEntrega" min="1" v-model="entrega">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text rounded-0">Días</span>
+                                    </div>
+                                </div>
+                                <div id="tiempoEntregaError" class="error-message"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="garantia">Garantía:</label>
+                                <select class="form-control" id="garantia" v-model="garantia">
+                                    <option value="" selected>Selecciona una opción</option>
+                                    <option value="1">3 meses (Servicio)</option>
+                                    <option value="2">12 meses (Equipo)</option>
+                                    <option value="3">Sin garantía</option>
+                                </select>
+                                <div id="garantiaError" class="error-message"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" @click.prevent = "agregar_condiciones('<?php echo $item['id_cotizacion'] ?>')">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="card shadow mb-4 rounded-0">
     <div class="card-body">
@@ -243,18 +262,69 @@
             <tr v-for = "dato in detalles">
                 <td>{{dato.cantidad}}</td>
                 <td>{{dato.partida}}</td>
+                <td v-html="dato.descripcion"></td>
+                <td>${{dato.total}}</td>
+                <td>${{total = dato.total * dato.cantidad}}</td>
                 <td>
-                    <button class="btn btn-primary btn-icon-split btn-sm rounded-0" @click = "agregar_diagnostico_modal(dato.id_cotizacion_detalle)" data-toggle="modal" data-target="#agregar_articulo">
-                        <span class="text bi bi-plus-circle"></span>
-                    </button>
-                    <p class="m-0" v-for="micro in microdatos">{{micro.detalles}} <a href="" @click.prevent="eliminar_micro(micro.id_lista)"><span class="bi bi-x-square"></span></a></p>
+                    <button class="btn btn-danger btn-sm rounded-0 mr-1"><span class="bi bi-x-lg" @click = "borrar_linea_detalle(dato.id_cotizacion_detalle)"></span></button>
+                    <button class="btn btn-primary btn-sm rounded-0"><span class="bi bi-pencil" @click = "editar_detalle(dato.id_cotizacion_detalle)" data-toggle="modal" data-target="#editar_detalle"></span></button>
                 </td>
-                <td>{{dato.total}}</td>
-                <td>{{dato.total}}</td>
-                <td><button class="btn btn-danger btn-sm rounded-0"><span class="bi bi-x-lg" @click = "borrar_linea_detalle(dato.id_cotizacion_detalle)"></span></button></td>
             </tr>
         </table>
     </div>
+</div>
+<!-- Modal editar detalle -->
+<div class="modal fade" id="editar_detalle" tabindex="-1" role="dialog" aria-labelledby="modalFormLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <!-- Encabezado del modal -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalFormLabel">Editar Detalle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <!-- Cuerpo del modal -->
+      <div class="modal-body">
+        <form @submit.prevent="submitFormEdit">
+            <div class="editor-container">
+                <div class="toolbar">
+                  <button class="btn_editor" @click.prevent="formatText('bold')"><b>B</b></button>
+                  <button class="btn_editor" @click.prevent="formatText('italic')"><i>Italica</i></button>
+                  <button class="btn_editor" @click.prevent="formatText('insertUnorderedList')">• Lista</button>
+                </div>
+                <div v-html="formEdit.descripcion"
+                  ref="editor" 
+                  contenteditable="true" 
+                  class="editor"
+                >
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <input type="number" v-model="formEdit.partida" class="form-control rounded-0 shadow-none" placeholder="Partida">
+                </div>
+                <div class="col-md-4">
+                    <input type="number" v-model="formEdit.cantidad" class="form-control rounded-0 shadow-none" placeholder="Cantidad">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" v-model="formEdit.precio_unitario" class="form-control rounded-0 shadow-none" placeholder="Precio Unt.">
+                </div>
+                <p ref="id_detalle" class="d-none">{{formEdit.id_cotizacion_detalle}}</p>
+            </div>
+            <button type="submit" class="btn btn-success mt-3 btn-sm rounded-0 shadow-none">Enviar</button>
+        </form>
+      </div>
+
+      <!-- Footer del modal -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm rounded-0 shadow-none" data-dismiss="modal">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="modalFormLabel" aria-hidden="true">
@@ -315,6 +385,13 @@
 </div>
 <?php endforeach ?>
 </div>
-
+<script type="text/javascript">
+    // Función para capturar el contenido del editor antes de enviar el formulario
+    function capturarContenido() {
+        const editor = document.getElementById('editor');
+        const textarea = document.getElementById('contenido');
+        textarea.value = editor.innerHTML; // Copiar el contenido del editor al textarea
+    }
+</script>
 <script src="<?php echo base_url('public/js/cotizacion.js');?>"></script> 
 <?php echo $this->endSection()?>

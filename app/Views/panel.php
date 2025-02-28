@@ -16,7 +16,7 @@
     </div>
     <div class="mobile">
         <ul class="list-group">
-            <?php foreach ($kardex_admin as $mis_tareas): ?>
+            <?php foreach ($kardex_user as $mis_tareas): ?>
             <li class="list-group-item">
                 <?php 
                 $estatus = asignar_estatus($mis_tareas['estatus']);
@@ -46,7 +46,7 @@
 
                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
                 <!--  Editar -->
-                <button class="btn btn-primary btn-sm shadow-none mr-1" @click = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')"><span class="bi bi-pencil"></span></button>
+                <a href="<?php echo base_url('kardex'.$mis_tareas['id_kardex']); ?>" class="btn btn-primary btn-sm shadow-none mr-1"><span class="bi bi-pencil"></span></a>
                 <?php endif ?>
 
                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>
@@ -72,7 +72,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($kardex_admin as $mis_tareas): ?>
+                <?php foreach ($kardex_user as $mis_tareas): ?>
                 <tr>
                     <td><?php echo $mis_tareas['id_kardex'] ?></td>
                     <td><?php echo $mis_tareas['hospital'] ?></td>
@@ -99,7 +99,7 @@
                         <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-blue "><?php echo $mis_tareas['tipo_txt'] ?></span>
                         <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 4" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
                     </td>
-                    <td><strong><?php echo $mis_tareas['destinatario_nombre'] ?></strong></td>
+                    <td><strong><?php echo $mis_tareas['nombre']." ".$mis_tareas['apellidos'] ?></strong></td>
                     <td>
 
                         <div class="btn-group dropleft">
@@ -109,7 +109,7 @@
                             <div class="dropdown-menu rounded-0">
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
                                 <!--  Editar -->
-                                <a href="#" class="dropdown-item" @click.prevent = "editar_kardex('<?php echo $mis_tareas['slug'] ?>')">Editar</a>
+                                <a href="<?php echo base_url('/kardex/'.$mis_tareas['id_kardex']."/".$mis_tareas['slug']); ?>" class="dropdown-item">Editar</a>
                                 <?php endif ?>
 
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>

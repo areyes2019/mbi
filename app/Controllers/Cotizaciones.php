@@ -16,11 +16,12 @@ use App\Models\UsuariosModel;
 use App\Models\EntidadesModel;
 use Dompdf\Dompdf;
 class Cotizaciones extends BaseController
-{
+{	
+	const IVA_PORCENTAJE = 16;
 	public function index()
 	{
 		$entidad = new EntidadesModel();
-		$entidades = $entidad->select('id_entidad, razon_social')->findAll();
+		$entidades = $entidad->findAll();
 
 		$db = \Config\Database::connect();
 
@@ -70,7 +71,7 @@ class Cotizaciones extends BaseController
 	}
 	public function nueva()
 	{
-		// Obtener el ID del Kardex desde la solicitud
+		// Obtener el ID del Kardex desde la solicitud y la entidad
 	    $id = $this->request->getVar('id');
 		$entidad = $this->request->getvar('entidad'); 
 
@@ -98,14 +99,18 @@ class Cotizaciones extends BaseController
 	        'estatus' => 9,
 	        'atendido_por'=>$clienteData['generado_por'],
 	        'aprobado_por'=>session('id_usuario'),
+	        'entidad'=>$entidad,
 	        'total'=> 0,
 	    ];
 
-	    //sacamos la cotizacin
-	    // Intentar la inserción y verificar el ID insertado
 	    
+	    $insert = $cotizacionesModel->insert($data);
+    	//acutualizar el estaus del kardex
+        $kardexUpdate = ['estatus' => 8];
+        $update = $kardexModel->update($id, $kardexUpdate);
 
-	    if ($cotizacionesModel->insert($data)){
+	    if ($insert == true && $update == true){
+	        
 	    	return json_encode([
 	    		'estado'=>1,
 	    		'mensaje'=>'Cotización creada con éxito',
@@ -118,87 +123,124 @@ class Cotizaciones extends BaseController
 	    	]);
 	    }
 
-	    /*if ($cotizacionesModel->db->affectedRows() > 0) { // Confirma que el registro fue insertado
-	        // Actualizar el estatus de Kardex
-	        $kardexUpdate = ['estatus' => 8];
-	        $kardexModel->update($id, $kardexUpdate);
-	        
-	        //sacamos el id de la cotizacion
-
-	        $id_cotizacion = new CotizacionesModel();
-	        $id_cotizacion->select('id_cotizacion')->where()
-
-	        //agregamos linea de detalle 
-	    	$detalle = new DetalleModel();
-	    	$data_detalle = [
-	    		'cantidad'=> 1,
-	    		'partida'=> 1,
-	    		'precio_unitario'=> $clienteData['costo_total'],
-	    		'total'=>$clienteData['costo_total'],
-	    		'id_cotizacion'=> $id
-	    	];
-	    	$detalle->insert($data_detalle);
-
-	        return json_encode([
-	            'hecho' => 1,
-	            'slug' => $slug,
-	            'id' => $id,
-	            'mensaje' => 'Cotización creada exitosamente'
-	        ]);
-
-	    } else {
-	        return json_encode([
-	            'hecho' => 0,
-	            'mensaje' => 'Error al crear la cotización'
-	        ]);
-	    }*/
 	}
 	public function pagina($slug)
 	{
-		$db = \Config\Database::connect();
-		$cotizacion_id = $this->request->uri->getSegment(2);
-		
-		
-		//encongrar cotizacion
-		$cotizacion = $db->table('mbi_cotizaciones');
-		$cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');
-		$cotizacion->where('slug',$cotizacion_id);
-		$resultado_cotizacion = $cotizacion->get()->getResultArray();
+	   
 
-		//return json_encode($total);
+	    $empresa = new EntidadesModel();
 
-		$kardex = new KardexModel();
-		$resultado_kardex = $kardex->select('id_kardex')->where('id_kardex',$resultado_cotizacion[0]['id_kardex'])->first();
+	    // Validar el slug
+	    if (empty($slug)) {
+	        throw new \CodeIgniter\Exceptions\PageNotFoundException('Slug no válido');
+	    }
 
-		//econtrar los diagnosticos
+	    $db = \Config\Database::connect();
 
-		$detalles = new KardexDetalleModel();
-		$detalles->where('id_kardex', $resultado_kardex['id_kardex']);
-		$resultado_detalles = $detalles->findAll();
+	    // Encontrar cotización
+	    $cotizacion = $db->table('mbi_cotizaciones');
+	    $cotizacion->join('mbi_clientes', 'mbi_cotizaciones.id_cliente = mbi_clientes.id_cliente');
+	    $cotizacion->where('slug', $slug);
+	    $resultado_cotizacion = $cotizacion->get()->getResultArray();
 
-		$diagnostico = new KardexDiagnosticoModel();
-		$diagnostico->where('id_detalle_kardex', $resultado_detalles[0]['slug']);
-		$resultado_diagnostico = $diagnostico->findAll();
+	    // Verificar si se encontró la cotización
+	    if (empty($resultado_cotizacion)) {
+	        throw new \CodeIgniter\Exceptions\PageNotFoundException('Cotización no encontrada');
+	    }
 
+	    $kardex = new KardexModel();
+	    $resultado_kardex = $kardex->select('id_kardex,slug')->where('id_kardex', $resultado_cotizacion[0]['id_kardex'])->first();
 
+	    // Verificar si se encontró el kardex
+	    if (empty($resultado_kardex)) {
+	        throw new \CodeIgniter\Exceptions\PageNotFoundException('Kardex no encontrado');
+	    }
 
-		//encontramos las refacciones
+	    // Encontrar los detalles del kardex
+	    $detalles = new KardexDetalleModel();
+	    $detalles->where('id_kardex', $resultado_kardex['id_kardex']);
+	    $resultado_detalles = $detalles->findAll();
 
-		$refaccion = new RefaccionesModel();
-		$refaccion->where('id_diagnostico', $resultado_diagnostico[0]['id_detalle_kardex']);
-		$resultado_refaccion = $refaccion->findAll();
+	    // Verificar si se encontraron detalles
+	    if (empty($resultado_detalles)) {
+	        throw new \CodeIgniter\Exceptions\PageNotFoundException('Detalles no encontrados');
+	    }
 
-		$data = [
-			'cotizacion'=>$resultado_cotizacion,
-			'diagnostico'=>$resultado_diagnostico,
-			'refacciones'=>$resultado_refaccion,
-			'slug'=>$resultado_kardex['id_kardex'],
-		
-		];
+	    // Encontrar los diagnósticos
+	    $diagnostico = new KardexDiagnosticoModel();
+	    $diagnostico->where('id_kardex', $resultado_detalles[0]['id_kardex']);
+	    $resultado_diagnostico = $diagnostico->findAll();
 
-		return view('nueva_cotizacion',$data);
+	    // Verificar si se encontraron diagnósticos
+	    if (empty($resultado_diagnostico)) {
+	        throw new \CodeIgniter\Exceptions\PageNotFoundException('Diagnósticos no encontrados');
+	    }
+	    // Encontrar las refacciones
+	    $refaccion = new RefaccionesModel();
+	    $refaccion->where('id_diagnostico', $resultado_diagnostico[0]['id_diagnostico']);
+	    $resultado_refaccion = $refaccion->findAll();
+	    // Verificar si se encontraron refacciones
+	    if (empty($resultado_refaccion)) {
+	        throw new \CodeIgniter\Exceptions\PageNotFoundException('Refacciones no encontradas');
+	    }
+	    $data = [
+	        'cotizacion' => $resultado_cotizacion,
+	        'diagnostico' => $resultado_diagnostico,
+	        'refacciones' => $resultado_refaccion,
+	        'slug' => $resultado_kardex['slug'],
+	        'id_kardex'=>$resultado_kardex['id_kardex'],
+	    ];
+	    return view('nueva_cotizacion', $data);
+	}
+	public function editar_detalle($id)
+	{
+		if (empty($id)) {
+			return $this->response->setJSON(['status'=>'error']);
+		}
 
-		
+		$model = new DetalleModel();
+		$model->where('id_cotizacion_detalle',$id);
+		$resultado = $model->first();
+
+		if (empty($resultado)) {
+			return $this->response->setJSON(['status'=>'error']);
+		};
+
+		return json_encode($resultado);
+	}
+	public function actualizar_detalle()
+	{
+		$detalleModel = new DetalleModel();
+        
+        // Obtener los datos del formulario
+        $partida = $this->request->getvar('partida');
+        $cantidad = $this->request->getvar('cantidad');
+        $precio = $this->request->getvar('precio_unitario');
+        $contenido = $this->request->getvar('contenido');
+        $id_detalle = $this->request->getvar('id_detalle');
+        $total = $precio * $cantidad;
+
+        $data = [
+        	'cantidad'=> $cantidad,
+        	'partida'=> $partida,
+        	'descripcion'=>$contenido,
+        	'precio_unitario'=>$precio,
+        	'total'=> $total,
+        ];
+
+        // Asegúrate de que $id_detalle no esté vacío y sea un valor válido
+		if (!empty($id_detalle)) {
+		    $update = $detalleModel->update($id_detalle, $data);
+		    if ($update) {
+		        return $this->response->setJSON(['flag' => 1]);
+		    } else {
+		        return $this->response->setJSON(['flag' => 0, 'error' => 'Error al actualizar el registro']);
+		    }
+		} else {
+		    return $this->response->setJSON(['flag' => 0, 'error' => 'ID de detalle no proporcionado']);
+		}
+
+        
 	}
 	public function editar()
 	{
@@ -486,26 +528,51 @@ class Cotizaciones extends BaseController
 	}
 	public function enviar_pdf($id)
 	{
+		//Aqui traemos todos los modelos
+
+		$cotizacionModel = new CotizacionesModel();
+        $clienteModel = new ClientesModel();
+        $detalleModel = new DetalleModel();
+        $usuarioModel = new UsuariosModel();
+		
+		$cotizacion = $cotizacionModel->find($id);
+		//Obtenemos la cotizacion
+		if (!$cotizacion) { //verificamos que el id venga con datos
+ 			return "Cotizacion no encontrada";
+		}
+
+		//Obtenemos la entida que cotiza
+		$entidad = $cotizacionModel->select('entidad')->where('id_cotizacion', $id)->first();
+		if (empty($entidad)) {
+			return "no hay entidad";
+		}
+
+		$emisor = $entidad['entidad'];
 
 		//datos del cliente
-		$cliente_query = new CotizacionesModel();
-		$cliente_query->where('id_cotizacion',$id);
-		$resultado_cotizacion = $cliente_query->findAll();
+		$cliente = $clienteModel->find($cotizacion['id_cliente']);
+		
+		if (!$cliente) {
+			return "no hay cliente";
+		}
 
-		$cliente = new ClientesModel();
-		$cliente->where('id_cliente',$resultado_cotizacion[0]['id_cliente']);
-		$resultado = $cliente->findAll();
 
-		$detalles = new DetalleModel();
-		$detalles->where('id_cotizacion',$id);
-		$resultado_detalles = $detalles->findAll();
+		//obtenemos los detalles
+		$detalleModel->where('id_cotizacion',$id);
+		$resultado_detalles = $detalleModel->findAll();
+		if (!$resultado_detalles) {
+			return "no hay detalles";
+		}
 
 		//buscamos al usuario que genero todo
-		$usuario = new UsuariosModel();
-		$usuario->where('id_usuario',$resultado_cotizacion[0]['atendido_por']);
-		$resultado_usuario = $usuario->findAll();
+		$resultado_usuario = $usuarioModel->select('nombre, apellidos, correo')->where('id_usuario',$cotizacion['atendido_por'])->first();
 
-		$total_con_iva = $resultado_cotizacion[0]['total']; // Total con IVA
+		if (!$resultado_usuario) {
+			return "no hay usuario";
+		}
+		
+
+		$total_con_iva = $cotizacion['total']; // Total con IVA
 		$iva_porcentaje = 16; // IVA en porcentaje
 		$factor_iva = 1 + ($iva_porcentaje / 100); // Calcula el factor del IVA
 
@@ -516,33 +583,31 @@ class Cotizaciones extends BaseController
 		$iva_formateado = number_format($iva,2);
 		$total = number_format($total_con_iva,2); //total total
 
-		//mandamos la fecha formateada
-		$fechaOriginal = $resultado_cotizacion[0]['created_at'];
-		// Mapas para días y meses
-		$dias = ['Sunday' => 'domingo', 'Monday' => 'lunes', 'Tuesday' => 'martes', 'Wednesday' => 'miércoles', 'Thursday' => 'jueves', 'Friday' => 'viernes', 'Saturday' => 'sábado'];
-		$meses = ['January' => 'enero', 'February' => 'febrero', 'March' => 'marzo', 'April' => 'abril', 'May' => 'mayo', 'June' => 'junio', 'July' => 'julio', 'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre', 'November' => 'noviembre', 'December' => 'diciembre'];
+        $fechaFormateada = $this->formatearFecha($cotizacion['created_at']);
 
-		// Convertir la fecha y traducir
-		$fecha = new \DateTime($fechaOriginal);
-		$dia = $dias[$fecha->format('l')];
-		$mes = $meses[$fecha->format('F')];
-		// Formatear la fecha
-		$fechaFormateada = ucfirst("$dia, " . $fecha->format('d') . " de $mes de " . $fecha->format('Y'));
+		$nombre_completo = $resultado_usuario['nombre']." ".$resultado_usuario['apellidos'];
 
 		$data = [
-			'cliente'=>$resultado,
-			'id_cotizacion'=>$resultado_cotizacion,
+			'cliente'=>$cliente,
+			'id_cotizacion'=>$id,
 			'detalles'=>$resultado_detalles,
 			'sub_total'=>$importe,
 			'iva'=>$iva_formateado,
 			'total'=>$total,
-			'cotizacion'=> $id,
-			'usuario'=>$resultado_usuario,
+			'vendedor'=>$nombre_completo,
 			'fecha'=>$fechaFormateada
 		];
 		//return view('pdf/cotizacion',$data);
 		$doc = new Dompdf();
-		$html = view('pdf/cotizacion',$data);
+
+		//aqui es donde switcheamos la entidad
+		$emisor = $entidad['entidad'];
+		if ($emisor == 1) {
+			$html = view('pdf/cotizacion',$data);
+		}elseif ($emisor == 2) {
+			$html = view('pdf/cotizacion_secolab',$data);
+		}
+
 		//return $html;
 		$doc->loadHTML($html);
 		$doc->setPaper('A4','portrait');
@@ -556,7 +621,7 @@ class Cotizaciones extends BaseController
         $mi_email = env('MY_GLOBAL_VAR');
         $email = \Config\Services::email();
         $email->setFrom($mi_email, 'Grupo MBI');
-        $email->setTo($resultado_usuario[0]['correo']); // Cambia por el correo del destinatario
+        $email->setTo($resultado_usuario['correo']); // Cambia por el correo del destinatario
         $email->setSubject("Cotización QT-$id");
         $email->setMailType('html');
         // Definir el contenido HTML del correo
@@ -589,6 +654,25 @@ class Cotizaciones extends BaseController
         unlink($filePath);
 
 	}
+    private function formatearFecha($fechaOriginal)
+    {
+        $dias = [
+            'Sunday' => 'domingo', 'Monday' => 'lunes', 'Tuesday' => 'martes',
+            'Wednesday' => 'miércoles', 'Thursday' => 'jueves', 'Friday' => 'viernes',
+            'Saturday' => 'sábado'
+        ];
+        $meses = [
+            'January' => 'enero', 'February' => 'febrero', 'March' => 'marzo',
+            'April' => 'abril', 'May' => 'mayo', 'June' => 'junio', 'July' => 'julio',
+            'August' => 'agosto', 'September' => 'septiembre', 'October' => 'octubre',
+            'November' => 'noviembre', 'December' => 'diciembre'
+        ];
+
+        $fecha = new \DateTime($fechaOriginal);
+        $dia = $dias[$fecha->format('l')];
+        $mes = $meses[$fecha->format('F')];
+        return ucfirst("$dia, " . $fecha->format('d') . " de $mes de " . $fecha->format('Y'));
+    }
 	public function pago()
 	{
 		//Traemos lo que viene en el input
@@ -638,22 +722,22 @@ class Cotizaciones extends BaseController
 		//sacamos el kardex
 		$cotizacionModel = new CotizacionesModel();
 		$resultado_cotizacion = $cotizacionModel->select('id_kardex')->where('id_cotizacion',$id)->first();
-		
-		//sacamos el slug del detalle para poder sacar el diagnostico
-		$detalle_kardex = new KardexDetalleModel();
-		$resultado_kardex = $detalle_kardex->select('slug')->where('id_kardex',$resultado_cotizacion['id_kardex'])->first();
 
-		$id = $resultado_kardex['slug'];
+		//sacamos el id del detalle para poder sacar el diagnostico
+		$detalle_kardex = new KardexDetalleModel();
+		$resultado_kardex = $detalle_kardex->select('id_detalle')->where('id_kardex',$resultado_cotizacion['id_kardex'])->first();
+
+		$id = $resultado_kardex['id_detalle'];
 		
 		//ahora vamos por el disgnostico
 		$diagnostico = new KardexDiagnosticoModel();
-		$diagnostico->where('id_detalle_kardex',$id);
+		$diagnostico->where('id_diagnostico',$id);
 		$resultado_diagnostico = $diagnostico->findAll();
 
 		//y las refacciones 
 
 		$refaccion = new RefaccionesModel();
-		$refaccion->where('id_diagnostico',$resultado_diagnostico[0]['id_detalle_kardex']);
+		$refaccion->where('id_diagnostico',$resultado_diagnostico[0]['id_diagnostico']);
 		$resultado_refaccion = $refaccion->findAll();
 
 		$data = [
@@ -753,27 +837,31 @@ class Cotizaciones extends BaseController
 	}
 	public function agregar_inner()
 	{
-		$detalleModel = new DetalleDetalleModel();
-        // Obtener datos enviados por Axios
-        $data = $this->request->getJSON(true); // Decodifica JSON
+		$detalleModel = new DetalleModel();
+        
+        // Obtener los datos del formulario
+        $partida = $this->request->getvar('partida');
+        $cantidad = $this->request->getvar('cantidad');
+        $precio = $this->request->getvar('precio');
+        $contenido = $this->request->getvar('contenido');
+        $id = $this->request->getvar('id');
+        $total = $precio * $cantidad;
 
-        $id_detalle = $data['id_detalle']; // Obtenemos el id_diagnostico
-        $detalle = $data['detalles'];
+        $data = [
+        	'cantidad'=> $cantidad,
+        	'partida'=> $partida,
+        	'descripcion'=>$contenido,
+        	'precio_unitario'=>$precio,
+        	'total'=> $total,
+        	'id_cotizacion'=>$id
+        ];
 
-
-        // Validar si se enviaron refacciones
-        if (!isset($detalles) || empty($detalles)) {
-            echo 1;
+        $insert = $detalleModel->insert($data);
+        if ($insert == true) {
+        	return $this->response->setJSON(['flag'=>1]);
         }
 
-        // Guardar cada refacción en la base de datos con el id_diagnostico
-        foreach ($detalle as $data_detalle) {
-            $detalleModel->insert([
-                'id_detalle' => $id_detalle,   // Se añade el id_diagnostico
-                'detalles' => $data_detalle['detalles'],
-            ]);
-        }
-        echo 1;
+        
 	}
 	public function ver_microdados($id)
 	{
@@ -801,5 +889,9 @@ class Cotizaciones extends BaseController
 		if ($model->delete($id)) {
 			echo 1;
 		}
+	}
+	public function secolab()
+	{
+		return view('pdf/cotizacion_secolab');
 	}
 }

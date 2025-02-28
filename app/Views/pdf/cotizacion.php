@@ -184,42 +184,18 @@
         <!-- Rest of the content remains the same -->
         <div class="details">
             <div class="to">
-                <?php foreach ($id_cotizacion as $key): ?>
-                <p style="margin: 5px;"><strong>No: <?php echo $key['id_cotizacion'] ?></strong></p>
+                <p style="margin: 5px;"><strong>No: <?php echo $id_cotizacion?></strong></p>
                 <p style="margin: 5px; font-size: 13px;"><?php echo $fecha?></p>
-                <?php endforeach ?>
-                <?php foreach ($usuario as $vendedor): ?>
-                <p style="margin:5px;"><strong><?php echo $vendedor['nombre']." ".$vendedor['apellidos'] ?></strong><br>Asesor de ventas</p>
-                <?php endforeach ?>
+                <p style="margin:5px;"><strong><?php echo $vendedor ?></strong><br>Asesor de ventas</p>
             </div>
             <div class="to">
                 <p style="margin:5px;"><strong>Cn Att:</strong></p>
-                <?php foreach ($cliente as $clientes): ?>
-                <p style="margin:5px; font-size: 12px;"><?php echo $clientes['responsable'] ?></p>
-                <p style="margin:5px; font-size: 12px;">Tel: <?php echo $clientes['telefono'] ?></p>
-                <p style="margin:5px; font-size: 12px;"><?php echo $clientes['hospital']; ?></p>
-                <p style="margin:5px; font-size: 12px;"><?php echo $clientes['facultad']; ?></p>
-                <?php endforeach ?>
+                <p style="margin:5px; font-size: 12px;"><?php echo $cliente['responsable'] ?></p>
+                <p style="margin:5px; font-size: 12px;">Tel: <?php echo $cliente['telefono'] ?></p>
+                <p style="margin:5px; font-size: 12px;"><?php echo $cliente['hospital']; ?></p>
+                <p style="margin:5px; font-size: 12px;"><?php echo $cliente['facultad']; ?></p>
             </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Equipo</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Serie</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>tque labore repudiandae perspiciatis quae tempore, quod illo. Animi explicabo, modi eligendi. Quod, quia.</td>
-                    <td>Phillips</td>
-                    <td>HT67</td>
-                    <td>456545465</td>
-                </tr>
-            </tbody>
-        </table>
         <table class="table">
             <thead>
                 <tr>
@@ -257,7 +233,12 @@
             </div>
         </div>
         <div class="footer">
-            <p><strong>Terminos & Condiciones:</strong> Esta cotización se convertirá en pedido cuando cuente con la firma del cliente, y se respetará el precio establecido. Quedando en entendido todos los términos, características y condiciones descritos en esta cotización y/o anexos adjuntos. El tiempo de entrega es a partir de recibir por vía o e-mail su orden de compra o cotización firmada y el anticipo correspondiente. Toda cancelación genera un cargo equivalente al 20% del valor total de esta cotización.</p>
+            <p><strong>Terminos y Condiciones:</strong> Esta cotización se convertirá en pedido cuando cuente con la firma del cliente, y se respetará el precio establecido. Quedando en entendido todos los términos, características y condiciones descritos en esta cotización y/o anexos adjuntos. El tiempo de entrega es a partir de recibir por vía o e-mail su orden de compra o cotización firmada y el anticipo correspondiente. Toda cancelación genera un cargo equivalente al 20% del valor total de esta cotización.</p>
+        </div>
+        <div class="firma">
+            <p>______________________________</p>
+            <p><strong><?= $vendedor ?></strong></p>
+            <p>Representante de Ventas CDMX</p>
         </div>
     </div>
 </body>
