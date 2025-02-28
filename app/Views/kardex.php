@@ -55,7 +55,7 @@
                     <?php endif ?>
                 </div>
                 <div class="col-md-12">
-                    <h5 class="m-0 text-primary"><strong>Orden de Trabajo <?php echo $id ?></strong></h5>
+                    <h5 class="m-0 text-primary">Orden de Trabajo<strong ref="kardex_id"> <?php echo $id ?></strong></h5>
                     <h6>Fecha: <strong><?php echo $fecha ?> </strong></h6>
                 </div>
                 <div class="col-md-4">
@@ -77,12 +77,11 @@
         <div class="col-md-6">
         <p><strong>Reporte</strong></p>
         
-        <?php if ($reporte['flag']==0): ?>
+        <?php if (isset($reporte['flag']) && $reporte['flag']==0): ?>
         <div class="alert alert-primary rounded-0" role="alert">
             Esta orden de servicio aun no tiene detalles.
         </div>
-        <?php else: ?>
-
+        <?php else:?>
         <?php foreach ($reporte as $isue): ?>
         <div class="card">
             <div class="card-header">
@@ -201,9 +200,9 @@
             <div class="form-group">
                 <label for="">Entidad</label>
                 <select name="" id="" class="form-control rounded-0 shadow-none" v-model="entidad">
-                    <option value="" selected>Seleccione una entidad</option>
+                    <option value="" selected disabled>Seleccione una entidad</option>
                     <?php foreach ($entidades as $entidad): ?>
-                    <option value=""><?php echo $entidad['razon_social'] ?></option>
+                    <option value="<?php echo $entidad['id_entidad'] ?>"><?php echo $entidad['razon_social'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>

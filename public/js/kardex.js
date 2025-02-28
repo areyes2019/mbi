@@ -53,15 +53,16 @@ createApp({
 
             imagenGrande: null,
             precio_admin:"",
+            entidad:""
 		}
 	},
 	methods:{
-		mostrar_general(){
+		/*mostrar_general(){
 			var id = this.$refs.kardex_id.innerHTML;
 			axios.get('/kardex_general/'+id).then((response)=>{
 				this.datos = response.data;
 			})
-		},
+		},*/
 		formatearFecha(fechaString) {
 	      const date = new Date(fechaString);
 	      return date.toLocaleDateString("es-ES", {
@@ -121,12 +122,12 @@ createApp({
 			if (this.validar()) {
 				var me = this;
 				var url = '/detalle_kardex';
-				this.formulario.kardex = this.$refs.id_kardex.innerHTML;
+				this.formulario.kardex = this.$refs.kardex_id.innerHTML;
 				axios.post(url,this.formulario).then((response)=>{
 					if (response.data == 1) {
 						$('#equipos').modal('hide');
 						$.notify('Reporte agregado');
-						this.mostrar_general();
+						location.reload();
 					}
 				})
 			}    
@@ -476,6 +477,6 @@ createApp({
 
 	},
 	mounted(){
-		this.mostrar_general();
+		//this.mostrar_general();
 	}
 }).mount('#app')

@@ -147,7 +147,7 @@ class Kardex extends BaseController
 
         return view('kardex',$data);
 
-        //return json_encode($data['reporte']['flag']);
+        //return json_encode($data);
 
 
 
