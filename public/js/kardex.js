@@ -117,7 +117,7 @@ createApp({
 				this.errores.falla = "";
 			}
 		},
-		insertar(){
+		insertar(){ //inserta nuevo detalles en el reporte de falla
 			if (this.validar()) {
 				var me = this;
 				var url = '/detalle_kardex';
@@ -225,15 +225,16 @@ createApp({
 
 		},
 
-		borrar_linea(data){
+		borrar_linea(data){ //borra el detalle del reporte
 			var me = this;
 			var url = '/borrar_linea/'+data;
-			if (window.confirm("¿Realmente quieres borrar esta linea?")) {
+			if (window.confirm("¿Realmente quieres borrar este reporte?")) {
 				axios.get(url).then((response)=>{
-					if (response.data == 1) {
+					if (response.data.flag == 1) {
 						$.notify('El reporta ha sido borrado');
-						this.mostrar_general();
-						this.vaciar_campos();
+						setTimeout(function() {
+							location.reload();
+						}, 2000);
 					}	
 				})
 			}
@@ -311,22 +312,21 @@ createApp({
 				}
 			})
 		},
-		actualizar_detalle(id){
-			var me = this;
+		actualizar(detalle){  //manda los datos al modal editar
+			var url = '/actualizar_detalle/'+ detalle;
+			axios.get(url).then((response)=>{
+				this.actualizar_linea = response.data[0];
+				this.id_detalle = response.data[0].id_detalle;
+			})
+		},
+		actualizar_detalle(id){ //hace la acutalizacion del detalle en la db
 			var url = "/actualizar_final/"+id;
+			this.actualizar_linea.id_detalle = this.$refs.id_detalle.innerHTML; //aqui tomamos el id detalle pra meterlo al form
 			axios.post(url,this.actualizar_linea).then((response)=>{
 				if (response.data == 1) {
 					$('#equipos_actualizar').modal('hide');
-					this.mostrar_general();
-					$.notify('Registro actualizado');
+					location.reload();
 				}
-			})
-		},
-		actualizar(detalle){
-			var me  = this;
-			var url = '/actualizar_detalle/'+ detalle;
-			axios.get(url).then(function (response){
-				me.actualizar_linea = response.data[0];
 			})
 		},
 		si_ingeniero(usuario){

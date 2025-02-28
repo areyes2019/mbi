@@ -99,7 +99,7 @@
                         <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-blue "><?php echo $mis_tareas['tipo_txt'] ?></span>
                         <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 4" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
                     </td>
-                    <td><strong><?php echo $mis_tareas['nombre']." ".$mis_tareas['apellidos'] ?></strong></td>
+                    <td><strong><?php echo $mis_tareas['generado_nombre'] ?></strong></td>
                     <td>
 
                         <div class="btn-group dropleft">
@@ -109,7 +109,7 @@
                             <div class="dropdown-menu rounded-0">
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','2'))|| esc(es_super_admin())): ?>    
                                 <!--  Editar -->
-                                <a href="<?php echo base_url('/kardex/'.$mis_tareas['id_kardex']."/".$mis_tareas['slug']); ?>" class="dropdown-item">Editar</a>
+                                <a href="<?php echo base_url('/kardex/'.$mis_tareas['slug']); ?>" class="dropdown-item">Editar</a>
                                 <?php endif ?>
 
                                 <?php if (esc(tiene_permisos(session('id_usuario'),'1','1'))|| esc(es_super_admin())): ?>

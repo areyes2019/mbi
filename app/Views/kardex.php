@@ -76,24 +76,44 @@
     <div class="row mt-4 mb-5">
         <div class="col-md-6">
         <p><strong>Reporte</strong></p>
+        
+        <?php if ($reporte['flag']==0): ?>
+        <div class="alert alert-primary rounded-0" role="alert">
+            Esta orden de servicio aun no tiene detalles.
+        </div>
+        <?php else: ?>
+
+        <?php foreach ($reporte as $isue): ?>
         <div class="card">
             <div class="card-header">
-                <button class="btn btn-primary btn-sm rounded-0 mr-1">Editar</button>
-                <button class="btn btn-danger btn-sm rounded-0">Eliminar</button>
+                <button 
+                    class="btn btn-primary btn-sm rounded-0 mr-1" 
+                    data-toggle="modal" 
+                    data-target="#equipos_actualizar"
+                    @click = "actualizar(<?= $isue['id_detalle']?>)"
+                    >Editar</button>
+                <button class="btn btn-danger btn-sm rounded-0" @click = "borrar_linea(<?= $isue['id_detalle'] ?>)">Eliminar</button>
             </div>
             <div class="card-body">
-                <?php foreach ($reporte as $isue): ?>
                 <p class="m-0"><strong>Nombre del equipo:</strong> <?php echo $isue['nombre'] ?></p>
                 <p class="m-0"><strong>Marca:</strong> <?php echo $isue['marca'] ?></p>
                 <p class="m-0"><strong>Modelo:</strong> <?php echo $isue['modelo'] ?></p>
                 <p class="m-0"><strong>Inventario:</strong> <?php echo $isue['inventario'] ?></p>
                 <p class="m-0"><strong>Falla:</strong> <?php echo $isue['falla'] ?></p>
-                <?php endforeach ?>
             </div>
         </div>
+        <?php endforeach ?>
+        
+        <?php endif ?>
         </div>
         <div class="col-md-6">
             <p><strong>Diagnóstico</strong></p>
+            
+            <?php if ($diagnostico['flag']==0): ?>
+            <div class="alert alert-primary rounded-0" role="alert">
+                ¡Esta orden de servicio aun no esta diagnosticada!
+            </div>
+            <?php else: ?>
             <div class="card">
                 <div class="card-header">
                     <button class="btn btn-primary btn-sm rounded-0 mr-1">Agregar Imagen</button>
@@ -112,7 +132,11 @@
                     <p><?php echo $diagnostico['precio_estimado'] ?></p>
                 </div>
             </div>
+            <?php endif ?>
             <h5>Refacciones necesarias</h5>
+            <?php if ($diagnostico['flag']==0): ?>
+            <p></p>
+            <?php else: ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -141,6 +165,7 @@
                 <img src="/equipos/<?php echo $mini['img'] ?>" class="thumbnail" data-toggle="modal" data-target="#imageModal" data-src="https://via.placeholder.com/600">
                 <?php endforeach ?>
             </div>
+            <?php endif ?>
         </div>
     </div>
     <!--  Modal para ver la miniatura -->
@@ -151,9 +176,13 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <?php foreach ($diagnostico['imagenes'] as $img): ?>
-                    <img src="/equipos/<?= $img['img'] ?>" class="modal-img" id="modalImage">
-                    <?php endforeach ?>
+                    <?php if ($diagnostico['flag']==0): ?>
+                    <p></p>
+                    <?php else: ?>
+                        <?php foreach ($diagnostico['imagenes'] as $img): ?>
+                        <img src="/equipos/<?= $img['img'] ?>" class="modal-img" id="modalImage">
+                        <?php endforeach ?>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
@@ -475,6 +504,7 @@
         <div class="modal-content rounded-0">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-gear-wide-connected"></i> Actualizar</h5>
+                <p class="d-none" ref="id_detalle">{{id_detalle}}</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -555,7 +585,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary rounded-0 shadow-none btn-sm" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="actualizar_detalle(actualizar_linea.id_detalle)"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
+            <button type="button" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="actualizar_detalle(id_detalle)"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
           </div>
         </div>
       </div>
