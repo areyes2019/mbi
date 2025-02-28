@@ -365,155 +365,75 @@ class Kardex extends BaseController
     }
     public function enviar_kardex()
     {
-        $correo  = env('MY_GLOBAL_VAR');
+        $kardex_data = new KardexModel();
+        //en este punto solo cambiamos el estatus y el atendido por, luego se manda el correo
 
-        $db = \Config\Database::connect();
+        //datos de entrada
+        $correo  = env('MY_GLOBAL_VAR'); //correo global
+
+        $db = \Config\Database::connect(); //nos conectamos
         
         //datos de entrada
-        $slug = $this->request->getvar('slug');
         $kardex = $this->request->getvar('kardex');
         $destinatario_id = $this->request->getvar('destinatario');
-        $asunto = $this->request->getvar('asunto');
         $dia = $this->request->getvar('dia');
         $hora = $this->request->getvar('hora');
 
         $data = [
-            'slug'=>$slug,
             'kardex'=>$kardex,
-            'asunto'=>$asunto,
             'destinatario_id'=>$destinatario_id,
             'dia'=>$dia,
             'hora'=>$hora,
         ];
-        
 
-        //encontrar al remitente
-        $id_remitente = session('id_usuario');
-        $remitente = $db->table('usuarios');
-        $remitente->where('id_usuario',$id_remitente);
-        $resultado_remitente = $remitente->get()->getRow();
-        $nombre_completo_remitente = $resultado_remitente->nombre." ".$resultado_remitente->apellidos;
-
-        //encontrar al destinatario
-        $destinatario = $db->table('usuarios');
-        $destinatario->where('id_usuario',$destinatario_id);
-        $resultado_destinatario = $destinatario->get()->getRow(); 
-        $nombre_completo_destinatario = $resultado_destinatario->nombre." ".$resultado_destinatario->apellidos;
-        $correo_destinatario = $resultado_destinatario->correo;
-
-        
-        //encontrar el msg
-        $mensaje_model = new MensajeModel();
-        $mensaje_model->where('kardex_id', $slug);
-        $resultado_mensaje = $mensaje_model->findAll();
-        $id_mensaje = $resultado_mensaje[0]['id_mensaje'];
-
-
-
-        $mensaje = [
-            'asunto'=> $asunto,
-            'remitente_id'=> $id_remitente,
-            'remitente_nombre'=> $nombre_completo_remitente,
-            'destinatario_id'=> $destinatario_id,
-            'destinatario_nombre'=>$nombre_completo_destinatario, 
-        ];
-
-        if ($mensaje_model->update($id_mensaje,$mensaje)) {
-            echo 1;
-
-            //enviamos el correo
-            $message = view('email/enviar_kardex',['mensaje' => $asunto]);
-
-            $email_service = \Config\Services::email();
-            $email_service->setFrom($correo,'Grupo MBI');
-            $email_service->setTo($correo_destinatario);
-            $email_service->setSubject('Nueva orden de servicio. No responder');
-            $email_service->setMessage($message);
-            $email_service->setMailType('html');
-            $email_service->send();
-
-
+        if (empty($data)){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay datos completos',
+                'flag'=>0
+            ]);
         }
 
-        //una vez actualizado el msg buscamos nuevamente los datos para el estatus
+        //vamos a traer los datos del status del kardex
+        $estatus = $kardex_data->select('estatus')->where('id_kardex',$kardex)->findAll();
 
-        $mensaje_model->where('id_mensaje',$id_mensaje);
-        $resultado_mensaje = $mensaje_model->findAll();
-
-
-        $enviado_por = $resultado_mensaje[0]['remitente_id'];
-        $recibido_por = $resultado_mensaje[0]['destinatario_id'];
-
-        $estatus_usuario = new UsuariosModel();
-        $estatus_usuario->where('id_usuario',$recibido_por);
-        $estatus_usuario_query = $estatus_usuario->findAll();
-        $rol = $estatus_usuario_query[0]['id_rol']; //<-
-        
-
-        //datos del kardex 
-
-        $estatus_query = new KardexModel();
-        $estatus_query->where('id_kardex',$kardex);
-        $estatus_resultado = $estatus_query->findAll();
-        $estatus = $estatus_resultado[0]['estatus'];
-        
-        //return json_encode($estatus);
-
-        //return json_encode($estatus);
-
-        if ($estatus == 1 && $rol = 2) {
-            $estatus_id = 2;
-            $data['estatus'] = $estatus_id;
-            $data['dia'] = null;
-            $data['hora'] = null;
-            if ($estatus_query->update($kardex,$data)) {
-                echo 1;
-            }
-
-        }elseif($estatus == 2 && $rol == 1){
-            $estatus_id = 3;
-            $data['estatus'] = $estatus_id;
-            $data['dia'] = null;
-            $data['hora'] = null;
-            if ($estatus_query->update($kardex,$data)) {
-                echo 1;
-            }
-        }elseif($estatus == 3 && $rol == 2){
-            $estatus_id = 2;
-            $data['estatus'] = $estatus_id;
-            $data['dia'] = null;
-            $data['hora'] = null;
-            if ($estatus_query->update($kardex,$data)) {
-                echo 1;
-            }
-        }elseif($estatus == 2 && $rol == 3 ){
-            $estatus_id = 4;
-            $data['estatus'] = $estatus_id;
-            $data['dia'] = $dia;
-            $data['hora'] = $hora;
-            if ($estatus_query->update($kardex,$data)) {
-                echo 1;
-            }
-        }elseif($estatus == 5 && $rol == 3 ){
-            $estatus_id = 4;
-            $data['estatus'] = $estatus_id;
-            $data['dia'] = $dia;
-            $data['hora'] = $hora;
-            if ($estatus_query->update($kardex,$data)) {
-                echo 1;
-            }
+        if (!$estatus){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay Kardex',
+                'flag'=>0
+            ]);
         }
-        
+        $stage = $estatus[0]['estatus']; //ya tenemos el estatuso para la logica
 
-        /*elseif ($estatus == 4 $estatus_resultado[0]['rechazado']==1){
-            $estatus = 5;
-        }elseif($estatus && $resultado_query[0]['aceptado']==1){
-            $estatus = 6;
-        }elseif ($resultado_query[0]['id_rol']==3 && $resultado_query[0]['terminado']==1 ) {
-            $estatus = 7;
-        }elseif ($resultado_query[0]['estatus'] == 7) {
-            $estatus = 8;
-        }*/   
+        if ($stage == 1) {
+            // cambiamos a dos y enviamos a un adminstrador
+            $data = [
+                'estatus'=> 2,
+                'atendido_por'=>$destinatario_id,
+            ];
+        }elseif ($stage == 2) {
+            // cambiamos a cuatro y enviamos a un tecnico
+            $data = [
+                'estatus'=> 4,
+                'atendido_por'=>$destinatario_id,
+            ];
+        }
+
+        $update = $kardex_data->update($kardex,$data); 
+        if ($update == true){
+            return $this->response->setJSON([
+                'status'=>'success',
+                'message'=>'Se envio el kardex',
+                'flag'=>1
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No se pudo enviar',
+                'flag'=>0
+            ]);
+        }
 
 
     }

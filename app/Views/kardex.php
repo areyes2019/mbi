@@ -416,10 +416,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div v-if="!datos.reporte || datos.reporte.length === 0">
-                    <h4 class="text-danger text-center">Aun no has agregado ningun equipo</h4>
-                </div>
-                <div v-else>
+                <?php if (isset($reporte['flag']) && $reporte['flag']==0): ?>
+                    <div class=" alert alert-primary">
+                        ¡Aun no has agregado ningun equipo!
+                    </div>
+                <?php else: ?>
+                    <!-- modal asignar kardex -->
                     <div class="form-group mt-2">
                         <div class="input-group">
                             <div class="input-group-prepend input-group-sm">
@@ -433,16 +435,6 @@
                                 <option value="<?php echo $usuario['id_usuario']; ?>"><?php echo $usuario['nombre']." ".$usuario['apellidos'] ?></option>    
                                 <?php endforeach ?>
                             </select>
-                        </div>
-                    </div>
-                    <div class="form-group mt-2">
-                        <div class="input-group">
-                            <div class="input-group-prepend input-group-sm">
-                              <div class="input-group-text rounded-0">
-                                <i class="bi bi-card-text"></i>
-                              </div>
-                            </div>
-                            <input class="form-control rounded-0 shadow-none" v-model="asunto">
                         </div>
                     </div>
                     <div v-if="ingeniero == 1">
@@ -488,11 +480,13 @@
                         </div>
                     </div>
                     </div>                    
-                </div>
+                <?php endif ?>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary rounded-0 shadow-none btn-sm" data-dismiss="modal">Cerrar</button>
-            <button  type="button" v-if="Array.isArray(datos.reporte) && datos.reporte.length > 0" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="enviar"><span class="bi bi-plus-circle"></span> Enviar</button>
+            <?php if (!isset($reporte['flag'])): ?>
+            <button  type="button" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="enviar(<?php echo $id ?>)"><span class="bi bi-plus-circle"></span> Enviar</button>
+            <?php endif ?>
           </div>
         </div>
       </div>

@@ -240,22 +240,17 @@ createApp({
 				})
 			}
 		},
-		enviar() {
-			//alert('hola');
-			var me = this;
+		enviar(data) {
 			var url = '/enviar_kardex';
 			axios.post(url,{
-				'destinatario':me.usuario,
-				'slug':me.$refs.kardex_id.innerHTML,
-				'kardex':me.$refs.id_kardex.innerHTML,
-				'asunto':me.asunto,
-				'dia':me.dia,
-				'hora':me.hora
-			}).then(function (response){
-				if (response.data == 11) {
-					//window.location.href = '/inicio/';
-					//window.location.assign("/inicio")
-					setTimeout(function(){document.location.href = "/inicio"},300);
+				'destinatario':this.usuario,
+				'kardex':data,
+				'dia':this.dia,
+				'hora':this.hora
+			}).then((response)=>{
+				if (response.data.flag == 1) {
+					$.notify('Se ha enviado el kardex')
+					window.location.href = '/inicio/';
 				}
 			})
 		},
