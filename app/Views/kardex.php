@@ -13,7 +13,7 @@
     <div class="card rounded-0">
         <div class="card-header">
             <!--  esto lo ve el vendedor en la etapa 1 y el administrador en la etapa 2 -->
-            <?php if (($proceso == 1 && $rol== 1)||($proceso==2 && $rol== 2)): ?>
+            <?php if (($proceso == 1 && $rol== 1)||($proceso==2 && $rol== 2)||($proceso==5 && $rol== 2)): ?>
             <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex">Turnar</button>
             <?php endif ?>
 

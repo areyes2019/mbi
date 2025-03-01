@@ -99,7 +99,7 @@
                         <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 3" class="badge badge-pill badge-custom-blue "><?php echo $mis_tareas['tipo_txt'] ?></span>
                         <span v-else-if="<?php echo $mis_tareas['tipo'] ?> == 4" class="badge badge-pill badge-custom-aqua "><?php echo $mis_tareas['tipo_txt'] ?></span>
                     </td>
-                    <td><strong><?php echo $mis_tareas['generado_nombre'] ?></strong></td>
+                    <td><strong><?php echo $mis_tareas['nombre']." ".$mis_tareas['apellidos'] ?></strong></td>
                     <td>
 
                         <div class="btn-group dropleft">

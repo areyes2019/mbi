@@ -274,18 +274,21 @@ createApp({
 			$('#rechazar_tarea').modal('show');
 		},
 		rechazar_tarea(){
-			var me = this;
-			var url = '/kardex_accion';
-			axios.post(url,{
-				'kardex':me.kardex,
-				'accion':2,
-				'razon':me.razon,
-			}).then(function (response){
-				if (response.data == 1) {
-					setTimeout(function(){document.location.href = "/inicio"},500);
+			var id = this.$refs.kardex_id.innerHTML;
+			var url = '/rechazar_tarea';
+			if (confirm('Deseas rechazar esta tarea?')==true) {
+				
+				axios.post(url,{
+					'kardex':id,
+					'razon':this.razon,
+				}).then((response)=>{
+					if (response.data.flag == 1) {
+						$.notify('Usted ha rechazado la tarea')
+						setTimeout(function(){document.location.href = "/inicio"},500);
 
-				}
-			})
+					}
+				})
+			}
 		},
 		horarios(id_horario, event){
 			if (event.target.checked) {

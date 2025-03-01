@@ -106,7 +106,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('borrar_linea/(:num)','Kardex::borrar_linea/$1');
 	$routes->get('ver_kardex/(:num)','Kardex::ver_kardex/$1');
 	$routes->get('ver_primer_kardex','Kardex::ver_kardex_lateral');
-	$routes->post('kardex_accion','Kardex::kardex_accion');
+	$routes->post('rechazar_tarea','Kardex::rechazar_tarea');
 	$routes->post('regresar_kardex','Kardex::regresar_kardex');
 	$routes->post('regresar_vendedor','Kardex::regresar_vendedor');
 	$routes->get('actualizar_detalle/(:num)','Kardex::actualizar_detalle/$1');

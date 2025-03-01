@@ -432,6 +432,14 @@ class Kardex extends BaseController
                 'dia'=>$dia,
                 'hora'=>$hora,
             ];
+        }elseif ($stage == 5) {
+            // cambiamos a cuatro y enviamos a un tecnico
+            $data = [
+                'estatus'=> 4,
+                'atendido_por'=>$destinatario_id,
+                'dia'=>$dia,
+                'hora'=>$hora,
+            ];
         }
 
         $update = $kardex_data->update($kardex,$data); 
@@ -636,6 +644,34 @@ class Kardex extends BaseController
             }
 
         }
+    }
+    public function rechazar_tarea()
+    {
+        $kardex = new KardexModel();
+        //recibimos los datos
+        $id_kardex = $this->request->getvar('kardex');
+        $razon  = $this->request->getvar('razon');
+        $data = [
+            'rechazado'=>1,
+            'rechazo_razon'=>$razon,
+            'estatus'=>5,
+        ];
+
+        $rechazo = new KardexModel();
+        $update = $rechazo->update($id_kardex,$data);
+        if ($update == true) {
+            return $this->response->setJSON([
+                'status'=>'success',
+                'message'=>'Se rechazo el kardex',
+                'flag'=>1
+            ]);
+        }
+        return $this->response->setJSON([
+            'status'=>'error',
+            'message'=>'No se ejecuto la accion',
+            'flag'=>0
+        ]);
+
     }
     public function kardex_accion()
     {
