@@ -387,16 +387,16 @@ createApp({
             // Eliminar la fila en el índice especificado
             this.refacciones.splice(index, 1);
         },
+        abrir_modal_refacciones(id){
+        	this.id_diagnostico = id;
+        },
         submitForm() {
             axios.post('/agregar_refacciones',{
             	'id_diagnostico':this.id_diagnostico,
             	'refacciones':this.refacciones,
-
             }).then((response)=>{
-            	if (response.data == 1) {
-            		$('#agregar_refacciones').modal('hide');
-            		this.refacciones = [{ nombre: '', marca: '', modelo: '', costo: '' }];
-            		this.mostrar_general();
+            	if (response.data.flag == 1) {
+            		location.reload();
             	}
             })
         },
@@ -404,15 +404,11 @@ createApp({
         	var url = '/borrar_refaccion/'+data;
         	if (confirm('¿Realmente deseas eliminar este registro?')==true) {	
 	        	axios.get(url).then((response)=>{
-	        		if (response.data == 1) {
-	        			$.notify('Registro eliminado');
-	        			this.mostrar_general();
+	        		if (response.data.flag == 1) {
+	        			location.reload();
 	        		}
 	        	})
         	}
-        },
-        abrir_modal_refacciones(id){
-        	this.id_diagnostico = id;
         },
         a_cotizacion(data,kardex) {
         	

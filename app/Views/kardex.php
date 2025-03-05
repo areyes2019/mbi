@@ -119,6 +119,7 @@
             </div>
             <?php endif ?>
         </div>
+        <!--  diagnostico -->
         <div class="col-md-6">
             <p><strong>Diagnóstico</strong></p>
             <!--  Si no hay error 0 se presentan los datos -->
@@ -130,7 +131,7 @@
                     <button class="btn btn-primary btn-sm rounded-0 mr-1">Agregar Imagen</button>
                     <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle="modal" data-target="#modificar_diagnostico" @click = "editar_diagnostico(<?= $diagnostico['id_diagnostico']?>)">Editar</button>
                     <button class="btn btn-danger btn-sm rounded-0 mr-1" @click = "borrar_diagnostico(<?= $diagnostico['id_diagnostico'] ?>)">Eliminar</button>
-                    <button class="btn btn-secondary btn-sm rounded-0">Refacciones</button>
+                    <button class="btn btn-secondary btn-sm rounded-0" data-toggle="modal" data-target="#agregar_refacciones" @click = "abrir_modal_refacciones(<?= $diagnostico['id_diagnostico']?>)">Refacciones</button>
                     <?php endif ?>
                 </div>
                 <?php endif ?>
@@ -162,7 +163,35 @@
                 ¡Esta orden de servicio aun no esta diagnosticada!
             </div>
             <?php endif; ?>
-            <h5>Refacciones necesarias</h5>
+            <h5 class="mt-3">Refacciones necesarias</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Refacción</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (isset($diagnostico['refacciones']['status']) && $diagnostico['refacciones']['status'] === 'error'):?>
+                    <tr>
+                        <td colspan="5" class="text-center">No hay refacciones disponibles</td>
+                    </tr>
+                    <?php else: ?>
+                        <?php foreach ($diagnostico['refacciones'] as $refaccion): ?>
+                            <tr>
+                                <td><?php echo $refaccion['refaccion'] ?></td>
+                                <td><?php echo $refaccion['marca'] ?></td>
+                                <td><?php echo $refaccion['modelo'] ?></td>
+                                <td>$<?php echo $refaccion['precio'] ?></td>
+                                <td><a href="" @click.prevent="borrar_refaccion(<?= $refaccion['id_refaccion'] ?>)">X</a></td>
+                            </tr>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </tbody>
+            </table>
             
         </div>
         </div>    
@@ -342,7 +371,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(refaccion, index) in refacciones" :key="index">
-                                    <td class="d-none"><input type="text" v-model = "id_diagnostico"></td>
+                                    <td class="d-none"><input type="text" v-model = "id_diagnostico" disabled></td>
                                     <td width="40%"><input class="form-control form-control-sm rounded-0 shadow-none" type="text" v-model="refaccion.nombre" placeholder="Refacción"></td>
                                     <td><input class="form-control form-control-sm rounded-0 shadow-none" type="number" v-model="refaccion.costo" placeholder="Costo" step="0.01"></td>
                                     <td><input class="form-control form-control-sm rounded-0 shadow-none" type="text" v-model="refaccion.marca" placeholder="Marca"></td>
@@ -357,7 +386,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm rounded-0" data-dismiss="modal">Close</button>
-                    <button type="button" :class="['btn', 'btn-primary', 'btn-sm', 'rounded-0', archivo_permitido]" @click = "subir_imagen">Guardar</button>
                 </div>
             </div>
         </div>

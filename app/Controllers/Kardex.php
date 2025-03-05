@@ -148,7 +148,6 @@ class Kardex extends BaseController
             'rol'=>$rol['id_rol']
         ];
             
-        // Conexión a la base de datos
         return view('kardex',$data);
 
         //return json_encode($data);
@@ -969,11 +968,11 @@ class Kardex extends BaseController
     public function agregar_refacciones()
     {
         $refaccionModel = new RefaccionesModel();
+        $db = \Config\Database::connect();
         // Obtener datos enviados por Axios
         $data = $this->request->getJSON(true); // Decodifica JSON
         $id_diagnostico = $data['id_diagnostico']; // Obtenemos el id_diagnostico
         $refacciones = $data['refacciones'];
-
 
         // Validar si se enviaron refacciones
         if (!isset($refacciones) || empty($refacciones)) {
@@ -981,31 +980,51 @@ class Kardex extends BaseController
                                   ->setJSON(['message' => 'No se enviaron datos']);
         }
 
-        $data = [
-            'id'=>$id_diagnostico,
-            'datos'=>$refacciones
-        ];
-
         //return json_encode($data);
+        $db->transStart();
+        try {
+            // Guardar cada refacción en la base de datos con el id_diagnostico
+            foreach ($refacciones as $refaccion) {
+                $insertResult = $refaccionModel->insert([
+                    'id_diagnostico' => $id_diagnostico,   // Se añade el id_diagnostico
+                    'refaccion' => $refaccion['nombre'],
+                    'marca'  => $refaccion['marca'],
+                    'modelo' => $refaccion['modelo'],
+                    'precio'  => $refaccion['costo']
+                ]);
 
-        // Guardar cada refacción en la base de datos con el id_diagnostico
-        foreach ($refacciones as $refaccion) {
-            $refaccionModel->insert([
-                'id_diagnostico' => $id_diagnostico,   // Se añade el id_diagnostico
-                'refaccion' => $refaccion['nombre'],
-                'marca'  => $refaccion['marca'],
-                'modelo' => $refaccion['modelo'],
-                'precio'  => $refaccion['costo']
+            }
+            $db->transComplete();
+            if ($db->transStatus() === false) {
+                throw new Exception("Hubo un errro al guardar los datos");
+            }
+            return json_encode([
+                'flag'=>1
             ]);
+            
+        } catch (Exception $e) {
+            // Si hubo un error, deshacer la transacción (rollback)
+            $db->transRollback();
+            echo "Error: " . $e->getMessage();
         }
-        echo 1;
+        
 
     }
     public function borrar_refaccion($id)
     {
         $model = new RefaccionesModel();
-        if ($model->delete($id)) {
-            echo 1;
+        if (empty($id)){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay id',
+                'flag'=>0
+            ]);
+        }
+        $delete = $model->delete($id); 
+        if ($delete == true) {
+            return json_encode([
+                'flag'=>1
+            ]);
         }
     }
     public function enviar_a_cotizar()
