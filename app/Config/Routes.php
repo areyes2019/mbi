@@ -107,6 +107,7 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->get('ver_kardex/(:num)','Kardex::ver_kardex/$1');
 	$routes->get('ver_primer_kardex','Kardex::ver_kardex_lateral');
 	$routes->post('rechazar_tarea','Kardex::rechazar_tarea');
+	$routes->get('aceptar_tarea/(:num)','Kardex::aceptar_tarea/$1');
 	$routes->post('regresar_kardex','Kardex::regresar_kardex');
 	$routes->post('regresar_vendedor','Kardex::regresar_vendedor');
 	$routes->get('actualizar_detalle/(:num)','Kardex::actualizar_detalle/$1');
@@ -116,9 +117,9 @@ $routes->group('',['filter' => 'AuthFilter'],static function($routes){
 	$routes->post('agregar_diagnostico','Kardex::agregar_diagnostico');
 	$routes->post('subir_imagen','Kardex::subir_imagen');
 	$routes->get('eliminar_img/(:num)','Kardex::eliminar_img/$1');
-	$routes->get('modificar_diagnostico/(:any)','Kardex::modificar_diagnostico/$1');
+	$routes->get('modificar_diagnostico/(:num)','Kardex::modificar_diagnostico/$1');
 	$routes->post('actualizacion_diagnostico','Kardex::actualizacion_diagnostico');
-	$routes->get('eliminar_diagnostico/(:any)','Kardex::eliminar_diagnostico/$1');
+	$routes->get('eliminar_diagnostico/(:num)','Kardex::eliminar_diagnostico/$1');
 	$routes->get('ver_galeria/(:num)','Kardex::mostrar_imagenes/$1');
 	$routes->get('liberar_diagnostico/(:num)','Kardex::liberar_diagnostico/$1');
 	$routes->get('pdf_os/(:num)','Kardex::pdf_os/$1');

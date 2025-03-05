@@ -16,9 +16,9 @@ use App\Models\KardexDiagnosticoModel;
 use App\Models\KardexDiagnosticoImgModel;
 use App\Models\EntidadesModel;
 use Dompdf\Dompdf;
+use CodeIgniter\I18n\Time;
 class Kardex extends BaseController
 {
-
     public function index($slug) //este nos muestra el kardex 
     {
         $db = \Config\Database::connect(); //servicio de conexion
@@ -29,6 +29,8 @@ class Kardex extends BaseController
         $imagen = new KardexDiagnosticoImgModel();
         $entidades = new EntidadesModel();
         $errores = [];  //declaramos errores vacios para que no se detenga;
+        
+        //confirmamos que venga algo en el slug
         if (empty($slug)){
             return $this->response->setJSON([
                 'status'=>'error',
@@ -42,6 +44,7 @@ class Kardex extends BaseController
         $builder->join('mbi_clientes', 'mbi_clientes.id_cliente = mbi_kardex.id_cliente');
         $builder->where('mbi_kardex.slug', $slug); // Asegúrate de que 'slug' pertenece a 'mbi_kardex'
         $resultado = $builder->get()->getResultArray();
+        //confirmamos que venga algo en resultado
         if (!$resultado){
             return $this->response->setJSON([
                 'status'=>'error',
@@ -68,58 +71,59 @@ class Kardex extends BaseController
                 'flag'=>0
             ];
         }
-        //sacamos los detalles
+        
+        //sacamos detalles
         $reporte_data = $reportes->where('id_kardex',$resultado[0]['id_kardex'])->findAll();
+        //confirmamos que haya detalles
         if (empty($reporte_data)){
             $reporte_data=[
                 'status'=>'error',
                 'message'=>'No hay reporte aun',
                 'flag'=>0,
             ];
+            $errores['reporte']=0;
         }
-        if (isset($reporte_data[0]) && is_array($reporte_data[0])) {
-            $diagnostico_datos = $diagnostico->find($reporte_data[0]['id_detalle']);
-            if (empty($diagnostico_datos)){
-                 $diagnostico_datos = [
-                     'status'=>'error',
-                     'message'=>'No hay diagnóstico disponible',
-                     'flag'=>0
-                 ];
-                 $errores['refacciones'] = "No hay refacciones";
-                 $errores['imagenes'] = "No hay imagenes";
-             }else{
-                //buscamos las refacciones
-                $refacciones_data = $refacciones->where('id_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
-                $imagen_data = $imagen->where('id_kardex_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
-                if (empty($refacciones_data)){
-                    $refacciones_data=[
-                        'status'=>'error',
-                        'message'=>'No hay refacciones aun',
-                        'flag'=>0
-                    ];
-                }
-                if (empty($imagen_data)){
-                    $imagen_data=[
-                        'status'=>'error',
-                        'message'=>'No hay imagenes aun',
-                        'flag'=>0
-                    ];
-                }
-                // Agregar refacciones e imágenes al diagnóstico
-                $diagnostico_datos['refacciones'] = $refacciones_data;
-                $diagnostico_datos['imagenes'] = $imagen_data;
 
-             } 
-        }else{
-            // Si no hay reporte, definimos $diagnostico_datos como un error
+        //si hay reporte mostramos diagnosticos
+        $diagnostico_datos = $diagnostico->find($reporte_data[0]['id_detalle']);
+        //confirmamos que haya datos en la consulta diagnosticos
+        if (empty($diagnostico_datos)) {
             $diagnostico_datos = [
-                'status' => 'error',
-                'message' => 'No hay reporte disponible',
-                'flag' => 0
+                'status'=>'error',
+                'message'=> 'No hay diagnostico',
+                'flag'=> 0,
             ];
-            $errores['refacciones'] = "No hay refacciones";
-            $errores['imagenes'] = "No hay imagenes";
+             //esta es una bandera para los if de la vista 
+        }else{
+            //si hay diangnostico, sacamos refaciones
+            $refacciones_data = $refacciones->where('id_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
+            //confirmamos que la consulta viene con algo
+            if (empty($refacciones_data)){
+                $refacciones_data = [
+                    'status'=>'error',
+                    'message'=> 'No hay refacciones',
+                    'flag'=> 0,
+                ];
+            }
+            //si ha refaciones, las mostramos
+            $diagnostico_datos['refacciones']=$refacciones_data;
+            $errores['diagnostico'] = 1; //esta es una bandera para los if de la vista 
+
+            //hacemos la consulta imagenes
+            $imagen_data = $imagen->where('id_kardex_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
+            if (empty($imagen_data)){
+                $imagen_data = [
+                    'status'=>'error',
+                    'message'=> 'No hay refacciones',
+                    'flag'=> 0,
+                ];
+                $errores['imagenes']=0;
+            }
+            //Si hay imagenes las mostramos
+            $diagnostico_datos['imagenes']=$refacciones_data;
+
         }
+
         $proceso =  $resultado[0]['estatus'];
         $rol = $usuarios->find(session('id_usuario'));
         if (empty($rol)){
@@ -128,7 +132,8 @@ class Kardex extends BaseController
                 'message'=>'Usuario',
                 'flag'=>0
             ]);
-        }
+        }        
+    
         $fecha = $this->formatearFecha($resultado[0]['created_at']); //mostramos al fecha formateada
         $data = [
             'kardex'=> $resultado,
@@ -144,7 +149,6 @@ class Kardex extends BaseController
         ];
             
         // Conexión a la base de datos
-
         return view('kardex',$data);
 
         //return json_encode($data);
@@ -258,15 +262,11 @@ class Kardex extends BaseController
     public function agregar_diagnostico()
     {
         
+        //resibilos que viene por el request
         $request = $this->request->getJSON(true);
-        $id = $request['id_detalle'];
-        
-        $kardex = new KardexDetalleModel();
-        $kardex->where('id_detalle',$id);
-        $resultado = $kardex->findAll();
-        
+        //juntamos los datos
         $data = [
-           'id_detalle_kardex' => $resultado[0]['slug'], 
+           'id_diagnostico' => $request['id_diagnostico'], 
            'diagnostico'=> $request['diagnostico'], 
            'reparacion'=> $request['reparacion'], 
            'tiempo_entrega'=> $request['tiempo_entrega'], 
@@ -276,79 +276,110 @@ class Kardex extends BaseController
         //return json_encode($data);
 
         $model = new KardexDiagnosticoModel(); 
-        $model->insert($data);
-        echo 1;
+        $insert =  $model->insert($data);
+        if ($insert == true){
+            return $this->response->setJSON([
+                'status'=>'success',
+                'message'=>'Se registro correctamente',
+                'flag'=>1
+            ]);
+        }
 
     }
     public function actualizacion_diagnostico()
     {
-        $model = new KardexDiagnosticoModel();
+        $model = new KardexDiagnosticoModel(); // tenemos el modelo
 
-        $request = $this->request->getJSON();
+        $request = $this->request->getJSON(); //tenemos el request
 
-        $diagnostico = $request->diagnostico;
-        $precio = $request->precio_estimado;
-        $tiempo = $request->tiempo_entrega;
-        $reparacion = $request->reparacion;
+        $id = $request->id_diagnostico;
 
         $data = [
-            'diagnostico' => $diagnostico,
-            'precio_estimado' => $precio,
-            'reparacion' => $reparacion,
-            'tiempo_entrega' => $tiempo,
+            'diagnostico' => $request->diagnostico,
+            'precio_estimado' => $request->precio_estimado,
+            'reparacion' => $request->reparacion,
+            'tiempo_entrega' => $request->tiempo_entrega,
         ];
 
-        $slug = $request->slug;
-
-        if ($model->update($slug,$data)) {
-            return json_encode('1');
+        $update = $model->update($id,$data);
+        if ($update){
+            return $this->response->setJSON([
+                'status'=>'success',
+                'message'=>'Se actulizó correctamente',
+                'flag'=> 1
+            ]);
         }
-        return json_encode($request);
     }
-    public function modificar_diagnostico($id_detalle)
+    public function modificar_diagnostico($id) //id_diagnostico
     {
+
         $slug_query = new KardexDiagnosticoModel();
-        $slug_query->where('id_detalle_kardex',$id_detalle);
+        //comprobamos si llega el id
+        if (empty($id)) {
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay datos en la función',
+                'flag'=>0
+            ]);
+        }
+        //si llega efectuamos la consulta
+        $slug_query->where('id_diagnostico',$id);
+        //compraobamos que la consulta tenga datos
+        if (empty($slug_query)){
+            return $this->response->setJSON([
+                'status'=>'error',
+                'message'=>'No hay id',
+                'flag'=>0
+            ]);
+        }
         $resultado = $slug_query->findAll();
         return json_encode($resultado);
     }
     public function eliminar_diagnostico($data)
     {
-                
-        //borrar las fotos del servidor si las hay
+        $db = \Config\Database::connect();
 
-        $fotos = new KardexDiagnosticoImgModel();
-        $fotos->where('id_kardex_diagnostico',$data);
-        $resultado_fotos = $fotos->findAll();
+        $fotosModel = new KardexDiagnosticoImgModel();
+        $refaccionesModel = new RefaccionesModel();
+        $diagnosticoModel = new KardexDiagnosticoModel();
 
+        //confirmamos que el data venga listo
+        if (empty($data)) {
+            return json_encode(['error' => 'El ID del diagnóstico no puede estar vacío.']);
+        }
+        try {
+            $db->transStart(); // Iniciar transacción
 
-        foreach ($resultado_fotos as $foto) {
-            // Ruta de la imagen en el servidor
-            $ruta_imagen = realpath('public/equipos/' . $foto['img']);
-
-            //return json_encode($ruta_imagen);
-            // Verifica si el archivo existe antes de intentar eliminarlo
-            if (file_exists($ruta_imagen)) {
-                unlink($ruta_imagen); // Elimina la imagen del servidor
+            // Eliminar fotos
+            $fotos = $fotosModel->where('id_kardex_diagnostico', $data)->findAll();
+            foreach ($fotos as $foto) {
+                $ruta_imagen = realpath('public/equipos/' . $foto['img']);
+                if ($ruta_imagen && file_exists($ruta_imagen)) {
+                    unlink($ruta_imagen);
+                } else {
+                    log_message('warning', 'El archivo no existe: ' . $foto['img']);
+                }
             }
+
+            //Eliminamos fotos
+            $fotosEliminadas = $fotosModel->where('id_kardex_diagnostico', $data)->delete();
+            //Eliminar refacciones si las hay
+            $refaccionesEliminadas = $refaccionesModel->where('id_diagnostico', $data)->delete();
+
+            //Eliminar diagnostico
+            $diagnosticoEliminado = $diagnosticoModel->delete($data);
+
+            if (!$fotosEliminadas || !$refaccionesEliminadas || !$diagnosticoEliminado) {
+                throw new Exception("No se pudieron eliminar todos los registros.");
+            }
+
+
+            $db->transCommit(); // Confirmar transacción
+            return json_encode(['success' => true, 'message' => 'Diagnóstico y datos relacionados eliminados correctamente.']);
+        } catch (Exception $e) {
+            $db->transRollback(); // Revertir transacción en caso de error
+            return json_encode(['error' => $e->getMessage()]);
         }
-        
-        // Luego puedes borrar los registros en la base de datos si es necesario
-        $fotos->where('id_kardex_diagnostico', $data)->delete();
-
-        //borrar las refacciones si las hay
-        $refacciones = new RefaccionesModel();
-        $refacciones->where('id_diagnostico',$data);
-        $resultado_refaccion = $refacciones->findAll();
-        $refacciones->where('id_diagnostico',$data)->delete();
-        
-        //borrar el dianostico
-
-        $model = new KardexDiagnosticoModel();
-        if ($model->delete($data)) {
-            return json_encode('1');
-        }
-
     }
     public function mostrar_kardex($id) //muestra los detalles del Kardex
     {
@@ -671,6 +702,27 @@ class Kardex extends BaseController
             'message'=>'No se ejecuto la accion',
             'flag'=>0
         ]);
+
+    }
+    public function aceptar_tarea($id)
+    {
+        $kardex = new KardexModel();
+        $fechaActual = Time::now('America/Mexico_City', 'en_US');
+        $fecha = $fechaActual->toDateString(); // 2025-02-28
+        $data = [
+            'aceptado'=> $fecha,
+            'estatus'=>6,
+        ];
+
+        $update = $kardex->update($id,$data);
+        if ($update == true){
+            return $this->response->setJSON([
+                'status'=>'success',
+                'message'=>'Se acepto el reporte',
+                'flag'=>1
+            ]);
+        }
+
 
     }
     public function kardex_accion()

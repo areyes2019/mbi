@@ -34,7 +34,7 @@
             <?php endif ?>
             
             <?php if ($proceso == 4 && $rol==3): ?>
-            <button class="btn btn-success btn-sm rounded-0 shadow-none mr-1">Aceptar</button>
+            <button class="btn btn-success btn-sm rounded-0 shadow-none mr-1" @click = "aceptar_tarea(<?= $id?>)">Aceptar</button>
             <button class="btn btn-danger btn-sm rounded-0 shadow-none mr-1" data-toggle = "modal" data-target="#rechazar_tarea">Rechazar</button>
             <?php endif ?>
 
@@ -83,119 +83,89 @@
     <!-- Reporte de falla -->
     <div class="row mt-4 mb-5">
         <div class="col-md-6">
-        <p><strong>Reporte</strong></p>
+            <p><strong>Reporte</strong></p>
         
-        <?php if (isset($reporte['flag']) && $reporte['flag']==0): ?>
-        <div class="alert alert-primary rounded-0" role="alert">
-            Esta orden de servicio aun no tiene detalles.
-        </div>
-        <?php else:?>
-        <?php foreach ($reporte as $isue): ?>
-        <div class="card">
-            <div class="card-header">
-                <?php if ($proceso == 1 || $proceso == 3): ?>
-                <button 
-                    class="btn btn-primary btn-sm rounded-0 mr-1" 
-                    data-toggle="modal" 
-                    data-target="#equipos_actualizar"
-                    @click = "actualizar(<?= $isue['id_detalle']?>)"
-                    >Editar</button>
-                <button class="btn btn-danger btn-sm rounded-0" @click = "borrar_linea(<?= $isue['id_detalle'] ?>)">Eliminar</button>
-                <?php endif ?>
+            <?php if (!empty($reporte)): ?>
+            <?php foreach ($reporte as $isue): ?>
+            <!--  aqui tomamos el id del reporte -->
+            <p class="d-none" ref="ref_detalle"><?php echo $isue['id_detalle'] ?></p>
+            <div class="card">
+                <div class="card-header">
+                    <?php if ($proceso == 1 || $proceso == 3): ?>
+                    <button 
+                        class="btn btn-primary btn-sm rounded-0 mr-1" 
+                        data-toggle="modal" 
+                        data-target="#equipos_actualizar"
+                        @click = "actualizar(<?= $isue['id_detalle']?>)"
+                        >Editar</button>
+                    <button class="btn btn-danger btn-sm rounded-0" @click = "borrar_linea(<?= $isue['id_detalle'] ?>)">Eliminar</button>
+                    <?php endif ?>
+                    <?php if ($proceso == 6 && !isset($diagnostico['id_diagnostico'])): ?>
+                    <button data-toggle="modal" data-target="#diagnostico" class="btn btn-primary btn-sm rounded-0 shadow-none" @click = "modal_diagnostico(<?= $isue['id_detalle'] ?>)">Agregar Diagnóstico</button>
+                    <?php endif ?>
+                </div>
+                <div class="card-body">
+                    <p class="m-0"><strong>Nombre del equipo:</strong> <?php echo $isue['nombre'] ?></p>
+                    <p class="m-0"><strong>Marca:</strong> <?php echo $isue['marca'] ?></p>
+                    <p class="m-0"><strong>Modelo:</strong> <?php echo $isue['modelo'] ?></p>
+                    <p class="m-0"><strong>Inventario:</strong> <?php echo $isue['inventario'] ?></p>
+                    <p class="m-0"><strong>Falla:</strong> <?php echo $isue['falla'] ?></p>
+                </div>
             </div>
-            <div class="card-body">
-                <p class="m-0"><strong>Nombre del equipo:</strong> <?php echo $isue['nombre'] ?></p>
-                <p class="m-0"><strong>Marca:</strong> <?php echo $isue['marca'] ?></p>
-                <p class="m-0"><strong>Modelo:</strong> <?php echo $isue['modelo'] ?></p>
-                <p class="m-0"><strong>Inventario:</strong> <?php echo $isue['inventario'] ?></p>
-                <p class="m-0"><strong>Falla:</strong> <?php echo $isue['falla'] ?></p>
+            <?php endforeach ?>
+            <?php else:?>
+            <div class="alert alert-primary rounded-0" role="alert">
+                Esta orden de servicio aun no tiene detalles.
             </div>
-        </div>
-        <?php endforeach ?>
-        
-        <?php endif ?>
+            <?php endif ?>
         </div>
         <div class="col-md-6">
             <p><strong>Diagnóstico</strong></p>
-            
-            <?php if ($diagnostico['flag']==0): ?>
-            <div class="alert alert-primary rounded-0" role="alert">
-                ¡Esta orden de servicio aun no esta diagnosticada!
-            </div>
-            <?php else: ?>
+            <!--  Si no hay error 0 se presentan los datos -->
+            <?php if (isset($diagnostico['id_diagnostico'])): ?>
             <div class="card">
+                <?php if ($proceso == 6):?>
                 <div class="card-header">
+                    <?php if (isset($diagnostico['id_diagnostico'])): ?>
                     <button class="btn btn-primary btn-sm rounded-0 mr-1">Agregar Imagen</button>
-                    <button class="btn btn-primary btn-sm rounded-0 mr-1">Editar</button>
-                    <button class="btn btn-danger btn-sm rounded-0 mr-1">Eliminar</button>
+                    <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle="modal" data-target="#modificar_diagnostico" @click = "editar_diagnostico(<?= $diagnostico['id_diagnostico']?>)">Editar</button>
+                    <button class="btn btn-danger btn-sm rounded-0 mr-1" @click = "borrar_diagnostico(<?= $diagnostico['id_diagnostico'] ?>)">Eliminar</button>
                     <button class="btn btn-secondary btn-sm rounded-0">Refacciones</button>
+                    <?php endif ?>
                 </div>
+                <?php endif ?>
+                <!--  Aqui se tiene que poner un if en cada caso por que no se esta iterand -->
                 <div class="card-body">
+                    <?php if (isset($diagnostico['id_diagnostico'])): ?>
                     <p class="m-0"><strong>Diagnóstico:</strong></p>
                     <p><?php echo $diagnostico['diagnostico'] ?></p>
+                    <?php endif ?>
+
+                    <?php if (isset($diagnostico['reparacion'])): ?>
                     <p class="m-0"><strong>Reparación sugerida:</strong></p>
                     <p><?php echo $diagnostico['reparacion'] ?></p>
+                    <?php endif ?>
+
+                    <?php if (isset($diagnostico['tiempo_entrega'])): ?>
                     <p class="m-0"><strong>Tiempo de entrega:</strong></p>
                     <p><?php echo $diagnostico['tiempo_entrega'] ?></p>
+                    <?php endif ?>
+
+                    <?php if (isset($diagnostico['precio_estimado'])): ?>
                     <p class="m-0"><strong>Precio estimado:</strong></p>
                     <p><?php echo $diagnostico['precio_estimado'] ?></p>
-                </div>
-            </div>
-            <?php endif ?>
-            <h5>Refacciones necesarias</h5>
-            <?php if ($diagnostico['flag']==0): ?>
-            <p></p>
-            <?php else: ?>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Refacción</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Precio</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($diagnostico['refacciones'] as $refaccion): ?>
-                    <tr>
-                        <td><?php echo $refaccion['refaccion'] ?></td>
-                        <td><?php echo $refaccion['marca'] ?></td>
-                        <td><?php echo $refaccion['modelo'] ?></td>
-                        <td>$<?php echo $refaccion['precio'] ?></td>
-                        <td><button class="btn btn-danger btn-sm rounded-0">Eliminar</button></td>
-                    </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-            <div class="d-flex flex-nowrap overflow-auto">
-                <!-- Miniaturas -->
-                <?php foreach ($diagnostico['imagenes'] as $mini): ?>
-                <img src="/equipos/<?php echo $mini['img'] ?>" class="thumbnail" data-toggle="modal" data-target="#imageModal" data-src="https://via.placeholder.com/600">
-                <?php endforeach ?>
-            </div>
-            <?php endif ?>
-        </div>
-    </div>
-    <!--  Modal para ver la miniatura -->
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <?php if ($diagnostico['flag']==0): ?>
-                    <p></p>
-                    <?php else: ?>
-                        <?php foreach ($diagnostico['imagenes'] as $img): ?>
-                        <img src="/equipos/<?= $img['img'] ?>" class="modal-img" id="modalImage">
-                        <?php endforeach ?>
                     <?php endif ?>
                 </div>
             </div>
+            <?php else: ?>
+            <div class="alert alert-primary rounded-0" role="alert">
+                ¡Esta orden de servicio aun no esta diagnosticada!
+            </div>
+            <?php endif; ?>
+            <h5>Refacciones necesarias</h5>
+            
         </div>
-    </div>
+        </div>    
     <!--  Modal definir entidad -->
     <div class="modal fade" id="entidad" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
@@ -279,7 +249,69 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0 shadow-none btn-sm" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="generar_diagnostico(clase)"><span class="bi bi-plus-circle"></span> Agregar</button>
+                <button type="button" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="generar_diagnostico(<?=$id?>)"><span class="bi bi-plus-circle"></span> Agregar</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modificar diagnóstico -->
+    <div class="modal fade" id="modificar_diagnostico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar Diagnóstico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group mt-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend input-group-sm">
+                          <div class="input-group-text rounded-0">
+                            <i class="bi bi-gear"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control rounded-0 form-control-sm shadow-none"   @input="limpiar_error($event,'nombre')" placeholder="Describe el diagnóstico" v-model="formulario.diagnostico">
+                    </div>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="">Escribe la reparación sugerida</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend input-group-sm">
+                          <div class="input-group-text rounded-0">
+                            <i class="bi bi-gear"></i>
+                          </div>
+                        </div>
+                        <textarea name="" id="" class="form-control rounded-0 form-control-sm shadow-none" v-model="formulario .reparacion" ></textarea>
+                    </div>
+                </div>
+                <div class="form-group mt-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend input-group-sm">
+                          <div class="input-group-text rounded-0">
+                            <i class="bi bi-coin"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control rounded-0 form-control-sm shadow-none"   @input="limpiar_error($event,'marca')" placeholder="Costo estimado de mano de obra *" v-model="formulario.precio_estimado">
+                    </div>
+                </div>
+                <div class="form-group mt-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend input-group-sm">
+                          <div class="input-group-text rounded-0">
+                            <i class="bi bi-calendar-date"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control rounded-0 form-control-sm shadow-none"   @input="limpiar_error($event,'marca')" placeholder="Tiempo estimado *" v-model="formulario.tiempo_entrega">
+                        <p ref = "id_diagnostico" class="d-none">{{formulario.id_diagnostico}}</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-0 shadow-none btn-sm" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary rounded-0 shadow-none btn-sm" @click="actualizar_diagnostico"><span class="bi bi-plus-circle"></span> Actualizar</button>
             </div>
         </div>
       </div>
@@ -678,6 +710,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <script type="text/javascript" src="<?php echo base_url('public/js/alert.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('public/js/kardex.js');?>"></script>

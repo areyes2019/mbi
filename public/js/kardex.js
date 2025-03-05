@@ -58,12 +58,6 @@ createApp({
 		}
 	},
 	methods:{
-		/*mostrar_general(){
-			var id = this.$refs.kardex_id.innerHTML;
-			axios.get('/kardex_general/'+id).then((response)=>{
-				this.datos = response.data;
-			})
-		},*/
 		formatearFecha(fechaString) {
 	      const date = new Date(fechaString);
 	      return date.toLocaleDateString("es-ES", {
@@ -133,61 +127,52 @@ createApp({
 				})
 			}    
 		},
-		modal_diagnostico(data,tipo){
-			if (tipo == 1) {
-				//crear
-				this.id_detalle = data;
-
-			}else if(tipo == 2){
-				//actualizar
-				this.vaciar_campos()
-				var me = this;
-				var url = '/modificar_diagnostico/'+ data;
-				axios.get(url).then((response)=>{
-					this.diagnostico = response.data[0].diagnostico;
-					this.reparacion = response.data[0].reparacion;
-					this.tiempo_estimado = response.data[0].tiempo_entrega;
-					this.precio_estimado = response.data[0].precio_estimado;
-					this.modal_text = "Actualizar diagnostico";
-					this.id_slug = response.data[0].id_detalle_kardex;
-					this.clase = 2;
-				})
+		editar_diagnostico(data){
+			var url = '/modificar_diagnostico/'+ data
+			
+			if (!data) {
+				console.log('no estan llegando los datos');
 			}
+
+			axios.get(url).then((response)=>{
+				this.formulario = response.data[0];
+			});
 		},
-		generar_diagnostico(clase){
+		actualizar_diagnostico(){
+			var url = '/actualizacion_diagnostico';
+			var data = this.formulario;
+			axios.post(url,data,{
+				headers:{
+					'Content-Type':'application/json'
+				}
+			}).then((response)=>{
+				if (response.data.flag = 1) {
+					location.reload();
+				}
+			})
+		},
+		generar_diagnostico(id){
 			var url = '/agregar_diagnostico';
-			var url2 = '/actualizacion_diagnostico';
-
-			if (clase == 1) {
-				axios.post(url,{
-					'diagnostico': this.diagnostico,
-					'reparacion': this.reparacion,
-					'tiempo_entrega':this.tiempo_estimado,
-					'precio_estimado':this.precio_estimado,		
-					'id_detalle': this.id_detalle,
-					'clase':clase
-				}).then((response)=>{
-					$('#diagnostico').modal('hide');
-					this.vaciar_campos_diagnostico();
-					this.mostrar_general();
-					$.notify("Diagnóstico agregado");
-				})
-			}else if(clase == 2){
-				axios.post(url2,{
-					'diagnostico': this.diagnostico,
-					'reparacion': this.reparacion,
-					'tiempo_entrega':this.tiempo_estimado,
-					'precio_estimado':this.precio_estimado,		
-					'slug': this.id_slug,
-				}).then((response)=>{
-					if (response.data == 1) {
-						$('#diagnostico').modal('hide');
-						this.mostrar_general();
-						this.vaciar_campos_diagnostico();
-						$.notify("Diagnóstico actualizado",'info');
-					}
-				})
-			}
+			const data = {
+				'id_diagnostico': this.$refs.ref_detalle.innerHTML,
+				'diagnostico': this.diagnostico,
+				'reparacion': this.reparacion,
+				'tiempo_entrega':this.tiempo_estimado,
+				'precio_estimado':this.precio_estimado,		
+			};
+			axios.post(url,data,{
+				headers: {
+		        	'Content-Type': 'application/json'
+		        }
+			}).then((response)=>{
+				if (response.data.flag == 1) {}
+				$('#diagnostico').modal('hide');
+				this.vaciar_campos_diagnostico();
+				$.notify("Diagnóstico agregado");
+				setTimeout(function() {
+					location.reload();
+				}, 1000);
+			})
 		},
 		vaciar_campos_diagnostico(){
 			this.diagnostico = "";
@@ -200,10 +185,12 @@ createApp({
 			var url = '/eliminar_diagnostico/'+data;
 			if (confirm('¿Deseas eliminar este diagnóstico?')) {
 				axios.get(url).then((response)=>{
-					if (response.data == 1) {
-						this.mostrar_general();
+					if (response.data.success == true) {
 						this.vaciar_campos_diagnostico();
 						$.notify("Diagnóstico eliminado");
+						setTimeout(function() {
+							location.reload();
+						}, 1000);
 					}
 				})
 			}
@@ -257,13 +244,9 @@ createApp({
 		},
 		aceptar_tarea(kardex){
 			if (confirm('¿Deseas aceptar esta tarea?')==true) {
-				var me = this;
-				var url = "/kardex_accion";
-				axios.post(url,{
-					'kardex':kardex,
-					'accion':1
-				}).then(function (response){
-					if (response.data == 1) {
+				var url = "/aceptar_tarea/"+kardex;
+				axios.get(url).then((response)=>{
+					if (response.data.flag == 1) {
 						setTimeout(function(){document.location.href = "/inicio"},500);
 					}
 				})
