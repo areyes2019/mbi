@@ -82,9 +82,12 @@
     <!-- Reporte de falla -->
     <div class="row mt-4 mb-5">
         <div class="col-md-6">
-            <p><strong>Reporte</strong></p>
-        
-            <?php if (!empty($reporte)): ?>
+            <p><strong>Reporte</strong></p>  
+            <?php if ($errores['reporte']==0): ?>
+            <div class="alert alert-primary rounded-0" role="alert">
+                Esta orden de servicio aun no tiene detalles.
+            </div>
+            <?php else: ?>
             <?php foreach ($reporte as $isue): ?>
             <!--  aqui tomamos el id del reporte -->
             <p class="d-none" ref="ref_detalle"><?php echo $isue['id_detalle'] ?></p>
@@ -112,10 +115,6 @@
                 </div>
             </div>
             <?php endforeach ?>
-            <?php else:?>
-            <div class="alert alert-primary rounded-0" role="alert">
-                Esta orden de servicio aun no tiene detalles.
-            </div>
             <?php endif ?>
         </div>
         <!--  diagnostico -->

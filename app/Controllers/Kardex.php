@@ -82,10 +82,15 @@ class Kardex extends BaseController
                 'flag'=>0,
             ];
             $errores['reporte']=0;
+            $diagnostico_datos = [
+                'status'=> 'error',
+                'message'=> 'No hay diagnostico',
+                'flag'=> 0
+            ];
         }
 
         //si hay reporte mostramos diagnosticos
-        $diagnostico_datos = $diagnostico->find($reporte_data[0]['id_detalle']);
+        $diagnostico_datos = $diagnostico->find($reporte_data[0]['id_detalle'] ?? null);
         //confirmamos que haya datos en la consulta diagnosticos
         if (empty($diagnostico_datos)) {
             $diagnostico_datos = [
@@ -100,6 +105,7 @@ class Kardex extends BaseController
         }else{
             //si hay diangnostico, sacamos refaciones
             $refacciones_data = $refacciones->where('id_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
+            $diagnostico_datos['refacciones'] = empty($refacciones_data) ? [] : $refacciones_data;
             //confirmamos que la consulta viene con algo
             if (empty($refacciones_data)){
                 $refacciones_data = [
@@ -123,7 +129,7 @@ class Kardex extends BaseController
                 $errores['imagenes']=0;
             }
             //Si hay imagenes las mostramos
-            $diagnostico_datos['imagenes'] = $imagen_data;
+            $diagnostico_datos['imagenes'] = empty($imagen_data) ? [] : $imagen_data;
 
         }
 
