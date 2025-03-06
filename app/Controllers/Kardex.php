@@ -93,7 +93,10 @@ class Kardex extends BaseController
                 'message'=> 'No hay diagnostico',
                 'flag'=> 0,
             ];
-             //esta es una bandera para los if de la vista 
+             //esta es una bandera para los if de la vista
+            $errores['diagnostico'] = 0; 
+            $errores['refacciones'] = 0;
+            $errores['imagenes'] = 0;
         }else{
             //si hay diangnostico, sacamos refaciones
             $refacciones_data = $refacciones->where('id_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
@@ -104,10 +107,10 @@ class Kardex extends BaseController
                     'message'=> 'No hay refacciones',
                     'flag'=> 0,
                 ];
+                $errores['refacciones'] = 0;
             }
             //si ha refaciones, las mostramos
             $diagnostico_datos['refacciones']=$refacciones_data;
-            $errores['diagnostico'] = 1; //esta es una bandera para los if de la vista 
 
             //hacemos la consulta imagenes
             $imagen_data = $imagen->where('id_kardex_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
@@ -120,7 +123,7 @@ class Kardex extends BaseController
                 $errores['imagenes']=0;
             }
             //Si hay imagenes las mostramos
-            $diagnostico_datos['imagenes']=$refacciones_data;
+            $diagnostico_datos['imagenes'] = $imagen_data;
 
         }
 

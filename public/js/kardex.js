@@ -355,7 +355,7 @@ createApp({
 			}).then((response)=>{
 				$('#agregar_imagen').modal('hide');
 				$.notify('Imagen agregada con exito');
-				this.mostrar_general();
+				location.reload();
 			})
 		},
 		ver_galeria(data){
@@ -366,11 +366,9 @@ createApp({
 			})
 		},
 		liberar(kardex){
-			//alert('saludo');
-			var me = this;
 			var url = '/liberar_diagnostico/'+ kardex ;
 			if (confirm('Vas a liberar este diagnostico, ¿Estas seguro?')) {}
-			axios.get(url).then(function (response){
+			axios.get(url).then((response)=>{
 				if (response.data == 1) {
 					$.notify('Este cardex ha sido liberado')
 					setTimeout(function() {

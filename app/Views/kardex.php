@@ -21,8 +21,8 @@
             <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle = "modal" data-target="#enviar_cardex">Turnar</button>
             <?php endif ?>
             
-            <?php if ($proceso == 6 && $rol==3): ?>
-            <button class="btn btn-primary btn-sm rounded-0 mr-2">Liberar Kardex</button>
+            <?php if ($proceso == 6 && $rol==3 && isset($diagnostico['id_diagnostico'])): ?>
+            <button class="btn btn-primary btn-sm rounded-0 mr-2" @click = "liberar(<?= $id?>)">Liberar Kardex</button>
             <?php endif ?>
             
             <?php if ($proceso==1 && $rol == 1): ?>
@@ -128,7 +128,7 @@
                 <?php if ($proceso == 6):?>
                 <div class="card-header">
                     <?php if (isset($diagnostico['id_diagnostico'])): ?>
-                    <button class="btn btn-primary btn-sm rounded-0 mr-1">Agregar Imagen</button>
+                    <button @click="guardar_imgen_diangostico(<?= $diagnostico['id_diagnostico']?>)" class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle="modal" data-target="#agregar_imagen">Agregar Imagen</button>
                     <button class="btn btn-primary btn-sm rounded-0 mr-1" data-toggle="modal" data-target="#modificar_diagnostico" @click = "editar_diagnostico(<?= $diagnostico['id_diagnostico']?>)">Editar</button>
                     <button class="btn btn-danger btn-sm rounded-0 mr-1" @click = "borrar_diagnostico(<?= $diagnostico['id_diagnostico'] ?>)">Eliminar</button>
                     <button class="btn btn-secondary btn-sm rounded-0" data-toggle="modal" data-target="#agregar_refacciones" @click = "abrir_modal_refacciones(<?= $diagnostico['id_diagnostico']?>)">Refacciones</button>
@@ -163,6 +163,12 @@
                 ¡Esta orden de servicio aun no esta diagnosticada!
             </div>
             <?php endif; ?>
+            <?php if (isset($errores['refacciones']) && $errores['refacciones']==0): ?>
+            <div class="alert alert-primary rounded-0" role="alert">
+                ¡Esta diagnóstico no tiene refacciones!
+            </div>
+            <?php else: ?>    
+            
             <h5 class="mt-3">Refacciones necesarias</h5>
             <table class="table">
                 <thead>
@@ -175,26 +181,47 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (isset($diagnostico['refacciones']['status']) && $diagnostico['refacciones']['status'] === 'error'):?>
-                    <tr>
-                        <td colspan="5" class="text-center">No hay refacciones disponibles</td>
-                    </tr>
-                    <?php else: ?>
-                        <?php foreach ($diagnostico['refacciones'] as $refaccion): ?>
-                            <tr>
-                                <td><?php echo $refaccion['refaccion'] ?></td>
-                                <td><?php echo $refaccion['marca'] ?></td>
-                                <td><?php echo $refaccion['modelo'] ?></td>
-                                <td>$<?php echo $refaccion['precio'] ?></td>
-                                <td><a href="" @click.prevent="borrar_refaccion(<?= $refaccion['id_refaccion'] ?>)">X</a></td>
-                            </tr>
-                        <?php endforeach ?>
-                    <?php endif ?>
+                    <?php foreach ($diagnostico['refacciones'] as $refaccion): ?>
+                        <tr>
+                            <td><?php echo $refaccion['refaccion'] ?></td>
+                            <td><?php echo $refaccion['marca'] ?></td>
+                            <td><?php echo $refaccion['modelo'] ?></td>
+                            <td>$<?php echo $refaccion['precio'] ?></td>
+                            <td><a href="" @click.prevent="borrar_refaccion(<?= $refaccion['id_refaccion'] ?>)">X</a></td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
-            
+            <?php endif ?>
+            <!-- Miniaturas -->
+            <div class="row gallery">
+                <?php if (!isset($errores['imagenes']) || $errores['imagenes'] != 0): ?>
+                    <?php foreach ($diagnostico['imagenes'] as $mini): ?>
+                    <div class="col-md-3 col-sm-6">
+                        <img src="/public/equipos/<?php echo $mini['img'] ?>" class="thumbnail" data-toggle="modal" data-target="#imageModal">
+                    </div>
+                    <?php endforeach ?>
+                <?php endif ?>
+            </div>
         </div>
-        </div>    
+    </div>
+    <!--  Modal para ver la miniatura -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <?php if (!isset($errores['imagenes']) || $errores['imagenes'] != 0): ?>
+                        <?php foreach ($diagnostico['imagenes'] as $img): ?>
+                        <img src="/public/equipos/<?= $img['img'] ?>" class="modal-img img-fluid" id="modalImage">
+                        <?php endforeach ?>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+    </div>    
     <!--  Modal definir entidad -->
     <div class="modal fade" id="entidad" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
