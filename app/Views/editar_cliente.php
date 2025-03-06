@@ -24,8 +24,11 @@
 		                </a>
 		                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#agregar_datos_fiscales" v-if="<?php echo $si_hay_datos ?> == 0" ><span class="bi bi-receipt-cutoff"></span> Agregar Datos Fiscales</a>
+
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#actualizar_datos_fiscales" @click="mostrar_datos_fiscales('<?php echo $id_cliente ?>')" v-if="<?php echo $si_hay_datos ?> == 1" ><span class="bi bi-pencil"></span> Actualizar Datos Fiscales</a>
+
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#horarios" v-if="vista==0" ><span class="bi bi-plus-circle"></span> Agregar Horarios de Atención</a>
+		                    
 		                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modificar_horarios" v-else><span class="bi bi-pencil"></span> Modificar Horarios de Atención</a>
 		                    <div class="dropdown-divider"></div>
 		                    <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#equipos"><span class="bi bi-gear"></span> Agregar Equipos</a> -->
