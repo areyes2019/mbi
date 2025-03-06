@@ -112,7 +112,7 @@ class Cotizaciones extends BaseController
 	    if ($insert == true && $update == true){
 	        
 	    	return json_encode([
-	    		'estado'=>1,
+	    		'flag'=>1,
 	    		'mensaje'=>'Cotización creada con éxito',
 	    		'slug'=>$slug,
 	    	]);
@@ -126,9 +126,9 @@ class Cotizaciones extends BaseController
 	}
 	public function pagina($slug)
 	{
-	   
+	   $empresa = new EntidadesModel();
 
-	    $empresa = new EntidadesModel();
+
 
 	    // Validar el slug
 	    if (empty($slug)) {
@@ -168,8 +168,8 @@ class Cotizaciones extends BaseController
 
 	    // Encontrar los diagnósticos
 	    $diagnostico = new KardexDiagnosticoModel();
-	    $diagnostico->where('id_kardex', $resultado_detalles[0]['id_kardex']);
-	    $resultado_diagnostico = $diagnostico->findAll();
+	    $diagnostico->where('id_diagnostico', $resultado_detalles[0]['id_detalle']);
+	    $resultado_diagnostico = $diagnostico->findAll();	   	
 
 	    // Verificar si se encontraron diagnósticos
 	    if (empty($resultado_diagnostico)) {
@@ -190,6 +190,8 @@ class Cotizaciones extends BaseController
 	        'slug' => $resultado_kardex['slug'],
 	        'id_kardex'=>$resultado_kardex['id_kardex'],
 	    ];
+
+	    //return json_encode($data);
 	    return view('nueva_cotizacion', $data);
 	}
 	public function editar_detalle($id)

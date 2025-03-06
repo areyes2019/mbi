@@ -428,9 +428,12 @@ createApp({
 	    cotizar(data){
 	    	const url = '/nueva_cotizacion';
 		    if (confirm('¿Deseas enviar este kardex a cotización?')) {
-		        axios.post(url, { 'id': data })
+		        axios.post(url, { 
+		        	'id': data,
+		        	'entidad':this.entidad,
+		        })
 		            .then((response) => {
-		                if (response.data.hecho === 1) {
+		                if (response.data.flag == 1) {
 		                    $.notify(response.data.mensaje);
 
 		                    setTimeout(() => {
@@ -438,7 +441,7 @@ createApp({
 		                    }, 1000);
 
 		                    setTimeout(() => {
-		                        window.location.href = `/pagina_cotizador/${response.data.slug}/${response.data.id}`;
+		                        window.location.href = `/pagina_cotizador/${response.data.slug}`;
 		                    }, 2000);
 		                } else {
 		                    $.notify(response.data.mensaje || 'Error inesperado');

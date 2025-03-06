@@ -226,16 +226,18 @@
     <div class="modal fade" id="entidad" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="miModalLabel">Ingrese el Costo</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="miModalLabel">Definir entidad</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
           <div class="modal-body">
             <div class="form-group">
-                <label for="">Entidad</label>
+                <label for="">Entidad.</label>
+                <small> Esta es la empreza que cotiza</small>
                 <select name="" id="" class="form-control rounded-0 shadow-none" v-model="entidad">
+                    <p>{{entidad}}</p>
                     <option value="" selected disabled>Seleccione una entidad</option>
                     <?php foreach ($entidades as $entidad): ?>
                     <option value="<?php echo $entidad['id_entidad'] ?>"><?php echo $entidad['razon_social'] ?></option>
