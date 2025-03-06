@@ -67,8 +67,7 @@
                     <h6>Fecha: <strong><?php echo $fecha ?> </strong></h6>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="m-0">Hospital General</h5>
-                    <p class="m-0">Ubicación: Edificio A</p>
+                    <h5 class="m-0"><?= $k['hospital']?></h5>
                     <p class="m-0"><strong>Facultad:</strong> <?= $k['facultad']?></p>
                     <p class="m-0"><strong>Laboratorio:</strong><?= $k['laboratorio'] ?></p>
                     <p class="m-0"><strong>Contacto:</strong><?= $k['responsable'] ?></p>
