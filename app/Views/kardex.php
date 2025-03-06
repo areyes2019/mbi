@@ -83,7 +83,7 @@
     <div class="row mt-4 mb-5">
         <div class="col-md-6">
             <p><strong>Reporte</strong></p>  
-            <?php if ($errores['reporte']==0): ?>
+            <?php if (isset($errores['reporte']) && $errores['reporte']==0): ?>
             <div class="alert alert-primary rounded-0" role="alert">
                 Esta orden de servicio aun no tiene detalles.
             </div>
