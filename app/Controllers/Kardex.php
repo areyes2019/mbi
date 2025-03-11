@@ -88,51 +88,34 @@ class Kardex extends BaseController
                 'flag'=> 0
             ];
         }
-
-        //si hay reporte mostramos diagnosticos
+        ##
         $diagnostico_datos = $diagnostico->find($reporte_data[0]['id_detalle'] ?? null);
-        //confirmamos que haya datos en la consulta diagnosticos
         if (empty($diagnostico_datos)) {
             $diagnostico_datos = [
                 'status'=>'error',
                 'message'=> 'No hay diagnostico',
                 'flag'=> 0,
             ];
-             //esta es una bandera para los if de la vista
             $errores['diagnostico'] = 0; 
             $errores['refacciones'] = 0;
             $errores['imagenes'] = 0;
-        }else{
-            //si hay diangnostico, sacamos refaciones
-            $refacciones_data = $refacciones->where('id_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
-            $diagnostico_datos['refacciones'] = empty($refacciones_data) ? [] : $refacciones_data;
-            //confirmamos que la consulta viene con algo
-            if (empty($refacciones_data)){
-                $refacciones_data = [
-                    'status'=>'error',
-                    'message'=> 'No hay refacciones',
-                    'flag'=> 0,
-                ];
+        } else {
+            $refacciones_data = $refacciones->where('id_diagnostico', $diagnostico_datos['id_diagnostico'] ?? null)->findAll();
+            $diagnostico_datos['refacciones'] = $refacciones_data ?: [];
+
+            if (empty($refacciones_data)) {
                 $errores['refacciones'] = 0;
             }
-            //si ha refaciones, las mostramos
-            $diagnostico_datos['refacciones']=$refacciones_data;
 
-            //hacemos la consulta imagenes
-            $imagen_data = $imagen->where('id_kardex_diagnostico',$diagnostico_datos['id_diagnostico'])->findAll();
-            if (empty($imagen_data)){
-                $imagen_data = [
-                    'status'=>'error',
-                    'message'=> 'No hay refacciones',
-                    'flag'=> 0,
-                ];
-                $errores['imagenes']=0;
+            $imagen_data = $imagen->where('id_kardex_diagnostico', $diagnostico_datos['id_diagnostico'] ?? null)->findAll();
+            $diagnostico_datos['imagenes'] = $imagen_data ?: [];
+
+            if (empty($imagen_data)) {
+                $errores['imagenes'] = 0;
             }
-            //Si hay imagenes las mostramos
-            $diagnostico_datos['imagenes'] = empty($imagen_data) ? [] : $imagen_data;
-
         }
 
+        ##
         $proceso =  $resultado[0]['estatus'];
         $rol = $usuarios->find(session('id_usuario'));
         if (empty($rol)){
