@@ -41,7 +41,7 @@
             <?php if ($proceso == 7 && $rol==2): ?>
             <button class="btn btn-warning btn-sm rounded-0 text-dark mr-1" data-toggle = "modal" data-target="#entidad">Enviar a cotización</button>
             <?php endif ?>
-            <a href="/pdf_os/123" class="btn btn-primary btn-sm rounded-0 mr-2" data-toggle = "modal" data-target="#enviar_cardex">Descargar PDF</a>
+            <a href="/pdf_os/<?php echo $id ?>" class="btn btn-primary btn-sm rounded-0 mr-2">Descargar PDF</a>
         </div>
         <div class="card-body">
             <?php foreach ($kardex as $k):?>

@@ -77,9 +77,7 @@
                 <p>Cel: 4613581090</p>
                 <p>Tel:461 250 7482</p>
                 <p>ventas@gmail.com</p>
-                <?php foreach ($atendido_por as $atendido): ?>
-                <p style="margin-top: 5px;"><strong>Asigando a:</strong> <?php echo $atendido['destinatario_nombre'] ?></p>
-                <?php endforeach ?>
+                <p style="margin-top: 5px;"><strong>Asigando a:</strong> <?php echo $atendido_por ?></p>
             </td>
             <td width="2%">&nbsp;</td>
             <td width="49%" style="border: 0.5mm solid #95a5a6; text-align: left;">

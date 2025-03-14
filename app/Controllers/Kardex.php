@@ -883,23 +883,21 @@ class Kardex extends BaseController
         $estatus->where('id_kardex', $id);
         $resultado_estatus = $estatus->findAll();
 
-        $mensaje = new MensajeModel();
-        $mensaje->where('kardex_id', $resultado_estatus[0]['slug']);
-        $resultado_mensaje = $mensaje->get()->getResultArray();
 
         $builder = $db->table('mbi_kardex');
         $builder->join('mbi_clientes', 'mbi_clientes.id_cliente = mbi_kardex.id_cliente');
         $builder->join('usuarios', 'usuarios.id_usuario = mbi_kardex.generado_por');
         $builder->where('id_kardex', $id);
         $resultado = $builder->get()->getResultArray();
-
         $id_cliente = $resultado[0]['id_cliente'];
 
         // Obtener datos de horarios
         $hora = new HorariosModel();
         $hora->where('id_cliente', $id_cliente);
         $hora_data = $hora->findAll();
-
+        
+        $hora_inicio =  date("h:i A", strtotime($hora_data[0]['hora_inicio']));
+        $hora_final =   date("h:i A", strtotime($hora_data[0]['hora_fin']));
         // Obtener detalles del kardex
         $detalle_model = new KardexDetalleModel();
         $detalle_model->where('id_kardex', $id);
@@ -911,7 +909,7 @@ class Kardex extends BaseController
 
         if (!empty($detalle)) {
             $valoracion = new KardexDiagnosticoModel();
-            $valoracion->where('id_detalle_kardex', $detalle[0]['slug']);
+            $valoracion->where('id_diagnostico', $detalle[0]['id_detalle']);
             $resultado_diagnostico = $valoracion->findAll();
 
             if (!empty($resultado_diagnostico)) {
@@ -919,7 +917,7 @@ class Kardex extends BaseController
 
                 // Obtener refacciones si existen
                 $repuesto = new RefaccionesModel();
-                $repuesto->where('id_diagnostico', $resultado_diagnostico[0]['id_detalle_kardex']);
+                $repuesto->where('id_diagnostico', $resultado_diagnostico[0]['id_diagnostico']);
                 $resultado_repuesto = $repuesto->findAll();
 
                 if (!empty($resultado_repuesto)) {
@@ -939,8 +937,9 @@ class Kardex extends BaseController
             'horario' => $hora_data,
             'detalle' => $detalle,
             'usuarios' => $usuario_data,
-            'atendido_por' => $resultado_mensaje,
+            'atendido_por' => $resultado[0]['nombre']." ".$resultado[0]['apellidos'],
         ];
+
 
         // Solo agregar 'diagnostico' y 'refacciones' si existen
         if ($diagnostico) {
